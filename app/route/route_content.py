@@ -1,5 +1,5 @@
 from flask import request, jsonify, Blueprint, current_app
-from jazzbirb_net.app.models.models_content import Content
+from jazzbirb_kr.app.models.models_content import Content
 
 
 app_content = Blueprint('content', __name__, url_prefix='/')

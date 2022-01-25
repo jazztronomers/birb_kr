@@ -1,5 +1,5 @@
-from jazzbirb_net.app.util.mongo_connector import mongo_db
-from jazzbirb_net.app.util.app_logger import logger
+from jazzbirb_kr.app.util.mongo_connector import mongo_db
+from jazzbirb_kr.app.util.app_logger import logger
 import pandas as pd
 import pymongo
 

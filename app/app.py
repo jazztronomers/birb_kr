@@ -1,6 +1,6 @@
 import json
-from jazzbirb_net.app.route import route_user, route_content
-from jazzbirb_net.app.util.app_logger import logger
+from jazzbirb_kr.app.route import route_user, route_content
+from jazzbirb_kr.app.util.app_logger import logger
 from flask import Flask, render_template, request, jsonify
 
 
