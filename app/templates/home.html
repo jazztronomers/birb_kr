@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <title>Birb.kr</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+
+    <!--https://www.flaticon.com/uicons-->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/uicons-regular-rounded.css')}}">
+
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=a28oscokn1"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.jsdelivr.net/npm/danfojs@0.2.7/lib/bundle.min.js"></script>
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/2.0.0-alpha.2/cropper.min.css" integrity="sha512-6QxSiaKfNSQmmqwqpTNyhHErr+Bbm8u8HHSiinMEz0uimy9nu7lc/2NaXJiUJj2y4BApd5vgDjSHyLzC8nP6Ng==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/2.0.0-alpha.2/cropper.min.js" integrity="sha512-IlZV3863HqEgMeFLVllRjbNOoh8uVj0kgx0aYxgt4rdBABTZCl/h5MfshHD9BrnVs6Rs9yNN7kUQpzhcLkNmHw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+    <script type="text/javascript" src="static/js/main.js"></script>
+    <script type="text/javascript" src="static/js/post.js"></script>
+    <script type="text/javascript" src="static/js/mapNaver.js"></script>
+    <!--<script type="text/javascript" src="static/js/markerClustering.js"></script>-->
+
+</head>
+<body>
+    <div id="wrapper_main">
+        <div id="upper_navigation_bar">
+            <div id="title">
+                <span>BIRB.KR</span>
+            </div>
+            <div id="search_bar">
+                <input type="text">
+                <span><a href="#" onclick="toggle()"><i class="fi fi-rr-search"></i></a></span>
+            </div>
+            <div id="utils">
+
+                <span><a href="#" onclick="toggle('post')"><i class="fi fi-rr-plus"></i></a></span>
+                <span><a href="#" onclick="toggle('gallery')"><i class="fi fi-rr-refresh"></i></i></a></span>
+                <span><a href="#" onclick="toggle('gallery')"><i class="fi fi-rr-gallery"></i></a></span>
+                <span><a href="#" onclick="toggle('board')"><i class="fi fi-rr-list"></i></a></span>
+            </div>
+        </div>
+        <div id="gallery" class='pane' style="display: flex">
+            <div id="column">
+                <div class="content">
+                    <img class="image" src="https://jazzbirb-bird.s3.ap-northeast-2.amazonaws.com/0080_001.jpg">
+                    <div class="meta">
+                        <div class="top-right">
+                            <span><a href="#" onclick="setImageInfo()"><i class="icon_info fi fi-rr-info"></i></a></span>
+                            <span><a href="#" onclick="setImageInfo()"><i class="icon_info fi fi-rr-info"></i></a></span>
+                            <span><a href="#" onclick="setImageInfo()"><i class="icon_info fi fi-rr-info"></i></a></span>
+                        </div>
+                        <div class="bottom-right">
+                            <span><a href="#" onclick="setImageInfo()"><i class="icon_info fi fi-rr-info"></i></a></span>
+                            <span><a href="#" onclick="setImageInfo()"><i class="icon_info fi fi-rr-info"></i></a></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="content">
+                    <img class="image" src="https://jazzbirb-bird.s3.ap-northeast-2.amazonaws.com/0080_002.jpg">
+                    <div class="meta">
+                        <span><a href="#" onclick="setImageInfo()"><i class="icon_info fi fi-rr-info"></i></a></span>
+                    </div>
+                </div>
+                <div class="content">
+                    <img class="image" src="https://jazzbirb-bird.s3.ap-northeast-2.amazonaws.com/0080_003.jpg">
+                    <div class="meta">
+                        <span><a href="#" onclick="setImageInfo()"><i class="icon_info fi fi-rr-info"></i></a></span>
+                    </div>
+                </div>
+                <div class="content">
+                    <img class="image" src="https://jazzbirb-bird.s3.ap-northeast-2.amazonaws.com/0080_004.jpg">
+                    <div class="meta">
+                        <span><a href="#" onclick="setImageInfo()"><i class="icon_info fi fi-rr-info"></i></a></span>
+                    </div>
+                </div>
+                <div class="content">
+                    <img class="image" src="https://jazzbirb-bird.s3.ap-northeast-2.amazonaws.com/0080_005.jpg">
+                    <div class="meta">
+                        <span><a href="#" onclick="setImageInfo()"><i class="icon_info fi fi-rr-info"></i></a></span>
+                    </div>
+                </div>
+                <div class="content">
+                    <img class="image" src="https://jazzbirb-bird.s3.ap-northeast-2.amazonaws.com/0080_006.jpg">
+                    <div class="meta">
+                        <span><a href="#" onclick="setImageInfo()"><i class="icon_info fi fi-rr-info"></i></a></span>
+                    </div>
+                </div>
+
+            </div>
+            <div class="loading">
+                    <div class="ball first"></div>
+                    <div class="ball second"></div>
+                    <div class="ball third"></div>
+            </div>
+        </div>
+        <div id="board" class='pane' style="display: none">
+            <table id="board_table">
+                <thead>
+                    <tr>
+                        <th width="5%">idx</th>
+                        <th width="10%">Header</th>  <!-- 15 -->
+
+                        <th width="50%">Title</th>
+                        <th width="15%">Birder</th>  <!-- 65 -->
+
+                        <th width="15%">Date</th>
+                        <th width="5%">View</th>
+                        <th width="5%">Good</th>    <!-- 25 -->
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>003</td>
+                        <td>이뭐새</td>
+                        <td>이새끼 뭐임</td>
+                        <td>jazzbirb</td>
+                        <td>2022-01-20</td>
+                        <td>999</td>
+                        <td>0</td>
+                    </tr>
+                    <tr>
+                        <td>002</td>
+                        <td>탐조기</td>
+                        <td>뒷산 탐조기</td>
+                        <td>jazzbirb</td>
+                        <td>2022-01-20</td>
+                        <td>999</td>
+                        <td>0</td>
+                    </tr>
+                    <tr>
+                        <td>001</td>
+                        <td>이뭐새</td>
+                        <td>끼에엑</td>
+                        <td>jazzbirb</td>
+                        <td>2022-01-20</td>
+                        <td>999</td>
+                        <td>0</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+
+        <div id="post" class='pane' style="display: none">
+
+            <div id="add_content"><a href="#" onclick="initUpload()">ADD_CONTENT</a></div><br>
+
+            <input type='file' multiple>
+
+
+            <div class="slideshow-container">
+                <div id="image_here">
+                    <div class="mySlides fade">
+                        <img src="static/images/sally.png">
+                    </div>
+
+                    <div class="mySlides fade">
+                        <img src="static/images/sally.png">
+                    </div>
+
+                    <div class="mySlides fade">
+                        <img src="static/images/sally.png">
+                    </div>
+
+                </div>
+                <div id="for_button">
+                    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+                </div>
+                <div id="page_here" style="text-align:center">
+                    <span class="dot" onclick="currentSlide(1)"></span>
+                    <span class="dot" onclick="currentSlide(2)"></span>
+                    <span class="dot" onclick="currentSlide(3)"></span>
+                </div>
+            </div>
+            <br>
+
+
+        </div>
+
+        <div id="user" class='pane' style="display: none">
+            <div id="row">
+                <div class="grid"><img src="https://jazzbirb-bird.s3.ap-northeast-2.amazonaws.com/0105_001.jpg" class="post_grid"/></div>
+                <div class="grid"><img src="https://jazzbirb-bird.s3.ap-northeast-2.amazonaws.com/0105_002.jpg" class="post_grid"/></div>
+                <div class="grid"><img src="https://jazzbirb-bird.s3.ap-northeast-2.amazonaws.com/0105_003.jpg" class="post_grid"/></div>
+                <div class="grid"><img src="https://jazzbirb-bird.s3.ap-northeast-2.amazonaws.com/0105_004.jpg" class="post_grid"/></div>
+                <div class="grid"><img src="https://jazzbirb-bird.s3.ap-northeast-2.amazonaws.com/0105_005.jpg" class="post_grid"/></div>
+                <div class="grid"><img src="https://jazzbirb-bird.s3.ap-northeast-2.amazonaws.com/0089_001.jpg" class="post_grid"/></div>
+                <div class="grid"><img src="https://jazzbirb-bird.s3.ap-northeast-2.amazonaws.com/0089_002.jpg" class="post_grid"/></div>
+                <div class="grid"><img src="https://jazzbirb-bird.s3.ap-northeast-2.amazonaws.com/0089_003.jpg" class="post_grid"/></div>
+                <div class="grid"><img src="https://jazzbirb-bird.s3.ap-northeast-2.amazonaws.com/0089_004.jpg" class="post_grid"/></div>
+                <div class="grid"><img src="https://jazzbirb-bird.s3.ap-northeast-2.amazonaws.com/0109_001.jpg" class="post_grid"/></div>
+                <div class="grid"><img src="https://jazzbirb-bird.s3.ap-northeast-2.amazonaws.com/0109_002.jpg" class="post_grid"/></div>
+                <div class="grid"><img src="https://jazzbirb-bird.s3.ap-northeast-2.amazonaws.com/0109_003.jpg" class="post_grid"/></div>
+                <div class="grid"><img src="https://jazzbirb-bird.s3.ap-northeast-2.amazonaws.com/0336_001.jpg" class="post_grid"/></div>
+                <div class="grid"><img src="https://jazzbirb-bird.s3.ap-northeast-2.amazonaws.com/0336_002.jpg" class="post_grid"/></div>
+                <div class="grid"><img src="https://jazzbirb-bird.s3.ap-northeast-2.amazonaws.com/0336_003.jpg" class="post_grid"/></div>
+                <div class="grid">B</div>
+                <div class="grid">B</div>
+                <div class="grid">B</div>
+            </div>
+            <div class="loading">
+                    <div class="ball first"></div>
+                    <div class="ball second"></div>
+                    <div class="ball third"></div>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="wrapper_map"></div>
+
+    <div id="wrapper_map_extension">
+        <div id="map_extension_search_bar">
+            <a href="#" onclick="searchThisArea()">Search Here <i class="fi fi-rr-search"></i> </a>
+        </div>
+        <div id="map_extension_search_result">
+            <table id="map_extension_search_result_table">
+                <thead>
+                    <tr>
+                        <th>View</th>
+                        <th>Species</th>
+                        <th>Count</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td colspan="3"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div id="wrapper_login" style='display: none'>
+        <div id="login">
+            <label for="email"><b>Email</b></label>
+            <input type="text" placeholder="Enter Email" name="email" id="email" required>
+
+            <label for="pw"><b>Password</b></label>
+            <input type="password" placeholder="Enter Password" name="pw" id="pw" onkeydown="login()" required >
+
+            <label for="auto_login"><b>AutoLogin</b></label>
+            <input type="checkbox" name="auto_login" id="auto_login">
+
+            <button type="button" class="btn" id='login_btn' onclick='login();' value="Login">Login</button>
+            <button type="button" class="btn cancel" onclick="closeForm('popup_login')">Close</button>
+        </div>
+    </div>
+
+
+</body>
+</html>

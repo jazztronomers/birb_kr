@@ -1,0 +1,521 @@
+BID	SPECIES_KR	OBSERVE_LEVEL_TXT	OBSERVE_LEVEL	ARRIVAL_TYPE	ORDER_KR	FAMILY_KR	SPECIES_EN	ORDER_EN	FAMILY_EN	SPECIES_SN	ORDER_SN	FAMILY_SN	PROTECTION_LV	IUCN	CITES	NATURAL_MONUMENT	EXTINCTION_KR
+31	청둥오리	아주흔함	1	겨울철새	기러기목	오리과	Mallard	ORDER ANSERIFORMES	Family Anatidae	Anas platyrhynchos	ORDER ANSERIFORMES	Family Anatidae	nan	IUCN-LC	NA	NA	NA
+218	쇠오리-쇠오리[아종]	아주흔함	1	겨울철새	기러기목	오리과	Common Teal[Teal]	ORDER ANSERIFORMES	Family Anatidae	Anas crecca crecca	ORDER ANSERIFORMES	Family Anatidae	IUCN-LCCITES-CITES3급	NA	NA	NA	NA
+306	고방오리	흔함	2	겨울철새	기러기목	오리과	Northern Pintail[Pintail]	ORDER ANSERIFORMES	Family Anatidae	Anas acuta	ORDER ANSERIFORMES	Family Anatidae	IUCN-LCCITES-CITES3급	IUCN-LC	NA	NA	NA
+305	흰뺨오리	흔함	2	겨울철새	기러기목	오리과	Common Goldeneye[Goldeneye]	ORDER ANSERIFORMES	Family Anatidae	Bucephala clangula	ORDER ANSERIFORMES	Family Anatidae	IUCN-LC	IUCN-LC	NA	NA	NA
+220	홍머리오리	흔함	2	겨울철새	기러기목	오리과	Eurasian Wigeon[Wigeon	ORDER ANSERIFORMES	Family Anatidae	Anas penelope	ORDER ANSERIFORMES	Family Anatidae	IUCN-LCCITES-CITES3급	IUCN-LC	NA	NA	NA
+255	황오리	흔함	2	겨울철새	기러기목	오리과	Ruddy Shelduck	ORDER ANSERIFORMES	Family Anatidae	Tadorna ferruginea	ORDER ANSERIFORMES	Family Anatidae	IUCN-LC	IUCN-LC	NA	NA	NA
+355	바다비오리	흔함	2	겨울철새	기러기목	오리과	Red-breasted Merganser	ORDER ANSERIFORMES	Family Anatidae	Mergus serrator	ORDER ANSERIFORMES	Family Anatidae	IUCN-LC	NA	NA	NA	NA
+32	알락오리	흔함	2	겨울철새	기러기목	오리과	Gadwall	ORDER ANSERIFORMES	Family Anatidae	Anas strepera	ORDER ANSERIFORMES	Family Anatidae	nan	IUCN-LC	NA	NA	NA
+297	검은머리흰죽지	흔함	2	겨울철새	기러기목	오리과	Greater Scaup	ORDER ANSERIFORMES	Family Anatidae	Aythya marila	ORDER ANSERIFORMES	Family Anatidae	IUCN-LC	IUCN-LC	NA	NA	NA
+254	흰뺨검둥오리	흔함	2	텃새	기러기목	오리과	Spot-billed Duck[Spotbill Duck]	ORDER ANSERIFORMES	Family Anatidae	Anas poecilorhyncha	ORDER ANSERIFORMES	Family Anatidae	IUCN-LC	IUCN-VU	NA	NA	NA
+63	원앙	흔함	2	텃새	기러기목	오리과	Mandarin Duck	ORDER ANSERIFORMES	Family Anatidae	Aix galericulata	ORDER ANSERIFORMES	Family Anatidae	천연기념물-제327호	IUCN-LC	NA	NA	NA
+213	혹부리오리	흔함	2	겨울철새	기러기목	오리과	Common Shelduck[Shelduck]	ORDER ANSERIFORMES	Family Anatidae	Tadorna tadorna	ORDER ANSERIFORMES	Family Anatidae	IUCN-LC	IUCN-LC	NA	NA	NA
+309	흰죽지	흔함	2	겨울철새	기러기목	오리과	Common Pochard[Pochard]	ORDER ANSERIFORMES	Family Anatidae	Aythya ferina	ORDER ANSERIFORMES	Family Anatidae	IUCN-LC	IUCN-LC	NA	NA	NA
+143	비오리	흔함	2	겨울철새	기러기목	오리과	Common Merganser[Goosander]	ORDER ANSERIFORMES	Family Anatidae	Mergus merganser	ORDER ANSERIFORMES	Family Anatidae	IUCN-LC	IUCN-LC	NA	NA	NA
+189	쇠기러기	흔함	2	겨울철새	기러기목	오리과	Greater White-fronted Goose[White-fronted Goose]	ORDER ANSERIFORMES	Family Anatidae	Anser albifrons	ORDER ANSERIFORMES	Family Anatidae	IUCN-LC	IUCN-LC	NA	NA	NA
+282	넓적부리	흔함	2	겨울철새	기러기목	오리과	Northern Shoveler[Shoveler]	ORDER ANSERIFORMES	Family Anatidae	Anas clypeata	ORDER ANSERIFORMES	Family Anatidae	IUCN-LCCITES-CITES3급	NA	CITES-1	NA	NA
+181	큰기러기-큰기러기[아종]	흔함	2	겨울철새	기러기목	오리과	Tundra Bean Goose	ORDER ANSERIFORMES	Family Anatidae	Anser (fabalis) serrirostris	ORDER ANSERIFORMES	Family Anatidae	멸종위기-멸종위기2급IUCN-LC	NA	NA	NA	NA
+169	청머리오리	흔함	2	겨울철새	기러기목	오리과	Falcated Teal[Falcated Duck]	ORDER ANSERIFORMES	Family Anatidae	Anas falcata	ORDER ANSERIFORMES	Family Anatidae	IUCN-NT	NA	NA	NA	NA
+79	댕기흰죽지	흔함	2	겨울철새	기러기목	오리과	Tufted Duck	ORDER ANSERIFORMES	Family Anatidae	Aythya fuligula	ORDER ANSERIFORMES	Family Anatidae	IUCN-LC	IUCN-LC	NA	NA	NA
+406	큰기러기-큰부리큰기러기[아종]	흔하지않음	3	겨울철새	기러기목	오리과	Taiga Bean Goose	ORDER ANSERIFORMES	Family Anatidae	Anser (fabalis) middendorffi	ORDER ANSERIFORMES	Family Anatidae	멸종위기-멸종위기 2급IUCN-LC	IUCN-LC	NA	NA	2
+113	발구지	흔하지않음	3	나그네새	기러기목	오리과	Garganey	ORDER ANSERIFORMES	Family Anatidae	Anas querquedula	ORDER ANSERIFORMES	Family Anatidae	IUCN-LCCITES-CITES3급	IUCN-LC	NA	NA	NA
+209	혹고니	드묾	4	겨울철새	기러기목	오리과	Mute Swan	ORDER ANSERIFORMES	Family Anatidae	Cygnus olor	ORDER ANSERIFORMES	Family Anatidae	멸종위기-멸종위기1급천연기념물-제201-3호IUCN-LC	IUCN-LC	NA	NA	NA
+206	호사비오리	드묾	4	겨울철새	기러기목	오리과	Scaly-sided Merganser[Chinese Merganser]	ORDER ANSERIFORMES	Family Anatidae	Mergus squamatus	ORDER ANSERIFORMES	Family Anatidae	멸종위기-멸종위기2급천연기념물-제448호IUCN-EN	IUCN-LC	NA	NA	NA
+407	흰이마기러기	드묾	4	겨울철새	기러기목	오리과	Lesser White-fronted Goose	ORDER ANSERIFORMES	Family Anatidae	Anser erythropus	ORDER ANSERIFORMES	Family Anatidae	멸종위기-멸종위기2급IUCN-VU	IUCN-LC	NA	NA	NA
+13	흑기러기	드묾	4	겨울철새	기러기목	오리과	Black Brant[Brent	ORDER ANSERIFORMES	Family Anatidae	Branta bernicla	ORDER ANSERIFORMES	Family Anatidae	멸종위기-멸종위기2급천연기념물-제325-2호IUCN-LC	IUCN-LC	NA	NA	NA
+264	흰기러기	드묾	4	겨울철새	기러기목	오리과	Snow Goose	ORDER ANSERIFORMES	Family Anatidae	Chen caerulescens [Anser caerulescens]	ORDER ANSERIFORMES	Family Anatidae	IUCN-LC	IUCN-LC	NA	NA	NA
+411	캐나다기러기	드묾	4	겨울철새	기러기목	오리과	Cackling Goose	ORDER ANSERIFORMES	Family Anatidae	Branta hutchinsii	ORDER ANSERIFORMES	Family Anatidae	CITES-CITES 1급	NA	NA	NA	NA
+418	검은흰죽지(가칭)	아주드묾	5	미조	기러기목	오리과	Ferruginous Duck[Ferruginous Pochard]	ORDER ANSERIFORMES	Family Anatidae	Aythya nyroca	ORDER ANSERIFORMES	Family Anatidae	IUCN-NT	IUCN-LC	CITES-3	NA	NA
+415	붉은부리흰죽지	아주드묾	5	겨울철새	기러기목	오리과	Red-crested Pochard	ORDER ANSERIFORMES	Family Anatidae	Netta rufina	ORDER ANSERIFORMES	Family Anatidae	nan	IUCN-LC	CITES-3	NA	NA
+419	붉은가슴흰죽지	아주드묾	5	겨울철새	기러기목	오리과	Baer's Pochard	ORDER ANSERIFORMES	Family Anatidae	Aythya baeri	ORDER ANSERIFORMES	Family Anatidae	IUCN-VU	IUCN-LC	NA	NA	NA
+420	바다꿩	아주드묾	5	겨울철새	기러기목	오리과	Oldsquaw[Long-tailed Duck]	ORDER ANSERIFORMES	Family Anatidae	Clangula hyemalis	ORDER ANSERIFORMES	Family Anatidae	IUCN-LC	IUCN-LC	NA	NA	NA
+413	아메리카홍머리오리	매우드묾	6	겨울철새	기러기목	오리과	American Wigeon	ORDER ANSERIFORMES	Family Anatidae	Anas americana	ORDER ANSERIFORMES	Family Anatidae	nan	IUCN-LC	NA	NA	NA
+409	흰머리기러기	희귀	7	미조	기러기목	오리과	Emperor Goose	ORDER ANSERIFORMES	Family Anatidae	Chen canagica [Anser canagicus]	ORDER ANSERIFORMES	Family Anatidae	nan	IUCN-LC	CITES-3	NA	NA
+304	고니	희귀	7	겨울철새	기러기목	오리과	Tundra Swan[Whistling Swan]	ORDER ANSERIFORMES	Family Anatidae	Cygnus columbianus	ORDER ANSERIFORMES	Family Anatidae	멸종위기-멸종위기2급천연기념물-제201-1호IUCN-LC	IUCN-EN	NA	NA	NA
+410	줄기러기(가칭)	희귀	7	미조	기러기목	오리과	Bar-headed Goose	ORDER ANSERIFORMES	Family Anatidae	Anser indicus	ORDER ANSERIFORMES	Family Anatidae	IUCN-LC	NA	NA	NA	NA
+416	큰흰죽지	희귀	7	미조	기러기목	오리과	Canvasback	ORDER ANSERIFORMES	Family Anatidae	Aythya valisineria	ORDER ANSERIFORMES	Family Anatidae	nan	IUCN-LC	NA	NA	NA
+602	호사북방오리(가칭)	희귀	7	미조	기러기목	오리과	King Eider	ORDER ANSERIFORMES	Family Anatidae	Somateria spectabilis	ORDER ANSERIFORMES	Family Anatidae	IUCN-LC	NA	NA	NA	NA
+421	북방흰뺨오리	희귀	7	미조	기러기목	오리과	Barrow's Goldeneye	ORDER ANSERIFORMES	Family Anatidae	Bucephala islandica	ORDER ANSERIFORMES	Family Anatidae	IUCN-LC	NA	NA	NA	NA
+259	개리	희귀	7	겨울철새	기러기목	오리과	Swan Goose	ORDER ANSERIFORMES	Family Anatidae	Anser cygnoides	ORDER ANSERIFORMES	Family Anatidae	멸종위기-멸종위기2급천연기념물-제325-1호IUCN-EN	IUCN-LC	NA	NA	NA
+417	미국흰죽지	희귀	7	미조	기러기목	오리과	Redhead	ORDER ANSERIFORMES	Family Anatidae	Aythya americana	ORDER ANSERIFORMES	Family Anatidae	nan	IUCN-LC	NA	NA	2
+408	회색기러기	희귀	7	미조	기러기목	오리과	Greylag Goose	ORDER ANSERIFORMES	Family Anatidae	Anser anser	ORDER ANSERIFORMES	Family Anatidae	IUCN-LC	NA	NA	NA	NA
+414	쇠오리-미국쇠오리[아종]	희귀	7	미조	기러기목	오리과	Green-winged Teal	ORDER ANSERIFORMES	Family Anatidae	Anas carolinensis[Anas (crecca) carolinensis]	ORDER ANSERIFORMES	Family Anatidae	IUCN-LC	IUCN-LC	NA	NA	NA
+303	흰비오리	희귀	7	겨울철새	기러기목	오리과	Smew	ORDER ANSERIFORMES	Family Anatidae	Mergus alellus	ORDER ANSERIFORMES	Family Anatidae	IUCN-LC	IUCN-EN	CITES-1	TRUE	1
+412	원앙사촌	멸종	10	겨울철새	기러기목	오리과	Crested Shelduck	ORDER ANSERIFORMES	Family Anatidae	Tadorna cristata	ORDER ANSERIFORMES	Family Anatidae	IUCN-CR	IUCN-LC	CITES-2	TRUE	NA
+261	검둥오리	국지적으로흔함	50	겨울철새	기러기목	오리과	Black Scoter	ORDER ANSERIFORMES	Family Anatidae	Melanitta nigra	ORDER ANSERIFORMES	Family Anatidae	IUCN-LC	IUCN-LC	CITES-2	TRUE	1
+263	검둥오리사촌	국지적으로흔함	50	겨울철새	기러기목	오리과	White-winged Scoter[Velvet Scoter]	ORDER ANSERIFORMES	Family Anatidae	Melanitta fusca	ORDER ANSERIFORMES	Family Anatidae	IUCN-LC	IUCN-NT	NA	NA	NA
+179	큰고니	국지적으로흔함	50	겨울철새	기러기목	오리과	Whooper Swan	ORDER ANSERIFORMES	Family Anatidae	Cygnus cygnus	ORDER ANSERIFORMES	Family Anatidae	멸종위기-멸종위기2급천연기념물-제201-2호	IUCN-EN	NA	TRUE	1
+193	가창오리	국지적으로흔함	50	겨울철새	기러기목	오리과	Baikal Teal	ORDER ANSERIFORMES	Family Anatidae	Anas formosa	ORDER ANSERIFORMES	Family Anatidae	멸종위기-멸종위기2급IUCN-VUCITES-CITES2급	IUCN-EN	CITES-1	TRUE	NA
+311	흰줄박이오리	국지적으로흔함	50	겨울철새	기러기목	오리과	Harlequin Duck	ORDER ANSERIFORMES	Family Anatidae	Histrionicus histronicus	ORDER ANSERIFORMES	Family Anatidae	IUCN-LC	NA	NA	NA	NA
+42	논병아리	아주흔함	1	텃새	논병아리목	논병아리과	Little Grebe	ORDER PODICIPEDIFORMES	Family Podicipedidae	Tachybaptus ruficollis	ORDER PODICIPEDIFORMES	Family Podicipedidae	nan	IUCN-LC	CITES-3	NA	NA
+301	검은목논병아리	흔함	2	겨울철새	논병아리목	논병아리과	Black-necked Grebe	ORDER PODICIPEDIFORMES	Family Podicipedidae	Podiceps nigricollis	ORDER PODICIPEDIFORMES	Family Podicipedidae	IUCN-LC	IUCN-LC	NA	NA	NA
+145	뿔논병아리	흔함	2	겨울철새	논병아리목	논병아리과	Great Crested Grebe	ORDER PODICIPEDIFORMES	Family Podicipedidae	Podiceps cristatus	ORDER PODICIPEDIFORMES	Family Podicipedidae	IUCN-LC	IUCN-LC	NA	TRUE	2
+310	귀뿔논병아리	흔하지않음	3	겨울철새	논병아리목	논병아리과	Horned Grebe[Slavonian Grebe]	ORDER PODICIPEDIFORMES	Family Podicipedidae	Podiceps auritus	ORDER PODICIPEDIFORMES	Family Podicipedidae	IUCN-LC	IUCN-LC	CITES-3	NA	NA
+390	큰논병아리	드묾	4	겨울철새	논병아리목	논병아리과	Red-necked Grebe	ORDER PODICIPEDIFORMES	Family Podicipedidae	Podiceps grisegena	ORDER PODICIPEDIFORMES	Family Podicipedidae	IUCN-LC	IUCN-NT	NA	NA	NA
+321	꿩	아주흔함	1	텃새	닭목	꿩과	Common Pheasant[Ring-necked Pheasant]	ORDER GALLIFORMES	Family Phasianidae	Phasianus colchicus	ORDER GALLIFORMES	Family Phasianidae	IUCN-LC	IUCN-LC	NA	NA	NA
+98	메추라기	흔하지않음	3	겨울철새	닭목	꿩과	Japanese Quail	ORDER GALLIFORMES	Family Phasianidae	Coturnix japonica	ORDER GALLIFORMES	Family Phasianidae	IUCN-LC	NA	NA	NA	NA
+87	들꿩	드묾	4	텃새	닭목	멧닭과	Hazel Grouse	ORDER GALLIFORMES	Family Tetraonidae	Bonasa bonasia[Tetrastes bonasia]	ORDER GALLIFORMES	Family Tetraonidae	IUCN-LC	IUCN-LC	NA	NA	NA
+338	멧닭	아주드묾	5	텃새	닭목	멧닭과	Black Grouse	ORDER GALLIFORMES	Family Tetraonidae	Tetrao tetrix[Lyrurus tetrix]	ORDER GALLIFORMES	Family Tetraonidae	IUCN-LC	IUCN-CR	NA	NA	NA
+281	꼬마물떼새	아주흔함	1	여름철새	도요목	물떼새과	Little Ringed Plover	OREDR CHARADRIIFORMES	Family Charadriidae	Charadrius dubius	OREDR CHARADRIIFORMES	Family Charadriidae	IUCN-LC	NA	NA	NA	NA
+275	검은가슴물떼새	흔함	2	나그네새	도요목	물떼새과	Pacific Golden Plover	OREDR CHARADRIIFORMES	Family Charadriidae	Pluvialis fulva	OREDR CHARADRIIFORMES	Family Charadriidae	IUCN-LC	IUCN-LC	NA	TRUE	1
+287	댕기물떼새	흔함	2	겨울철새	도요목	물떼새과	Northern Lapwing[Lapwing]	OREDR CHARADRIIFORMES	Family Charadriidae	Vanellus vanellus	OREDR CHARADRIIFORMES	Family Charadriidae	IUCN-LC	IUCN-EN	NA	TRUE	2
+438	흰물떼새-흰물떼새[아종]	흔함	2	나그네새	도요목	물떼새과	Kentish Plover	OREDR CHARADRIIFORMES	Family Charadriidae	Charadrius alexandrinus dealbatus	OREDR CHARADRIIFORMES	Family Charadriidae	IUCN-LC	IUCN-VU	NA	NA	2
+323	개꿩	흔함	2	나그네새	도요목	물떼새과	Grey Plover	OREDR CHARADRIIFORMES	Family Charadriidae	Pluvialis squatarola	OREDR CHARADRIIFORMES	Family Charadriidae	IUCN-LC	IUCN-LC	CITES-3	NA	NA
+360	왕눈물떼새	흔함	2	나그네새	도요목	물떼새과	Mongolian Sand Plover	OREDR CHARADRIIFORMES	Family Charadriidae	Charadrius mongolus mongolus	OREDR CHARADRIIFORMES	Family Charadriidae	IUCN-LC	IUCN-LC	NA	NA	NA
+276	흰물떼새-흰물떼새[아종]	흔함	2	나그네새	도요목	물떼새과	Kentish Plover	OREDR CHARADRIIFORMES	Family Charadriidae	Charadrius alexandrinus alexandrinus	OREDR CHARADRIIFORMES	Family Charadriidae	IUCN-LC	IUCN-LC	NA	NA	NA
+351	좀도요	흔함	2	나그네새	도요목	도요(새)과	Red-necked Stint[Rufous-necked Stint]	OREDR CHARADRIIFORMES	Family Scolopacidae	Calidris ruficollis	OREDR CHARADRIIFORMES	Family Scolopacidae	IUCN-LC	NA	NA	NA	NA
+146	삑삑도요	흔함	2	겨울철새	도요목	도요(새)과	Green Sandpiper	OREDR CHARADRIIFORMES	Family Scolopacidae	Tringa ochropus	OREDR CHARADRIIFORMES	Family Scolopacidae	IUCN-LC	IUCN-LC	NA	NA	NA
+353	민물도요	흔함	2	나그네새	도요목	도요(새)과	Dunlin	OREDR CHARADRIIFORMES	Family Scolopacidae	Calidris alpina	OREDR CHARADRIIFORMES	Family Scolopacidae	IUCN-LC	IUCN-LC	NA	NA	2
+322	꺅도요	흔함	2	나그네새	도요목	도요(새)과	Common Snipe	OREDR CHARADRIIFORMES	Family Scolopacidae	Gallinago gallinago	OREDR CHARADRIIFORMES	Family Scolopacidae	IUCN-LC	NA	NA	NA	NA
+448	붉은가슴도요	흔함	2	나그네새	도요목	도요(새)과	Red Knot	OREDR CHARADRIIFORMES	Family Scolopacidae	Calidris canutus	OREDR CHARADRIIFORMES	Family Scolopacidae	IUCN-LC	IUCN-LC	NA	NA	NA
+150	중부리도요	흔함	2	나그네새	도요목	도요(새)과	Whimbrel	OREDR CHARADRIIFORMES	Family Scolopacidae	Numenius phaeopus	OREDR CHARADRIIFORMES	Family Scolopacidae	IUCN-LC	IUCN-LC	NA	TRUE	2
+185	큰뒷부리도요	흔함	2	나그네새	도요목	도요(새)과	Bar-tailed Godwit	OREDR CHARADRIIFORMES	Family Scolopacidae	Limosa lapponica	OREDR CHARADRIIFORMES	Family Scolopacidae	IUCN-LC	IUCN-LC	CITES-3	NA	NA
+224	쇠청다리도요	흔함	2	나그네새	도요목	도요(새)과	Marsh Sandpiper	OREDR CHARADRIIFORMES	Family Scolopacidae	Tringa stagnatillis	OREDR CHARADRIIFORMES	Family Scolopacidae	IUCN-LC	IUCN-LC	NA	NA	NA
+319	깝작도요	흔함	2	나그네새	도요목	도요(새)과	Common Sandpiper	OREDR CHARADRIIFORMES	Family Scolopacidae	Actitis hypoleucos	OREDR CHARADRIIFORMES	Family Scolopacidae	IUCN-LC	IUCN-EN	NA	TRUE	2
+199	학도요	흔함	2	나그네새	도요목	도요(새)과	Spotted Redshank	OREDR CHARADRIIFORMES	Family Scolopacidae	Tringa erythropus	OREDR CHARADRIIFORMES	Family Scolopacidae	IUCN-LC	NA	NA	NA	NA
+29	알락도요	흔함	2	나그네새	도요목	도요(새)과	Wood Sandpiper	OREDR CHARADRIIFORMES	Family Scolopacidae	Tringa glareola	OREDR CHARADRIIFORMES	Family Scolopacidae	nan	IUCN-VU	NA	NA	NA
+93	마도요	흔함	2	나그네새	도요목	도요(새)과	Eurasian Curlew[Curlew]	OREDR CHARADRIIFORMES	Family Scolopacidae	Numenius arquata	OREDR CHARADRIIFORMES	Family Scolopacidae	IUCN-LC	IUCN-LC	NA	NA	NA
+454	지느러미발도요	흔함	2	나그네새	도요목	도요(새)과	Red-necked Phalarope	OREDR CHARADRIIFORMES	Family Scolopacidae	Phalaropus lobatus	OREDR CHARADRIIFORMES	Family Scolopacidae	IUCN-LC	IUCN-LC	NA	NA	NA
+163	청다리도요	흔함	2	나그네새	도요목	도요(새)과	Common Greenshank[Greenshank]	OREDR CHARADRIIFORMES	Family Scolopacidae	Tringa nebularia	OREDR CHARADRIIFORMES	Family Scolopacidae	IUCN-LC	IUCN-LC	NA	NA	NA
+130	붉은부리갈매기	흔함	2	겨울철새	도요목	갈매기과	Black-headed Gull	OREDR CHARADRIIFORMES	Family Laridae	Larus ridibundus	OREDR CHARADRIIFORMES	Family Laridae	IUCN-LC	NA	NA	TRUE	NA
+46	노랑발갈매기	흔함	2	겨울철새	도요목	갈매기과	Mongolian Gull	OREDR CHARADRIIFORMES	Family Laridae	Larus (vegae) mongolicus	OREDR CHARADRIIFORMES	Family Laridae	nan	NA	NA	NA	NA
+267	갈매기	흔함	2	겨울철새	도요목	갈매기과	Common Gull[Mew Gull]	OREDR CHARADRIIFORMES	Family Laridae	Larus canus	OREDR CHARADRIIFORMES	Family Laridae	IUCN-LC	NA	NA	TRUE	2
+194	큰재갈매기	흔함	2	겨울철새	도요목	갈매기과	Slaty-backed Gull	OREDR CHARADRIIFORMES	Family Laridae	Larus schistisagus	OREDR CHARADRIIFORMES	Family Laridae	IUCN-LC	IUCN-LC	NA	NA	NA
+253	재갈매기	흔함	2	겨울철새	도요목	갈매기과	Vega Gull	OREDR CHARADRIIFORMES	Family Laridae	Larus vagae	OREDR CHARADRIIFORMES	Family Laridae	nan	IUCN-LC	NA	NA	NA
+312	괭이갈매기	흔함	2	텃새	도요목	갈매기과	Black-tailed Gull	OREDR CHARADRIIFORMES	Family Laridae	Larus crassirostris	OREDR CHARADRIIFORMES	Family Laridae	IUCN-LC	IUCN-LC	NA	NA	NA
+367	바다쇠오리	흔함	2	겨울철새	도요목	바다오리과	Ancient Murrelet	OREDR CHARADRIIFORMES	Family Alcidae	Synthliboramphus antiquus	OREDR CHARADRIIFORMES	Family Alcidae	IUCN-LC	IUCN-LC	NA	NA	NA
+149	쇠제비갈매기	흔함	2	여름철새	도요목	제비갈매기과	Little Tern	OREDR CHARADRIIFORMES	Family Sternidae	Sterna albifrons	OREDR CHARADRIIFORMES	Family Sternidae	IUCN-LC	IUCN-LC	NA	NA	NA
+366	제비갈매기	흔함	2	나그네새	도요목	제비갈매기과	Common Tern	OREDR CHARADRIIFORMES	Family Sternidae	Sterna hirundo longipennis	OREDR CHARADRIIFORMES	Family Sternidae	IUCN-LC	IUCN-LC	NA	NA	NA
+359	흰목물떼새	흔하지않음	3	나그네새	도요목	물떼새과	Long-billed Plover	OREDR CHARADRIIFORMES	Family Charadriidae	Charadrius placidus	OREDR CHARADRIIFORMES	Family Charadriidae	멸종위기-멸종위기2급IUCN-LC	IUCN-LC	NA	NA	NA
+362	종달도요	흔하지않음	3	나그네새	도요목	도요(새)과	Long-toed Stint	OREDR CHARADRIIFORMES	Family Scolopacidae	Calidris subminuta	OREDR CHARADRIIFORMES	Family Scolopacidae	IUCN-LC	IUCN-VU	CITES-2	NA	2
+286	호사도요	드묾	4	여름철새	도요목	호사도요과	Greater Painted-snipe[Painted Snipe]	OREDR CHARADRIIFORMES	Family Rostratulidae	Rostratula benghalensis	OREDR CHARADRIIFORMES	Family Rostratulidae	천연기념물-제449호IUCN-LC	IUCN-LC	NA	NA	NA
+139	제비물떼새	드묾	4	나그네새	도요목	제비물떼새과	Oriental Pratincole[Indian Pratincole]	OREDR CHARADRIIFORMES	Family Glareolidae	Glareola maldivarum	OREDR CHARADRIIFORMES	Family Glareolidae	IUCN-LC	NA	CITES-1	NA	NA
+196	알락꼬리마도요	드묾	4	나그네새	도요목	도요(새)과	Far Eastern Curlew	OREDR CHARADRIIFORMES	Family Scolopacidae	Numenius madagascariensis	OREDR CHARADRIIFORMES	Family Scolopacidae	멸종위기-멸종위기2급IUCN-LC	IUCN-LC	CITES-3	NA	NA
+361	바늘꼬리도요	드묾	4	나그네새	도요목	도요(새)과	Pintail Snipe	OREDR CHARADRIIFORMES	Family Scolopacidae	Gallinago stenura	OREDR CHARADRIIFORMES	Family Scolopacidae	IUCN-LC	IUCN-LC	NA	NA	NA
+165	청도요	드묾	4	나그네새	도요목	도요(새)과	Solitary Snipe	OREDR CHARADRIIFORMES	Family Scolopacidae	Gallinago solitaria	OREDR CHARADRIIFORMES	Family Scolopacidae	IUCN-LC	IUCN-LC	NA	NA	2
+348	멧도요	드묾	4	나그네새	도요목	도요(새)과	Eruasian Woodcock[Woodcock]	OREDR CHARADRIIFORMES	Family Scolopacidae	Scolopax rusticola	OREDR CHARADRIIFORMES	Family Scolopacidae	IUCN-LC	IUCN-NT	NA	NA	NA
+443	긴부리도요	드묾	4	나그네새	도요목	도요(새)과	Long-billed Dowitcher	OREDR CHARADRIIFORMES	Family Scolopacidae	Limnodromus scolopaceus	OREDR CHARADRIIFORMES	Family Scolopacidae	nan	IUCN-LC	NA	NA	NA
+451	붉은갯도요	드묾	4	나그네새	도요목	도요(새)과	Curlew Sandpiper	OREDR CHARADRIIFORMES	Family Scolopacidae	Calidris ferruginea	OREDR CHARADRIIFORMES	Family Scolopacidae	IUCN-LC	NA	NA	NA	NA
+316	꺅도요사촌	드묾	4	나그네새	도요목	도요(새)과	Swinhoe's Snipe	OREDR CHARADRIIFORMES	Family Scolopacidae	Gallinago megala	OREDR CHARADRIIFORMES	Family Scolopacidae	IUCN-LC	IUCN-LC	NA	NA	NA
+212	쇠부리도요	드묾	4	나그네새	도요목	도요(새)과	Little Curlew[Little Whimbrel]	OREDR CHARADRIIFORMES	Family Scolopacidae	Numenius minutus	OREDR CHARADRIIFORMES	Family Scolopacidae	IUCN-LCCITES-CITES2급	IUCN-LC	NA	NA	NA
+450	아메리카메추라기도요	드묾	4	나그네새	도요목	도요(새)과	Pectoral Sandpiper	OREDR CHARADRIIFORMES	Family Scolopacidae	Calidris melanotos	OREDR CHARADRIIFORMES	Family Scolopacidae	IUCN-LC	IUCN-LC	NA	TRUE	2
+47	노랑발도요	드묾	4	나그네새	도요목	도요(새)과	Grey-tailed Tattler[Asian Wandering Tattle]	OREDR CHARADRIIFORMES	Family Scolopacidae	Heteroscelus brevipes	OREDR CHARADRIIFORMES	Family Scolopacidae	nan	IUCN-LC	NA	NA	NA
+449	흰꼬리좀도요	드묾	4	나그네새	도요목	도요(새)과	Temminck's Stint	OREDR CHARADRIIFORMES	Family Scolopacidae	Calidris temminckii	OREDR CHARADRIIFORMES	Family Scolopacidae	nan	IUCN-VU	CITES-1	NA	2
+365	큰검은머리갈매기(가칭)	드묾	4	미조	도요목	갈매기과	Pallas's Gull[Great Black-headed Gull]	OREDR CHARADRIIFORMES	Family Laridae	Larus ichthyaetus	OREDR CHARADRIIFORMES	Family Laridae	IUCN-LC	IUCN-LC	NA	NA	2
+364	수리갈매기	드묾	4	겨울철새	도요목	갈매기과	Glaucous-winged Gull	OREDR CHARADRIIFORMES	Family Laridae	Larus glaucescens	OREDR CHARADRIIFORMES	Family Laridae	nan	IUCN-VU	CITES-2	TRUE	1
+459	줄무늬노랑발갈매기-줄무늬노랑발갈매기[아종]	드묾	4	겨울철새	도요목	갈매기과	Taymyr Gull	OREDR CHARADRIIFORMES	Family Laridae	Larus heuglini taimyrensis	OREDR CHARADRIIFORMES	Family Laridae	nan	IUCN-VU	CITES-2	NA	2
+458	작은재갈매기(가칭)	드묾	4	겨울철새	도요목	갈매기과	Thayer's Gull	OREDR CHARADRIIFORMES	Family Laridae	Larus thayeri	OREDR CHARADRIIFORMES	Family Laridae	IUCN-LC	IUCN-LC	CITES-2	TRUE	2
+262	흰갈매기	드묾	4	겨울철새	도요목	갈매기과	Glaucous Gull	OREDR CHARADRIIFORMES	Family Laridae	Larus hyperboreus	OREDR CHARADRIIFORMES	Family Laridae	IUCN-LC	NA	CITES-2	NA	2
+144	줄무늬노랑발갈매기-줄무늬노랑발갈매기[아종]	드묾	4	겨울철새	도요목	갈매기과	heuglini's gull	OREDR CHARADRIIFORMES	Family Laridae	Larus heuglini heuglini	OREDR CHARADRIIFORMES	Family Laridae	IUCN-LC	IUCN-LC	CITES-2	NA	2
+479	뿔쇠오리	드묾	4	텃새	도요목	바다오리과	Crested Murrelet[Japanese Murrelet]	OREDR CHARADRIIFORMES	Family Alcidae	Synthliboramphus wumizusume	OREDR CHARADRIIFORMES	Family Alcidae	IUCN-VU	NA	NA	TRUE	2
+470	흰죽지갈매기	드묾	4	나그네새	도요목	제비갈매기과	White-winged Black Tern	OREDR CHARADRIIFORMES	Family Sternidae	Chlidonias leucopterus	OREDR CHARADRIIFORMES	Family Sternidae	IUCN-LC	NA	NA	NA	NA
+471	구레나룻제비갈매기	드묾	4	나그네새	도요목	제비갈매기과	Whiskered Tern	OREDR CHARADRIIFORMES	Family Sternidae	Chlidonias hybrida	OREDR CHARADRIIFORMES	Family Sternidae	IUCN-LC	IUCN-LC	NA	NA	NA
+374	흰눈썹물떼새(가칭)	아주드묾	5	미조	도요목	물떼새과	Eurasian Dotterel	OREDR CHARADRIIFORMES	Family Charadriidae	Charadrius morinellus	OREDR CHARADRIIFORMES	Family Charadriidae	nan	NA	NA	NA	NA
+437	흰죽지꼬마물떼새	아주드묾	5	나그네새	도요목	물떼새과	Common Ringed Plover	OREDR CHARADRIIFORMES	Family Charadriidae	Charadrius hiaticula	OREDR CHARADRIIFORMES	Family Charadriidae	nan	IUCN-NT	CITES-2	TRUE	2
+455	붉은배지느러미발도요	아주드묾	5	미조	도요목	도요(새)과	Grey Phalarope[Red Phalarope]	OREDR CHARADRIIFORMES	Family Scolopacidae	Phalaropus fulicarius	OREDR CHARADRIIFORMES	Family Scolopacidae	nan	IUCN-LC	CITES-2	TRUE	1
+352	넓적부리도요	아주드묾	5	나그네새	도요목	도요(새)과	Spoon-billed Sandpiper	OREDR CHARADRIIFORMES	Family Scolopacidae	Eurynorhynchus pygmeus	OREDR CHARADRIIFORMES	Family Scolopacidae	멸종위기-멸종위기 1급IUCN-EN	IUCN-LC	CITES-2	TRUE	NA
+442	큰꺅도요	아주드묾	5	나그네새	도요목	도요(새)과	Latham's Snipe[Japanese Snipe]	OREDR CHARADRIIFORMES	Family Scolopacidae	Gallinago hardwickii	OREDR CHARADRIIFORMES	Family Scolopacidae	nan	NA	NA	NA	NA
+441	꼬마도요	아주드묾	5	나그네새	도요목	도요(새)과	Jack Snipe	OREDR CHARADRIIFORMES	Family Scolopacidae	Lymnocryptes minimus	OREDR CHARADRIIFORMES	Family Scolopacidae	IUCN-LC	NA	NA	NA	NA
+473	넓적꼬리도둑갈매기(가칭)	아주드묾	5	나그네새	도요목	도둑갈매기과	Pomarine Jaeger[Pomarine Skua]	OREDR CHARADRIIFORMES	Family stercorariidae	Stercorarius pomarinus	OREDR CHARADRIIFORMES	Family stercorariidae	IUCN-LC	IUCN-LC	CITES-2	TRUE	NA
+472	큰도둑갈매기(가칭)	아주드묾	5	나그네새	도요목	도둑갈매기과	South-polar Skua	OREDR CHARADRIIFORMES	Family stercorariidae	Stercorarius maccormicki	OREDR CHARADRIIFORMES	Family stercorariidae	nan	IUCN-LC	CITES-1	TRUE	1
+457	작은흰갈매기	아주드묾	5	미조	도요목	갈매기과	Iceland Gull	OREDR CHARADRIIFORMES	Family Laridae	Larus glaucoides	OREDR CHARADRIIFORMES	Family Laridae	nan	IUCN-LC	CITES-2	NA	2
+461	옅은재갈매기(가칭)	아주드묾	5	미조	도요목	갈매기과	American Herring Gull	OREDR CHARADRIIFORMES	Family Laridae	Larus smithsonianus	OREDR CHARADRIIFORMES	Family Laridae	nan	IUCN-LC	CITES-2	TRUE	2
+478	알락쇠오리	아주드묾	5	겨울철새	도요목	바다오리과	Long-billed Murrelet[Marbled Murrelet]	OREDR CHARADRIIFORMES	Family Alcidae	Brachyramphus perdix	OREDR CHARADRIIFORMES	Family Alcidae	IUCN-NT	IUCN-LC	CITES-2	NA	2
+468	검은등제비갈매기	아주드묾	5	미조	도요목	제비갈매기과	Sooty Tern	OREDR CHARADRIIFORMES	Family Sternidae	Onychoprion fuscatus	OREDR CHARADRIIFORMES	Family Sternidae	IUCN-LC	IUCN-LC	CITES-2	NA	2
+104	물꿩	매우드묾	6	미조	도요목	물꿩과	Pheasant-tailed Jacana	OREDR CHARADRIIFORMES	Family Jacanidae	Hydrophasianus chirurgus	OREDR CHARADRIIFORMES	Family Jacanidae	nan	IUCN-LC	CITES-1	TRUE	1
+86	뒷부리장다리물떼새	매우드묾	6	나그네새	도요목	장다리물떼새과	Pied Avocet[Avocet]	OREDR CHARADRIIFORMES	Family Recurvirostridae	Recurvirostra avosetta	OREDR CHARADRIIFORMES	Family Recurvirostridae	IUCN-LC	IUCN-LC	CITES-2	NA	2
+439	큰왕눈물떼새	매우드묾	6	나그네새	도요목	물떼새과	Greater Sand Plover	OREDR CHARADRIIFORMES	Family Charadriidae	Charadrius leschenaultii	OREDR CHARADRIIFORMES	Family Charadriidae	IUCN-LC	IUCN-LC	CITES-2	TRUE	NA
+440	큰물떼새	매우드묾	6	나그네새	도요목	물떼새과	Oriental Plover	OREDR CHARADRIIFORMES	Family Charadriidae	Charadrius veredus	OREDR CHARADRIIFORMES	Family Charadriidae	IUCN-LC	IUCN-LC	CITES-2	NA	2
+358	민댕기물떼새	매우드묾	6	나그네새	도요목	물떼새과	Grey-headed Lapwing	OREDR CHARADRIIFORMES	Family Charadriidae	Vanellus cinereus	OREDR CHARADRIIFORMES	Family Charadriidae	IUCN-LC	IUCN-LC	CITES-2	NA	2
+447	청다리도요사촌	매우드묾	6	나그네새	도요목	도요(새)과	Spotted Greenshank	OREDR CHARADRIIFORMES	Family Scolopacidae	Tringa guttifer	OREDR CHARADRIIFORMES	Family Scolopacidae	멸종위기-멸종위기 1급IUCN-ENCITES-CITES 1급	NA	CITES-2	NA	NA
+343	작은도요	매우드묾	6	미조	도요목	도요(새)과	Little Stint	OREDR CHARADRIIFORMES	Family Scolopacidae	Calidris minuta	OREDR CHARADRIIFORMES	Family Scolopacidae	nan	IUCN-LC	CITES-2	NA	2
+444	큰부리도요	매우드묾	6	NA	도요목	도요(새)과	Asiatic Dowitcher	OREDR CHARADRIIFORMES	Family Scolopacidae	Limnodromus semipalmatus	OREDR CHARADRIIFORMES	Family Scolopacidae	IUCN-NT	IUCN-LC	NA	NA	NA
+345	고대갈매기[적호갈매기]	매우드묾	6	겨울철새	도요목	갈매기과	Relict Gull	OREDR CHARADRIIFORMES	Family Laridae	Larus relictus	OREDR CHARADRIIFORMES	Family Laridae	멸종위기-멸종위기 2급IUCN-VUCITES-CITES 1급	IUCN-LC	NA	NA	NA
+279	검은머리물떼새	희귀	7	텃새	도요목	검은머리물떼새과	Eastern Oystercatcher[Oystercatcher]	OREDR CHARADRIIFORMES	Family Haematopodidae	Haematopus ostralegus	OREDR CHARADRIIFORMES	Family Haematopodidae	멸종위기-멸종위기2급천연기념물-제326호IUCN-LC	IUCN-LC	NA	NA	NA
+72	장다리물떼새	희귀	7	나그네새	도요목	장다리물떼새과	Black-winged Stilt	OREDR CHARADRIIFORMES	Family Recurvirostridae	Himantopus himantopus	OREDR CHARADRIIFORMES	Family Recurvirostridae	nan	IUCN-LC	NA	NA	NA
+363	메추라기도요	희귀	7	나그네새	도요목	도요(새)과	Sharp-tailed Sandpiper	OREDR CHARADRIIFORMES	Family Scolopacidae	Calidris acuminata	OREDR CHARADRIIFORMES	Family Scolopacidae	IUCN-LC	IUCN-LC	NA	NA	NA
+453	큰지느러미발도요	희귀	7	미조	도요목	도요(새)과	Wilson's Phalarope	OREDR CHARADRIIFORMES	Family Scolopacidae	Phalaropus tricolor	OREDR CHARADRIIFORMES	Family Scolopacidae	nan	IUCN-VU	CITES-1	TRUE	2
+452	누른도요	희귀	7	미조	도요목	도요(새)과	Buff-breasted Sandpiper	OREDR CHARADRIIFORMES	Family Scolopacidae	Tryngites subruficollis	OREDR CHARADRIIFORMES	Family Scolopacidae	nan	IUCN-LC	NA	NA	NA
+446	큰노랑발도요	희귀	7	미조	도요목	도요(새)과	Greater Yellowlegs	OREDR CHARADRIIFORMES	Family Scolopacidae	Tringa melanoleuca	OREDR CHARADRIIFORMES	Family Scolopacidae	nan	IUCN-EN	CITES-1	TRUE	1
+445	캐나다흑꼬리도요(가칭)	희귀	7	미조	도요목	도요(새)과	Hudsonian Godwit	OREDR CHARADRIIFORMES	Family Scolopacidae	Limosa haemastica	OREDR CHARADRIIFORMES	Family Scolopacidae	IUCN-LC	IUCN-LC	CITES-2	TRUE	NA
+474	좀도둑갈매기(가칭)	희귀	7	미조	도요목	도둑갈매기과	Long-tailed Skua[Long-tailed Jaeger]	OREDR CHARADRIIFORMES	Family stercorariidae	Stercorarius longicaudus	OREDR CHARADRIIFORMES	Family stercorariidae	IUCN-LC	IUCN-LC	CITES-1	NA	NA
+464	북극흰갈매기	희귀	7	미조	도요목	갈매기과	Ivory Gull	OREDR CHARADRIIFORMES	Family Laridae	Pagophila eburnea	OREDR CHARADRIIFORMES	Family Laridae	nan	IUCN-CR	CITES-1	NA	NA
+462	긴목갈매기(가칭)	희귀	7	미조	도요목	갈매기과	Slender-billed Gull	OREDR CHARADRIIFORMES	Family Laridae	Larus genei	OREDR CHARADRIIFORMES	Family Laridae	IUCN-LC	IUCN-VU	CITES-1	TRUE	2
+466	목테갈매기	희귀	7	미조	도요목	갈매기과	Sabine's Gull	OREDR CHARADRIIFORMES	Family Laridae	Xema sabini	OREDR CHARADRIIFORMES	Family Laridae	IUCN-LC	IUCN-LC	NA	NA	NA
+463	꼬마갈매기(가칭)	희귀	7	미조	도요목	갈매기과	Little Gull	OREDR CHARADRIIFORMES	Family Laridae	Larus minutus	OREDR CHARADRIIFORMES	Family Laridae	IUCN-LC	IUCN-LC	NA	NA	NA
+456	북미갈매기(가칭)	희귀	7	미조	도요목	갈매기과	Ring-billed Gull	OREDR CHARADRIIFORMES	Family Laridae	Larus delawarensis	OREDR CHARADRIIFORMES	Family Laridae	IUCN-LC	IUCN-LC	NA	NA	NA
+481	작은바다오리	희귀	7	겨울철새	도요목	바다오리과	Least Auklet	OREDR CHARADRIIFORMES	Family Alcidae	Aethia pusilla	OREDR CHARADRIIFORMES	Family Alcidae	nan	IUCN-LC	NA	TRUE	2
+469	붉은부리큰제비갈매기(가칭)	희귀	7	미조	도요목	제비갈매기과	Caspian Tern	OREDR CHARADRIIFORMES	Family Sternidae	Hydroprogne caspia[Sterna caspia]	OREDR CHARADRIIFORMES	Family Sternidae	IUCN-LC	IUCN-LC	NA	NA	NA
+467	에위니아제비갈매기(가칭)	희귀	7	미조	도요목	제비갈매기과	Bridled Tern	OREDR CHARADRIIFORMES	Family Sternidae	Onychoprion anaethetus [Sterna anaethetus]	OREDR CHARADRIIFORMES	Family Sternidae	IUCN-LC	IUCN-LC	NA	NA	NA
+480	흰수염작은바다오리	북한에서만관찰기록	40	겨울철새	도요목	바다오리과	Whiskered Auklet	OREDR CHARADRIIFORMES	Family Alcidae	Aethia pygmaea	OREDR CHARADRIIFORMES	Family Alcidae	nan	IUCN-VU	NA	NA	NA
+166	세가락갈매기	국지적흔함	50	겨울철새	도요목	갈매기과	Black-legged Kittiwake	OREDR CHARADRIIFORMES	Family Laridae	Rissa tridactyla	OREDR CHARADRIIFORMES	Family Laridae	IUCN-LC	IUCN-LC	NA	NA	NA
+318	꼬까도요	국지적으로흔함	50	나그네새	도요목	도요(새)과	Ruddy Turnstone[Turnstone]	OREDR CHARADRIIFORMES	Family Scolopacidae	Arenaria interpres	OREDR CHARADRIIFORMES	Family Scolopacidae	IUCN-LC	IUCN-NT	NA	NA	NA
+260	흑꼬리도요	국지적으로흔함	50	나그네새	도요목	도요(새)과	Black-tailed Godwit	OREDR CHARADRIIFORMES	Family Scolopacidae	Limosa limosa	OREDR CHARADRIIFORMES	Family Scolopacidae	IUCN-NT	IUCN-VU	CITES-2	TRUE	2
+136	세가락도요	국지적으로흔함	50	겨울철새	도요목	도요(새)과	Sanderling	OREDR CHARADRIIFORMES	Family Scolopacidae	Calidris alba	OREDR CHARADRIIFORMES	Family Scolopacidae	IUCN-LC	NA	NA	NA	NA
+137	붉은어깨도요	국지적으로흔함	50	나그네새	도요목	도요(새)과	Great Knot	OREDR CHARADRIIFORMES	Family Scolopacidae	Calidris tenuirostris	OREDR CHARADRIIFORMES	Family Scolopacidae	IUCN-LC	IUCN-LC	NA	TRUE	NA
+101	목도리도요	국지적으로흔함	50	나그네새	도요목	도요(새)과	Ruff	OREDR CHARADRIIFORMES	Family Scolopacidae	Philomachus pugnax	OREDR CHARADRIIFORMES	Family Scolopacidae	IUCN-LC	IUCN-LC	NA	TRUE	2
+126	붉은발도요	국지적으로흔함	50	나그네새	도요목	도요(새)과	Common Redshank[Redshank]	OREDR CHARADRIIFORMES	Family Scolopacidae	Tringa totanus	OREDR CHARADRIIFORMES	Family Scolopacidae	IUCN-LC	NA	NA	NA	NA
+85	뒷부리도요	국지적으로흔함	50	나그네새	도요목	도요(새)과	Terek Sandpiper	OREDR CHARADRIIFORMES	Family Scolopacidae	Xenus cinereus	OREDR CHARADRIIFORMES	Family Scolopacidae	IUCN-LC	IUCN-LC	NA	NA	NA
+180	송곳부리도요	국지적으로흔함	50	나그네새	도요목	도요(새)과	Broad-billed Sandpiper	OREDR CHARADRIIFORMES	Family Scolopacidae	Limicola falcinellus	OREDR CHARADRIIFORMES	Family Scolopacidae	IUCN-LC	IUCN-LC	NA	NA	NA
+270	검은머리갈매기	국지적으로흔함	50	여름철새	도요목	갈매기과	Saunders's Gull[Chinese black-headed Gull]	OREDR CHARADRIIFORMES	Family Laridae	Larus saundersi	OREDR CHARADRIIFORMES	Family Laridae	멸종위기-멸종위기2급IUCN-VU	NA	NA	NA	NA
+476	큰부리바다오리(가칭)	국지적으로흔함	50	겨울철새	도요목	바다오리과	Thick-billed Murre[Brunnich's Guillemot]	OREDR CHARADRIIFORMES	Family Alcidae	Uria lomvia	OREDR CHARADRIIFORMES	Family Alcidae	IUCN-LC	IUCN-LC	NA	NA	NA
+482	흰수염바다오리	국지적으로흔함	50	겨울철새	도요목	바다오리과	Rhinoceros Auklet[Hornbilled Puffin]	OREDR CHARADRIIFORMES	Family Alcidae	Cerorhinca monocerata	OREDR CHARADRIIFORMES	Family Alcidae	nan	IUCN-LC	NA	NA	NA
+477	흰눈썹바다오리	국지적으로흔함	50	겨울철새	도요목	바다오리과	Spectacled Guillemot[Sooty Guillemot]	OREDR CHARADRIIFORMES	Family Alcidae	Cepphus carbo	OREDR CHARADRIIFORMES	Family Alcidae	IUCN-LC	IUCN-LC	NA	NA	NA
+475	바다오리	국지적으로흔함.	50	겨울철새	도요목	바다오리과	Guillemot	OREDR CHARADRIIFORMES	Family Alcidae	Uria aalge	OREDR CHARADRIIFORMES	Family Alcidae	IUCN-LC	IUCN-LC	NA	NA	NA
+294	뻐꾸기	흔함	2	여름철새	두견목	두견과	Eurasian Cuckoo[Common Cuckoo]	ORDER CUCULIFORMES	Family Cuculidae	Cuculus canorus	ORDER CUCULIFORMES	Family Cuculidae	IUCN-LC	IUCN-LC	NA	NA	NA
+377	벙어리뻐꾸기	흔하지않음	3	여름철새	두견목	두견과	Oriental Cuckoo	ORDER CUCULIFORMES	Family Cuculidae	Cuculus saturatus	ORDER CUCULIFORMES	Family Cuculidae	IUCN-LC	IUCN-LC	NA	NA	NA
+375	검은등뻐꾸기	흔하지않음	3	여름철새	두견목	두견과	Indian Cuckoo	ORDER CUCULIFORMES	Family Cuculidae	Cuculus micropterus	ORDER CUCULIFORMES	Family Cuculidae	IUCN-LC	IUCN-LC	NA	NA	NA
+376	두견이	드묾	4	여름철새	두견목	두견과	Lesser Cuckoo[Little Cuckoo]	ORDER CUCULIFORMES	Family Cuculidae	Cuculus poliocephalus	ORDER CUCULIFORMES	Family Cuculidae	천연기념물-제447호IUCN-LC	IUCN-LC	NA	NA	NA
+490	매사촌	드묾	4	여름철새	두견목	두견과	Northern Hawk Cuckoo	ORDER CUCULIFORMES	Family Cuculidae	Cuculus hyperythrus	ORDER CUCULIFORMES	Family Cuculidae	nan	IUCN-LC	NA	NA	NA
+489	밤색날개뻐꾸기	아주드묾	5	미조	두견목	두견과	Red-winged Crested Cuckoo[Chestnut-winged Cuckoo]	ORDER CUCULIFORMES	Family Cuculidae	Clamator coromandus	ORDER CUCULIFORMES	Family Cuculidae	nan	NA	NA	NA	NA
+493	작은뻐꾸기사촌(가칭)	희귀	7	미조	두견목	두견과	Lesser Coucal	ORDER CUCULIFORMES	Family Cuculidae	Centropus bengalensis	ORDER CUCULIFORMES	Family Cuculidae	IUCN-LC	IUCN-LC	NA	NA	NA
+491	검은두견이(가칭)	희귀	7	미조	두견목	두견과	Asian Drongo Cuckoo	ORDER CUCULIFORMES	Family Cuculidae	Surniculus lugubris	ORDER CUCULIFORMES	Family Cuculidae	IUCN-LC	IUCN-LC	NA	NA	2
+603	큰매사촌(가칭)	희귀	7	미조	두견목	두견과	Large Hawk Cuckoo	ORDER CUCULIFORMES	Family Cuculidae	Hierococcyx sparverioides	ORDER CUCULIFORMES	Family Cuculidae	IUCN-LC	IUCN-LC	NA	NA	NA
+492	검은뻐꾸기(가칭)	희귀	7	미조	두견목	두견과	Asian Koel	ORDER CUCULIFORMES	Family Cuculidae	Eudynamys scolopacea[Eudynamys scolopaceus]	ORDER CUCULIFORMES	Family Cuculidae	nan	IUCN-LC	NA	NA	2
+105	물닭	아주흔함	1	여름철새	두루미목	뜸부기과	Common Coot[Coot]	ORDER GRUIFORMES	Family Rallidae	Fulica atra	ORDER GRUIFORMES	Family Rallidae	IUCN-LC	IUCN-LC	NA	NA	NA
+207	쇠물닭	아주흔함	1	여름철새	두루미목	뜸부기과	Common Moorhen[Moorhen]	ORDER GRUIFORMES	Family Rallidae	Gallinula chloropus	ORDER GRUIFORMES	Family Rallidae	IUCN-LC	IUCN-LC	NA	NA	NA
+211	재두루미	흔하지않음	3	겨울철새	두루미목	두루미과	White-naped Crane	ORDER GRUIFORMES	Family Gruidae	Grus vipio	ORDER GRUIFORMES	Family Gruidae	멸종위기-멸종위기2급천연기념물-제203호IUCN-VUCITES-CITES1급	IUCN-LC	NA	NA	NA
+205	흑두루미	흔하지않음	3	겨울철새	두루미목	두루미과	Hooded Crane	ORDER GRUIFORMES	Family Gruidae	Grus monacha	ORDER GRUIFORMES	Family Gruidae	멸종위기-멸종위기2급천연기념물-제229호IUCN-VUCITES-CITES1급	IUCN-LC	NA	NA	NA
+432	세가락메추라기	드묾	4	나그네새	두루미목	세가락메추라기과	Yellow-legged Buttonquail[Burmease Button Quail]	ORDER GRUIFORMES	Family Turnicidae	Turnix tanki	ORDER GRUIFORMES	Family Turnicidae	IUCN-LC	NA	NA	NA	NA
+278	검은목두루미	드묾	4	겨울철새	두루미목	두루미과	Common Crane	ORDER GRUIFORMES	Family Gruidae	Grus grus	ORDER GRUIFORMES	Family Gruidae	천연기념물-제451호IUCN-LCCITES-CITES2급	IUCN-LC	NA	NA	NA
+434	시베리아흰두루미	드묾	4	미조	두루미목	두루미과	Siberian Crane[Siberian White Crane]	ORDER GRUIFORMES	Family Gruidae	Grus leucogeranus	ORDER GRUIFORMES	Family Gruidae	IUCN-CRCITES-CITES 1급	IUCN-EN	CITES-1	NA	1
+350	쇠뜸부기	드묾	4	나그네새	두루미목	뜸부기과	Baillon’s Crake	ORDER GRUIFORMES	Family Rallidae	Porzana pusilla	ORDER GRUIFORMES	Family Rallidae	IUCN-LC	IUCN-LC	NA	NA	NA
+269	흰눈썹뜸부기	드묾	4	겨울철새	두루미목	뜸부기과	Water Rail	ORDER GRUIFORMES	Family Rallidae	Rallus aquaticus	ORDER GRUIFORMES	Family Rallidae	IUCN-LC	IUCN-LC	NA	NA	NA
+92	뜸부기	드묾	4	여름철새	두루미목	뜸부기과	Watercock	ORDER GRUIFORMES	Family Rallidae	Gallicrex cinerea	ORDER GRUIFORMES	Family Rallidae	멸종위기-멸종위기2급천연기념물-제446호IUCN-LC	IUCN-LC	NA	NA	NA
+285	흰배뜸부기	드묾	4	나그네새	두루미목	뜸부기과	White-breasted Waterhen	ORDER GRUIFORMES	Family Rallidae	Amaurornis phoenicurus	ORDER GRUIFORMES	Family Rallidae	IUCN-LC	NA	NA	NA	NA
+435	알락뜸부기	아주드묾	5	나그네새	두루미목	뜸부기과	Swinhoe's Crake[Swinhoe's Yelloe Rail]	ORDER GRUIFORMES	Family Rallidae	Coturnicops exquisitus	ORDER GRUIFORMES	Family Rallidae	IUCN-VU	IUCN-LC	NA	NA	NA
+339	느시	아주드묾	5	겨울철새	두루미목	느시과	Great Bustard	ORDER GRUIFORMES	Family Otididae	Otis tarda	ORDER GRUIFORMES	Family Otididae	멸종위기-멸종위기 2급천연기념물-제206호IUCN-VUCITES-CITES 2급	IUCN-LC	NA	NA	NA
+174	캐나다두루미	매우드묾	6	미조	두루미목	두루미과	Sandhill Crane	ORDER GRUIFORMES	Family Gruidae	Grus canadensis	ORDER GRUIFORMES	Family Gruidae	IUCN-LCCITES-CITES1급	IUCN-LC	NA	NA	NA
+433	쇠재두루미	희귀	7	미조	두루미목	두루미과	Demoiselle Crane	ORDER GRUIFORMES	Family Gruidae	Anthropoides virgo	ORDER GRUIFORMES	Family Gruidae	IUCN-LC	IUCN-LC	NA	NA	NA
+191	두루미	희귀	7	겨울철새	두루미목	두루미과	Red-crowned Crane[Manchurian Crane]	ORDER GRUIFORMES	Family Gruidae	Grus japonensis	ORDER GRUIFORMES	Family Gruidae	멸종위기-멸종위기1급천연기념물-제202호IUCN-ENCITES-CITES1급	IUCN-LC	NA	NA	NA
+204	쇠뜸부기사촌	희귀	7	여름철새	두루미목	뜸부기과	Ruddy-breasted Crake[Ruddy Crake]	ORDER GRUIFORMES	Family Rallidae	Porzana fusca	ORDER GRUIFORMES	Family Rallidae	IUCN-LC	NA	NA	NA	NA
+436	한국뜸부기	희귀	7	나그네새	두루미목	뜸부기과	Band-bellied Crake[Siberian Ruddy Crake]	ORDER GRUIFORMES	Family Rallidae	Porzana paykullii	ORDER GRUIFORMES	Family Rallidae	IUCN-NT	IUCN-NT	NA	NA	NA
+142	쇠딱다구리	아주흔함	1	텃새	딱다구리목	딱다구리과	Japanese Pigmy Woodpecker	ORDER PICIFORMES	Family Picidae	Dendrocopos? kizuki	ORDER PICIFORMES	Family Picidae	IUCN-LC	NA	NA	NA	NA
+44	오색딱다구리	흔함	2	텃새	딱다구리목	딱다구리과	Great Spotted Woodpeaker	ORDER PICIFORMES	Family Picidae	Dendrocopos major	ORDER PICIFORMES	Family Picidae	nan	IUCN-LC	NA	NA	NA
+186	큰오색딱다구리	흔함	2	텃새	딱다구리목	딱다구리과	White-backed Woodpecker	ORDER PICIFORMES	Family Picidae	Dendrocopos leucotos	ORDER PICIFORMES	Family Picidae	IUCN-LC	IUCN-LC	NA	NA	NA
+167	청딱다구리	흔함	2	텃새	딱다구리목	딱다구리과	Grey-headed Woodpecker	ORDER PICIFORMES	Family Picidae	Picus canus	ORDER PICIFORMES	Family Picidae	IUCN-LC	NA	NA	NA	NA
+313	까막딱다구리	흔하지않음	3	텃새	딱다구리목	딱다구리과	Black Woodpecker	ORDER PICIFORMES	Family Picidae	Dryocopus martius	ORDER PICIFORMES	Family Picidae	멸종위기-멸종위기2급천연기념물-제242호IUCN-LC	IUCN-EN	NA	NA	1
+128	붉은배오색딱다구리	드묾	4	텃새	딱다구리목	딱다구리과	Rufous-bellied Woodpecker	ORDER PICIFORMES	Family Picidae	Dendrocopos hyperythrus[Hypopicus hyperythrus]	ORDER PICIFORMES	Family Picidae	nan	NA	NA	NA	NA
+16	아물쇠딱다구리	드묾	4	텃새	딱다구리목	딱다구리과	Grey-capped Pygmy Woodpecker	ORDER PICIFORMES	Family Picidae	Dendrocopos canicapillus	ORDER PICIFORMES	Family Picidae	nan	IUCN-LC	NA	NA	NA
+502	개미잡이	드묾	4	나그네새	딱다구리목	딱다구리과	Wryneck	ORDER PICIFORMES	Family Picidae	Jynx torquilla	ORDER PICIFORMES	Family Picidae	IUCN-LC	IUCN-LC	NA	NA	NA
+177	크낙새	매우드묾	6	텃새	딱다구리목	딱다구리과	White-bellied Woodpecker	ORDER PICIFORMES	Family Picidae	Dryocopus javensis richardsi	ORDER PICIFORMES	Family Picidae	멸종위기-멸종위기1급천연기념물-제197호IUCN-LCCITES-CITES1급	NA	NA	NA	NA
+503	쇠오색딱다구리	.	8	미조	딱다구리목	딱다구리과	Lesser Spotted Woodpecker	ORDER PICIFORMES	Family Picidae	Dendrocopos minor	ORDER PICIFORMES	Family Picidae	IUCN-LC	IUCN-LC	NA	NA	NA
+504	세가락딱다구리	.	8	미조	딱다구리목	딱다구리과	Three-toed Woodpecker	ORDER PICIFORMES	Family Picidae	Picoides tridactylus	ORDER PICIFORMES	Family Picidae	nan	IUCN-LC	NA	NA	NA
+127	붉은배새매	흔함	2	여름철새	매목	수리과	Chinese Sparrowhawk[Grey Frog Hawk]	ORDER FALCONIFORMES	Family Accipitridae	Accipiter soloensis	ORDER FALCONIFORMES	Family Accipitridae	천연기념물-제323-2호IUCN-LCCITES-CITES2급	IUCN-LC	NA	NA	NA
+94	말똥가리	흔함	2	겨울철새	매목	수리과	Common Buzzard[Buzzard	ORDER FALCONIFORMES	Family Accipitridae	Buteo buteo	ORDER FALCONIFORMES	Family Accipitridae	멸종위기-멸종위기2급IUCN-LCCITES-CITES2급	IUCN-LC	NA	NA	NA
+249	황조롱이	흔함	2	텃새	매목	매과	Common Kestrel[Kestrel]	ORDER FALCONIFORMES	Family Falconidae	Falco tinnunculus	ORDER FALCONIFORMES	Family Falconidae	천연기념물-제323-9호IUCN-LCCITES-CITES2급	IUCN-LC	CITES-2	NA	NA
+158	새홀리기[새호리기]	흔함	2	여름철새	매목	매과	Eurasian Hobby[Hobby	ORDER FALCONIFORMES	Family Falconidae	Falco subbuteo	ORDER FALCONIFORMES	Family Falconidae	멸종위기-멸종위기2급IUCN-LCCITES-CITES2급	IUCN-LC	NA	NA	NA
+356	큰말똥가리	흔하지않음	3	겨울철새	매목	수리과	Upland Buzzard	ORDER FALCONIFORMES	Family Accipitridae	Buteo hemilasius	ORDER FALCONIFORMES	Family Accipitridae	IUCN-LC멸종위기-멸종위기2급CITES-CITES 2급	NA	NA	NA	NA
+155	새매	흔하지않음	3	텃새	매목	수리과	Eurasian Sparrowhawk[Sparrowhawk	ORDER FALCONIFORMES	Family Accipitridae	Accipiter nisus	ORDER FALCONIFORMES	Family Accipitridae	천연기념물-제232-4호IUCN-LCCITES-CITES2급	IUCN-LC	NA	NA	NA
+251	흰꼬리수리	흔하지않음	3	겨울철새	매목	수리과	White-tailed Sea Eagle	ORDER FALCONIFORMES	Family Accipitridae	Haliaeetus albicilla	ORDER FALCONIFORMES	Family Accipitridae	멸종위기-멸종위기1급천연기념물-제243-4호IUCN-LCCITES-CITES1급	NA	NA	NA	NA
+293	벌매	흔하지않음	3	나그네새	매목	수리과	Oriental Honey Buzzard[Honey Buzzard]	ORDER FALCONIFORMES	Family Accipitridae	Pernis ptilorhyncus	ORDER FALCONIFORMES	Family Accipitridae	멸종위기-멸종위기2급IUCN-LCCITES-CITES2급	IUCN-LC	NA	NA	NA
+95	매	흔하지않음	3	텃새	매목	매과	Peregrine Falcon	ORDER FALCONIFORMES	Family Falconidae	Falco peregrinus	ORDER FALCONIFORMES	Family Falconidae	멸종위기-멸종위기1급천연기념물-제323-7호IUCN-LCCITES-CITES1급	IUCN-LC	NA	NA	NA
+107	물수리	흔하지않음	3	나그네새	매목	물수리과	Osprey	ORDER FALCONIFORMES	Family Pandionidae	Pandion haliaetus	ORDER FALCONIFORMES	Family Pandionidae	멸종위기-멸종위기2급IUCN-LCCITES-CITES2급	NA	NA	NA	NA
+160	참매	드묾	4	겨울철새	매목	수리과	Northern Goshawk[Goshawk]	ORDER FALCONIFORMES	Family Accipitridae	Accipiter gentilis	ORDER FALCONIFORMES	Family Accipitridae	멸종위기-멸종위기2급천연기념물-제323-1호IUCN-LC	IUCN-LC	NA	NA	NA
+357	흰죽지수리	드묾	4	겨울철새	매목	수리과	Eastern Imperial Eagle[Imperial Eagle]	ORDER FALCONIFORMES	Family Accipitridae	Aquila heliaca	ORDER FALCONIFORMES	Family Accipitridae	멸종위기-멸종위기 2급IUCN-VUCITES-CITES 1급	IUCN-LC	NA	NA	NA
+141	조롱이	드묾	4	텃새	매목	수리과	Japanese Sparrowhawk[Japanese Lesser Sparrowhawk]	ORDER FALCONIFORMES	Family Accipitridae	Accipiter gularis	ORDER FALCONIFORMES	Family Accipitridae	멸종위기-멸종위기2급IUCN-LC	IUCN-LC	NA	NA	NA
+162	참수리	드묾	4	겨울철새	매목	수리과	Steller's Sea Eagle	ORDER FALCONIFORMES	Family Accipitridae	Haliaeetus pelagicus	ORDER FALCONIFORMES	Family Accipitridae	멸종위기-멸종위기1급천연기념물-제243-3호IUCN-VUCITES-CITES2급	IUCN-LC	NA	NA	NA
+201	항라머리검독수리	드묾	4	겨울철새	매목	수리과	Greater Spotted Eagle[Spotted Eagle]	ORDER FALCONIFORMES	Family Accipitridae	Aquila clanga	ORDER FALCONIFORMES	Family Accipitridae	멸종위기-멸종위기2급IUCN-VUCITES-CITES2급	IUCN-NT	NA	NA	NA
+387	알락개구리매	드묾	4	나그네새	매목	수리과	Pied Harrier	ORDER FALCONIFORMES	Family Accipitridae	Circus melanoleucos	ORDER FALCONIFORMES	Family Accipitridae	멸종위기-멸종위기2급천연기념물-제323-5호IUCN-LCCITES-CITES2급	IUCN-LC	NA	NA	NA
+168	솔개	드묾	4	겨울철새	매목	수리과	Black Kite	ORDER FALCONIFORMES	Family Accipitridae	Milvus migrans	ORDER FALCONIFORMES	Family Accipitridae	멸종위기-멸종위기2급CITES-CITES2급	IUCN-LC	NA	NA	NA
+258	개구리매	드묾	4	나그네새	매목	수리과	Eastern Marsh Harrier	ORDER FALCONIFORMES	Family Accipitridae	Circus spilonotus	ORDER FALCONIFORMES	Family Accipitridae	멸종위기-멸종위기2급천연기념물-제232-3호	NA	NA	NA	NA
+48	왕새매	드묾	4	나그네새	매목	수리과	Grey-faced Buzzard	ORDER FALCONIFORMES	Family Accipitridae	Butastur indicus	ORDER FALCONIFORMES	Family Accipitridae	nan	IUCN-LC	NA	NA	NA
+427	검독수리	드묾	4	겨울철새	매목	수리과	Golden Eagle	ORDER FALCONIFORMES	Family Accipitridae	Aquila chrysaetos	ORDER FALCONIFORMES	Family Accipitridae	멸종위기-멸종위기1급천연기념물-제243-2호IUCN-LCCITES-CITES2급	IUCN-LC	NA	NA	NA
+346	털발말똥가리	드묾	4	겨울철새	매목	수리과	Rough-legged Buzzard	ORDER FALCONIFORMES	Family Accipitridae	Buteo lagopus menzbieri	ORDER FALCONIFORMES	Family Accipitridae	IUCN-LC멸종위기-멸종위기2급CITES-CITES 2급	NA	NA	NA	NA
+129	잿빛개구리매	드묾	4	겨울철새	매목	수리과	Hen Harrier	ORDER FALCONIFORMES	Family Accipitridae	Circus cyaneus	ORDER FALCONIFORMES	Family Accipitridae	멸종위기-멸종위기2급천연기념물-제323호IUCN-LCCITES-CITES2급	IUCN-LC	NA	NA	NA
+226	쇠황조롱이	드묾	4	겨울철새	매목	매과	Merlin	ORDER FALCONIFORMES	Family Falconidae	Falco columbarius	ORDER FALCONIFORMES	Family Falconidae	멸종위기-멸종위기2급IUCN-LCCITES-CITES2급	NA	NA	NA	NA
+140	비둘기조롱이	드묾	4	나그네새	매목	매과	Amur Falcon[Red-footed Falcon]	ORDER FALCONIFORMES	Family Falconidae	Falco amurensis	ORDER FALCONIFORMES	Family Falconidae	멸종위기-멸종위기2급IUCN-LCCITES-CITES2급	NA	NA	NA	NA
+425	관수리	아주드묾	5	미조	매목	수리과	Crested Serpent Eagle	ORDER FALCONIFORMES	Family Accipitridae	Spilornis cheela	ORDER FALCONIFORMES	Family Accipitridae	nan	NA	NA	NA	NA
+426	초원수리	아주드묾	5	미조	매목	수리과	Steppe Eagle	ORDER FALCONIFORMES	Family Accipitridae	Aquila nipalensis	ORDER FALCONIFORMES	Family Accipitridae	nan	IUCN-LC	NA	NA	NA
+431	헨다손매	매우드묾	6	미조	매목	매과	Saker Falcon	ORDER FALCONIFORMES	Family Falconidae	Falco cherrug	ORDER FALCONIFORMES	Family Falconidae	CITES-CITES 2급	IUCN-VU	CITES-1	NA	2
+428	흰배줄무늬수리(가칭)	희귀	7	미조	매목	수리과	Bonelli's Eagle	ORDER FALCONIFORMES	Family Accipitridae	Aquila fasciatus [Hieraaetus fasciatus]	ORDER FALCONIFORMES	Family Accipitridae	IUCN-LC	NA	NA	NA	NA
+422	검은뿔작은매(가칭)	희귀	7	미조	매목	수리과	Black Baza	ORDER FALCONIFORMES	Family Accipitridae	Aviceda leuphotes	ORDER FALCONIFORMES	Family Accipitridae	IUCN-LC	IUCN-LC	NA	NA	NA
+424	고산대머리수리(가칭)	희귀	7	미조	매목	수리과	Himalayan Griffon	ORDER FALCONIFORMES	Family Accipitridae	Gyps himalayensis	ORDER FALCONIFORMES	Family Accipitridae	IUCN-LC	IUCN-LC	NA	NA	NA
+430	뿔매	희귀	7	미조	매목	수리과	Hodgson's Hawk Eagle[Mountain Hawk Eagle]	ORDER FALCONIFORMES	Family Accipitridae	Spizaetus nipalensis	ORDER FALCONIFORMES	Family Accipitridae	nan	IUCN-LC	NA	NA	NA
+429	흰점어깨수리(가칭)	희귀	7	미조	매목	수리과	Booted Eagle	ORDER FALCONIFORMES	Family Accipitridae	Aquila pennatus [Hieraaetus pennatus]	ORDER FALCONIFORMES	Family Accipitridae	IUCN-LC	IUCN-LC	NA	NA	NA
+423	수염수리	.	8	미조	매목	수리과	Bearded Vulture[Lammergeier]	ORDER FALCONIFORMES	Family Accipitridae	Gypaetus barbatus	ORDER FALCONIFORMES	Family Accipitridae	nan	IUCN-LC	NA	NA	NA
+82	독수리	국지적으로흔함	50	겨울철새	매목	수리과	Cinereous Vulture [Black Vulture]	ORDER FALCONIFORMES	Family Accipitridae	Aegypius monachus	ORDER FALCONIFORMES	Family Accipitridae	멸종위기-멸종위기2급천연기념물-제243-1호IUCN-NTCITES-CITES2급	NA	NA	NA	NA
+284	멧비둘기	아주흔함	1	텃새	비둘기목	비둘기과	Oriental Turtle Dove[Rufous Turtle Dove]	ORDER COLUMBIFORMES	Family Columbidae	Streptopelia orientalis	ORDER COLUMBIFORMES	Family Columbidae	IUCN-LC	IUCN-LC	NA	NA	NA
+488	녹색비둘기	드묾	4	미조	비둘기목	비둘기과	White-billied Green Pigeon	ORDER COLUMBIFORMES	Family Columbidae	Treron sieboldii	ORDER COLUMBIFORMES	Family Columbidae	IUCN-LC	IUCN-LC	NA	NA	NA
+486	홍비둘기	드묾	4	나그네새	비둘기목	비둘기과	Red-collared Dove	ORDER COLUMBIFORMES	Family Columbidae	Streptopelia tranquebarica	ORDER COLUMBIFORMES	Family Columbidae	nan	NA	NA	NA	NA
+295	흑비둘기	드묾	4	텃새	비둘기목	비둘기과	Black Wood Pigeon[Japanese Wood Pigeon]	ORDER COLUMBIFORMES	Family Columbidae	Columba janthina	ORDER COLUMBIFORMES	Family Columbidae	천연기념물-제215호IUCN-NT	IUCN-LC	NA	NA	NA
+485	염주비둘기	매우드묾	6	텃새	비둘기목	비둘기과	Eurasian Collared Dove[Collared Turtle Dove]	ORDER COLUMBIFORMES	Family Columbidae	Streptopelia decaocto	ORDER COLUMBIFORMES	Family Columbidae	IUCN-LC	IUCN-VU	NA	NA	2
+289	양비둘기	매우드묾	6	텃새	비둘기목	비둘기과	Hill Dove	ORDER COLUMBIFORMES	Family Columbidae	Columba rupestris	ORDER COLUMBIFORMES	Family Columbidae	IUCN-LC	IUCN-LC	NA	NA	NA
+483	사막꿩	희귀	7	미조	비둘기목	사막꿩과	Pallas's Sandgrouse	ORDER COLUMBIFORMES	Family Pteroclidae	Syrrhaptes paradoxus	ORDER COLUMBIFORMES	Family Pteroclidae	IUCN-LC	IUCN-LC	NA	NA	NA
+487	목점박이비둘기(가칭)	희귀	7	미조	비둘기목	비둘기과	Spotted Dove	ORDER COLUMBIFORMES	Family Columbidae	Streptopelia chinensis	ORDER COLUMBIFORMES	Family Columbidae	IUCN-LC	NA	NA	NA	NA
+484	분홍가슴비둘기	희귀	7	미조	비둘기목	비둘기과	Stock Dove[Stock Pigeon]	ORDER COLUMBIFORMES	Family Columbidae	Columba oenas	ORDER COLUMBIFORMES	Family Columbidae	nan	NA	NA	NA	NA
+12	가마우지	흔함	2	겨울철새	사다새목	가마우지과	Temminck’s Cormorant	ORDER PELECANIFORMES	Family Phalacrocoracidae	Phalacrocorax capillatus	ORDER PELECANIFORMES	Family Phalacrocoracidae	IUCN-LC	IUCN-LC	NA	NA	NA
+183	쇠가마우지	흔함	2	겨울철새	사다새목	가마우지과	Pelagic Cormorant	ORDER PELECANIFORMES	Family Phalacrocoracidae	Phalacrocorax pelagicus	ORDER PELECANIFORMES	Family Phalacrocoracidae	멸종위기-멸종위기2급IUCN-LC	IUCN-LC	NA	NA	NA
+108	민물가마우지	흔함	2	겨울철새	사다새목	가마우지과	Great Cormorant[Common Cormorant]	ORDER PELECANIFORMES	Family Phalacrocoracidae	Phalacrocorax carbo	ORDER PELECANIFORMES	Family Phalacrocoracidae	IUCN-LC	IUCN-LC	NA	NA	NA
+342	사다새	아주드묾	5	미조	사다새목	사다새과	Dalmatian Pelican[Spot-billed Pelican]	ORDER PELECANIFORMES	Family Pelecanidae	Pelecanus crispus	ORDER PELECANIFORMES	Family Pelecanidae	CITES-CITES 1급	NA	NA	NA	NA
+400	군함조	아주드묾	5	미조	사다새목	군함조과	Lesser Frigatebird	ORDER PELECANIFORMES	Family Fregatidae	Fregata ariel	ORDER PELECANIFORMES	Family Fregatidae	IUCN-LC	IUCN-VU	NA	NA	NA
+399	큰군함조(가칭)	매우드묾	6	미조	사다새목	군함조과	Great Frigatebird	ORDER PELECANIFORMES	Family Fregatidae	Fregata minor	ORDER PELECANIFORMES	Family Fregatidae	IUCN-LC	IUCN-NT	NA	NA	NA
+397	갈색얼가니새	희귀	7	미조	사다새목	얼가니새과	Brown Booby	ORDER PELECANIFORMES	Family Sulidae	Sula leucogaster	ORDER PELECANIFORMES	Family Sulidae	nan	IUCN-LC	NA	NA	NA
+396	푸른얼굴얼가니새	희귀	7	미조	사다새목	얼가니새과	Masked Booby[Blue-faced Booby]	ORDER PELECANIFORMES	Family Sulidae	Sula dactylatra	ORDER PELECANIFORMES	Family Sulidae	nan	IUCN-LC	NA	NA	NA
+398	붉은뺨가마우지	북한에서의관찰기록만있음	40	미조	사다새목	가마우지과	Red-faced Cormorant	ORDER PELECANIFORMES	Family Phalacrocoracidae	Phalacrocorax urile	ORDER PELECANIFORMES	Family Phalacrocoracidae	IUCN-LC	IUCN-LC	NA	NA	NA
+394	붉은발슴새	드묾	4	나그네새	슴새목	슴새과	Flesh-footed Shearwater[Pale-footed Shearwater]	ORDER PROCELLARIIFORMES	Family Procellaridae	Puffinus carneipes	ORDER PROCELLARIIFORMES	Family Procellaridae	IUCN-LC	IUCN-LC	NA	NA	NA
+393	슴새	드묾	4	여름철새	슴새목	슴새과	Streaked Shearwater[White-faced Shearwater]	ORDER PROCELLARIIFORMES	Family Procellaridae	Calonectris leucomelas	ORDER PROCELLARIIFORMES	Family Procellaridae	IUCN-LC	IUCN-LC	NA	NA	NA
+395	쇠부리슴새	아주드묾	5	나그네새	슴새목	슴새과	Short-tailed Shearwater[Slender-billed Shearwater]	ORDER PROCELLARIIFORMES	Family Procellaridae	Puffinus tenuirostris	ORDER PROCELLARIIFORMES	Family Procellaridae	IUCN-LC	IUCN-LC	NA	NA	NA
+391	알바트로스	희귀	7	미조	슴새목	알바트로스과	Short-tailed Albatross	ORDER PROCELLARIIFORMES	Family Diomedeidae	Phoebastria albatrus	ORDER PROCELLARIIFORMES	Family Diomedeidae	IUCN-VU	IUCN-LC	NA	NA	NA
+392	흰배슴새	희귀	7	미조	슴새목	슴새과	Bonin Petrel	ORDER PROCELLARIIFORMES	Family Procellaridae	Pterodroma hypoleuca	ORDER PROCELLARIIFORMES	Family Procellaridae	IUCN-LC	IUCN-LC	NA	NA	NA
+290	바다제비	국지적으로흔함	50	여름철새	슴새목	바다제비과	Swinhoe's Storm Petrel	ORDER PROCELLARIIFORMES	Family Hydrobatidae	Oceanodroma monorhis	ORDER PROCELLARIIFORMES	Family Hydrobatidae	IUCN-LC	IUCN-LC	NA	NA	NA
+379	쏙독새	흔함	2	여름철새	쏙독새목	쏙독새과	Grey Nightjar[Jungle Nightjar]	ORDER CAPRIMULGIFORMES	Family Caprimulgidae	Caprimulgus indicus	ORDER CAPRIMULGIFORMES	Family Caprimulgidae	IUCN-LC	NA	NA	NA	NA
+59	아비	흔하지않음	3	겨울철새	아비목	아비과	Red-throated Diver[Red-throated Loon]	ORDER GAVIIFORMES	Family Gaviidae	Gavia stellata	ORDER GAVIIFORMES	Family Gaviidae	nan	IUCN-NT	NA	TRUE	NA
+198	큰회색머리아비	드묾	4	겨울철새	아비목	아비과	Arctic Diver[Black-throated Diver]	ORDER GAVIIFORMES	Family Gaviidae	Gavia arctica	ORDER GAVIIFORMES	Family Gaviidae	IUCN-LC	IUCN-LC	NA	NA	NA
+389	회색머리아비	드묾	4	겨울철새	아비목	아비과	Pacific Diver[Pacific Loon]	ORDER GAVIIFORMES	Family Gaviidae	Gavia pacifica	ORDER GAVIIFORMES	Family Gaviidae	IUCN-LC	IUCN-LC	NA	NA	NA
+302	흰부리아비	아주드묾	5	겨울철새	아비목	아비과	White-billed Diver[Yellow-billed Loon]	ORDER GAVIIFORMES	Family Gaviidae	Gavia adamsii	ORDER GAVIIFORMES	Family Gaviidae	IUCN-LC	IUCN-LC	NA	NA	NA
+349	소쩍새	흔함	2	여름철새	올빼미목	올빼미과	Oriental Scops Owl	ORDER STRIGIFORMES	Family Strigidae	Otus sunia stictonotus	ORDER STRIGIFORMES	Family Strigidae	천연기념물-제324-6호IUCN-LCCITES-CITES 2급	IUCN-LC	NA	NA	NA
+300	쇠부엉이	흔함	2	겨울철새	올빼미목	올빼미과	Short-eared Owl	ORDER STRIGIFORMES	Family Strigidae	Asio flammeus	ORDER STRIGIFORMES	Family Strigidae	천연기념물-제324-4호IUCN-LCCITES-CITES2급	NA	NA	NA	NA
+369	솔부엉이	흔함	2	여름철새	올빼미목	올빼미과	Brown Hawk Owl	ORDER STRIGIFORMES	Family Strigidae	Ninox scutulata	ORDER STRIGIFORMES	Family Strigidae	천연기념물-제324-3호IUCN-LCCITES-CITES 2급	IUCN-LC	NA	TRUE	NA
+347	칡부엉이	흔하지않음	3	겨울철새	올빼미목	올빼미과	Long-eared Owl	ORDER STRIGIFORMES	Family Strigidae	Asio otus	ORDER STRIGIFORMES	Family Strigidae	천연기념물-제324-5호IUCN-LCCITES-CITES 2급	IUCN-LC	NA	NA	NA
+337	수리부엉이	흔하지않음	3	텃새	올빼미목	올빼미과	Eurasian Eagle Owl[Eagle Owl]	ORDER STRIGIFORMES	Family Strigidae	Bubo bubo	ORDER STRIGIFORMES	Family Strigidae	멸종위기-멸종위기2급천연기념물-제324-2호IUCN-LCCITES-CITES2급	NA	NA	NA	NA
+495	큰소쩍새	흔하지않음	3	텃새	올빼미목	올빼미과	Collared Scops Owl	ORDER STRIGIFORMES	Family Strigidae	Otus (bakkamoena) lettia	ORDER STRIGIFORMES	Family Strigidae	천연기념물-제324-7호IUCN-LCCITES-CITES 2급	IUCN-LC	NA	NA	NA
+368	금눈쇠올빼미	드묾	4	겨울철새	올빼미목	올빼미과	Little Owl[Eastern Little Owl]	ORDER STRIGIFORMES	Family Strigidae	Athene noctua	ORDER STRIGIFORMES	Family Strigidae	IUCN-LCCITES-CITES 2급	NA	NA	NA	NA
+494	가면올빼미(가칭)	희귀	7	미조	올빼미목	가면올빼미과	Eastern Grass Owl	ORDER STRIGIFORMES	Family Tytonidae	Tyto longimembris	ORDER STRIGIFORMES	Family Tytonidae	IUCN-LC	IUCN-LC	NA	NA	NA
+380	올빼미	희귀	7	텃새	올빼미목	올빼미과	Tawny Owl[Korean Wood Owl]	ORDER STRIGIFORMES	Family Strigidae	Strix aluco	ORDER STRIGIFORMES	Family Strigidae	멸종위기-멸종위기 2급천연기념물-제324-1호IUCN-LCCITES-CITES 2급	IUCN-LC	NA	NA	NA
+496	흰올빼미	희귀	7	미조	올빼미목	올빼미과	Snowy Owl	ORDER STRIGIFORMES	Family Strigidae	Bubo scandiacus [Nyctea scandiaca]	ORDER STRIGIFORMES	Family Strigidae	IUCN-LC	IUCN-LC	NA	NA	NA
+497	긴점박이올빼미	희귀	7	미조	올빼미목	올빼미과	Ural Owl	ORDER STRIGIFORMES	Family Strigidae	Strix uralensis	ORDER STRIGIFORMES	Family Strigidae	멸종위기-멸종위기 2급IUCN-LCCITES-CITES 2급	IUCN-LC	NA	NA	NA
+498	긴꼬리올빼미	.	8	미조	올빼미목	올빼미과	Northern Hawk Owl	ORDER STRIGIFORMES	Family Strigidae	Surnia ulula	ORDER STRIGIFORMES	Family Strigidae	nan	NA	NA	NA	NA
+157	종다리	아주흔함	1	텃새	참새목	종다리과	Eurasian Skylark[Northern Skylark]	ORDER PASSERIFORMES	Family Alaudidae	Alauda arvensis	ORDER PASSERIFORMES	Family Alaudidae	IUCN-LC	IUCN-LC	NA	NA	NA
+154	직박구리	아주흔함	1	텃새	참새목	직박구리과	Brown-eared Bulbul	ORDER PASSERIFORMES	Family Pycnonotidae	Ixos amaurotis[Microscelis amaurotis]	ORDER PASSERIFORMES	Family Pycnonotidae	IUCN-LC	IUCN-LC	CITES-2	TRUE	2
+161	참새	아주흔함	1	텃새	참새목	참새과	Eurasian Tree Sparrow[Tree Sparrow]	ORDER PASSERIFORMES	Family Passeridae	Passer montanus	ORDER PASSERIFORMES	Family Passeridae	IUCN-LC	IUCN-LC	CITES-2	TRUE	NA
+70	까치	아주흔함	1	텃새	참새목	까마귀과	Black-billed Magpie[Magpie]	ORDER PASSERIFORMES	Family Corvidae	Pica pica	ORDER PASSERIFORMES	Family Corvidae	nan	IUCN-LC	CITES-2	TRUE	NA
+215	제비	흔함	2	여름철새	참새목	제비과	Barn Swallow [House Swallow]	ORDER PASSERIFORMES	Family Hirundinidae	Hirundo rustica	ORDER PASSERIFORMES	Family Hirundinidae	IUCN-LC	IUCN-LC	NA	NA	NA
+324	귀제비	흔함	2	여름철새	참새목	제비과	Red-rumped Swallow	ORDER PASSERIFORMES	Family Hirundinidae	Cecropis daurica	ORDER PASSERIFORMES	Family Hirundinidae	IUCN-LC	IUCN-LC	CITES-2	NA	NA
+115	밭종다리	흔함	2	나그네새	참새목	할미새과	Siberian Buff-bellied Pipit[Water Pipit]	ORDER PASSERIFORMES	Family Motacillidae	Anthus rubescens	ORDER PASSERIFORMES	Family Motacillidae	nan	IUCN-LC	CITES-2	NA	2
+36	알락할미새	흔함	2	여름철새	참새목	할미새과	White Wagtail[White (-faced Pied) Wagtail]	ORDER PASSERIFORMES	Family Motacillidae	Motacilla alba	ORDER PASSERIFORMES	Family Motacillidae	nan	IUCN-LC	CITES-2	TRUE	2
+197	힝둥새	흔함	2	나그네새	참새목	할미새과	Olive-backed Pipit	ORDER PASSERIFORMES	Family Motacillidae	Anthus hodgsoni	ORDER PASSERIFORMES	Family Motacillidae	IUCN-LC	IUCN-LC	CITES-2	TRUE	NA
+116	백할미새	흔함	2	겨울철새	참새목	할미새과	Black-backed Wagtail	ORDER PASSERIFORMES	Family Motacillidae	Motacilla lugens	ORDER PASSERIFORMES	Family Motacillidae	nan	IUCN-LC	CITES-2	TRUE	NA
+90	때까치	흔함	2	텃새	참새목	때까치과	Bull-headed Shrike	ORDER PASSERIFORMES	Family Laniidae	Lanius bucephalus	ORDER PASSERIFORMES	Family Laniidae	IUCN-LC	IUCN-LC	CITES-2	TRUE	NA
+40	노랑때까치-노랑때까치[아종]	흔함	2	여름철새	참새목	때까치과	Brown Shrike	ORDER PASSERIFORMES	Family Laniidae	Lanius cristatus lucionensis	ORDER PASSERIFORMES	Family Laniidae	nan	NA	NA	NA	NA
+102	물까마귀	흔함	2	텃새	참새목	물까마귀과	Brown Dipper	ORDER PASSERIFORMES	Family Cinclidae	Cinclus pallasii	ORDER PASSERIFORMES	Family Cinclidae	IUCN-LC	IUCN-LC	NA	NA	NA
+248	굴뚝새	흔함	2	텃새	참새목	굴뚝새과	Winter Wren[Wren]	ORDER PASSERIFORMES	Family Trogoldytidae	Troglodytes troglodytes	ORDER PASSERIFORMES	Family Trogoldytidae	IUCN-LC	IUCN-LC	NA	NA	NA
+100	멧종다리	흔함	2	겨울철새	참새목	바위종다리과	Siberian Accentor	ORDER PASSERIFORMES	Family Prunellidae	Prunella montanella	ORDER PASSERIFORMES	Family Prunellidae	IUCN-LC	IUCN-LC	NA	NA	NA
+110	바다직박구리	흔함	2	텃새	참새목	지빠귀과	Blue Rock thrush	ORDER PASSERIFORMES	Family Turdidae	Monticola solitarius	ORDER PASSERIFORMES	Family Turdidae	IUCN-LC	NA	NA	NA	NA
+52	노랑지빠귀-개똥지빠귀[아종]	흔함	2	겨울철새	참새목	지빠귀과	Dusky Thrush	ORDER PASSERIFORMES	Family Turdidae	Turdus naumanni eunomus	ORDER PASSERIFORMES	Family Turdidae	nan	IUCN-LC	NA	NA	NA
+49	호랑지빠귀	흔함	2	여름철새	참새목	지빠귀과	Scaly Thrush[White's Ground Thrush]	ORDER PASSERIFORMES	Family Turdidae	Zoothera dauma	ORDER PASSERIFORMES	Family Turdidae	nan	IUCN-LC	NA	NA	NA
+296	흰배지빠귀	흔함	2	여름철새	참새목	지빠귀과	Pale Thrush	ORDER PASSERIFORMES	Family Turdidae	Turdus pallidus	ORDER PASSERIFORMES	Family Turdidae	IUCN-LC	IUCN-LC	NA	NA	NA
+84	되지빠귀	흔함	2	나그네새	참새목	지빠귀과	Grey-backed Thrush	ORDER PASSERIFORMES	Family Turdidae	Turdus hortulorum	ORDER PASSERIFORMES	Family Turdidae	IUCN-LC	IUCN-LC	NA	NA	NA
+61	노랑지빠귀-노랑지빠귀[아종]	흔함	2	겨울철새	참새목	지빠귀과	Naumann's Thrush	ORDER PASSERIFORMES	Family Turdidae	Turdus naumanni naumanni	ORDER PASSERIFORMES	Family Turdidae	nan	IUCN-LC	NA	NA	NA
+243	개개비사촌	흔함	2	여름철새	참새목	개개비사촌과	Fan-tailed Warbler	ORDER PASSERIFORMES	Family Cisticolidae	Cisticola juncidis	ORDER PASSERIFORMES	Family Cisticolidae	IUCN-LC	IUCN-LC	NA	NA	NA
+125	붉은머리오목눈이	흔함	2	텃새	참새목	붉은머리오목눈이과	Vinous-throated Parrotbill	ORDER PASSERIFORMES	Family Panuridae[Family TimaliiDae]	Paradoxornis webbianus	ORDER PASSERIFORMES	Family Panuridae[Family TimaliiDae]	IUCN-LC	NA	NA	NA	NA
+30	노랑눈썹솔새	흔함	2	나그네새	참새목	휘파람새과	Yellow-browed Wabler	ORDER PASSERIFORMES	Family Sylviidae	Phylloscopus inornatus	ORDER PASSERIFORMES	Family Sylviidae	nan	NA	NA	NA	NA
+148	산솔새	흔함	2	여름철새	참새목	휘파람새과	Eastern Crowned Willow Warbler	ORDER PASSERIFORMES	Family Sylviidae	Phylloscopus coronatus	ORDER PASSERIFORMES	Family Sylviidae	IUCN-LC	NA	NA	NA	NA
+257	휘파람새	흔함	2	여름철새	참새목	휘파람새과	Korean or Northern Bush Warbler[Bush Warbler]	ORDER PASSERIFORMES	Family Sylviidae	Cettia diphone	ORDER PASSERIFORMES	Family Sylviidae	IUCN-LC	IUCN-LC	NA	TRUE	2
+245	개개비	흔함	2	여름철새	참새목	휘파람새과	Oriental Reed Warbler[Great Reed Warbler]	ORDER PASSERIFORMES	Family Sylviidae	Acrocephalus orientalis	ORDER PASSERIFORMES	Family Sylviidae	nan	IUCN-LC	NA	NA	NA
+378	숲새	흔함	2	여름철새	참새목	휘파람새과	Short-tailed Bush Warbler[Asian Stubtail]	ORDER PASSERIFORMES	Family Sylviidae	Cettia squameiceps	ORDER PASSERIFORMES	Family Sylviidae	IUCN-LC	NA	NA	NA	NA
+217	쇠솔새	흔함	2	나그네새	참새목	휘파람새과	Arctic Wabler	ORDER PASSERIFORMES	Family Sylviidae	Phylloscopus borealis borealis	ORDER PASSERIFORMES	Family Sylviidae	nan	IUCN-LC	NA	NA	NA
+153	상모솔새	흔함	2	겨울철새	참새목	상모솔새과	Goldcrest	ORDER PASSERIFORMES	Family Reguliidae	Regulus regulus	ORDER PASSERIFORMES	Family Reguliidae	IUCN-LC	IUCN-LC	NA	NA	NA
+247	검은딱새	흔함	2	여름철새	참새목	딱새과	Siberian Stonechat[Stonechat]	ORDER PASSERIFORMES	Family Muscicapidae	Saxicola maura	ORDER PASSERIFORMES	Family Muscicapidae	nan	IUCN-LC	NA	NA	NA
+216	쇠솔딱새	흔함	2	나그네새	참새목	딱새과	Asian Brown Flycatcher[Brown Flycatcher]	ORDER PASSERIFORMES	Family Muscicapidae	Muscicapa dauurica	ORDER PASSERIFORMES	Family Muscicapidae	IUCN-LC	IUCN-LC	NA	NA	NA
+89	딱새	흔함	2	텃새	참새목	딱새과	Daurian Redstart	ORDER PASSERIFORMES	Family Muscicapidae	Phoenicurus auroreus	ORDER PASSERIFORMES	Family Muscicapidae	IUCN-LC	IUCN-LC	CITES-1	TRUE	1
+68	유리딱새	흔함	2	나그네새	참새목	딱새과	Orange-flanked Bush Robin[Red-flanked Bluetail	ORDER PASSERIFORMES	Family Muscicapidae	Tarsiger cyanurus	ORDER PASSERIFORMES	Family Muscicapidae	nan	IUCN-VU	CITES-2	TRUE	2
+170	솔딱새	흔함	2	나그네새	참새목	딱새과	Dark-sided Flycatcher[Sooty Flycatcher]	ORDER PASSERIFORMES	Family Muscicapidae	Muscicapa sibirica	ORDER PASSERIFORMES	Family Muscicapidae	IUCN-LC	IUCN-LC	NA	NA	2
+192	큰유리새	흔함	2	여름철새	참새목	딱새과	Blue-and-White Flycatcher	ORDER PASSERIFORMES	Family Muscicapidae	Cyanoptila cyanomelana	ORDER PASSERIFORMES	Family Muscicapidae	nan	IUCN-LC	NA	NA	NA
+41	오목눈이	흔함	2	텃새	참새목	오목눈이과	Long-tailed Tit	ORDER PASSERIFORMES	Family Aegithalidae	Aegitalos caudatus	ORDER PASSERIFORMES	Family Aegithalidae	nan	IUCN-LC	NA	NA	NA
+208	쇠박새	흔함	2	텃새	참새목	박새과	Marsh Tit	ORDER PASSERIFORMES	Family Paridae	Parus palustris	ORDER PASSERIFORMES	Family Paridae	IUCN-LC	NA	NA	NA	NA
+65	곤줄박이	흔함	2	텃새	참새목	박새과	Varied Tit	ORDER PASSERIFORMES	Family Paridae	Sittiparus varius[Parus varius]	ORDER PASSERIFORMES	Family Paridae	nan	IUCN-LC	NA	NA	NA
+112	박새	흔함	2	텃새	참새목	박새과	Great Tit	ORDER PASSERIFORMES	Family Paridae	Parus major	ORDER PASSERIFORMES	Family Paridae	IUCN-LC	NA	NA	NA	NA
+156	진박새	흔함	2	텃새	참새목	박새과	Coal Tit	ORDER PASSERIFORMES	Family Paridae	Periparus ater[Parus ater]	ORDER PASSERIFORMES	Family Paridae	IUCN-LC	IUCN-LC	NA	NA	NA
+77	동고비	흔함	2	텃새	참새목	동고비과	Eurasian Nuthatch[Nuthatch]	ORDER PASSERIFORMES	Family Sittidae	Sitta europaea	ORDER PASSERIFORMES	Family Sittidae	nan	NA	NA	NA	NA
+202	동박새	흔함	2	텃새	참새목	동박새과	Japanese White-eye	ORDER PASSERIFORMES	Family Zosteropidae	Zosterops japonicus	ORDER PASSERIFORMES	Family Zosteropidae	IUCN-LC	IUCN-LC	NA	NA	NA
+122	북방검은머리쑥새	흔함	2	겨울철새	참새목	멧새과	Pallas's Reed Bunting	ORDER PASSERIFORMES	Family Emberizidae	Emberiza pallasi	ORDER PASSERIFORMES	Family Emberizidae	IUCN-LC	NA	NA	NA	NA
+230	쑥새	흔함	2	겨울철새	참새목	멧새과	Rustic Bunting	ORDER PASSERIFORMES	Family Emberizidae	Emberiza rustica	ORDER PASSERIFORMES	Family Emberizidae	IUCN-LC	IUCN-LC	NA	NA	NA
+171	촉새-촉새[아종]	흔함	2	나그네새	참새목	멧새과	Black-faced Bunting	ORDER PASSERIFORMES	Family Emberizidae	Emberiza spodocephala spodocephala	ORDER PASSERIFORMES	Family Emberizidae	IUCN-LC	IUCN-LC	NA	NA	NA
+291	흰배멧새	흔함	2	나그네새	참새목	멧새과	Tristram's Bunting	ORDER PASSERIFORMES	Family Emberizidae	Emberiza tristrami	ORDER PASSERIFORMES	Family Emberizidae	IUCN-LC	IUCN-LC	NA	NA	NA
+292	검은머리쑥새	흔함	2	겨울철새	참새목	멧새과	Common Reed Bunting[Reed Bunting]	ORDER PASSERIFORMES	Family Emberizidae	Emberiza schoeniclus	ORDER PASSERIFORMES	Family Emberizidae	IUCN-LC	IUCN-LC	NA	NA	NA
+99	멧새	흔함	2	텃새	참새목	멧새과	Meadow Bunting	ORDER PASSERIFORMES	Family Emberizidae	Emberiza cioides	ORDER PASSERIFORMES	Family Emberizidae	IUCN-LC	IUCN-LC	NA	NA	NA
+64	노랑턱멧새	흔함	2	텃새	참새목	멧새과	Yellow-throated Bunting	ORDER PASSERIFORMES	Family Emberizidae	Emberiza elegans	ORDER PASSERIFORMES	Family Emberizidae	nan	IUCN-LC	NA	NA	NA
+134	붉은뺨멧새	흔함	2	여름철새	참새목	멧새과	Chestnut-eared Bunting[Grey-headed Bunting]	ORDER PASSERIFORMES	Family Emberizidae	Emberiza fucata	ORDER PASSERIFORMES	Family Emberizidae	IUCN-LC	IUCN-LC	NA	NA	NA
+175	콩새	흔함	2	겨울철새	참새목	되새과	Hawfinch	ORDER PASSERIFORMES	Family Fringillidae	Coccothraustes coccothraustes	ORDER PASSERIFORMES	Family Fringillidae	IUCN-LC	IUCN-LC	NA	NA	NA
+114	방울새	흔함	2	텃새	참새목	되새과	Oriental Greenfinch[Grey-capped Greenfinch]	ORDER PASSERIFORMES	Family Fringillidae	Carduelis sinica	ORDER PASSERIFORMES	Family Fringillidae	IUCN-LC	IUCN-LC	NA	NA	NA
+83	되새	흔함	2	겨울철새	참새목	되새과	Brambling	ORDER PASSERIFORMES	Family Fringillidae	Fringilla montifringilla	ORDER PASSERIFORMES	Family Fringillidae	IUCN-LC	NA	NA	NA	NA
+308	긴꼬리홍양진이	흔함	2	겨울철새	참새목	되새과	Long-tailed RoseFinch	ORDER PASSERIFORMES	Family Fringillidae	Uragus sibiricus	ORDER PASSERIFORMES	Family Fringillidae	nan	NA	NA	NA	NA
+39	양진이	흔함	2	겨울철새	참새목	되새과	Pallas's RosyFinch	ORDER PASSERIFORMES	Family Fringillidae	Carpodacus roseus	ORDER PASSERIFORMES	Family Fringillidae	nan	IUCN-LC	NA	NA	NA
+283	검은머리방울새	흔함	2	겨울철새	참새목	되새과	Eurasian Siskin[Siskin]	ORDER PASSERIFORMES	Family Fringillidae	Carduelis spinus	ORDER PASSERIFORMES	Family Fringillidae	IUCN-LC	IUCN-LC	NA	NA	NA
+17	찌르레기	흔함	2	여름철새	참새목	찌르레기과	White-cheeked Starling[Grey Starling]	ORDER PASSERIFORMES	Family Sturnidae	Sturnus cineraceus	ORDER PASSERIFORMES	Family Sturnidae	nan	NA	NA	NA	NA
+45	꾀꼬리	흔함	2	여름철새	참새목	꾀꼬리과	Black-naped Oriole	ORDER PASSERIFORMES	Family Oriolidae	Oriolus chinensis	ORDER PASSERIFORMES	Family Oriolidae	nan	NA	NA	NA	NA
+152	어치	흔함	2	텃새	참새목	까마귀과	Eurasian Jay[Jay]	ORDER PASSERIFORMES	Family Corvidae	Garrulus glandarius	ORDER PASSERIFORMES	Family Corvidae	IUCN-LC	NA	NA	NA	NA
+314	까마귀	흔함	2	텃새	참새목	까마귀과	Carrion Crow	ORDER PASSERIFORMES	Family Corvidae	Corvus corone	ORDER PASSERIFORMES	Family Corvidae	nan	IUCN-LC	NA	NA	NA
+103	물까치	흔함	2	텃새	참새목	까마귀과	Azure-winged Magpie	ORDER PASSERIFORMES	Family Corvidae	Cyanopica cyana	ORDER PASSERIFORMES	Family Corvidae	IUCN-LC	NA	NA	NA	NA
+190	큰부리까마귀	흔함	2	텃새	참새목	까마귀과	Large-billed Crow[Jungle Crow]	ORDER PASSERIFORMES	Family Corvidae	Corvus macrorhyschos	ORDER PASSERIFORMES	Family Corvidae	nan	IUCN-LC	NA	NA	NA
+91	떼까마귀	흔함	2	겨울철새	참새목	까마귀과	Rook	ORDER PASSERIFORMES	Family Corvidae	Corvus frugilegus	ORDER PASSERIFORMES	Family Corvidae	IUCN-LC	IUCN-LC	NA	NA	NA
+383	할미새사촌	흔하지않음	3	여름철새	참새목	할미새사촌과	Ashy Minivet	ORDER PASSERIFORMES	Family Campephagidae	Pericrocotus divaricatus	ORDER PASSERIFORMES	Family Campephagidae	IUCN-LC	NA	NA	NA	NA
+384	되솔새	흔하지않음	3	나그네새	참새목	휘파람새과	Pale-legged Leaf Warbler	ORDER PASSERIFORMES	Family Sylviidae	Phylloscopus tenellipes	ORDER PASSERIFORMES	Family Sylviidae	IUCN-LC	IUCN-LC	NA	NA	NA
+187	쇠검은머리쑥새	흔하지않음	3	겨울철새	참새목	멧새과	Ochre-rumped Bunting[Japanese Reed Bunting]	ORDER PASSERIFORMES	Family Emberizidae	Emberiza yessoensis	ORDER PASSERIFORMES	Family Emberizidae	IUCN-NT	IUCN-LC	NA	NA	NA
+274	꼬까참새	흔하지않음	3	나그네새	참새목	멧새과	Chestnut Bunting	ORDER PASSERIFORMES	Family Emberizidae	Emberiza rutila	ORDER PASSERIFORMES	Family Emberizidae	IUCN-LC	IUCN-LC	NA	NA	NA
+97	멋쟁이-멋쟁이[아종]	흔하지않음	3	겨울철새	참새목	되새과	Eurasian Bullfinch[Bullfinch]	ORDER PASSERIFORMES	Family Fringillidae	Pyrrhula pyrrhula rosacea	ORDER PASSERIFORMES	Family Fringillidae	IUCN-LC	IUCN-LC	NA	NA	NA
+178	솔잣새	흔하지않음	3	겨울철새	참새목	되새과	Red Crossbill[Crossbill]	ORDER PASSERIFORMES	Family Fringillidae	Loxia curvirostra	ORDER PASSERIFORMES	Family Fringillidae	IUCN-LC	IUCN-LC	NA	NA	NA
+132	은빛찌르레기[비단찌르레기](가칭)	흔하지않음	3	나그네새	참새목	찌르레기과	Silky Starling(Red-Billed Starling)	ORDER PASSERIFORMES	Family Sturnidae	Sturnus Sericeus	ORDER PASSERIFORMES	Family Sturnidae	nan	NA	NA	NA	NA
+265	갈까마귀	흔하지않음	3	겨울철새	참새목	까마귀과	Daurian Jackdaw[Jackdaw]	ORDER PASSERIFORMES	Family Corvidae	Corvus dauuricus	ORDER PASSERIFORMES	Family Corvidae	IUCN-LC	NA	NA	NA	NA
+81	뿔종다리	드묾	4	텃새	참새목	종다리과	Crested Lark	ORDER PASSERIFORMES	Family Alaudidae	Galerida cristata	ORDER PASSERIFORMES	Family Alaudidae	멸종위기-멸종위기2급IUCN-LC	IUCN-LC	NA	NA	NA
+222	쇠종다리	드묾	4	미조	참새목	종다리과	Greater Short-toed Lark	ORDER PASSERIFORMES	Family Alaudidae	Calandrella brachydactyla	ORDER PASSERIFORMES	Family Alaudidae	nan	NA	NA	NA	NA
+242	노랑할미새	드묾	4	여름철새	참새목	할미새과	Grey Wagtail	ORDER PASSERIFORMES	Family Motacillidae	Motacilla cinerea	ORDER PASSERIFORMES	Family Motacillidae	IUCN-LC	NA	NA	NA	NA
+124	붉은가슴밭종다리	드묾	4	나그네새	참새목	할미새과	Red-throated Pipit	ORDER PASSERIFORMES	Family Motacillidae	Anthus cervinus	ORDER PASSERIFORMES	Family Motacillidae	IUCN-LC	NA	NA	NA	NA
+317	긴발톱할미새-긴발톱할미새[아종]	드묾	4	나그네새	참새목	할미새과	Yellow Wagtail	ORDER PASSERIFORMES	Family Motacillidae	Motacilla flava taivana	ORDER PASSERIFORMES	Family Motacillidae	IUCN-LC	IUCN-LC	NA	NA	NA
+277	흰등밭종다리	드묾	4	나그네새	참새목	할미새과	Pechora Pipit	ORDER PASSERIFORMES	Family Motacillidae	Anthus gustavi	ORDER PASSERIFORMES	Family Motacillidae	IUCN-LC	IUCN-LC	NA	NA	NA
+273	검은등할미새	드묾	4	겨울철새	참새목	할미새과	Japanese Wagtail	ORDER PASSERIFORMES	Family Motacillidae	Motacilla grandis	ORDER PASSERIFORMES	Family Motacillidae	IUCN-LC	IUCN-LC	NA	NA	NA
+188	큰밭종다리	드묾	4	나그네새	참새목	할미새과	Richard's Pipit	ORDER PASSERIFORMES	Family Motacillidae	Anthus richardi	ORDER PASSERIFORMES	Family Motacillidae	IUCN-LC	IUCN-LC	NA	NA	NA
+315	긴발톱할미새-흰눈썹긴발톱할미새[아종]	드묾	4	나그네새	참새목	할미새과	Yellow Wagtail	ORDER PASSERIFORMES	Family Motacillidae	Motacilla flava simillima	ORDER PASSERIFORMES	Family Motacillidae	nan	IUCN-LC	NA	NA	NA
+43	노랑머리할미새	드묾	4	나그네새	참새목	할미새과	Citrine Wagtail	ORDER PASSERIFORMES	Family Motacillidae	Motacilla citreola	ORDER PASSERIFORMES	Family Motacillidae	nan	IUCN-LC	NA	NA	NA
+517	검은이마직박구리	드묾	4	미조	참새목	직박구리과	Light-vented Bulbul	ORDER PASSERIFORMES	Family Pycnonotidae	Pycnonotus sinensis	ORDER PASSERIFORMES	Family Pycnonotidae	IUCN-LC	IUCN-LC	NA	NA	NA
+172	칡때까치	드묾	4	여름철새	참새목	때까치과	Thick-billed Shrike[Tiger Shrike]	ORDER PASSERIFORMES	Family Laniidae	Lanius tigrinus	ORDER PASSERIFORMES	Family Laniidae	IUCN-LC	IUCN-LC	NA	NA	NA
+252	긴꼬리때까치	드묾	4	미조	참새목	때까치과	Long-tailed Shrike	ORDER PASSERIFORMES	Family Laniidae	Lanius schach	ORDER PASSERIFORMES	Family Laniidae	nan	IUCN-LC	NA	NA	NA
+111	바위종다리	드묾	4	겨울철새	참새목	바위종다리과	Alpine Accentor	ORDER PASSERIFORMES	Family Prunellidae	Prunella collaris	ORDER PASSERIFORMES	Family Prunellidae	IUCN-LC	IUCN-LC	NA	NA	NA
+528	붉은배지빠귀	드묾	4	나그네새	참새목	지빠귀과	Red-bellied Thrush	ORDER PASSERIFORMES	Family Turdidae	Turdus chrysolaus	ORDER PASSERIFORMES	Family Turdidae	IUCN-LC	IUCN-LC	NA	NA	NA
+524	흰눈썹지빠귀	드묾	4	나그네새	참새목	지빠귀과	Siberian Ground Thrush	ORDER PASSERIFORMES	Family Turdidae	Zoothera sibirica	ORDER PASSERIFORMES	Family Turdidae	IUCN-LC	IUCN-LC	NA	NA	NA
+527	흰눈썹붉은배지빠귀	드묾	4	나그네새	참새목	지빠귀과	Eye-browed Thrush	ORDER PASSERIFORMES	Family Turdidae	Turdus obscurus	ORDER PASSERIFORMES	Family Turdidae	IUCN-LC	NA	NA	NA	NA
+525	검은지빠귀	드묾	4	나그네새	참새목	지빠귀과	Japanese Grey Thrush	ORDER PASSERIFORMES	Family Turdidae	Turdus cardis	ORDER PASSERIFORMES	Family Turdidae	IUCN-LC	NA	NA	NA	NA
+529	붉은목지빠귀-붉은목지빠귀[아종]	드묾	4	나그네새	참새목	지빠귀과	Red-throated Thrush	ORDER PASSERIFORMES	Family Turdidae	Turdus ruficollis ruficollis	ORDER PASSERIFORMES	Family Turdidae	nan	NA	NA	NA	NA
+76	노랑허리솔새	드묾	4	나그네새	참새목	휘파람새과	Pallas's Leaf Warbler[Pallas's Willow Warbler]	ORDER PASSERIFORMES	Family Sylviidae	Phylloscopus proregulus	ORDER PASSERIFORMES	Family Sylviidae	nan	IUCN-LC	NA	NA	NA
+537	쥐발귀개개비	드묾	4	나그네새	참새목	휘파람새과	Lanceolated Warbler	ORDER PASSERIFORMES	Family Sylviidae	Locustella lanceolata	ORDER PASSERIFORMES	Family Sylviidae	IUCN-LC	IUCN-LC	NA	NA	NA
+553	버들솔새	드묾	4	나그네새	참새목	휘파람새과	Two barred Greenish Warbler[Greenish Warbler]	ORDER PASSERIFORMES	Family Sylviidae	Phylloscopus trochiloides	ORDER PASSERIFORMES	Family Sylviidae	nan	IUCN-LC	NA	NA	NA
+549	긴다리솔새사촌	드묾	4	나그네새	참새목	휘파람새과	Radde's Warbler	ORDER PASSERIFORMES	Family Sylviidae	Phylloscopus schwarzi	ORDER PASSERIFORMES	Family Sylviidae	IUCN-LC	NA	NA	NA	NA
+184	쇠개개비	드묾	4	나그네새	참새목	휘파람새과	Black-browed Reed Wabler	ORDER PASSERIFORMES	Family Sylviidae	Acrocephalus bistrigiceps	ORDER PASSERIFORMES	Family Sylviidae	IUCN-LC	IUCN-LC	NA	NA	NA
+173	솔새사촌	드묾	4	나그네새	참새목	휘파람새과	Dusky Warbler	ORDER PASSERIFORMES	Family Sylviidae	Phylloscopus fuscatus	ORDER PASSERIFORMES	Family Sylviidae	nan	IUCN-LC	NA	NA	NA
+271	흰눈썹울새	드묾	4	겨울철새	참새목	딱새과	Bluethroat	ORDER PASSERIFORMES	Family Muscicapidae	Luscinia svecicus	ORDER PASSERIFORMES	Family Muscicapidae	nan	NA	NA	NA	NA
+37	노랑딱새	드묾	4	나그네새	참새목	딱새과	Mugimaki Flycatcher	ORDER PASSERIFORMES	Family Muscicapidae	Ficedula mugimark	ORDER PASSERIFORMES	Family Muscicapidae	nan	IUCN-LC	NA	NA	NA
+62	울새	드묾	4	나그네새	참새목	딱새과	Rufour-tailed Robin [Swinhoe's Robin]	ORDER PASSERIFORMES	Family Muscicapidae	Luscinia sibilans	ORDER PASSERIFORMES	Family Muscicapidae	nan	IUCN-LC	NA	NA	NA
+272	흰눈썹황금새	드묾	4	여름철새	참새목	딱새과	Yellow-rumped Flycatcher[Tricolour Flycatcher]	ORDER PASSERIFORMES	Family Muscicapidae	Ficedula zanthopygia	ORDER PASSERIFORMES	Family Muscicapidae	IUCN-LC	IUCN-LC	NA	NA	NA
+562	검은머리딱새	드묾	4	나그네새	참새목	딱새과	Black Redstart	ORDER PASSERIFORMES	Family Muscicapidae	Phoenicurus ochruros	ORDER PASSERIFORMES	Family Muscicapidae	nan	NA	NA	NA	NA
+135	제비딱새	드묾	4	나그네새	참새목	딱새과	Grey-streaked Flycatcher[Grey-spotted Flycatcher]	ORDER PASSERIFORMES	Family Muscicapidae	Muscicapa griseisticta	ORDER PASSERIFORMES	Family Muscicapidae	IUCN-LC	NA	NA	NA	NA
+266	흰꼬리딱새	드묾	4	나그네새	참새목	딱새과	Taiga Flycatcher	ORDER PASSERIFORMES	Family Muscicapidae	Ficedula albicilla	ORDER PASSERIFORMES	Family Muscicapidae	nan	IUCN-LC	NA	NA	NA
+159	진홍가슴	드묾	4	나그네새	참새목	딱새과	Siberian Rubythroat	ORDER PASSERIFORMES	Family Muscicapidae	Luscinia calliope	ORDER PASSERIFORMES	Family Muscicapidae	IUCN-LC	NA	NA	NA	NA
+564	부채꼬리바위딱새(가칭)	드묾	4	텃새	참새목	딱새과	Plumbeous Water Redstart	ORDER PASSERIFORMES	Family Muscicapidae	Phyacornis fuliginosus	ORDER PASSERIFORMES	Family Muscicapidae	nan	IUCN-LC	NA	NA	NA
+225	황금새	드묾	4	나그네새	참새목	딱새과	Narcissus Flycatcher	ORDER PASSERIFORMES	Family Muscicapidae	Ficedula narcissina	ORDER PASSERIFORMES	Family Muscicapidae	IUCN-LC	IUCN-VU	NA	NA	NA
+151	삼광조[긴꼬리딱새]	드묾	4	여름철새	참새목	긴꼬리딱새과	Black Paradise Flycatcher	ORDER PASSERIFORMES	Family Monarchidae	Terpsiphone atrocaudata	ORDER PASSERIFORMES	Family Monarchidae	멸종위기-멸종위기2급IUCN-NT	IUCN-LC	NA	NA	NA
+228	스윈호오목눈이	드묾	4	겨울철새	참새목	스윈호오목눈이과	Chinese Penduline Tit[Penduline Tit]	ORDER PASSERIFORMES	Family Remizidae	Remiz consobrinus	ORDER PASSERIFORMES	Family Remizidae	IUCN-LC	NA	NA	NA	NA
+569	북방쇠박새	드묾	4	텃새	참새목	박새과	Willow Tit	ORDER PASSERIFORMES	Family Paridae	Poecile montana[Parus montanus]	ORDER PASSERIFORMES	Family Paridae	IUCN-LC	IUCN-LC	NA	NA	NA
+200	쇠동고비	드묾	4	겨울철새	참새목	동고비과	Chinese Nuthatch	ORDER PASSERIFORMES	Family Sittidae	Sitta villosa	ORDER PASSERIFORMES	Family Sittidae	nan	IUCN-LC	NA	NA	NA
+14	나무발발이	드묾	4	겨울철새	참새목	나무발발이과	Eurasian Treecreeper[Treecreeper]	ORDER PASSERIFORMES	Family Certhiidae	Certhia familiaris	ORDER PASSERIFORMES	Family Certhiidae	nan	IUCN-LC	NA	NA	NA
+572	한국동박새	드묾	4	나그네새	참새목	동박새과	Chestnutflanked White-eye	ORDER PASSERIFORMES	Family Zosteropidae	Zosterops erythropleurus	ORDER PASSERIFORMES	Family Zosteropidae	IUCN-LC	IUCN-LC	NA	NA	NA
+280	흰멧새	드묾	4	미조	참새목	멧새과	Snow Bunting	ORDER PASSERIFORMES	Family Emberizidae	Plectrophenax nivalis	ORDER PASSERIFORMES	Family Emberizidae	IUCN-LC	IUCN-LC	NA	NA	NA
+214	쇠붉은뺨멧새	드묾	4	나그네새	참새목	멧새과	Little Bunting	ORDER PASSERIFORMES	Family Emberizidae	Emberiza pusilla	ORDER PASSERIFORMES	Family Emberizidae	IUCN-LC	NA	NA	NA	NA
+28	노랑눈썹멧새	드묾	4	나그네새	참새목	멧새과	Yellow-browed Bunting	ORDER PASSERIFORMES	Family Emberizidae	Emberiza chrysophrys	ORDER PASSERIFORMES	Family Emberizidae	nan	IUCN-LC	NA	NA	NA
+581	무당새	드묾	4	나그네새	참새목	멧새과	Japanese Yellow Bunting	ORDER PASSERIFORMES	Family Emberizidae	Emberiza sulphurata	ORDER PASSERIFORMES	Family Emberizidae	IUCN-VU	IUCN-LC	NA	NA	NA
+372	긴발톱멧새	드묾	4	겨울철새	참새목	멧새과	Lapland Bunting[Lapland Longspur]	ORDER PASSERIFORMES	Family Emberizidae	Calcarius lapponicus	ORDER PASSERIFORMES	Family Emberizidae	IUCN-LC	IUCN-LC	NA	NA	NA
+133	적원자	드묾	4	나그네새	참새목	되새과	Common Rosefinch [Scarlet Rosefinch]	ORDER PASSERIFORMES	Family Fringillidae	Carpodacus erythrinus	ORDER PASSERIFORMES	Family Fringillidae	nan	IUCN-LC	NA	NA	NA
+109	밀화부리	드묾	4	여름철새	참새목	되새과	Chinese Grosbeak	ORDER PASSERIFORMES	Family Fringillidae	Eophona migratoria	ORDER PASSERIFORMES	Family Fringillidae	IUCN-LC	IUCN-VU	NA	NA	NA
+587	갈색양진이	드묾	4	겨울철새	참새목	되새과	Rosy Finch	ORDER PASSERIFORMES	Family Fringillidae	Leucosticte arctoa	ORDER PASSERIFORMES	Family Fringillidae	IUCN-LC	NA	NA	NA	NA
+335	큰(부리)밀화부리-큰(부리)밀화부리[아종]	드묾	4	겨울철새	참새목	되새과	Japanese Grosbeak	ORDER PASSERIFORMES	Family Fringillidae	Eophona personata	ORDER PASSERIFORMES	Family Fringillidae	IUCN-LC	IUCN-LC	NA	NA	NA
+221	쇠찌르레기	드묾	4	나그네새	참새목	찌르레기과	Chestnut-cheeked Starling[Red-cheeked Myna]	ORDER PASSERIFORMES	Family Sturnidae	Sturnia philippensis[Sturnus philippensis]	ORDER PASSERIFORMES	Family Sturnidae	nan	IUCN-LC	NA	NA	NA
+307	흰점찌르레기	드묾	4	미조	참새목	찌르레기과	Common Starling	ORDER PASSERIFORMES	Family Sturnidae	Sturnus vulgaris	ORDER PASSERIFORMES	Family Sturnidae	nan	NA	NA	NA	NA
+123	북방쇠찌르레기	드묾	4	여름철새	참새목	찌르레기과	Daurian Starling[Purple-backed Starling]	ORDER PASSERIFORMES	Family Sturnidae	Sturnia sturnina[Sturnus sturninus]	ORDER PASSERIFORMES	Family Sturnidae	IUCN-LC	IUCN-LC	NA	NA	NA
+596	검은바람까마귀	드묾	4	나그네새	참새목	바람까마귀과	Black Drongo	ORDER PASSERIFORMES	Family Dicruridae	Dicrurus macrocercus	ORDER PASSERIFORMES	Family Dicruridae	nan	IUCN-LC	NA	NA	NA
+509	바위산제비(가칭)	아주드묾	5	미조	참새목	제비과	Eurasian Crag Martin	ORDER PASSERIFORMES	Family Hirundinidae	Ptyonoprogne rupestris	ORDER PASSERIFORMES	Family Hirundinidae	nan	IUCN-LC	NA	NA	NA
+510	쇠밭종다리	아주드묾	5	나그네새	참새목	할미새과	Blyth's Pipit[Godlewski's Pipit]	ORDER PASSERIFORMES	Family Motacillidae	Anthus godlewskii	ORDER PASSERIFORMES	Family Motacillidae	IUCN-LC	IUCN-LC	NA	NA	NA
+514	옅은밭종다리(가칭)	아주드묾	5	미조	참새목	할미새과	Water Pipit	ORDER PASSERIFORMES	Family Motacillidae	Anthus spinoletta blakistoni	ORDER PASSERIFORMES	Family Motacillidae	IUCN-LC	IUCN-LC	NA	NA	NA
+512	나무밭종다리(가칭)	아주드묾	5	나그네새	참새목	할미새과	Eurasian Tree Pipit	ORDER PASSERIFORMES	Family Motacillidae	Anthus trivialis	ORDER PASSERIFORMES	Family Motacillidae	IUCN-LC	NA	NA	NA	NA
+511	한국밭종다리	아주드묾	5	미조	참새목	할미새과	Rosy Pipit[Hodgson's Pipit]	ORDER PASSERIFORMES	Family Motacillidae	Anthus roseatus	ORDER PASSERIFORMES	Family Motacillidae	IUCN-LC	NA	NA	NA	NA
+515	검은할미새사촌[흑할미새사촌] (가칭)	아주드묾	5	미조	참새목	할미새사촌과	Black-winged Cuckoo Shrike	ORDER PASSERIFORMES	Family Campephagidae	Coracina melaschistos	ORDER PASSERIFORMES	Family Campephagidae	nan	IUCN-VU	NA	NA	NA
+533	중국지빠귀(가칭)	아주드묾	5	미조	참새목	지빠귀과	Chinese Song Thrush	ORDER PASSERIFORMES	Family Turdidae	Turdus mupinensis	ORDER PASSERIFORMES	Family Turdidae	IUCN-LC	NA	NA	NA	NA
+526	대륙검은지빠귀	아주드묾	5	나그네새	참새목	지빠귀과	Blackbird	ORDER PASSERIFORMES	Family Turdidae	Turdus merula	ORDER PASSERIFORMES	Family Turdidae	nan	IUCN-LC	NA	NA	NA
+538	북방개개비	아주드묾	5	나그네새	참새목	휘파람새과	Rusty-rumped Warbler[Pallas' Grasshopper Warbler]	ORDER PASSERIFORMES	Family Sylviidae	Locustella certhiola	ORDER PASSERIFORMES	Family Sylviidae	IUCN-LC	NA	NA	NA	NA
+545	큰부리개개비	아주드묾	5	나그네새	참새목	휘파람새과	Thick-billed Warbler[Thick-billed Reed Warbler]	ORDER PASSERIFORMES	Family Sylviidae	Acrocephalus aedon	ORDER PASSERIFORMES	Family Sylviidae	IUCN-LC	NA	NA	NA	NA
+541	붉은허리개개비	아주드묾	5	나그네새	참새목	휘파람새과	Gray's Warbler[Gray's Grasshopper Warbler]	ORDER PASSERIFORMES	Family Sylviidae	Locustella fasciolata	ORDER PASSERIFORMES	Family Sylviidae	IUCN-LC	NA	NA	NA	NA
+554	사할린되솔새	아주드묾	5	나그네새	참새목	휘파람새과	Sakhalin Leaf Warbler	ORDER PASSERIFORMES	Family Sylviidae	Phylloscopus borealoides	ORDER PASSERIFORMES	Family Sylviidae	IUCN-LC	NA	NA	NA	NA
+547	검은다리솔새(가칭)	아주드묾	5	나그네새	참새목	휘파람새과	Siberian Chiffchaff	ORDER PASSERIFORMES	Family Sylviidae	Phylloscopus collybita	ORDER PASSERIFORMES	Family Sylviidae	IUCN-LC	IUCN-LC	NA	NA	NA
+539	알락꼬리쥐발귀	아주드묾	5	나그네새	참새목	휘파람새과	Middendorff's Grasshopper Warbler	ORDER PASSERIFORMES	Family Sylviidae	Locustella ochotensis	ORDER PASSERIFORMES	Family Sylviidae	IUCN-LC	IUCN-LC	NA	NA	NA
+551	연노랑눈썹솔새(가칭)	아주드묾	5	나그네새	참새목	휘파람새과	Hume's Warbler[Hume's Leaf Warbler]	ORDER PASSERIFORMES	Family Sylviidae	Phylloscopus humei	ORDER PASSERIFORMES	Family Sylviidae	IUCN-LC	IUCN-LC	NA	NA	NA
+536	점무늬가슴지발귀	아주드묾	5	나그네새	참새목	휘파람새과	Spotted Bush Warbler	ORDER PASSERIFORMES	Family Sylviidae	Bradypterus thoracicus	ORDER PASSERIFORMES	Family Sylviidae	nan	NA	NA	NA	NA
+567	검은등사막딱새	아주드묾	5	나그네새	참새목	딱새과	Pied Wheatear	ORDER PASSERIFORMES	Family Muscicapidae	Oenanthe pleschanka	ORDER PASSERIFORMES	Family Muscicapidae	IUCN-LC	IUCN-LC	NA	NA	NA
+558	파랑딱새(가칭)	아주드묾	5	미조	참새목	딱새과	Verditer Flycatcher	ORDER PASSERIFORMES	Family Muscicapidae	Eumyias thalassinus	ORDER PASSERIFORMES	Family Muscicapidae	nan	IUCN-LC	NA	NA	NA
+565	검은뺨딱새	아주드묾	5	미조	참새목	딱새과	Grey Bushchat	ORDER PASSERIFORMES	Family Muscicapidae	Saxicola ferreus	ORDER PASSERIFORMES	Family Muscicapidae	nan	NA	NA	NA	NA
+557	회색머리갈색딱새(가칭)	아주드묾	5	미조	참새목	딱새과	Ferruginous Flycatcher	ORDER PASSERIFORMES	Family Muscicapidae	Muscicapa ferruginea	ORDER PASSERIFORMES	Family Muscicapidae	IUCN-LC	IUCN-LC	NA	NA	NA
+568	긴다리사막딱새(가칭)	아주드묾	5	미조	참새목	딱새과	Isabelline Wheatear	ORDER PASSERIFORMES	Family Muscicapidae	Oenanthe isabellina	ORDER PASSERIFORMES	Family Muscicapidae	IUCN-LC	IUCN-LC	NA	NA	NA
+566	북방사막딱새(가칭)	아주드묾	5	미조	참새목	딱새과	Northern Wheatear	ORDER PASSERIFORMES	Family Muscicapidae	Oenanthe oenanthe	ORDER PASSERIFORMES	Family Muscicapidae	IUCN-LC	NA	NA	NA	NA
+240	별삼광조	아주드묾	5	미조	참새목	긴꼬리딱새과	Asian Paradise Flycatcher	ORDER PASSERIFORMES	Family Monarchidae	Terpsiphone paradisi	ORDER PASSERIFORMES	Family Monarchidae	nan	NA	NA	NA	NA
+570	노랑배진박새(가칭)	아주드묾	5	미조	참새목	박새과	Yellow-bellied Tit	ORDER PASSERIFORMES	Family Paridae	Pardaliparus venustulus[Parus venustulus]	ORDER PASSERIFORMES	Family Paridae	IUCN-LC	IUCN-LC	NA	NA	NA
+575	흰머리멧새	아주드묾	5	나그네새	참새목	멧새과	Pine Bunting	ORDER PASSERIFORMES	Family Emberizidae	Emberiza leucocephala	ORDER PASSERIFORMES	Family Emberizidae	IUCN-LC	NA	NA	NA	NA
+576	회색머리멧새(가칭)	아주드묾	5	미조	참새목	멧새과	Ortolan Bunting	ORDER PASSERIFORMES	Family Emberizidae	Emberiza hortulana	ORDER PASSERIFORMES	Family Emberizidae	IUCN-LC	IUCN-LC	NA	NA	NA
+580	붉은머리멧새	아주드묾	5	미조	참새목	멧새과	Red-headed Bunting	ORDER PASSERIFORMES	Family Emberizidae	Emberiza bruniceps	ORDER PASSERIFORMES	Family Emberizidae	nan	IUCN-LC	NA	NA	NA
+582	검은멧새	아주드묾	5	겨울철새	참새목	멧새과	Grey Bunting	ORDER PASSERIFORMES	Family Emberizidae	Emberiza variabilis	ORDER PASSERIFORMES	Family Emberizidae	IUCN-LC	IUCN-LC	NA	NA	NA
+585	검은머리멧새	아주드묾	5	미조	참새목	멧새과	Black-headed Bunting	ORDER PASSERIFORMES	Family Emberizidae	Emberiza melanocephala	ORDER PASSERIFORMES	Family Emberizidae	IUCN-LC	IUCN-LC	NA	NA	NA
+591	쇠홍방울새	아주드묾	5	미조	참새목	되새과	Hoary Redpoll[Arctic Redpoll]	ORDER PASSERIFORMES	Family Fringillidae	Carduelis hornemanni	ORDER PASSERIFORMES	Family Fringillidae	IUCN-LC	IUCN-LC	NA	NA	NA
+594	분홍찌르레기(가칭)	아주드묾	5	미조	참새목	찌르레기과	Rosy Starling	ORDER PASSERIFORMES	Family Sturnidae	Pastor roseus [Sturnus roseus]	ORDER PASSERIFORMES	Family Sturnidae	IUCN-LC	IUCN-LC	NA	NA	NA
+595	회색바람까마귀	아주드묾	5	미조	참새목	바람까마귀과	Ashy Drongo	ORDER PASSERIFORMES	Family Dicruridae	Dicrurus leucophaeus	ORDER PASSERIFORMES	Family Dicruridae	nan	NA	NA	NA	NA
+600	붉은부리까마귀	아주드묾	5	미조	참새목	까마귀과	Red-billed Chough	ORDER PASSERIFORMES	Family Corvidae	Pyrrhocorax pyrrhocorax	ORDER PASSERIFORMES	Family Corvidae	nan	IUCN-LC	NA	NA	NA
+556	쇠흰턱딱새	매우드묾	6	미조	참새목	휘파람새과	Lesser Whitethroat	ORDER PASSERIFORMES	Family Sylviidae	Sylvia curruca	ORDER PASSERIFORMES	Family Sylviidae	nan	IUCN-LC	NA	NA	NA
+561	붉은가슴울새	매우드묾	6	나그네새	참새목	딱새과	Japanese Robin	ORDER PASSERIFORMES	Family Muscicapidae	Erithacus akahige	ORDER PASSERIFORMES	Family Muscicapidae	IUCN-LC	NA	NA	NA	NA
+386	검은머리촉새	매우드묾	6	나그네새	참새목	멧새과	Yellow-breasted Bunting	ORDER PASSERIFORMES	Family Emberizidae	Emberiza aureola	ORDER PASSERIFORMES	Family Emberizidae	IUCN-NT	IUCN-NT	NA	NA	2
+593	잿빛쇠찌르레기	매우드묾	6	미조	참새목	찌르레기과	Grey-backed Starling	ORDER PASSERIFORMES	Family Sturnidae	Sturnia sinensis [Sturnus sinensis]	ORDER PASSERIFORMES	Family Sturnidae	IUCN-LC	NA	NA	NA	NA
+597	바람까마귀	매우드묾	6	미조	참새목	바람까마귀과	Spangled Drongo[Hair-crested Drongo]	ORDER PASSERIFORMES	Family Dicruridae	Dicrurus hottentottus	ORDER PASSERIFORMES	Family Dicruridae	IUCN-LC	NA	NA	NA	NA
+382	팔색조	희귀	7	여름철새	참새목	팔색조과	Fairy Pitta	ORDER PASSERIFORMES	Family Pittidae	Pitta nympha	ORDER PASSERIFORMES	Family Pittidae	멸종위기-멸종위기 2급천연기념물-제204호IUCN-VUCITES-CITES 2급	IUCN-LC	NA	NA	NA
+505	큰부리종다리(가칭)	희귀	7	미조	참새목	종다리과	Bimaculated Lark	ORDER PASSERIFORMES	Family Alaudidae	Melanocorypha bimaculata	ORDER PASSERIFORMES	Family Alaudidae	IUCN-LC	IUCN-LC	NA	NA	NA
+506	북방쇠종다리	희귀	7	겨울철새	참새목	종다리과	Lesser Short-toed Lark[Asian Short-toed Lark]	ORDER PASSERIFORMES	Family Alaudidae	Calandrella rufescens[Calandrella cheleensis]	ORDER PASSERIFORMES	Family Alaudidae	IUCN-LC	NA	NA	NA	NA
+508	해변종다리(가칭)	희귀	7	미조	참새목	종다리과	Horned Lark[Shorelark]	ORDER PASSERIFORMES	Family Alaudidae	Eremophila alpestris	ORDER PASSERIFORMES	Family Alaudidae	nan	IUCN-LC	NA	NA	NA
+256	갈색제비	희귀	7	나그네새	참새목	제비과	Collared Sand Martin[Sand Martin]	ORDER PASSERIFORMES	Family Hirundinidae	Riparia riparia	ORDER PASSERIFORMES	Family Hirundinidae	nan	IUCN-LC	NA	NA	NA
+513	풀밭종다리(가칭)	희귀	7	미조	참새목	할미새과	Meadow Pipit	ORDER PASSERIFORMES	Family Motacillidae	Anthus pratensis	ORDER PASSERIFORMES	Family Motacillidae	nan	IUCN-LC	NA	NA	NA
+516	검은가슴할미새사촌(가칭)	희귀	7	미조	참새목	할미새사촌과	Ryukyu Minivet	ORDER PASSERIFORMES	Family Campephagidae	Pericrocotus tegimae	ORDER PASSERIFORMES	Family Campephagidae	IUCN-LC	IUCN-LC	NA	NA	NA
+518	붉은등때까치(가칭)	희귀	7	미조	참새목	때까치과	Red-backed Shrike	ORDER PASSERIFORMES	Family Laniidae	Lanius collurio	ORDER PASSERIFORMES	Family Laniidae	IUCN-LC	NA	NA	NA	NA
+106	물때까치	희귀	7	겨울철새	참새목	때까치과	Chinese Grey Shrike[Chinese Great Grey Shrike]	ORDER PASSERIFORMES	Family Laniidae	Lanius sphenocercus	ORDER PASSERIFORMES	Family Laniidae	IUCN-LC	NA	NA	NA	NA
+520	초원때까치(가칭)	희귀	7	미조	참새목	때까치과	Steppe Grey Shrike	ORDER PASSERIFORMES	Family Laniidae	Lanius meridionalis	ORDER PASSERIFORMES	Family Laniidae	nan	NA	NA	NA	NA
+519	큰재개구마리[재때까치]	희귀	7	겨울철새	참새목	때까치과	Great Grey Shrike	ORDER PASSERIFORMES	Family Laniidae	Lanius excubitor	ORDER PASSERIFORMES	Family Laniidae	nan	IUCN-LC	NA	NA	NA
+223	홍여새	희귀	7	겨울철새	참새목	여새과	Japanese Waxwing	ORDER PASSERIFORMES	Family Bombycillidae	Bombycilla japonica	ORDER PASSERIFORMES	Family Bombycillidae	nan	IUCN-LC	NA	NA	NA
+232	황여새	희귀	7	겨울철새	참새목	여새과	Bohemian Waxwing	ORDER PASSERIFORMES	Family Bombycillidae	Bombycilla garrulus	ORDER PASSERIFORMES	Family Bombycillidae	IUCN-LC	IUCN-LC	NA	NA	NA
+521	쇠바위종다리(가칭)	희귀	7	미조	참새목	바위종다리과	Japanese Accentor	ORDER PASSERIFORMES	Family Prunellidae	Prunella rubida	ORDER PASSERIFORMES	Family Prunellidae	IUCN-LC	IUCN-LC	NA	NA	NA
+522	꼬까직박구리	희귀	7	나그네새	참새목	지빠귀과	White-throated Rock Thrush	ORDER PASSERIFORMES	Family Turdidae	Monticola gularis	ORDER PASSERIFORMES	Family Turdidae	IUCN-LC	IUCN-NT	NA	NA	NA
+523	귤빛지빠귀(가칭)	희귀	7	미조	참새목	지빠귀과	Orange-headed Thrush	ORDER PASSERIFORMES	Family Turdidae	Zoothera citrina	ORDER PASSERIFORMES	Family Turdidae	IUCN-LC	IUCN-NT	NA	NA	NA
+605	붉은날개지빠귀(가칭)	희귀	7	미조	참새목	지빠귀과	Redwing	ORDER PASSERIFORMES	Family Turdidae	Turdus iliacus	ORDER PASSERIFORMES	Family Turdidae	IUCN-LC	IUCN-LC	NA	NA	NA
+535	수염오목눈이	희귀	7	미조	참새목	붉은머리오목눈이과	Bearded Reedling[Bearded Parrotbill]	ORDER PASSERIFORMES	Family Panuridae[Family TimaliiDae]	Panurus biarmicus	ORDER PASSERIFORMES	Family Panuridae[Family TimaliiDae]	nan	IUCN-LC	NA	NA	NA
+546	연노랑솔새(가칭)	희귀	7	미조	참새목	휘파람새과	Willow Warbler	ORDER PASSERIFORMES	Family Sylviidae	Phylloscopus trochilus	ORDER PASSERIFORMES	Family Sylviidae	nan	IUCN-LC	NA	NA	NA
+555	큰개개비	희귀	7	미조	참새목	휘파람새과	Japanese Swamp Warbler[Japanese Marsh Warbler]	ORDER PASSERIFORMES	Family Sylviidae	Locustella pryeri	ORDER PASSERIFORMES	Family Sylviidae	IUCN-VU	IUCN-LC	NA	NA	NA
+548	노랑배솔새사촌(가칭)	희귀	7	미조	참새목	휘파람새과	Tickell's Leaf Warbler	ORDER PASSERIFORMES	Family Sylviidae	Phylloscopus affinis	ORDER PASSERIFORMES	Family Sylviidae	IUCN-LC	IUCN-LC	NA	NA	NA
+543	우수리개개비(가칭)	희귀	7	미조	참새목	휘파람새과	Manchurian Reed Warbler	ORDER PASSERIFORMES	Family Sylviidae	Acrocephalus tangorum	ORDER PASSERIFORMES	Family Sylviidae	IUCN-VU	IUCN-LC	NA	NA	NA
+604	히말라야산솔새(가칭)	희귀	7	NA	참새목	휘파람새과	Claudia's Leaf Warbler	ORDER PASSERIFORMES	Family Sylviidae	Phylloscopus claudiae	ORDER PASSERIFORMES	Family Sylviidae	IUCN-LC	IUCN-LC	NA	NA	NA
+563	흰머리바위딱새(가칭)	희귀	7	미조	참새목	딱새과	White-capped Water Redstart	ORDER PASSERIFORMES	Family Muscicapidae	Chaimarrornis leucocephalus	ORDER PASSERIFORMES	Family Muscicapidae	IUCN-LC	NA	NA	NA	NA
+560	꼬까울새(가칭)	희귀	7	미조	참새목	딱새과	European Robin	ORDER PASSERIFORMES	Family Muscicapidae	Erithacus rubecula	ORDER PASSERIFORMES	Family Muscicapidae	IUCN-LC	IUCN-LC	NA	NA	NA
+219	쇠유리새	희귀	7	여름철새	참새목	딱새과	Siberian Blue Robin	ORDER PASSERIFORMES	Family Muscicapidae	Luscinia cyane	ORDER PASSERIFORMES	Family Muscicapidae	IUCN-LC	IUCN-LC	NA	NA	NA
+559	주황가슴파랑딱새(가칭)	희귀	7	미조	참새목	딱새과	Hill Blue Flycatcher	ORDER PASSERIFORMES	Family Muscicapidae	Cyornis banyumas	ORDER PASSERIFORMES	Family Muscicapidae	IUCN-LC	IUCN-LC	NA	NA	NA
+573	얼룩무늬납부리새(가칭)	희귀	7	미조	참새목	납부리새과(가칭)	Scaly-breasted Munia [Nutmeg Mannikin]	ORDER PASSERIFORMES	Family Estrildidae	Lonchura punctulata	ORDER PASSERIFORMES	Family Estrildidae	IUCN-LC	IUCN-LC	NA	NA	NA
+583	초원멧새(가칭)	희귀	7	미조	참새목	멧새과	Savannah Bunting	ORDER PASSERIFORMES	Family Emberizidae	Passerculus sandwichensis	ORDER PASSERIFORMES	Family Emberizidae	IUCN-LC	IUCN-LC	NA	NA	NA
+584	흰정수리북미참새(가칭)	희귀	7	미조	참새목	멧새과	White-crowned Sparrow	ORDER PASSERIFORMES	Family Emberizidae	Zonotrichia leucophrys	ORDER PASSERIFORMES	Family Emberizidae	IUCN-LC	NA	NA	NA	NA
+574	노랑멧새(가칭)	희귀	7	미조	참새목	멧새과	Yellowhammer	ORDER PASSERIFORMES	Family Emberizidae	Emberiza citrinella	ORDER PASSERIFORMES	Family Emberizidae	IUCN-LC	IUCN-LC	NA	NA	NA
+589	흰죽지솔잣새	희귀	7	미조	참새목	되새과	White-winged Crossbill	ORDER PASSERIFORMES	Family Fringillidae	Loxia leucoptera	ORDER PASSERIFORMES	Family Fringillidae	IUCN-LC	IUCN-LC	NA	NA	NA
+588	솔양진이	희귀	7	미조	참새목	되새과	Pine Grosbeak	ORDER PASSERIFORMES	Family Fringillidae	Pinicola enucleator	ORDER PASSERIFORMES	Family Fringillidae	IUCN-LC	NA	NA	NA	NA
+590	홍방울새	희귀	7	겨울철새	참새목	되새과	Common Redpoll[Redpoll]	ORDER PASSERIFORMES	Family Fringillidae	Carduelis flammea	ORDER PASSERIFORMES	Family Fringillidae	IUCN-LC	IUCN-VU	NA	NA	NA
+592	집참새(가칭)	희귀	7	미조	참새목	참새과	House Sparrow	ORDER PASSERIFORMES	Family Passeridae	Passer domesticus	ORDER PASSERIFORMES	Family Passeridae	IUCN-LC	IUCN-LC	NA	NA	NA
+598	흰가슴숲제비	희귀	7	미조	참새목	숲제비과	White-breasted Wood Swallow	ORDER PASSERIFORMES	Family Artamidae	Artamus leucorhynchus	ORDER PASSERIFORMES	Family Artamidae	IUCN-LC	IUCN-LC	NA	NA	NA
+601	큰까마귀(가칭)	희귀	7	미조	참새목	까마귀과	Common Raven	ORDER PASSERIFORMES	Family Corvidae	Corvus corax	ORDER PASSERIFORMES	Family Corvidae	IUCN-LC	IUCN-LC	NA	NA	NA
+534	꼬리치레	희귀	7	NA	참새목	개개비사촌과	White-browed Chinese Warbler	ORDER PASSERIFORMES	Family Cisticolidae	Rhopophilus pekinensis	ORDER PASSERIFORMES	Family Cisticolidae	IUCN-LC	IUCN-LC	NA	NA	NA
+544	북방쇠개개비(가칭)	.	8	NA	참새목	휘파람새과	Paddyfield Warbler	ORDER PASSERIFORMES	Family Sylviidae	Acrocephalus agricola	ORDER PASSERIFORMES	Family Sylviidae	IUCN-LC	NA	NA	NA	NA
+550	연노랑허리솔새(가칭)	.	8	NA	참새목	휘파람새과	Chinese Leaf Warbler	ORDER PASSERIFORMES	Family Sylviidae	Phylloscopus yunnanensis	ORDER PASSERIFORMES	Family Sylviidae	IUCN-LC	IUCN-LC	NA	NA	NA
+373	물레새	국지적으로흔함	50	여름철새	참새목	할미새과	Forest Wagtail	ORDER PASSERIFORMES	Family Motacillidae	Dendronanthus indicus	ORDER PASSERIFORMES	Family Motacillidae	IUCN-LC	IUCN-LC	NA	NA	NA
+381	섬휘파람새	국지적으로흔함	50	텃새	참새목	휘파람새과	Japanese Bush Warbler	ORDER PASSERIFORMES	Family Sylviidae	Cettia canturians [Cettia diphone cantans]	ORDER PASSERIFORMES	Family Sylviidae	IUCN-LC	IUCN-LC	NA	NA	NA
+540	섬개개비	국지적으로흔함.	50	나그네새	참새목	휘파람새과	Pleske's Warbler[Island Grasshopper Warbler]	ORDER PASSERIFORMES	Family Sylviidae	Locustella pleskei	ORDER PASSERIFORMES	Family Sylviidae	IUCN-VU	NA	NA	NA	NA
+164	섬참새	국지적으로흔함	50	텃새	참새목	참새과	Russet Sparrow	ORDER PASSERIFORMES	Family Passeridae	Passer rutilans	ORDER PASSERIFORMES	Family Passeridae	IUCN-LC	IUCN-LC	NA	NA	NA
+599	잣까마귀	국지적으로흔함	50	텃새	참새목	까마귀과	Spotted Nutcracker[Nutcracker]	ORDER PASSERIFORMES	Family Corvidae	Nucifraga caryocatactes	ORDER PASSERIFORMES	Family Corvidae	IUCN-LC	IUCN-LC	NA	NA	NA
+500	바늘꼬리칼새	드묾	4	나그네새	칼새목	칼새과	White-throated Needle-tailed Swift	ORDER APODIFORMES	Family Apodidae	Hirundapus caudacutus	ORDER APODIFORMES	Family Apodidae	IUCN-LC	NA	NA	NA	NA
+499	작은칼새[황해쇠칼새](가칭)	아주드묾	5	미조	칼새목	칼새과	Himalayan Swiftlet[Chinese Himalayan Swiftlet]	ORDER APODIFORMES	Family Apodidae	Aerodramus brevirostris	ORDER APODIFORMES	Family Apodidae	nan	IUCN-LC	NA	NA	NA
+501	칼새	국지적으로흔함	50	여름철새	칼새목	칼새과	White-rumped Swift	ORDER APODIFORMES	Family Apodidae	Apus pacificus	ORDER APODIFORMES	Family Apodidae	IUCN-LC	IUCN-LC	NA	NA	NA
+371	청호반새	흔함	2	여름철새	파랑새목	물총새과	Black-capped Kingfisher	ORDER CORACIIFORMES	Family Alcedinidae	Halcyon pileata	ORDER CORACIIFORMES	Family Alcedinidae	IUCN-LC	IUCN-LC	NA	NA	NA
+336	물총새	흔함	2	여름철새	파랑새목	물총새과	Common Kingfisher[Kingfisher]	ORDER CORACIIFORMES	Family Alcedinidae	Alcedo atthis	ORDER CORACIIFORMES	Family Alcedinidae	IUCN-LC	IUCN-LC	NA	NA	NA
+354	파랑새	흔함	2	여름철새	파랑새목	파랑새과	Dollarbird[Broad-billed Roller]	ORDER CORACIIFORMES	Family Coraciidae	Eurystomus orientalis	ORDER CORACIIFORMES	Family Coraciidae	IUCN-LC	IUCN-LC	NA	NA	NA
+325	후투티	흔함	2	여름철새	파랑새목	후투티과	Common Hoopoe[Hoopoe]	ORDER CORACIIFORMES	Family Upupidae	Upupa epops	ORDER CORACIIFORMES	Family Upupidae	IUCN-LC	IUCN-LC	NA	NA	NA
+341	뿔호반새	드묾	4	미조	파랑새목	물총새과	Crested Kingfisher[Pied Kingfisher]	ORDER CORACIIFORMES	Family Alcedinidae	Megaceryle lugubris	ORDER CORACIIFORMES	Family Alcedinidae	IUCN-LC	IUCN-LC	NA	NA	NA
+370	호반새	희귀	7	여름철새	파랑새목	물총새과	Ruddy Kingfisher	ORDER CORACIIFORMES	Family Alcedinidae	Halcyon coromanda	ORDER CORACIIFORMES	Family Alcedinidae	IUCN-LC	IUCN-LC	NA	NA	NA
+210	쇠백로	아주흔함	1	여름철새	황새목	백로과	Little Egret	ORDER CICONIIFORMES	Family Ardeidae	Egretta garzetta	ORDER CICONIIFORMES	Family Ardeidae	IUCN-LCCITES-CITES3급	IUCN-LC	NA	NA	NA
+78	대백로 - 중대백로[아종]	아주흔함	1	여름철새	황새목	백로과	Great Egret[Large Egret]	ORDER CICONIIFORMES	Family Ardeidae	Ardea alba modesta	ORDER CICONIIFORMES	Family Ardeidae	nan	IUCN-LC	NA	NA	NA
+51	왜가리	아주흔함	1	여름철새	황새목	백로과	Grey Heron	ORDER CICONIIFORMES	Family Ardeidae	Ardea cinerea	ORDER CICONIIFORMES	Family Ardeidae	nan	IUCN-LC	NA	NA	NA
+147	중백로	흔함	2	여름철새	황새목	백로과	Intermediate Egret	ORDER CICONIIFORMES	Family Ardeidae	Egretta intermedia	ORDER CICONIIFORMES	Family Ardeidae	IUCN-LC	NA	NA	NA	NA
+227	황로	흔함	2	여름철새	황새목	백로과	Cattle Egret	ORDER CICONIIFORMES	Family Ardeidae	Bubulcus ibis	ORDER CICONIIFORMES	Family Ardeidae	IUCN-LCCITES-CITES3급	NA	NA	NA	NA
+401	대백로-대백로[아종]	흔함	2	겨울철새	황새목	백로과	Great Egret[Large Egret]	ORDER CICONIIFORMES	Family Ardeidae	Ardea (alba) alba	ORDER CICONIIFORMES	Family Ardeidae	IUCN-LCCITES-CITES 3급	IUCN-LC	NA	NA	NA
+80	덤불해오라기	흔함	2	여름철새	황새목	백로과	Chinese Little Bittern[Yellow Bittern]	ORDER CICONIIFORMES	Family Ardeidae	Ixobrychus sinensis	ORDER CICONIIFORMES	Family Ardeidae	IUCN-LC	NA	NA	NA	NA
+288	검은댕기해오라기	흔함	2	여름철새	황새목	백로과	Striated Heron[Green-backed Heron]	ORDER CICONIIFORMES	Family Ardeidae	Butorides striata	ORDER CICONIIFORMES	Family Ardeidae	IUCN-LC	NA	NA	NA	NA
+250	흑로	흔하지않음	3	텃새	황새목	백로과	Reef Heron[Pacific Reef Egret	ORDER CICONIIFORMES	Family Ardeidae	Egretta sacra	ORDER CICONIIFORMES	Family Ardeidae	IUCN-LC	IUCN-LC	NA	NA	NA
+50	노랑부리백로	흔하지않음	3	여름철새	황새목	백로과	Chinese Egret	ORDER CICONIIFORMES	Family Ardeidae	Egretta eulophotes	ORDER CICONIIFORMES	Family Ardeidae	nan	NA	NA	NA	NA
+138	붉은왜가리	드묾	4	나그네새	황새목	백로과	Purple Heron	ORDER CICONIIFORMES	Family Ardeidae	Ardea purpurea	ORDER CICONIIFORMES	Family Ardeidae	IUCN-LC	NA	NA	NA	NA
+38	알락해오라기	드묾	4	겨울철새	황새목	백로과	Great Bittern[Eurasian Bitten]	ORDER CICONIIFORMES	Family Ardeidae	Botaurus stellaris	ORDER CICONIIFORMES	Family Ardeidae	nan	NA	NA	NA	NA
+403	열대붉은해오라기	드묾	4	미조	황새목	백로과	Cinnamon Bittern	ORDER CICONIIFORMES	Family Ardeidae	Ixobrychus cinnamomeus	ORDER CICONIIFORMES	Family Ardeidae	IUCN-LC	IUCN-LC	NA	NA	NA
+402	붉은해오라기	드묾	4	나그네새	황새목	백로과	Japanese Night Heron	ORDER CICONIIFORMES	Family Ardeidae	Gorsachius goisagi	ORDER CICONIIFORMES	Family Ardeidae	IUCN-EN	IUCN-LC	NA	NA	NA
+268	흰날개해오라기	드묾	4	여름철새	황새목	백로과	Chinese Pond Heron	ORDER CICONIIFORMES	Family Ardeidae	Ardeola bacchus	ORDER CICONIIFORMES	Family Ardeidae	IUCN-LC	NA	NA	NA	NA
+229	황새	드묾	4	겨울철새	황새목	황새과	Oriental White Stork[Oriental Stork	ORDER CICONIIFORMES	Family Ciconiidae	Ciconia boyciana	ORDER CICONIIFORMES	Family Ciconiidae	IUCN-EN천연기념물-제199호멸종위기-멸종위기1급CITES-CITES1급	IUCN-LC	NA	NA	NA
+96	먹황새	드묾	4	겨울철새	황새목	황새과	Black Stork	ORDER CICONIIFORMES	Family Ciconiidae	Ciconia nigra	ORDER CICONIIFORMES	Family Ciconiidae	천연기념물-제200호IUCN-LCCITES-CITES2급	IUCN-LC	NA	NA	NA
+131	저어새	드묾	4	여름철새	황새목	저어새과	Black-faced Spoonbill	ORDER CICONIIFORMES	Family Threskiornithidae	Platalea minor	ORDER CICONIIFORMES	Family Threskiornithidae	멸종위기-멸종위기1급천연기념물-제205-1호IUCN-EN	IUCN-LC	NA	NA	NA
+404	검은해오라기	아주드묾	5	미조	황새목	백로과	Black Bittern	ORDER CICONIIFORMES	Family Ardeidae	Ixobrychus flavicollis[Dupetor flavicollis]	ORDER CICONIIFORMES	Family Ardeidae	nan	NA	NA	NA	NA
+405	검은머리흰따오기	아주드묾	5	미조	황새목	저어새과	Oriental Ibis[Black headed Ibis]	ORDER CICONIIFORMES	Family Threskiornithidae	Threskiornis melanocephalus	ORDER CICONIIFORMES	Family Threskiornithidae	IUCN-NT	IUCN-LC	NA	NA	NA
+182	큰덤불해오라기	희귀	7	여름철새	황새목	백로과	Schrenck's Bittern[Schrenk's Little Bittern]	ORDER CICONIIFORMES	Family Ardeidae	Ixobrychus eurhythmus	ORDER CICONIIFORMES	Family Ardeidae	멸종위기-멸종위기2급IUCN-LC	IUCN-LC	NA	NA	NA
+507	푸른눈테해오라기(가칭)	희귀	7	미조	황새목	백로과	Malaysian Night Heron	ORDER CICONIIFORMES	Family Ardeidae	Gorsachius melanolophus	ORDER CICONIIFORMES	Family Ardeidae	IUCN-LC	NA	NA	NA	NA
+195	노랑부리저어새	희귀	7	겨울철새	황새목	저어새과	Eurasian Spoonbill[Spoonbill	ORDER CICONIIFORMES	Family Threskiornithidae	Platalea leucorodia	ORDER CICONIIFORMES	Family Threskiornithidae	멸종위기-멸종위기1급천연기념물-제205-2호IUCN-LCCITES-CITES2급	NA	NA	NA	NA
+88	따오기	멸종	10	겨울철새	황새목	저어새과	Crested Ibis[Japanese Crested Ibis]	ORDER CICONIIFORMES	Family Threskiornithidae	Nipponia nippon	ORDER CICONIIFORMES	Family Threskiornithidae	천연기념물-제198호IUCN-ENCITES-CITES1급	IUCN-LC	NA	NA	NA
