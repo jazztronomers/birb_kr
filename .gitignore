@@ -1,0 +1,8 @@
+*.log
+constant.py
+.ipynb_checkpoints
+__pycache__
+*.pyc
+app/logs/*.log
+app/config/config.py
+_test.py
