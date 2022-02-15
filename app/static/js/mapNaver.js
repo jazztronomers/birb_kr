@@ -1,53 +1,70 @@
 const MARKERS_QUEUE_SIZE = 100
 
 let map = null
+let map_mini = null
 let markers = []
 let infowindows = []
 let current_content_id = null
 let raw_data = []
 let species_dict = {}
 let last_zoom_level = -1
-let rectangle = undefined
-//let species_selector_queue = []
+let rectangle = null
+let data_source = 'gallery'
 
 
-function initNaverMap(x=37.3595704, y=127.105399, zoom_level=15, zoom_min=5, zoom_max=20){
+const ZOOM_LEVEL_ALLOWED = 9
 
 
-    map = new naver.maps.Map('wrapper_map', {
-        center: new naver.maps.LatLng(x, y),
-        zoom: zoom_level,  // zoom level
-        minZoom: zoom_min, //지도의 최소 줌 레벨
-        maxZoom: zoom_max, //지도의 최DA 줌 레벨
-        zoomControl: true, //줌 컨트롤의 표시 여부
-        zoomControlOptions: { //줌 컨트롤의 옵션
-            position: naver.maps.Position.TOP_RIGHT
-        }
-    });
+function initNaverMap(x=37.3595704, y=127.105399, zoom_level=15, zoom_min=5, zoom_max=20, div_id="wrapper_map_horizontal"){
 
 
-//    bounds = getBounds(map)
-//    getRawData(bounds, 'FILTER_KEYWORD')
-//    map.addListener('idle', function() {
-//        console.log("Listener - idle")
-//        bounds = getBounds(map)                    // 경계정보 획득
-//        removeObjectsOutsideOfBounds(bounds)
-//        getRawData(bounds, 'FILTER_KEYWORD')       // 현재 경계정보 기반으로 마커데이터를 받아옴
-//        // selectSpeciesByQueue()
-//        // map.closeInfoWindow()
-//    });
+
+    if (div_id =="wrapper_map_mini"){
+        map_mini = new naver.maps.Map(div_id, {
+            center: new naver.maps.LatLng(x, y),
+            zoom: zoom_level,  // zoom level
+            minZoom: zoom_min, //지도의 최소 줌 레벨
+            maxZoom: zoom_max, //지도의 최DA 줌 레벨
+            zoomControl: true, //줌 컨트롤의 표시 여부
+            zoomControlOptions: { //줌 컨트롤의 옵션
+                position: naver.maps.Position.TOP_RIGHT
+            }
+        });
+        naver.maps.Event.addListener(map_mini, 'click', function(e) {
+
+            console.log(e.coord.x)
+            console.log(e.coord.y)
+
+            slides = document.getElementsByClassName("slide")
+            for (let slide of slides){
+
+                if (slide.style.display=="block"){
+                    slide.querySelector(".image_meta_longitude").value=e.coord.x
+                    slide.querySelector(".image_meta_latitude").value=e.coord.y
+                    break
+                }
+            }
+        });
+        document.getElementById(div_id).style.position = 'absolute'
+    }
+    else {
+
+        map = new naver.maps.Map(div_id, {
+            center: new naver.maps.LatLng(x, y),
+            zoom: zoom_level,  // zoom level
+            minZoom: zoom_min, //지도의 최소 줌 레벨
+            maxZoom: zoom_max, //지도의 최DA 줌 레벨
+            zoomControl: true, //줌 컨트롤의 표시 여부
+            zoomControlOptions: { //줌 컨트롤의 옵션
+                position: naver.maps.Position.TOP_RIGHT
+            }
+        });
 
 
-//    map.addListener('resize', function() {
-//        console.log("Listener - resize")
-//        bounds = getBounds(map)                 // 경계정보 획득
-//        getData(bounds, 'FILTER_KEYWORD')       // 현재 경계정보 기반으로 마커데이터를 받아옴
-//        // map.closeInfoWindow()
-//    });
-//    map.addListener('click', function(e) {
-//        var latlng = e.coord
-//        console.log('LatLng: ' + latlng.toString());
-//    });
+
+    }
+
+
 
 
     console.log(" ** NAVER MAP INITIALIZED...")
@@ -58,7 +75,14 @@ function initNaverMap(x=37.3595704, y=127.105399, zoom_level=15, zoom_min=5, zoo
 function searchThisArea(){
 
     confirmation = true
-    if (last_zoom_level!=-1){
+    let zoom_level = map.getZoom()
+    if (zoom_level< ZOOM_LEVEL_ALLOWED) {
+        alert("선택된 영역이 너무 넓습니다, 지도를 조금더 확대하세요! \n현재 줌 레벨: " + zoom_level + "\n허용 줌레벨 범위: > " + ZOOM_LEVEL_ALLOWED)
+        return false
+    }
+
+
+    else if (last_zoom_level!=-1){
         confirmation = (confirm("선택된 종 및 지도상의 마커가 사라집니다\n계속하시겠습니까?"))
     }
 
@@ -69,7 +93,7 @@ function searchThisArea(){
         hideSpecies('000', all=true)
         bounds = getBounds(map)
         removeObjectsOutsideOfBounds(bounds)
-        getRawData(bounds, 'FILTER_KEYWORD')
+        getBoundaryData(bounds, 3000, 0)
 
         if (last_zoom_level==-1){
             last_zoom_level=map.getZoom()
@@ -77,17 +101,26 @@ function searchThisArea(){
         }
 
 
+        view = new naver.maps.OverlayView()
 
+
+        if (rectangle != null){
+            rectangle.setMap(null)
+        }
+
+        // 박스치기
         rectangle = new naver.maps.Rectangle({
             map: map,
-            strokeColor: 'red',
-            strokeWeight: 3,
+            strokeColor: 'grey',
+            strokeWeight: 1,
             bounds: new naver.maps.LatLngBounds(
                 new naver.maps.LatLng(bounds.y_min, bounds.x_min),
                 new naver.maps.LatLng(bounds.y_max, bounds.x_max),
 
             )
         });
+
+
 
     }
 }
@@ -96,7 +129,7 @@ function searchThisArea(){
 // ===============================================
 // B A C K E N D
 // ===============================================
-function getRawData(bounds, filter) {
+function getBoundaryData(bounds, row_per_page, current_page) {
     var req = new XMLHttpRequest()
     req.responseType = 'json';
     req.onreadystatechange = function()
@@ -110,9 +143,10 @@ function getRawData(bounds, filter) {
             else
             {
 
-                response_data = req.response.raw_data
-
+                response_data = req.response.data
+                species_dict = {}
                 for (let i = 0; i < response_data.length; i++) {
+                    console.log(response_data[i])
                     for (let j = 0; j < response_data[i].species.length; j++) {
                         if (response_data[i].species[j] in species_dict){
                             species_dict[response_data[i].species[j]] +=1
@@ -123,25 +157,56 @@ function getRawData(bounds, filter) {
                     }
                 }
 
-                raw_data.push.apply(raw_data, response_data)
+                raw_data = response_data
                 console.log(' * response data size', response_data.length)
                 console.log(' * current raw data size', raw_data.length)
                 console.log(' * species dict', species_dict)
                 setMapExtensionSpeciesSelector(species_dict)
+                renderGallery(clear=true)
+            }
+        }
+    }
+
+    data = JSON.stringify({'boudndary_condition':bounds})
+    req.open('POST', '/getContentsMeta')
+    req.setRequestHeader("Content-type", "application/json")
+    req.send(data)
+}
+
+function getGallaryData(row_per_page, current_page, species, months) {
+    var req = new XMLHttpRequest()
+    req.responseType = 'json';
+    req.onreadystatechange = function()
+    {
+        if (req.readyState == 4)
+        {
+            if (req.status != 200)
+            {
+                alert(''+req.status+req.response)
+            }
+            else
+            {
+
+                response_data = req.response.data
+
+
+
+                raw_data = response_data
+                console.log(' * response data size', response_data.length)
+                console.log(' * current raw data size', raw_data.length)
+                console.log(' * species dict', species_dict)
+                renderGallery()
 
             }
         }
     }
 
-    data = JSON.stringify({'boudndary_condition':bounds,
-                            'filter': filter,
-                            'content_id_list':getAttributeListFromListOfObject(raw_data, 'content_id')});
-
-
-    req.open('POST', '/getMarker')
+    data = JSON.stringify({'species':species, "months": months})
+    req.open('POST', '/getContentsMeta')
     req.setRequestHeader("Content-type", "application/json")
     req.send(data)
 }
+
 
 
 function removeObjectsOutsideOfBounds(bounds){
@@ -190,36 +255,43 @@ function setMapExtensionSpeciesSelector(data) {
 
 
 
-    for (let i=0; i<ordered_species_list.length; i++){
+    // for (let i=0; i<ordered_species_list.length; i++){
 
-        species_id = ordered_species_list[i][0]
-        species_cnt = ordered_species_list[i][1]
+    for (species of ordered_species_list){
+        species_kr = species[0]
+        species_count = species[1]
+        species_id = df_birds.query(df_birds['species_kr'].eq(species_kr)).bid.values[0]
+        species_observe_level = df_birds.query(df_birds['species_kr'].eq(species_kr)).observe_level.values[0]
 
         row = document.createElement("tr")
 
         cell_a = document.createElement("td")
         cell_b = document.createElement("td")
         cell_c = document.createElement("td")
-
+        cell_d = document.createElement("td")
 
 
         input = document.createElement("input");
         input.type = 'checkbox'
-        input.value = species_id
+        input.value = species_kr
         input.setAttribute('id', 'ckbx_' + species_id)
         input.setAttribute('onclick', 'toggleDataSpecificSpecies(this.value, this.checked)')
 
         cell_a.appendChild(input)
 
-        species_name = document.createTextNode(ordered_species_list[i][0])
+        species_name = document.createTextNode(species_kr)
         cell_b.appendChild(species_name)
 
-        species_count = document.createTextNode(ordered_species_list[i][1])
-        cell_c.appendChild(species_count)
+        species_observe_level = document.createTextNode(species_observe_level)
+        cell_c.appendChild(species_observe_level)
+
+        species_count = document.createTextNode(species_count)
+        cell_d.appendChild(species_count)
 
         row.appendChild(cell_a)
         row.appendChild(cell_b)
         row.appendChild(cell_c)
+        row.appendChild(cell_d)
 
         tbody.appendChild(row)
 
@@ -301,8 +373,9 @@ function hideSpecies(species_id, all=false){
 
 function showData(data) {
 
-
-    //
+    // MAP에 마커 표시
+    console.log("showdata..", data)
+    //시
     // 체크박스를 여러개 선택하면
     // 맨 먼저 선택한 녀석의 마커는 리스너 체크박스 선택된 개수 만큼 추가됨
     //
@@ -415,6 +488,28 @@ function checkDistance() {
 }
 
 
+function moveToBird(bird){
+
+
+    setMapCenter(bird.x, bird.y)
+    setMapZoomLevel(18)
+    showData([bird])
+}
+
+function setMapCenter(x, y){
+
+    let map_div = document.getElementById(wrapper_map_id)
+
+    if (map_div.style.display =='none'){
+        toggleMap()
+    }
+
+    map.setCenter(new naver.maps.LatLng(y, x))
+}
+
+function setMapZoomLevel(level){
+    map.setZoom(level)
+}
 
 
 
@@ -442,26 +537,3 @@ function getClickHandler(marker, infowindow) {
 }
 
 
-function getAttributeListFromListOfObject(object, attribute){
-
-    ret = []
-    for (let i=0; i<object.length; i++){
-        ret.push(object[i][attribute])
-    }
-
-    return ret
-}
-
-function removeAllChildNodes(parent) {
-    while (parent.firstChild) {
-        parent.removeChild(parent.firstChild);
-    }
-}
-
-String.prototype.format = function() {
-    var formatted = this;
-    for( var arg in arguments ) {
-        formatted = formatted.replace("{" + arg + "}", arguments[arg]);
-    }
-    return formatted;
-};

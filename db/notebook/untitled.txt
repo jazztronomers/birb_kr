@@ -1,0 +1,11 @@
+import pymongo
+mongo_client = pymongo.MongoClient("mongodb://localhost:27017/")
+mongo_col = mongo_db_local['test']
+
+
+## 끝까지 다 돌기
+for x in mongo_col.find({"age":{"$gt":13}}).sort("age", -1):
+    print(x)
+    
+    
+## 일단 

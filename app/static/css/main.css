@@ -16,6 +16,7 @@ a:link {
   color: black;
   background-color: transparent;
   text-decoration: none;
+
 }
 
 a:visited {
@@ -36,23 +37,69 @@ a:active {
   text-decoration: none;
 }
 
-/* Ensure the size of the image fit the container perfectly */
-img {
-  display: block;
 
-  /* This rule is very important, please don't ignore this */
-  max-width: 100%;
+
+.btn {
+  background-color: white;
+  border: none;
+  color: black;
+  font-size: 16px;
+  cursor: pointer;
 }
+
+.btn:hover {
+  color: red;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+
+.icon {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    font-size: 36px;
+    background-size: cover;
+}
+
+.icon-bird {
+  background-image: url('bird.svg');
+}
+.icon-bird:hover,
+.icon-bird:focus {
+  filter: invert(27%) sepia(51%) saturate(2878%) hue-rotate(346deg) brightness(104%) contrast(97%);
+}
+
+/*
+img {
+    max-width: 100%;
+}
+*/
+
 
 /*------------------------------------*/
 
-#wrapper_map {
+.wrapper_map {
     position: absolute;
     z-index: 1;
     width: 100%;
     height: 100%;
     padding: 0;
     margin: 0;
+}
+
+.wrapper_map_mini {
+    position: absolute;
+    z-index: 1;
+    bottom: 10px;
+    right: 10px;
+    width: 600px;
+    height: 800px;
+    padding: 0;
+    margin: 0;
+
+    border: 1px dashed black;
+    background-color:yellow;
 }
 
 #wrapper_map_extension {
@@ -63,7 +110,7 @@ img {
     position: absolute;
     bottom: 0;
     right: 0;
-    width: 320px;
+
     height: 50%;
 
     border: 1px dashed black;
@@ -104,8 +151,13 @@ img {
     flex-direction: column;
 
     position: absolute;
-    width: 600px;
+    max-width: 1000px;
+    min-width: 240px;
     height: 100%;
+    left: 0px;
+    right: 0px;
+    margin-left: auto;
+    margin-right: auto;
     border: 1px dashed black;
     background-color: white;
     opacity: 1;
@@ -119,9 +171,9 @@ img {
     justify-content: space-between;
     align-items: center;
 
-    z-index: 5;
+
+    z-index: 6;
     position: relative;
-    width: 100%
 
     border: 1px dashed black;
     padding: 10px;
@@ -153,15 +205,40 @@ img {
 }
 
 #upper_navigation_bar #utils {
+
+    display:flex;
+    align-items: center;
+    font-size: 20px;
+
 }
 
 #upper_navigation_bar span {
-    margin: 3px;
+
+    margin-left: 10px;
 }
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+
+  cursor: pointer;
+}
+
+#dropdown_user {
+
+  display: none;
+  position: absolute;
+  right: 0;
+  padding: 10px;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
 /*------------------------------------*/
 
 #gallery {
-
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -173,9 +250,9 @@ img {
 #column {
     display: flex;
     flex-direction: column;
+    position: relative;
     width: 100%;
 }
-
 
 .content {
     position: relative;
@@ -185,11 +262,12 @@ img {
     background-color: white;
 }
 
+
 .content .image{
     z-index:5;
     position: absolute;
     top: 0;
-    object-fit: none; /* Do not scale the image */
+    object-fit: cover; /* Do not scale the image */
     object-position: center; /* Center the image within the element */
     height: 100%;
     width: 100%;
@@ -199,14 +277,18 @@ img {
 
     position: absolute;
     display: flex;
-    z-index:6;
+    z-index:5;
     height: 100%;
     width: 100%;
-    opacity: 0;
-    transition: .5s ease;
+    opacity: 1;
+    /*
+    transition: .3s ease;
+    */
 }
 
 .content .meta .top-right{
+
+
     position: absolute;
     right: 0;
     top: 0;
@@ -221,30 +303,24 @@ img {
     bottom: 0;
     margin: 10px;
 }
-
+/*
 .content:hover .meta {
     opacity: 0.3;
     background-color:black;
 }
+*/
 
 .content .meta .icon_info{
 
     color: white;
-    font-size: 20px;
+    font-size: 25px;
     position: relative;
     margin: 1px;
-    opacity: 1;
+    opacity: 0.5;
+    cursor: pointer;
 }
 
-/*------------------------------------*/
-#post {
 
-    display: flex;
-    flex-direction: column;
-    margin: 10px;
-
-
-}
 /*------------------------------------*/
 #user {
 
@@ -273,6 +349,53 @@ img {
 
 
 
+}
+/*---------------------*/
+
+#bird {
+    position:relative;
+    display: flex;
+    flex-direction: column
+}
+
+#birds_seen {
+    display: flex;
+    flex-direction: row;
+
+}
+
+#birds_seen .birds_seen_year {
+    display:flex;
+    flex-direction: column;
+    border: 1px solid #636363;
+    padding: 10px;
+    height: 300px;
+    width: 300px;
+    margin: 0px;
+    background-color:yellow;
+    overflow:scroll;
+}
+
+
+#birds_list {
+
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: stretch;
+
+    border: 1px solid #636363;
+    padding: 10px;
+    height: 900px;
+    margin: 0px;
+    background-color:green;
+    overflow:scroll;
+}
+
+#birds_list .grid-items {
+
+    background-color:white;
+    border: 1px solid #636363;
+    overflow:scroll;
 }
 
 /*------------------------------------*/
@@ -317,14 +440,14 @@ img {
 /**/
 
 .post_grid {
-  object-fit: none; /* Do not scale the image */
+  object-fit: cover; /* Do not scale the image */
   object-position: center; /* Center the image within the element */
   height: 100%;
   width: 100%;
 }
 
 .post_column {
-  object-fit: none; /* Do not scale the image */
+  object-fit: cover; /* Do not scale the image */
   object-position: center; /* Center the image within the element */
   height: 100%;
   width: 100%;
@@ -338,9 +461,9 @@ table {
   border-collapse: collapse;
   width: 100%;
   text-overflow: ellipsis;
-  overflow: hidden;
+  overflow: visible;
   white-space: nowrap;
-    table-layout:fixed;
+  table-layout:fixed;
 }
 
 
@@ -362,108 +485,217 @@ td {
   border: 1px solid #636363;
   text-align: center;
   padding: 3.5px;
-  overflow: hidden;
+  overflow: visible;
 }
 
 /* -------------------------------------------------*/
 /* SLIDER
 /---------------------------------------------------*/
 
+.add_images input {
+  display: none;
+}
 
-* {box-sizing: border-box}
-body {font-family: Verdana, sans-serif; margin:0}
-.mySlides {display: none}
-img {vertical-align: middle;}
+
+#post {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: auto;
+    height:100%;
+}
+
+#post_util_container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    position: relative;
+    width:100%;
+    background-color:#F5F2F2;
+    border:1px solid grey;
+    background-color: yellow;
+    margin: auto;
+}
 
 /* Slideshow container */
-.slideshow-container {
-  max-width: 1000px;
-  position: relative;
-  margin: auto;
+#post_slide_container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    width:100%;
+    height:100%;
+    background-color:#F5F2F2;
+    border:1px solid grey;
+    background-color: lightgrey;
+    margin: auto;
+    overflow: scroll;
 }
+
+/* Hide the images by default */
+.slide {
+    position: relative;
+    display: none;
+}
+
+
+.slide_image {
+
+}
+
+.slide_image img {
+
+    width:100%;
+    aspect-ratio:1;
+    object-fit: contain; /* 아래에서 다룰 속성값 */
+    border: 1px solid #000 /* 요소의 크기를 가늠하기위해 추가 */
+
+}
+
+
+.slide_image span {
+
+    bottom: 10;
+    left: 10;
+    z-index: 7;
+
+}
+
+.slide_meta {
+
+}
+
 
 /* Next & previous buttons */
 .prev, .next {
-  cursor: pointer;
-  position: absolute;
-  top: 50%;
-  width: auto;
-  padding: 16px;
-  margin-top: -22px;
-  color: white;
-  font-weight: bold;
-  font-size: 18px;
-  transition: 0.6s ease;
-  border-radius: 0 3px 3px 0;
-  user-select: none;
+    z-index: 6;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    margin-top: -22px;
+    padding: 16px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.3s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+}
+
+.info {
+    z-index: 6;
+    position: absolute;
+    top: 10%;
+    right: 10%;
 }
 
 /* Position the "next button" to the right */
 .next {
-  right: 0;
-  border-radius: 3px 0 0 3px;
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+.prev {
+    left: 0;
+    border-radius: 3px 0 0 3px;
 }
 
 /* On hover, add a black background color with a little bit see-through */
 .prev:hover, .next:hover {
-  background-color: rgba(0,0,0,0.8);
+    background-color: rgba(0,0,0,0.8);
 }
 
 /* Caption text */
 .text {
-  color: #f2f2f2;
-  font-size: 15px;
-  padding: 8px 12px;
-  position: absolute;
-  bottom: 8px;
-  width: 100%;
-  text-align: center;
+    color: #f2f2f2;
+    font-size: 15px;
+    padding: 8px 12px;
+    position: absolute;
+    bottom: 8px;
+    width: 100%;
+    text-align: center;
 }
 
 /* Number text (1/3 etc) */
 .numbertext {
-  color: #f2f2f2;
-  font-size: 12px;
-  padding: 8px 12px;
-  position: absolute;
-  top: 0;
+    color: #f2f2f2;
+    font-size: 12px;
+    padding: 8px 12px;
+    position: absolute;
+    top: 0;
 }
 
 /* The dots/bullets/indicators */
 .dot {
-  cursor: pointer;
-  height: 15px;
-  width: 15px;
-  margin: 0 2px;
-  background-color: #bbb;
-  border-radius: 50%;
-  display: inline-block;
-  transition: background-color 0.6s ease;
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
 }
 
 .active, .dot:hover {
-  background-color: #717171;
+    background-color: #717171;
 }
 
 /* Fading animation */
 .fade {
-  -webkit-animation-name: fade;
-  -webkit-animation-duration: 1.5s;
-  animation-name: fade;
-  animation-duration: 1.5s;
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 1.5s;
+    animation-name: fade;
+    animation-duration: 1.5s;
 }
 
 @-webkit-keyframes fade {
-  from {opacity: .4}
-  to {opacity: 1}
+    from {opacity: .4}
+    to {opacity: 1}
 }
 
 @keyframes fade {
-  from {opacity: .4}
-  to {opacity: 1}
+    from {opacity: .4}
+    to {opacity: 1}
 }
 
-/* On smaller screens, decrease text size */
-@media only screen and (max-width: 300px) {
-  .prev, .next,.text {font-size: 11px}
+
+/*the container must be positioned relative:*/
+.autocomplete {
+  position: relative;
+  display: inline-block;
+}
+
+
+.autocomplete-items {
+  position: absolute;
+  border: 1px solid #d4d4d4;
+  border-bottom: none;
+  border-top: none;
+  z-index: 99;
+  /*position the autocomplete items to be the same width as the container:*/
+  top: 100%;
+  left: 0;
+  right: 0;
+}
+
+.autocomplete-items div {
+  padding: 10px;
+  cursor: pointer;
+  background-color: #fff;
+  border-bottom: 1px solid #d4d4d4;
+}
+
+/*when hovering an item:*/
+.autocomplete-items div:hover {
+  background-color: #e9e9e9;
+}
+
+/*when navigating through the items using the arrow keys:*/
+.autocomplete-active {
+  background-color: DodgerBlue !important;
+  color: #ffffff;
 }

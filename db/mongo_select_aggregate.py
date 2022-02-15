@@ -104,23 +104,46 @@ class SelectBoundsSpecificSpecies(TimeCheck):
 #   }
 # ])
 
-query = [{
-        "$lookup": {
-            "from": "bird",
-            "localField": "species",
-            "foreignField": "bid",
-            "as": "species_kr"
-        },
+query = { "y": { "$gt": 36.0000000 },
+          "y": { "$lt": 37.0000000 },
+          "x": { "$gt": 124.0000000 },
+          "x": { "$lt": 125.0000000 }}
+
+
+
+pipeline = []
+pipeline.append({
+    "$match": query
+})
+
+
+pipeline.append({
+    "$lookup": {
+        "from": "bird",
+        "localField": "species",
+        "foreignField": "bid",
+        "as": "species_kr"
     },
-    {
+})
+pipeline.append({
         "$set": {
             "species_kr": "$species_kr.species_kr"
         }
     }
-]
+)
 
+i =0
+st = datetime.now()
+for k in mongo_db_local['content'].find(query):
+    i+=1
 
+print(datetime.now()-st)
 
-print(mongo_db_local['content'].aggregate(query).count())
+st = datetime.now()
+j = 0
+for k in mongo_db_local['content'].aggregate(pipeline):
+    j+=1
+print(datetime.now()-st)
+
 
 

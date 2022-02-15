@@ -1,5 +1,6 @@
 import pymongo
 import pandas as pd
+import numpy as np
 from random import randrange, uniform, randint
 
 from datetime import timedelta
@@ -17,8 +18,13 @@ df = df[['BID', 'SPECIES_KR', 'OBSERVE_LEVEL_TXT', 'OBSERVE_LEVEL',
 
 
 df.columns = [x.lower() for x in df.columns.tolist()]
-
+df = df.replace({np.nan: None})
+# df.fillna(None)
 birds = df.to_dict(orient='records')
+
+print(birds)
+print(type(birds))
+
 
 
 for i in range (len(birds)):
