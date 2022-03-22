@@ -1,31 +1,42 @@
-#user_header {
+/*------------------------------------*/
+#user {
 
     display: flex;
-    flex: 1 5;
-    flex-direction: row;
-    font-size: 16px;
+    flex-direction: column;
+    align-items: center;
     width: 100%;
-    justify-content: space-around;
-
-    border: 1px solid #2d2d2d;
-    padding: 10px;
-    margin: 15px;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    position:relative;
+    overflow: hidden;
 }
 
 
 
-#user_header #user_header_left {
+#user #user_header {
+
+    display: flex;
+    flex-direction: row;
+    font-size: 16px;
+    width: 100%;
+    justify-content: space-around;
+    border-bottom: 0.5px solid var(--grey1);
+
+}
+
+
+
+#user #user_header #user_header_left {
 
     width: 100%;
-    border: 1px solid #2d2d2d;
-
     display: flex;
     justify-content: center;
     align-items: center;
 
 }
 
-#user_header #user_header_left img {
+#user #user_header #user_header_left img {
 
     width: 180px;
     height: 180px;
@@ -33,16 +44,15 @@
     border-radius: 50%;
 }
 
-#user_header #user_header_right {
+#user #user_header #user_header_right {
 
     width: 100%;
     display:flex;
     flex-direction: column;
-    border: 1px solid #2d2d2d;
     padding: 50px;
 }
 
-#user_header #user_header_right .profile_row{
+#user #user_header #user_header_right .profile_row{
 
     display: flex;
     flex-direction: row;
@@ -50,34 +60,124 @@
 
 }
 
-#user_header #user_header_right .profile_row .profile_label{
+#user #user_header #user_header_right .profile_row .profile_label{
 
     min-width:100px;
 
 }
 
 
-#user_body {
+#user #user_body {
+
+    position: relative;
     display: flex;
     flex-direction: column;
+    align-items: center;
     font-size: 16px;
     width: 100%;
+    height: 100%;
+    padding: 0px;
+    margin: 0px;
 }
 
-#user_body .tabs_header {
 
+
+
+#user #user_body .tabs_header {
+
+    width: 100%;
+    border-bottom: 0.5px solid var(--grey1);
     display: flex;
     flex-direction: row;
-    border: 1px solid #2d2d2d;
     justify-content: center;
     align-items: center;
-    padding: 5px;
+    padding: 10px 0px;
+
+
 }
 
 
-#user_body .tabs_header span {
-    margin: 5px;
+#user #user_body .tabs_header span {
+    margin: 0px;
     padding: 5px 20px; /* top bottom & left right */
     cursor: pointer;
 }
 
+#user #user_body #user_body_content {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding: 0px;
+    margin: 0px;
+
+
+}
+
+/* GRID CONTAINER */
+#user #user_body #user_body_content #user_body_content_gallery {
+
+    position: relative;
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    border: 1px dashed white;
+
+}
+
+.grid {
+
+    width: 33.3%;
+    position: relative;
+    aspect-ratio: 1;
+    padding: 0px;
+    margin: 0px;
+    border: none;
+    outline: none;
+}
+
+.grid .grid_image {
+    z-index: 1;
+    position: absolute;
+    aspect-ratio: 1;
+    object-fit: cover; /* Do not scale the image */
+    object-position: center; /* Center the image within the element */
+}
+
+/*
+.grid .grid_meta {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 2;
+    background-color: black;
+    opacity: 0;
+}
+.grid .grid_meta:hover {
+
+    opacity: .3;
+}
+*/
+
+#user #user_body #user_body_content #user_body_content_map {
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    padding: 0;
+    margin: 0;
+}
+
+#user #user_body #user_body_content #user_body_content_map #wrapper_map_user {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    padding: 0;
+    margin: 0;
+}
+
+#user #user_body #user_body_content #user_body_content_collection {
+    width: 100%;
+}

@@ -21,6 +21,8 @@ def login():
             session['loggedin'] = True
             session['email'] = response['email']
             session['user_name'] = response['user_name']
+            session['user_id'] = response['user_id']
+            session['user_lv'] = response['user_lv']
             session['message'] = response["message"]
             result = True
 

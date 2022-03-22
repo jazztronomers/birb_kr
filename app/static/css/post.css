@@ -1,0 +1,154 @@
+#post {
+
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: space-between;
+}
+
+
+#post #post_header {
+
+    display: flex;
+    flex-direction: column;
+
+}
+
+#post #post_header .row {
+
+    display: flex;
+    flex-direction: row;
+    border-bottom: 0.25px solid var(--grey1);
+
+    align-content: center;
+    align-items: center;
+
+    padding: 0px;
+    margin: 0px;
+
+}
+
+#post #post_header .row.upper {
+    line-height: 1.6rem;
+}
+#post #post_header .row.lower {
+    font-size: .8rem;
+    line-height: 1.2rem;
+}
+
+
+#post #post_header .row span{
+
+    padding: .25rem .5rem 0rem .25rem; /* L U D R */
+    margin: .25rem .125rem; /* UD LR */
+
+}
+
+#post #post_header .row .category{
+
+    color: var(--red);
+
+}
+
+#post #post_header .row .title{
+
+    font-weight: bold;
+
+}
+
+
+#post #post_header .row .post_id{
+
+    display:none;
+
+}
+
+
+#post #post_header .row .user_name{}
+#post #post_header .row .view{}
+#post #post_header .row .timestamp{}
+
+#post #post_body {
+
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    width: 100%;
+    overflow-y: auto;
+    min-height: 0px;
+    justify-content: flex-start;
+}
+
+
+
+#post #post_body .image  {
+    display: block;
+    width: 100%;
+
+}
+
+
+#post #post_footer {
+
+    display: flex;
+    flex-direction: row;
+    min-height: 10px;
+    border-bottom: 0.25px solid var(--grey1);
+    border-top: 0.25px solid var(--grey1);
+    justify-content: space-between;
+    padding: .5rem;
+
+}
+
+
+#post #post_footer .icon{
+    padding: 1rem;
+}
+
+
+#post #post_comments {
+    display:flex;
+    flex-direction: column;
+    width: 100%;
+    min-height: 0px;
+    max-height: 0%;
+}
+
+
+#post #post_comments .comment {
+
+    display: flex;
+    flex-direction: column;
+    padding: .5rem;
+    border-bottom: 0.25px solid var(--grey1);
+}
+
+
+#post #post_comments .comment .comment_header {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+}
+
+#post #post_comments .comment .comment_header .left .writer{
+    min-width: 7rem;
+    font-size: 1rem;
+}
+#post #post_comments .comment .comment_header .left .timestamp{
+
+    font-size: .75rem;
+    color: var(--grey3);
+}
+#post #post_comments .comment .comment_body {
+    padding: .25rem;
+}
+
+#post #post_comment_input {
+
+    border-bottom: 0.25px solid var(--grey1);
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+

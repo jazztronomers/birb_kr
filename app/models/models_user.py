@@ -63,12 +63,12 @@ class User:
 
         if response is not None and len(response) > 0:
 
-
             ret = {'result': True,
-                   'message': 'Welcome, %s' % (response.get("user_name")),
+                   'message': 'Login success',
                    'email': response.get("email"),
                    'user_id': response.get("user_id"),
-                   'user_name': response.get("user_name")
+                   'user_name': response.get("user_name"),
+                   'user_lv': response.get("user_lv")
                    }
 
         else:
@@ -78,20 +78,21 @@ class User:
 
 
             if response is not None and len(response) > 0:
-
-
                 ret = {'result': True,
-                       'message': 'Welcome, %s' % (response.get("user_name")),
+                       'message': 'Login success',
                        'email': response.get("email"),
                        'user_id': response.get("user_id"),
-                       'user_name': response.get("user_name")
+                       'user_name': response.get("user_name"),
+                       'user_lv': response.get("user_lv")
                        }
 
             else:
                 ret = {'result': False,
                        'message': 'Username not found or password is wrong',
                        'email': None,
-                       'username': None
+                       'user_id': None,
+                       'user_name': None,
+                       'user_lv': None
                        }
 
         return ret

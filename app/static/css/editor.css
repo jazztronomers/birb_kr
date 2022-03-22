@@ -1,0 +1,91 @@
+#editor {
+
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+
+    width: 100%;
+}
+
+
+#editor #editor_tool {
+
+
+}
+
+
+
+
+#editor #editor_header {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+
+
+
+
+
+#editor #editor_header label input {
+    position: absolute;
+    display: none;
+    color: #fff !important;
+
+}
+
+
+
+
+#editor #editor_body {
+    width: 100%;
+    height: 100%;
+}
+
+#editor #editor_body #editor_textarea {
+
+   width: 100%;
+   height: 100%;
+   overflow-y: scroll;
+}
+
+
+#editor #editor_map {
+
+    display:flex;
+    flex-direction: column;
+    align-content:flex-end;
+
+    width: 90%;
+    height: 50%;
+    border: 1px dashed red;
+    padding: 10px;
+
+    position: absolute;
+    bottom: 10px;
+    right: 0px;
+}
+
+#editor #editor_map #wrapper_map_btns {
+    display: flex;
+    position: absolute;
+    z-index: 2;
+    top: 5px;
+    right: 5px;
+}
+
+#editor #editor_map .wrapper_map_mini {
+    display:flex;
+    position: absolute;
+    z-index: 1;
+    padding: 0;
+    margin: 0;
+    width:100%;
+    height:100%;
+    background-color:yellow;
+}
+
+
+

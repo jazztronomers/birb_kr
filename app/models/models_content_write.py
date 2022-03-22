@@ -1,103 +1,134 @@
-from jazzbirb_kr.app.util.mongo_connector import mongo_db
+from jazzbirb_kr.app.util.mongo_connector import *
 from jazzbirb_kr.app.util.boto3_connector import BirbBoto3
-from jazzbirb_kr.app.util.app_logger import logger
 from datetime import datetime
+from bson.objectid import ObjectId
+from jazzbirb_kr.app.constant import *
 import pandas as pd
 
-from random import randrange, uniform, randint, choices
-
-
-
-
 df_birds = pd.DataFrame(data=[x for x in mongo_db['bird'].find({}, {'_id': False})])
-# print(df_birds[df_birds["species_kr"].str.contains("따오기")].bid)
-# print(df_birds[df_birds["species_kr"]=="동박새"].bid.iloc[0])
-# print(df_birds[df_birds["species_kr"]=="동박새"])
-# birds_dict = {x.get('bid'):x for x in birds_list}
+
+
+
+
+## WRITE_CONTENT -> WRITE_ITEM ->
 
 
 class ContentWriter:
 
-    def __init__(self, email):
-        self.collection = mongo_db['content']
+    def __init__(self, user_id):
+        self.collection_post= mongo_db['post']
+        self.collection_item= mongo_db['item']
         self.s3 = 's3'
-        self.email = email
-        self.email_id = email.split("@")[0]
-
-
-    def _get_object_idx(self):
-
-        # db.collection.find().sort({age: -1}).limit(1)
-        try:
-            idx = self.collection.find().sort('content_id', -1).limit(1)[0].get("content_id")
-
-            return idx+1
-        except IndexError:
-            idx = 0
-            return idx+1
+        self.user_id = user_id
 
 
 
+    def write_post(self, title, content, items, location, camera, lens, category, option):
 
-    def _write_image(self, meta, image, ext):
-        ## generate publish_timestamp
+        collection_post = mongo_db['post']
+        collection_item = mongo_db['item']
+        post_id = ObjectId().__str__() # 채번
+
         publish_timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
-        ## generate file_name
-        content_id = self._get_object_idx()
+        _post ={
+            'post_id': post_id,
+            'user_id': self.user_id,
+            'title': title,
+            'content': content,
+            'location': location,
+            'publish_timestamp': publish_timestamp,
+            'delete_yn': 0,
+            'camera': camera,
+            'lens': lens,
+            "view": 0,
+            "recomm": [],
+            "category": category,
+            "category_admin":category[:5],
+            "option": option
+        }
 
 
-        object_key = '%s/%s.%s'%(self.email_id, content_id, ext)
-        bids = []
-        if meta.get("species") is not None:
-            for species_kr in meta.get("species"):
-                print('@', species_kr, df_birds[df_birds["species_kr"] == species_kr].bid.iloc[0])
-                bids.append(df_birds[df_birds["species_kr"] == species_kr].bid.iloc[0])
+        _items = []
 
-        print(bids)
+        for item in items:
+            item_idx = item.get('item_id')
+            object_key = '%s/%s_%s'%(self.user_id, post_id, item_idx)
+            item_obj = item.get('item_value')
+            ret_boto = BirbBoto3().upload_image(file_obj=item_obj,
+                                                file_name=object_key)
+            print(item_idx, ret_boto)
 
-        ## insert mongodb first
-        ret_mongo = self.collection.insert_one({
-            "content_id": content_id,
-            "publish_timestamp": publish_timestamp,
-            "observe_timestamp": meta.get("observe_timestamp", publish_timestamp),
-            "camera":meta.get("camera"),
-            "lens":meta.get("lens"),
-            "object_key":object_key,
-            "x": float(meta.get('x', round(uniform(124, 128), 7))),
-            "y": float(meta.get('y', round(uniform(36, 38), 7))),
-            "species": bids
-        })
+            _items.append(
+                {
+                    'post_id': post_id,
+                    "item_id": item.get('item_id'),
+                    "user_id": self.user_id,
+                    "publish_timestamp": publish_timestamp,
+                    "observe_timestamp": publish_timestamp,
+                    "object_key": object_key,
+
+                    "x": None,
+                    "y": None,
+                    "species": None,
+                    "camera": None if len(camera) == 0 else camera[0],
+                    "lens": None if len(lens) == 0 else lens[0],
+                }
+            )
+
+        insert_result_post = collection_post.insert_one(_post)
+        insert_result_item = collection_item.insert_many(_items)
+
+        ## insert result processing...
+
+        return {'result': False,
+                'message': 'email already exsists'}
+
+    def write_comment_post(self, post_id, content, user_id):
+
+        collection_comment = mongo_db['post_comment']
+        publish_timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+
+        _comment = {
+            "post_id":post_id,
+            "user_id":user_id,
+            "publish_timestamp":publish_timestamp,
+            "content":content,
+            "delete_yn": 0
+        }
+
+        insert_result_comment = collection_comment.insert_one(_comment)
+
+        ## insert result processing...
+
+        return {'result': False,
+                'message': 'email already exsists'}
+
+
+    def like_post(self, post_id, user_id):
 
 
 
-        ## generate file_name using mongo db auto generated object_key
-        ret_boto = BirbBoto3().upload_image(file_obj=image,
-                                            file_name=object_key)
-
-        logger.info('object key: %s'%(object_key))
-        logger.info('inserted_id: %s'%(ret_mongo.inserted_id))
-        logger.info('ret_boto: %s'%(ret_boto))
-
-        return True
+        ret, _ = select(collection=mongo_db['post'],
+                        query={"post_id": {"$eq": post_id}},
+                        sort_by='post_id')
 
 
+        if user_id not in ret[0].get('recomm'):
+            ret = update_push(collection=mongo_db['post'],
+                              query= {"post_id" : {"$eq": post_id}},
+                              key='recomm',
+                              value=user_id)
 
-    def write_images(self, metas, images):
-        # CHECK EXISTS
-
-        if len(metas) != len(images):
-            raise Exception("meta data and images length is differ")
-
-
-
-
-        if True:
-            for meta, image in zip(metas, images):
-                print(type(meta), meta)
-                self._write_image(meta=meta, image=image, ext='png')
+            return {'result': True,
+                    'message': 'liked'}
+        else:
 
             return {'result': False,
-                    'message': 'email already exsists'}
+                    'message': 'you already liked'}
 
-
+# if __name__ == "__main__":
+#
+#     print(ObjectId())
+#     print(ObjectId())
+#     print(ObjectId())

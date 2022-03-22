@@ -1,171 +1,29 @@
-html, body {
-    width:100%;
-    height:100%;
-    padding:0;
-    margin:0;
-    box-sizing: border-box;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-}
-
-
-::-webkit-scrollbar {
-  display: none;
-}
-
-a:link {
-  color: black;
-  background-color: transparent;
-  text-decoration: none;
-
-}
-
-a:visited {
-  color: black;
-  background-color: transparent;
-  text-decoration: none;
-}
-
-a:hover {
-  color: red;
-  background-color: transparent;
-  text-decoration: none;
-}
-
-a:active {
-  color: yellow;
-  background-color: transparent;
-  text-decoration: none;
-}
-
-
-
-.btn {
-  background-color: white;
-  border: none;
-  color: black;
-  font-size: 16px;
-  cursor: pointer;
-}
-
-.btn:hover {
-  color: red;
-  background-color: transparent;
-  text-decoration: none;
-}
-
-
-.icon {
-    display: inline-block;
-    width: 20px;
-    height: 20px;
-    font-size: 36px;
-    background-size: cover;
-}
-
-.icon-bird {
-  background-image: url('bird.svg');
-}
-.icon-bird:hover,
-.icon-bird:focus {
-  filter: invert(27%) sepia(51%) saturate(2878%) hue-rotate(346deg) brightness(104%) contrast(97%);
-}
-
-/*
-img {
-    max-width: 100%;
-}
-*/
-
-
-/*------------------------------------*/
-
-.wrapper_map {
-    position: absolute;
-    z-index: 1;
-    width: 100%;
-    height: 100%;
-    padding: 0;
-    margin: 0;
-}
-
-.wrapper_map_mini {
-    position: absolute;
-    z-index: 1;
-    bottom: 10px;
-    right: 10px;
-    width: 600px;
-    height: 800px;
-    padding: 0;
-    margin: 0;
-
-    border: 1px dashed black;
-    background-color:yellow;
-}
-
-#wrapper_map_extension {
-
-    z-index: 5;
-    display: flex;
-    flex-direction: column;
-    position: absolute;
-    bottom: 0;
-    right: 0;
-
-    height: 50%;
-
-    border: 1px dashed black;
-    background-color: white;
-    opacity: 0.8;
-    overflow-x: hidden;
-
-    font-size:11px;
-}
-
-#map_extension_search_bar {
-    border: 1px dashed black;
-    background-color: white;
-    opacity: 0.8;
-    font-size:24px;
-    font-style:bold;
-    text-align: center;
-
-}
-
-#map_extension_search_result {
-    border: 1px dashed black;
-    background-color: white;
-    opacity: 0.8;
-    font-size:32px;
-    font-style:bold;
-    overflow-y: scroll;
-}
-
-
-/*------------------------------------*/
-
-
 #wrapper_main {
 
     z-index: 5;
     display: flex;
     flex-direction: column;
-
-    position: absolute;
+    position: relative;
     max-width: 1000px;
     min-width: 240px;
-    height: 100%;
+    width: 100%;
     left: 0px;
     right: 0px;
     margin-left: auto;
     margin-right: auto;
-    border: 1px dashed black;
     background-color: white;
     opacity: 1;
+    border: .25px solid var(--grey1);
 
 }
 
 /*------------------------------------*/
 #upper_navigation_bar {
+
+
+    position: sticky;
+    top: 0;
+
 
     display: flex;
     justify-content: space-between;
@@ -173,10 +31,10 @@ img {
 
 
     z-index: 6;
-    position: relative;
 
-    border: 1px dashed black;
-    padding: 10px;
+    border: none;
+    border-bottom: 0.25px solid var(--grey1);
+    padding: .7rem;
 
     background-color: white;
 
@@ -184,44 +42,25 @@ img {
 
 #upper_navigation_bar #title {
     font-style: bold;
-    font-size: 18px;
-}
-
-
-#upper_navigation_bar #search_bar {
-    display: flex;
-    algin-items: flex-end;
-    font-style: bold;
-    font-size: 18px;
-}
-
-#upper_navigation_bar #search_bar input{
-
-    border: 1px dashed black;
-    border-radius: 4px;
-    padding: 4px;
-    margin: 3px;
-    background-color: lightgrey;
+    font-size: 1.2rem;
 }
 
 #upper_navigation_bar #utils {
-
     display:flex;
     align-items: center;
-    font-size: 20px;
-
+    font-size: 1.2rem;
 }
 
 #upper_navigation_bar span {
-
-    margin-left: 10px;
+    margin-left: .5rem;
+    margin-top: .2rem;
 }
 
-.dropdown {
+#upper_navigation_bar .dropdown {
   position: relative;
   display: inline-block;
-
   cursor: pointer;
+  margin-top: .2rem;
 }
 
 #dropdown_user {
@@ -229,7 +68,7 @@ img {
   display: none;
   position: absolute;
   right: 0;
-  padding: 10px;
+  padding: .7rem;
   background-color: #f1f1f1;
   min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
@@ -238,118 +77,8 @@ img {
 
 /*------------------------------------*/
 
-#gallery {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    overflow: scroll;
-
-}
-
-#column {
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    width: 100%;
-}
-
-.content {
-    position: relative;
-    width: 100%;
-    aspect-ratio: 1;
-    border: 1px;
-    background-color: white;
-}
 
 
-.content .image{
-    z-index:5;
-    position: absolute;
-    top: 0;
-    object-fit: cover; /* Do not scale the image */
-    object-position: center; /* Center the image within the element */
-    height: 100%;
-    width: 100%;
-}
-
-.content .meta{
-
-    position: absolute;
-    display: flex;
-    z-index:5;
-    height: 100%;
-    width: 100%;
-    opacity: 1;
-    /*
-    transition: .3s ease;
-    */
-}
-
-.content .meta .top-right{
-
-
-    position: absolute;
-    right: 0;
-    top: 0;
-    margin: 10px;
-}
-
-
-.content .meta .bottom-right{
-
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    margin: 10px;
-}
-/*
-.content:hover .meta {
-    opacity: 0.3;
-    background-color:black;
-}
-*/
-
-.content .meta .icon_info{
-
-    color: white;
-    font-size: 25px;
-    position: relative;
-    margin: 1px;
-    opacity: 0.5;
-    cursor: pointer;
-}
-
-
-/*------------------------------------*/
-#user {
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    overflow: scroll;
-    margin: 0px;
-    padding: 0px;
-
-}
-
-#row {
-
-    display: grid;
-
-    grid-template-columns: 1fr 1fr 1fr;
-    overflow: scroll;
-}
-
-
-.grid {
-
-    aspect-ratio: 1;
-
-
-
-}
 /*---------------------*/
 
 #bird {
@@ -454,213 +183,64 @@ img {
 }
 
 
+/*------------------------------------*/
 
-/* TABLE */
-table {
-  font-size:11px;
-  border-collapse: collapse;
-  width: 100%;
-  text-overflow: ellipsis;
-  overflow: visible;
-  white-space: nowrap;
-  table-layout:fixed;
-}
-
-
-td.loading{
-    border: 0px solid #636363;
-    padding: 75px;
-}
-
-th {
-  text-align: center;
-  padding: 1px;
-  background-color: #333333;
-  color: white;
-}
-
-
-
-td {
-  border: 1px solid #636363;
-  text-align: center;
-  padding: 3.5px;
-  overflow: visible;
-}
-
-/* -------------------------------------------------*/
-/* SLIDER
-/---------------------------------------------------*/
-
-.add_images input {
-  display: none;
-}
-
-
-#post {
+.wrapper_map {
     position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    overflow: auto;
-    height:100%;
-}
-
-#post_util_container {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    position: relative;
-    width:100%;
-    background-color:#F5F2F2;
-    border:1px solid grey;
-    background-color: yellow;
-    margin: auto;
-}
-
-/* Slideshow container */
-#post_slide_container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: relative;
-    width:100%;
-    height:100%;
-    background-color:#F5F2F2;
-    border:1px solid grey;
-    background-color: lightgrey;
-    margin: auto;
-    overflow: scroll;
-}
-
-/* Hide the images by default */
-.slide {
-    position: relative;
-    display: none;
-}
-
-
-.slide_image {
-
-}
-
-.slide_image img {
-
-    width:100%;
-    aspect-ratio:1;
-    object-fit: contain; /* 아래에서 다룰 속성값 */
-    border: 1px solid #000 /* 요소의 크기를 가늠하기위해 추가 */
-
-}
-
-
-.slide_image span {
-
-    bottom: 10;
-    left: 10;
-    z-index: 7;
-
-}
-
-.slide_meta {
-
-}
-
-
-/* Next & previous buttons */
-.prev, .next {
-    z-index: 6;
-    cursor: pointer;
-    position: absolute;
-    top: 50%;
-    width: auto;
-    margin-top: -22px;
-    padding: 16px;
-    color: white;
-    font-weight: bold;
-    font-size: 18px;
-    transition: 0.3s ease;
-    border-radius: 0 3px 3px 0;
-    user-select: none;
-}
-
-.info {
-    z-index: 6;
-    position: absolute;
-    top: 10%;
-    right: 10%;
-}
-
-/* Position the "next button" to the right */
-.next {
-    right: 0;
-    border-radius: 3px 0 0 3px;
-}
-
-.prev {
-    left: 0;
-    border-radius: 3px 0 0 3px;
-}
-
-/* On hover, add a black background color with a little bit see-through */
-.prev:hover, .next:hover {
-    background-color: rgba(0,0,0,0.8);
-}
-
-/* Caption text */
-.text {
-    color: #f2f2f2;
-    font-size: 15px;
-    padding: 8px 12px;
-    position: absolute;
-    bottom: 8px;
+    z-index: 1;
     width: 100%;
-    text-align: center;
+    height: 100%;
+    padding: 0;
+    margin: 0;
 }
 
-/* Number text (1/3 etc) */
-.numbertext {
-    color: #f2f2f2;
-    font-size: 12px;
-    padding: 8px 12px;
+
+
+/*------------------------------------*/
+#wrapper_map_extension {
+
+    z-index: 5;
+    display: flex;
+    flex-direction: column;
     position: absolute;
-    top: 0;
+    bottom: 0;
+    right: 0;
+
+    width: 200px;
+    max-height: 50%;
+
+    border: 1px dashed black;
+    background-color: white;
+    opacity: 0.8;
+    overflow-x: hidden;
+
+    font-size:11px;
 }
 
-/* The dots/bullets/indicators */
-.dot {
-    cursor: pointer;
-    height: 15px;
-    width: 15px;
-    margin: 0 2px;
-    background-color: #bbb;
-    border-radius: 50%;
-    display: inline-block;
-    transition: background-color 0.6s ease;
+#map_extension_search_bar {
+    border: none;
+    background-color: white;
+    opacity: 0.8;
+    font-size:24px;
+    font-style:bold;
+    text-align: center;
+
 }
 
-.active, .dot:hover {
-    background-color: #717171;
+#map_extension_search_result {
+    border: none;
+    background-color: white;
+    opacity: 0.8;
+    font-size:32px;
+    font-style:bold;
 }
 
-/* Fading animation */
-.fade {
-    -webkit-animation-name: fade;
-    -webkit-animation-duration: 1.5s;
-    animation-name: fade;
-    animation-duration: 1.5s;
+#asd {
+    overflow-y: scroll;
 }
 
-@-webkit-keyframes fade {
-    from {opacity: .4}
-    to {opacity: 1}
-}
+/*------------------------------------*/
 
-@keyframes fade {
-    from {opacity: .4}
-    to {opacity: 1}
-}
 
 
 /*the container must be positioned relative:*/
@@ -699,3 +279,4 @@ td {
   background-color: DodgerBlue !important;
   color: #ffffff;
 }
+

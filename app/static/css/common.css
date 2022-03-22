@@ -1,0 +1,191 @@
+:root {
+  --background-gradient: linear-gradient(30deg, #f39c12 30%, #f1c40f);
+  --white: white;
+  --red: red;
+  --black: black;
+  --grey0: #E8E9EC;
+  --grey1: #BFBFBF;
+  --grey2: #999999;
+  --grey3: #848484;
+  --transparent: transparent;
+
+}
+
+html, body {
+    width:100%;
+    min-height:100vh;
+    padding:0;
+    margin:0;
+    box-sizing: border-box;
+    font-family: 'Noto Sans KR', sans-serif;
+    display: flex;
+    flex-direction: row;
+    font-size: 16px;
+}
+
+/*
+::-webkit-scrollbar {
+    display: none;
+}
+*/
+
+
+
+
+
+a {
+    cursor: pointer;
+}
+
+a:link {
+  color: black;
+  background-color: transparent;
+  text-decoration: none;
+
+}
+
+a:visited {
+  color: black;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+a:hover {
+  color: red;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+a:active {
+  color: yellow;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+input[type=text] {
+    width: 100%;
+    line-height: 1.6rem;
+    padding: 0.33rem 1rem;
+    margin: 0px 0px;
+    border: none;
+    box-sizing : border-box;
+}
+
+input[type=text]:focus {
+    outline: none;
+    border-bottom: 0.5 solid var(--grey4);
+}
+
+button {
+
+    color: var(--black);
+    background-color: var(--grey1);
+    border: none;
+    cursor: pointer;
+    margin: 0px;
+}
+
+button:hover {
+    color: var(--red);
+    background-color: var(--grey2);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+textarea {
+    border: none;
+}
+
+select {
+    /* Reset Select */
+    appearance: none;
+    outline: 0;
+
+    margin: 0px;
+    border: none;
+    border-radius: 0px;
+    box-shadow: none;
+    /* Personalize */
+    flex: 1;
+    padding: 0.33rem;
+    color: var(--black);
+    background-color: var(--grey0);
+    background-image: none;
+    cursor: pointer;
+
+    /* Native disable */
+    -webkit-appearance: none;  /* 네이티브 외형 감추기 */
+    -moz-appearance: none;
+
+
+}
+/* Remove IE arrow */
+select::-ms-expand {
+    display: none;
+}
+
+
+/* Custom Select wrapper */
+.select {
+    position: relative;
+    display: flex;
+    min-width: 5em;
+    max-width: 6em;
+    border-radius: 0em;
+    overflow: hidden;
+}
+/* Arrow */
+.select::after {
+    content: '\25BC';
+    position: absolute;
+    font-size: .75rem;
+    top: 3px;
+    right: 0;
+    padding: 5px;
+    margin: 3px;
+    background-color: var(--transparent);
+    transition: .25s all ease;
+    pointer-events: none;
+}
+/* Transition */
+.select:hover::after {
+    color: var(--red);
+}
+
+table {
+  font-size:11px;
+  border-collapse: collapse;
+  width: 100%;
+  text-overflow: ellipsis;
+  overflow: visible;
+  white-space: nowrap;
+  table-layout:fixed;
+}
+
+/* TABLE
+
+
+
+td.loading{
+    border: 0px solid #636363;
+    padding: 75px;
+}
+
+th {
+
+  text-align: center;
+  padding: 1px;
+  background-color: #333333;
+  color: white;
+
+}
+
+td {
+
+  border: 1px solid #636363;
+  text-align: center;
+  padding: 3.5px;
+  overflow: visible;
+}
+
+*/

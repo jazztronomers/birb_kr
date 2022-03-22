@@ -1,79 +1,81 @@
 birds_list = null // [{}]
 birds_dict = null // {'bid' : {}...}
 df_birds = null
+//
+//function getBirds() {
+//    var req = new XMLHttpRequest()
+//    req.responseType = 'json';
+//    req.onreadystatechange = function()
+//    {
+//        if (req.readyState == 4)
+//        {
+//            if (req.status != 200)
+//            {
+//                alert(''+req.status+req.response)
+//            }
+//            else
+//            {
+//
+//
+//                // danfo dataframe 을 유일한 데이터로
+//                birds_list = req.response.data.birds_list
+//
+//                df_birds = new dfd.DataFrame(req.response.data.birds_list)
+//
+//
+//                birds_list_div = document.getElementById('birds_list')
+//                for (let bird of birds_list){
+//
+//                    let parent = document.getElementById('birds_list').children
+//                    let idArray = Array.from(parent).map(x => x.id);
+//
+//
+//                    if(! idArray.includes(bird.order_kr)){
+//                        items = document.createElement('div')
+//                        items.setAttribute("class", "grid-items")
+//                        items.setAttribute("id", bird.order_kr)
+//                        items.innerHTML = bird.order_kr
+//                        birds_list_div.appendChild(items)
+//
+//                    }
+//
+//                    li = document.createElement('li')
+//
+//                    checkbox = document.createElement('input')
+//                    checkbox.setAttribute("class", 'checkbox_bird')
+//                    checkbox.setAttribute("id", 'checkbox_bird_'+bird.bid)
+//                    checkbox.setAttribute("type", "checkbox")
+//                    checkbox.setAttribute("onclick", "toggleSpecies(this.bid, this.species_kr)")
+//                    checkbox.bid = bird.bid
+//                    checkbox.species_kr = bird.species_kr
+//                    a = document.createElement('a')
+//                    a.innerHTML = bird.species_kr
+//
+//                    li.appendChild(checkbox)
+//                    li.appendChild(a)
+//
+//                    item = document.getElementById(bird.order_kr)
+//                    item.appendChild(li)
+//
+//                    // console.log(bird.species_kr, bird.order_kr, idArray.includes(bird.order_kr))
+//
+//
+//                }
+//
+//
+//
+//            }
+//        }
+//    }
+//
+//
+//
+//    req.open('POST', '/getBirds')
+//    req.setRequestHeader("Content-type", "application/json")
+//    req.send()
+//}
 
-function getBirds() {
-    var req = new XMLHttpRequest()
-    req.responseType = 'json';
-    req.onreadystatechange = function()
-    {
-        if (req.readyState == 4)
-        {
-            if (req.status != 200)
-            {
-                alert(''+req.status+req.response)
-            }
-            else
-            {
 
-
-                // danfo dataframe 을 유일한 데이터로
-                birds_list = req.response.data.birds_list
-
-                df_birds = new dfd.DataFrame(req.response.data.birds_list)
-
-
-                birds_list_div = document.getElementById('birds_list')
-                for (let bird of birds_list){
-
-                    let parent = document.getElementById('birds_list').children
-                    let idArray = Array.from(parent).map(x => x.id);
-
-
-                    if(! idArray.includes(bird.order_kr)){
-                        items = document.createElement('div')
-                        items.setAttribute("class", "grid-items")
-                        items.setAttribute("id", bird.order_kr)
-                        items.innerHTML = bird.order_kr
-                        birds_list_div.appendChild(items)
-
-                    }
-
-                    li = document.createElement('li')
-
-                    checkbox = document.createElement('input')
-                    checkbox.setAttribute("class", 'checkbox_bird')
-                    checkbox.setAttribute("id", 'checkbox_bird_'+bird.bid)
-                    checkbox.setAttribute("type", "checkbox")
-                    checkbox.setAttribute("onclick", "toggleSpecies(this.bid, this.species_kr)")
-                    checkbox.bid = bird.bid
-                    checkbox.species_kr = bird.species_kr
-                    a = document.createElement('a')
-                    a.innerHTML = bird.species_kr
-
-                    li.appendChild(checkbox)
-                    li.appendChild(a)
-
-                    item = document.getElementById(bird.order_kr)
-                    item.appendChild(li)
-
-                    // console.log(bird.species_kr, bird.order_kr, idArray.includes(bird.order_kr))
-
-
-                }
-
-
-
-            }
-        }
-    }
-
-
-
-    req.open('POST', '/getBirds')
-    req.setRequestHeader("Content-type", "application/json")
-    req.send()
-}
 
 function getCollection(){
 

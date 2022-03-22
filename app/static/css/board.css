@@ -1,0 +1,78 @@
+#board {
+
+    display:flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+#board .board_page {
+
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+#board .board_header {
+    border-bottom: 1px solid grey;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+}
+
+#board .board_header .left{
+
+}
+#board .board_header .right {
+}
+
+#board .board_contents .board_row {
+
+    display:flex;
+    flex-direction: column;
+    border-bottom: 1px solid lightgrey;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 5px 3px 5px 5px;     /* top right bottom left */
+
+}
+
+#board .board_contents .board_row .header {
+
+    display:flex;
+    flex-direction: row;
+    color: black;
+    align-items: flex-start;
+    font-size: .9rem;
+
+}
+
+#board .board_contents .board_row .header a {
+
+}
+
+
+#board .board_contents .board_row .header span {
+    padding: 2px 3px 2px 0px;     /* top right bottom left */
+}
+
+#board .board_contents .board_row .body {
+
+    width: 100%;
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    font-size: .75rem;
+    color: grey;
+}
+
+
+#board .board_page .pagination {
+    padding: 5px;
+}
+
+
+
+#board .board_contents .board_row .body span {
+    padding: 1px;
+}

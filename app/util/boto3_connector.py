@@ -34,15 +34,6 @@ class BirbBoto3:
                                             Bucket=self.bucket_name)
 
         return ret
-        # with open("0080_001.jpg", 'rb') as f:
-        #     self.s3_client.put_object(Body=f,
-        #                   Bucket='jazzbirb-bird',
-        #                   Key='put_object.jpg')
-
-        # with open("0080_001.jpg", 'rb') as f:
-        #     self.s3_client.upload_fileobj(Fileobj=file_obj,
-        #                                   Key=file_obj,
-        #                                   Bucket=self.bucket_name)
 
 
 if __name__ == "__main__":

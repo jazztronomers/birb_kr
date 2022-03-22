@@ -22,7 +22,6 @@ input:-webkit-autofill:active{
 
 input {
   border: 0;
-
   outline: none;
   line-height: 30px;
   padding: 8px 15px;

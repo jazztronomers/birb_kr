@@ -1,0 +1,120 @@
+#meta {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+}
+
+#meta #meta_header{
+    position: relative;
+}
+
+#meta #meta_body{
+
+    width: 100%;
+    height:100%;
+    display: flex;
+    flex: 1 1 1;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+}
+
+#meta #meta_body #meta_horizotal_item_slide {
+    display: flex;
+    flex-direction: column;
+}
+
+#meta #meta_body #meta_horizotal_item_slide .meta_title{
+
+}
+
+#meta #meta_body #meta_horizotal_item_slide .meta_content{
+
+    display: flex;
+    flex-direction: row;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    position: relative;
+    margin: 0;
+    padding: 0;
+
+}
+
+#meta #meta_body #meta_horizotal_item_slide .meta_content::-webkit-scrollbar {
+    display: none;
+}
+
+#meta #meta_body #meta_horizotal_item_slide .meta_content .meta_item .meta_preview {
+    width: 120px;
+    height: 120px;
+}
+
+#meta #meta_body #meta_horizotal_item_slide .meta_content .meta_item .meta_preview img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Do not scale the image */
+    object-position: center; /* Center the image within the element */
+
+}
+
+
+#meta #meta_body #meta_form {
+    display: flex;
+    flex-direction: column;
+}
+
+#meta #meta_body #meta_form .meta_title {
+
+}
+
+#meta #meta_body #meta_form .meta_content {
+    display: flex;
+
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+}
+
+#meta #meta_body #meta_form .meta_content .left {
+    background-color: yellow;
+    border: 0.5px solid var(--grey1);
+    width: 50%;
+    aspect-ratio: 1;
+}
+
+#meta #meta_body #meta_form .meta_content .left .image{
+
+    height: 100%;
+    width: 100%;
+
+
+}
+
+#meta #meta_body #meta_form .meta_content .left .image img{
+
+object-fit: cover; /* Do not scale the image */
+    object-position: center; /* Center the image within the element */
+    height: 100%;
+    width: 100%;
+
+}
+
+
+
+#meta #meta_body #meta_form .meta_content .right {
+    display: flex;
+    flex-direction: column;
+    background-color: blue;
+    border: 0.5px solid var(--grey1);
+    width: 50%;
+}
+
+
+#meta #meta_map {
+
+    width: 100%;
+    height: 50%;
+
+
+}

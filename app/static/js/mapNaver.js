@@ -15,42 +15,70 @@ let data_source = 'gallery'
 const ZOOM_LEVEL_ALLOWED = 9
 
 
-function initNaverMap(x=37.3595704, y=127.105399, zoom_level=15, zoom_min=5, zoom_max=20, div_id="wrapper_map_horizontal"){
-
-
-
+function initNaverMap(x=127.105399, y=37.3595704, zoom_level=15, zoom_min=5, zoom_max=20, div_id="wrapper_map_horizontal"){
     if (div_id =="wrapper_map_mini"){
         map_mini = new naver.maps.Map(div_id, {
-            center: new naver.maps.LatLng(x, y),
+            center: new naver.maps.LatLng(y, x),
             zoom: zoom_level,  // zoom level
             minZoom: zoom_min, //지도의 최소 줌 레벨
             maxZoom: zoom_max, //지도의 최DA 줌 레벨
-            zoomControl: true, //줌 컨트롤의 표시 여부
-            zoomControlOptions: { //줌 컨트롤의 옵션
-                position: naver.maps.Position.TOP_RIGHT
-            }
+            zoomControl: false, //줌 컨트롤의 표시 여부
+
         });
+
+        var polyline = new naver.maps.Polyline({
+            map: map_mini,
+            path: [],
+            strokeColor: '#5347AA',
+            strokeWeight: 2
+        });
+
         naver.maps.Event.addListener(map_mini, 'click', function(e) {
 
             console.log(e.coord.x)
             console.log(e.coord.y)
 
-            slides = document.getElementsByClassName("slide")
-            for (let slide of slides){
+            var point = e.coord;
 
-                if (slide.style.display=="block"){
-                    slide.querySelector(".image_meta_longitude").value=e.coord.x
-                    slide.querySelector(".image_meta_latitude").value=e.coord.y
-                    break
-                }
-            }
+            var path = polyline.getPath();
+            path.push(point);
+
+            new naver.maps.Marker({
+                map: map_mini,
+                position: point
+            });
+
         });
-        document.getElementById(div_id).style.position = 'absolute'
+        // document.getElementById(div_id).style.position = 'absolute'
     }
+    else if (div_id =="wrapper_map_user"){
+        map_user = new naver.maps.Map(div_id, {
+            center: new naver.maps.LatLng(y, x),
+            zoom: zoom_level,  // zoom level
+            minZoom: zoom_min, //지도의 최소 줌 레벨
+            maxZoom: zoom_max, //지도의 최DA 줌 레벨
+            zoomControl: false, //줌 컨트롤의 표시 여부
+
+        });
+
+        naver.maps.Event.addListener(map_user, 'click', function(e) {
+
+            console.log(e.coord.x)
+            console.log(e.coord.y)
+
+        });
+
+        console.log(div_id)
+        console.log(document.getElementById(div_id).offsetWidth)
+        console.log(document.getElementById(div_id).offsetHeight)
+
+        // document.getElementById(div_id).style.position = 'absolute'
+    }
+
     else {
 
         map = new naver.maps.Map(div_id, {
-            center: new naver.maps.LatLng(x, y),
+            center: new naver.maps.LatLng(y, x),
             zoom: zoom_level,  // zoom level
             minZoom: zoom_min, //지도의 최소 줌 레벨
             maxZoom: zoom_max, //지도의 최DA 줌 레벨
@@ -59,6 +87,12 @@ function initNaverMap(x=37.3595704, y=127.105399, zoom_level=15, zoom_min=5, zoo
                 position: naver.maps.Position.TOP_RIGHT
             }
         });
+
+        // map.panTo(new naver.maps.LatLng(y, x))
+        // map.resize()
+        console.log(div_id)
+        console.log(document.getElementById(div_id).offsetWidth)
+        console.log(document.getElementById(div_id).offsetHeight)
 
 
 
@@ -167,45 +201,13 @@ function getBoundaryData(bounds, row_per_page, current_page) {
         }
     }
 
-    data = JSON.stringify({'boudndary_condition':bounds})
+    data = JSON.stringify({'boudndary_condition':bounds, 'row_per_page':row_per_page})
     req.open('POST', '/getContentsMeta')
     req.setRequestHeader("Content-type", "application/json")
     req.send(data)
 }
 
-function getGallaryData(row_per_page, current_page, species, months) {
-    var req = new XMLHttpRequest()
-    req.responseType = 'json';
-    req.onreadystatechange = function()
-    {
-        if (req.readyState == 4)
-        {
-            if (req.status != 200)
-            {
-                alert(''+req.status+req.response)
-            }
-            else
-            {
 
-                response_data = req.response.data
-
-
-
-                raw_data = response_data
-                console.log(' * response data size', response_data.length)
-                console.log(' * current raw data size', raw_data.length)
-                console.log(' * species dict', species_dict)
-                renderGallery()
-
-            }
-        }
-    }
-
-    data = JSON.stringify({'species':species, "months": months})
-    req.open('POST', '/getContentsMeta')
-    req.setRequestHeader("Content-type", "application/json")
-    req.send(data)
-}
 
 
 
@@ -401,8 +403,8 @@ function showData(data) {
 
         contentString = [
         '<div class="iw_inner">',
-        '   <h3>'+spot.content_id + '<br>' + spot.species + '<br>의 사진이 보인다 치자</h3>',
-        // '   <img src="'+spot.object_storage_url+'" width="300" height="300" alt="서울시청" class="thumb" />',
+        '' + spot.x + ',' + spot.y,
+        '   <img src="'+spot.object_storage_url+'" width="300" height="300" alt="서울시청" class="thumb" />',
         '</div>'
         ].join('');
 
@@ -492,19 +494,26 @@ function moveToBird(bird){
 
 
     setMapCenter(bird.x, bird.y)
-    setMapZoomLevel(18)
+    // setMapZoomLevel(18)
     showData([bird])
 }
 
 function setMapCenter(x, y){
 
+    console.log("set map center!")
+
     let map_div = document.getElementById(wrapper_map_id)
 
     if (map_div.style.display =='none'){
-        toggleMap()
+        toggleMap(true)
     }
 
-    map.setCenter(new naver.maps.LatLng(y, x))
+
+    console.log(document.getElementById("wrapper_map_horizontal").offsetWidth)
+    console.log(document.getElementById("wrapper_map_horizontal").offsetHeight)
+    map.panTo(new naver.maps.LatLng(y, x))
+
+
 }
 
 function setMapZoomLevel(level){
@@ -519,13 +528,6 @@ function setMapZoomLevel(level){
 // 해당 마커의 인덱스를 seq라는 클로저 변수로 저장하는 이벤트 핸들러를 반환합니다.
 function getClickHandler(marker, infowindow) {
     return function(e) {
-
-//        var marker = markers[seq],
-//            infowindow = infowindows[seq];
-
-
-        console.log(' ** getClickHandler', marker.title)
-        console.log(' ** getClickHandler', infowindow.title)
 
         if (infowindow.getMap() != null) {
             infowindow.close();

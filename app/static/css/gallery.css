@@ -1,0 +1,73 @@
+
+#gallery {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+
+}
+
+#column {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 100%;
+}
+
+.content {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 1;
+    border: 1px;
+    background-color: white;
+}
+
+
+.content .image{
+    z-index:5;
+    position: absolute;
+    top: 0;
+    object-fit: cover; /* Do not scale the image */
+    object-position: center; /* Center the image within the element */
+    height: 100%;
+    width: 100%;
+}
+
+.content .meta{
+
+    position: absolute;
+    display: flex;
+    z-index:5;
+    height: 100%;
+    width: 100%;
+    opacity: 1;
+}
+
+.content .meta .top-right{
+
+
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin: 10px;
+}
+
+
+.content .meta .bottom-right{
+
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    margin: 10px;
+}
+
+.content .meta .icon_info{
+
+    color: white;
+    font-size: 25px;
+    position: relative;
+    margin: 1px;
+    opacity: 0.5;
+    cursor: pointer;
+}
