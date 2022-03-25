@@ -194,7 +194,7 @@ for i, ultag in enumerate(soup.find_all('ul', {'class': 'bird_tree'})):
                      sites=_dict_sites[SITES],
                      nm=NM,
                      el=_dict_el[EL],
-                     seasonal_spec=dict_seasonal[seasonal_spec])
+                     seasonal_spec=_dict_seasonal[seasonal_spec])
             print(d)
             L.append(d)
             mongo_db_bird.insert_one(d)
