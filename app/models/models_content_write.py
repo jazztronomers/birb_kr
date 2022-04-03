@@ -127,6 +127,32 @@ class ContentWriter:
             return {'result': False,
                     'message': 'you already liked'}
 
+
+    def set_meta(self, meta, user_id, post_id, item_id):
+
+        query = {"post_id" : {"$eq": post_id},
+                 "user_id" : {"$eq": user_id},
+                 "item_id" : {"$eq": item_id}}
+
+        print(post_id, user_id, item_id)
+
+
+        ret = select(mongo_db['item'], query, sort_by="object_key")
+        print("BEFORE", ret)
+
+        ret = update_set_multi(collection=mongo_db['item'],
+                         query=query,
+                         key_value_dict=meta)
+
+        ret = select(mongo_db['item'], query, sort_by="object_key")
+        print("AFTER", ret)
+
+        return {'result': True,
+                'message': 'set meta success'}
+
+
+
+
 # if __name__ == "__main__":
 #
 #     print(ObjectId())

@@ -2,13 +2,9 @@ from jazzbirb_kr.app.util.mongo_connector import *
 from jazzbirb_kr.app.util.boto3_connector import BirbBoto3
 from jazzbirb_kr.app.util.app_logger import logger
 from jazzbirb_kr.app.constant import *
-import pandas as pd
-import pymongo
 from datetime import datetime, timedelta
 
 
-birds_list = [x for x in mongo_db['bird'].find({}, {'_id': False})]
-birds_dict = {x.get('bid'):x for x in birds_list}
 presigned_url_dict = {}
 
 class ContentReader:
@@ -29,15 +25,25 @@ class ContentReader:
         ## observe level > 3 인 종들 제외
 
         query = { "x": { "$gt": x_min, "$lt": x_max },
-                  "y": { "$gt": y_min, "$lt": y_max }}
+                  "y": { "$gt": y_min, "$lt": y_max },
+                  "observe_level": {"$lt": 3 }}
 
 
-        ret, has_next = select(collection=self.collection_item,
-                          query=query,
-                          sort_by="publish_date",
-                          ascending=False,
-                          limit=limit,
-                          skip=skip)
+        ret, has_next = aggregate(collection=self.collection_item,
+                                    query=query,
+                                    sort_by='publish_timestamp',
+                                    ascending=True,
+                                    limit=limit,
+                                    skip=skip,
+                                    lookups=[
+                                    {
+                                        'collection': 'bird',        # COLLECTION TO JOIN
+                                        'left_key': 'species',           # JOIN ON
+                                        'right_key': 'bid',      # JOIN ON
+                                        'extract': ['species_kr', 'observe_level'] # FIELD TO EXTRACT FROM THE 'FROM COLLECTION'
+                                    }])
+
+
 
         return ret, has_next
 
@@ -52,12 +58,30 @@ class ContentReader:
 
         ## MONTH 미구현 !
 
-        ret, has_next = select(collection=self.collection_item,
-                          query=query,
-                          sort_by="publish_timestamp", #observe_date
-                          ascending=False,
-                          limit=limit,
-                          skip=skip)
+        ret, has_next = aggregate(collection=self.collection_item,
+                                    query=query,
+                                    sort_by='publish_timestamp',
+                                    ascending=False,
+                                    limit=limit,
+                                    skip=skip,
+                                    lookups=[
+                                    {
+                                        'collection': 'bird',        # COLLECTION TO JOIN
+                                        'left_key': 'species',           # JOIN ON
+                                        'right_key': 'bid',      # JOIN ON
+                                        'extract': ['species_kr', 'observe_level']       # FIELD TO EXTRACT FROM THE 'FROM COLLECTION'
+                                    },
+                                    {
+                                            'collection': 'post',  # COLLECTION TO JOIN
+                                            'left_key': 'post_id',  # JOIN ON
+                                            'right_key': 'post_id',  # JOIN ON
+                                            'extract': ['title']
+                                            # FIELD TO EXTRACT FROM THE 'FROM COLLECTION'
+                                        }
+                                    ])
+
+        logger.info('limit %s, skip %s'%(limit, skip))
+
 
         return ret, has_next
 
@@ -74,11 +98,11 @@ class ContentReader:
         logger.info('%s, %s, %s'%(user_id, limit, skip))
         logger.info('%s, %s, %s'%(user_id, limit, skip))
         ret, has_next = select(collection=self.collection_item,
-                          query=query,
-                          sort_by="publish_timestamp", #observe_date
-                          ascending=False,
-                          limit=limit,
-                          skip=skip)
+                              query=query,
+                              sort_by="publish_timestamp", #observe_date
+                              ascending=False,
+                              limit=limit,
+                              skip=skip)
 
         return ret, has_next
 
@@ -125,7 +149,7 @@ class ContentReader:
 
         return ret
 
-    def _select_item(self, post_id):
+    def _select_item_by_post_id(self, post_id):
         query = {}
         query["post_id"] = {"$eq": post_id}
         ret, _ = select(self.collection_item,
@@ -136,12 +160,38 @@ class ContentReader:
                                 ascending=True)
         return ret
 
+    def _select_item_by_user_id(self, user_id):
+        query = {}
+        query["user_id"] = {"$eq": user_id}
+
+        query["x"] = {"$eq": None}
+
+        ## query["title"] = {"$ne": None} RIGHT TABLE의 ATTRIBUTE은 쿼리가 안됨 ㅠㅠ
+
+        ret, has_next = aggregate(self.collection_item,
+                          query=query,
+                          sort_by=["publish_timestamp", "item_id"], #observe_date
+                          ascending=[False, True],
+                          limit=999,
+                          skip=0,
+                          lookups=[
+                              {
+                                  'collection': 'post',  # COLLECTION TO JOIN
+                                  'left_key': 'post_id',  # JOIN ON
+                                  'right_key': 'post_id',  # JOIN ON
+                                  'extract':['title']
+                              }
+                          ])
+
+
+        return ret
+
     def _select_comment(self, post_id):
         query = {}
         query["post_id"] = {"$eq": post_id}
         ret, has_next = select(self.collection_post_comment,
                                           query=query,
-                                          sort_by="publist_timestamp",
+                                          sort_by="publish_timestamp",
                                           limit=999,
                                           skip=0,
                                           ascending=True)
@@ -159,20 +209,26 @@ class ContentReader:
 
 
 
-    def get_item_by_post_id(self, post_id, user_id):
-        items = self._select_item(post_id)
+    def get_item_by_post_id(self, user_id, post_id=None):
+        items = self._select_item_by_post_id(post_id)
 
         # TODO: user_id validation: is it your post?
+        for item in items:
+            item['object_storage_url'] = self.get_presigned_url(item['object_key'])
 
+        return items
+
+
+    def get_item_by_user_id(self, user_id):
+        items = self._select_item_by_user_id(user_id)
         for item in items:
             item['object_storage_url'] = self.get_presigned_url(item['object_key'])
 
 
         return items
 
-
     def get_birds(self):
-        return {"birds_list":birds_list}
+        return {"birds_list":CONST_BIRD_LIST}
 
     def get_board(self, limit=100, skip=0, keyword=None, from_date=None, to_date=None):
         ret, has_next = self._select_board(limit, skip)
@@ -180,11 +236,9 @@ class ContentReader:
 
 
     def get_post(self, post_id):
-
-
-        post, _ = self._select_post(post_id)        # 실직적으로는 SELECT ONE
-        items = self._select_item(post_id)          # 해당 포스트아이디에 해당하는 모든 아이템 (사진, 영상) 획득
-        comments = self._select_comment(post_id)    # 해당 포스트아이디에 해당하는 모든 댓글 획득
+        post, _ = self._select_post(post_id)                   # 실직적으로는 SELECT ONE
+        items = self._select_item_by_post_id(post_id)          # 해당 포스트아이디에 해당하는 모든 아이템 (사진, 영상) 획득
+        comments = self._select_comment(post_id)               # 해당 포스트아이디에 해당하는 모든 댓글 획득
 
         self._add_view(post_id)
 
@@ -213,27 +267,50 @@ class ContentReader:
         comments = self._select_comment(post_id)    # 해당 포스트아이디에 해당하는 모든 아이템 (사진, 영상) 획득
         return {"data": {"comments":comments}}
 
-    def get_contents_meta(self, x_min=0, x_max=0, y_min=0, y_max=0, species=[], months=[], user_id=None, limit=100, skip=0):
-
-
+    def get_items_boundary(self, x_min=0, x_max=0, y_min=0, y_max=0, species=[], months=[], user_id=None, limit=100, skip=0):
 
         logger.info("limit: %s, skip: %s"%(limit, skip))
-
         if 0 not in [x_min, x_max, y_min, y_max]:
             ret, has_next = self._select_with_boundary_condition(x_min, x_max, y_min, y_max, limit, skip)
-        elif user_id is not None:
-            ret, has_next = self._select_specific_user(user_id, limit, skip)
-        else:
-            ret, has_next = self._select_without_boundary_condition( limit, skip, species, months)
-
-
 
         # POST PROCESSING
         for each in ret:
-            if each.get('species') is not None:
-                each['species'] = [birds_dict.get(x).get("species_kr") for x in each['species']]
-
             each['object_storage_url']=self.get_presigned_url(each['object_key'])
+
+        logger.info("rawdata size: %s, has next: %s"%(len(ret), has_next))
+
+        return {"data": ret, "has_next": has_next}
+
+    def get_items_user(self, species=[], months=[], user_id=None, limit=100, skip=0):
+
+        logger.info("limit: %s, skip: %s"%(limit, skip))
+        ret, has_next = self._select_specific_user(user_id, limit, skip)
+
+        # POST PROCESSING
+        for each in ret:
+            each['object_storage_url']=self.get_presigned_url(each['object_key'])
+
+        logger.info("rawdata size: %s, has next: %s"%(len(ret), has_next))
+
+        return {"data": ret, "has_next": has_next}
+
+    def get_items_gallery(self, species=[], months=[], limit=100, skip=0):
+
+        logger.info("limit: %s, skip: %s"%(limit, skip))
+        ret, has_next = self._select_without_boundary_condition( limit, skip, species, months)
+
+        # POST PROCESSING
+        for each in ret:
+            each['object_storage_url']=self.get_presigned_url(each['object_key'])
+
+            # 종정보가 있으면서 희귀종인 경우
+            if isinstance(each.get("observe_level"), float) and each.get("observe_level") < 4:
+                each['x'], each['y'] = None, None
+
+            # 종정보가 없으면서 위치정보가 있는 경우
+            elif each.get("observe_level") is None:
+                each['x'], each['y'] = None, None
+
 
         logger.info("rawdata size: %s, has next: %s"%(len(ret), has_next))
 
