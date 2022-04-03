@@ -6,3 +6,4 @@ __pycache__
 app/logs/*.log
 app/config/config.py
 _test.py
+*.pem
