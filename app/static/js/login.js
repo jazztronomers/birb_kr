@@ -31,15 +31,15 @@ document.addEventListener("DOMContentLoaded", function(){
 });
 
 
-function login(is_auto=false){
+function login(){
 
-    console.log(" * login triggered....", event.key, is_auto)
+    console.log(" * login triggered....", event.key)
     if(event.type === 'keydown' && event.key === undefined){
         console.log("[BUG?] ubuntu chromium bug!", event.key, event.type)
         return true
     }
 
-    else if(event.key === 'Enter' || null == event.key || is_auto == true) {
+    else if(event.key === 'Enter' || null == event.key) {
 
         let req = new XMLHttpRequest()
         req.responseType = 'json';
@@ -62,12 +62,15 @@ function login(is_auto=false){
         }
 
         req.open('POST', '/login.do')
-        req.setRequestHeader("Content-type", "application/x-www-form-urlencoded")
+        req.setRequestHeader("Content-type", "application/json")
 
 
         let email = document.getElementById('login_email').value
-        pw = SHA256(document.getElementById('login_pw').value)
-        req.send('email='+email+'&pw='+pw)
+        let pw = SHA256(document.getElementById('login_pw').value)
+        let keep_login = document.getElementById('keep_login').checked
+
+        data = JSON.stringify({'email':email, "pw": pw, "keep_login": keep_login})
+        req.send(data)
 
 
 //        // let auto_login_checked = document.getElementById('auto_login').checked

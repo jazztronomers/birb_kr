@@ -5,27 +5,27 @@ function initPost(post_id){
     removeAllChildNodes(div_post)
     getPost(post_id)
 
-    div_post.addEventListener('scroll', throttle(scrollEndShowComment, 200), {
-        capture: true,
-        passive: true
-    });
+//    div_post.addEventListener('scroll', throttle(scrollEndShowComment, 200), {
+//        capture: true,
+//        passive: true
+//    });
 
 }
 
 
-function scrollEndShowComment(){
-
-    div_post = document.querySelector("#post_body")
-    clientHeight = document.documentElement.clientHeight
-    scrollHeight = div_post.scrollHeight;
-    scrollTop = div_post.scrollTop;
-
-    console.log(clientHeight, scrollTop, clientHeight+scrollTop, scrollHeight)
-
-    if(scrollTop + clientHeight >= scrollHeight ){
-        showComment()
-    }
-}
+//function scrollEndShowComment(){
+//
+//    div_post = document.querySelector("#post_body")
+//    clientHeight = document.documentElement.clientHeight
+//    scrollHeight = div_post.scrollHeight;
+//    scrollTop = div_post.scrollTop;
+//
+//    console.log(clientHeight, scrollTop, clientHeight+scrollTop, scrollHeight)
+//
+//    if(scrollTop + clientHeight >= scrollHeight ){
+//        showComment()
+//    }
+//}
 
 
 function getPost(post_id){
@@ -54,7 +54,7 @@ function getPost(post_id){
                 clientHeight = document.documentElement.clientHeight
                 scrollHeight = div_post.scrollHeight;
 
-                if (clientHeight > scrollHeight) showComment('35%')
+                // if (clientHeight > scrollHeight) showComment('35%')
 
 
             }
@@ -145,7 +145,9 @@ function getPostComment(post_id){
 
                 post_comments = document.querySelector("#post_comments")
                 new PostComment(post_comments, comments)
-                post_comments.scrollTop = post_comments.scrollHeight;
+                console.log(window.scrollHeight)
+                console.log(window.scrollTop)
+                window.scrollTo(0, document.body.scrollHeight);
 
             }
         }
@@ -161,13 +163,13 @@ function getPostComment(post_id){
 function foldComment(){
 
 
-    post_comments = document.getElementById("post_comments")
-    if (post_comments.style.maxHeight== '0%' || post_comments.style.maxHeight== ''){
-        showComment()
-    }
-    else {
-        hideComment()
-    }
+//    post_comments = document.getElementById("post_comments")
+//    if (post_comments.style.maxHeight== '0%' || post_comments.style.maxHeight== ''){
+//        showComment()
+//    }
+//    else {
+//        hideComment()
+//    }
 
 }
 
@@ -250,7 +252,6 @@ class PostComment extends Component {
     template () {
         const { items } = this.$state;
 
-        console.log(items.length)
         // 댓글 수 업데이트
         document.querySelector("#post_header .comment").innerHTML = '['+items.length+']'
 

@@ -62,6 +62,7 @@ a:active {
   text-decoration: none;
 }
 
+
 input[type=text] {
     width: 100%;
     line-height: 1.6rem;
@@ -69,11 +70,19 @@ input[type=text] {
     margin: 0px 0px;
     border: none;
     box-sizing : border-box;
+    border-radius: 0;
+    -webkit-appearance: none;
 }
 
 input[type=text]:focus {
     outline: none;
     border-bottom: 0.5 solid var(--grey4);
+
+}
+
+input[type=text]:disabled {
+    outline: none;
+    background-color: white;
 }
 
 button {

@@ -1,6 +1,18 @@
 const GALLERY_BATCH_SIZE = 5      // FOR RENDERING
 const GALLERY_ROW_PER_PAGE = 10   // GET IMAGE FROM SERVER PER REQUEST
 let gallery_api_idle = true
+let gallery_has_next = true
+let last_batch = []
+function initGallery(items){
+    console.log('init gallery', items)
+    new Gallery(document.querySelector('#gallery_items'), raw_data)
+}
+
+
+function appendItem(items){
+    console.log('append_item', items)
+    new Gallery(document.querySelector('#gallery_items'), items)
+}
 
 function getGalleryData(row_per_page, current_page, species=[], months=[], callback=null) {
 
@@ -19,130 +31,101 @@ function getGalleryData(row_per_page, current_page, species=[], months=[], callb
                 else
                 {
 
-                    response_data = req.response.data
-                    raw_data = raw_data.concat(response_data)
-                    console.log(' * response data size', response_data.length)
+                    last_batch = req.response.data
+
+                    gallery_has_next = req.response.has_next
+                    raw_data = raw_data.concat(last_batch)
+                    console.log(' * gallery has next', gallery_has_next)
+                    console.log(' * response data size', last_batch.length)
                     console.log(' * current raw data size', raw_data.length)
                     console.log(' * species dict', species_dict)
                     gallery_api_idle = true
-                    console.log(callback)
+
                     if(callback!=null){
-                        callback()
+                        callback(last_batch)
                     }
                 }
             }
         }
 
         data = JSON.stringify({'species':species, "months": months, 'row_per_page':row_per_page, 'current_page':current_page})
-        req.open('POST', '/getContentsMeta')
+        req.open('POST', '/items/get/gallery')
         req.setRequestHeader("Content-type", "application/json")
         req.send(data)
     }
 }
 
 
-function renderGallery(clear=false){
 
 
-    console.log('renderGallery!')
-    // raw_data 에서 차례대로 데이터를 꺼내서 N장씩 붙여주는 함수
-    column = document.getElementById("column")
-    if (clear){
-        removeAllChildNodes(column)
+class Gallery extends Component {
+
+    setup() {
+        this.$state = { items: this.$state };
     }
 
+    template () {
 
-    if (raw_data.length > 0){
+        const { items } = this.$state;
 
-        current_item_cnt = column.children.length
-        tobe_item_cnt = column.children.length + GALLERY_BATCH_SIZE
+        console.log(items)
 
-        for (let i=current_item_cnt; i< tobe_item_cnt; i++){
-            console.log(i,raw_data[i])
-            html = makeGalleryContent(raw_data[i])
-            column.appendChild(html)
+        return `
+        ${items.map(item => `
+            <div class="content">
+                <img class="image" src="${item.object_storage_url}">
+                <div class="meta">
 
+                    <div class="top-left" style='display:none'>TOP-LEFT</div>
+                    <div class="top-right">
+                        <span><a onclick="showImageInformation(this.parentElement.parentElement.parentElement, '${item.object_key}')"><i class="icon_info fi fi-rr-info"></i></a></span>
+                        <span><a onclick="moveToBird(${item})"><i class="icon_info fi fi-rr-map-marker"></i></a></span>
+                    </div>
+                    <div class="bottom-left" style='display:none'>BOTTOM-LEFT</div>
+                    <div class="bottom-right">
+                        <span><a onclick="goToPost('${item.post_id}')"><i class="icon_info fi fi-rr-info"></i></a></span>
+                        <span><a onclick="setImageInfo()"><i class="icon_info fi fi-rr-info"></i></a></span>
+                    </div>
+                </div>
+            </div>
+
+        `).join('')}
+
+        `
+    }
+
+}
+
+function goToPost(post_id){
+    toggle('post', post_id, false, null)
+}
+
+function showImageInformation(meta_element, object_key){
+
+    bottom_left = meta_element.querySelector(".bottom-left")
+
+    if (bottom_left.style.display=='none'){
+
+        information = ''
+        for (item of raw_data){
+            if (item.object_key == object_key){
+
+                information += `# 원글: <a onclick="toggle('post', '${item.post_id}')">${item.title}</a><br>`
+                information += `# 관찰일자: ${item.observe_timestamp}<br>`
+                information += `# 작성일자: ${item.publish_timestamp}<br>`
+                information += `# 작성자: ${item.user_id}<br>`
+                information += `# 종명: ${item.species_kr}<br>`
+                information += `# 희귀도: ${item.observe_level}<br>`
+                break;
+            }
         }
+        bottom_left.style.display= 'block'
+        bottom_left.innerHTML=information
     }
+
     else {
-
-        out_of_data = document.createElement("div")
-        out_of_data.innerHTML = "데이터가 없습니다 ㅠㅠ"
-        alert(column.children.length)
-        column.appendChild(out_of_data)
-
+        bottom_left.style.display= 'none'
     }
 }
 
 
-function makeGalleryContent(image){
-
-//    <div class="content">
-//        <img class="image" src="https://jazzbirb-bird.s3.ap-northeast-2.amazonaws.com/0080_001.jpg">
-//        <div class="meta">
-//            <div class="top-right">
-//                <span><a href="#" onclick="setImageInfo()"><i class="icon_info fi fi-rr-info"></i></a></span>
-//                <span><a href="#" onclick="setMapCenter(126.534361, 33.3590628)"><i class="icon_info fi fi-rr-map-marker"></i></a></span>
-//            </div>
-//            <div class="bottom-right">
-//                <span><a href="#" onclick="setImageInfo()"><i class="icon_info fi fi-rr-info"></i></a></span>
-//                <span><a href="#" onclick="setImageInfo()"><i class="icon_info fi fi-rr-info"></i></a></span>
-//            </div>
-//        </div>
-//    </div>
-
-
-
-    content = document.createElement("div")
-    content.setAttribute("class", "content")
-
-    img = document.createElement("img")
-    img.setAttribute("class", 'image')
-    img.setAttribute("src", image.object_storage_url)
-
-    meta = document.createElement("div")
-    meta.setAttribute("class", "meta")
-
-
-    top_right_div = document.createElement("div")
-    top_right_div.setAttribute("class", "top-right")
-
-    i_a = document.createElement("i")
-    i_a.setAttribute("class", "icon_info fi fi-rr-map-marker")
-
-    a_a = document.createElement("a")
-    a_a.value = image
-    a_a.setAttribute("onclick", "moveToBird(this.value)")
-    a_a.appendChild(i_a)
-
-
-    span_a = document.createElement("span")
-    span_a.appendChild(a_a)
-
-    i_b = document.createElement("i")
-    i_b.setAttribute("class", "icon_info fi fi-rr-map-marker")
-
-    a_b = document.createElement("a")
-    a_b.value = image
-    a_b.setAttribute("onclick", "moveToBird(this.value)")
-    a_b.appendChild(i_b)
-
-    span_a = document.createElement("span")
-    span_a.appendChild(a_a)
-
-    span_b = document.createElement("span")
-    span_b.appendChild(a_b)
-
-    top_right_div.appendChild(span_a)
-    top_right_div.appendChild(span_b)
-
-    meta.appendChild(top_right_div)
-
-    content.appendChild(img)
-    content.appendChild(meta)
-
-    // bottom-right-div = document.createElement("div")
-
-    return content
-
-}

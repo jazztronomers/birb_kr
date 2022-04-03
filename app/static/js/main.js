@@ -56,7 +56,7 @@ let CURRENT_PAGE = "others"
 
 
 let display_mode = (window.innerWidth / window.innerHeight) > 100 ? 'horizontal' : 'vertical'
-let wrapper_map_id = (window.innerWidth / window.innerHeight) > 100 ? 'wrapper_map_horizontal' : 'wrapper_map_vertical'
+// let wrapper_map_id = (window.innerWidth / window.innerHeight) > 100 ? 'wrapper_map_horizontal' : 'wrapper_map_vertical'
 
 // FOR INFINITE SCROLL
 // FIRE FUNCTION ONLY ONCE IN TIME INTERVAL (LIMIT)
@@ -82,19 +82,19 @@ function scrollSwitch(){
         scrollHeight = document.body.scrollHeight;           // REFLOW후 창의 높이
         scrollTop = document.documentElement.scrollTop;      // 현재 스크롤의 위치
 
-        console.log(clientHeight, scrollHeight, scrollTop)
 
-        column = document.getElementById("column")
+
+        column = document.getElementById("gallery_items")
         current_item_cnt = column.children.length
-        if (raw_data.length == current_item_cnt){
+        if (raw_data.length == current_item_cnt && gallery_has_next){
             console.log('infinite more', raw_data.length, current_item_cnt)
             getGalleryData(GALLERY_ROW_PER_PAGE,  parseInt(current_item_cnt/ GALLERY_ROW_PER_PAGE)+1)
         }
 
-        else if(scrollTop + clientHeight > scrollHeight * 0.8){
+        else if(scrollTop + clientHeight > scrollHeight * 0.8 && gallery_has_next){
 
             console.log('infinite render')
-            infiniteScroll(renderGallery)
+            infiniteScroll(initGallery)
         }
     }
 }
@@ -195,8 +195,8 @@ function toggle(to, param=null, backward=false, callback=null){
     console.log('toggle..', to, param)
     event.preventDefault();
 
-    let map_div = document.getElementById(wrapper_map_id)
-    let map_extension = document.getElementById("wrapper_map_extension")
+//    let map_div = document.getElementById(wrapper_map_id)
+//    let map_extension = document.getElementById("wrapper_map_extension")
 
 //    if (['post'].includes(current_page)){
 //        confirmation = confirm("작성중인 내용이 모두 지워집니다, 계속 하시겠습니까?")
@@ -221,10 +221,7 @@ function toggle(to, param=null, backward=false, callback=null){
     }
 
 
-    if (display_mode=='vertical'){
-        map_div.style.display="none"
-        map_extension.style.display="none"
-    }
+
 
     if (to=="root"){
         document.location.href="/";
@@ -247,7 +244,7 @@ function toggle(to, param=null, backward=false, callback=null){
     if (to=="gallery"){
         if (raw_data.length==0){
 
-            getGalleryData(GALLERY_ROW_PER_PAGE, current_page=1, species=[], month=[], callback=renderGallery)
+            getGalleryData(GALLERY_ROW_PER_PAGE, current_page=1, species=[], month=[], callback=initGallery)
         }
     }
 
@@ -271,6 +268,9 @@ function toggle(to, param=null, backward=false, callback=null){
         initMeta(param)
     }
 
+    else if (to=="map"){
+        initMap()
+    }
 
 
 }
@@ -289,92 +289,94 @@ function dropdownUser(){
 }
 
 
-function toggleMap(confirm=true){
 
-
-
-    event.preventDefault();
-    if (confirm == false){
-        if (['post'].includes(current_page)){
-            confirmation = confirm("작성중인 내용이 모두 지워집니다, 계속 하시겠습니까?")
-            if (!confirmation){
-                return false
-            }
-        }
-    }
-
-    // clearPost()
-
-    current_page = "others"
-
-    let main = document.getElementById("wrapper_main")
-    let map_div = document.getElementById(wrapper_map_id)
-    let map_extension = document.getElementById("wrapper_map_extension")
-
-
-    if (map == null){
-        initNaverMap(x=126.8231877, y=37.3595704, zoom_level=15, zoom_min=8, zoom_max=20, wrapper_map_id)
-    }
-
-
-
-    // HORIZONTAL (DESKTOP)
-    //
-    //    if (display_mode=='horizontal'){
-    //        if (map_div.style.display =='none'){
-    //            main.style.width = '40%'
-    //            main.style.minWidth = '600px'
-    //            main.style.marginLeft = 'unset'
-    //            main.style.marginRight = 'unset'
-    //
-    //            map_div.style.display = 'flex'
-    //
-    //            map_extension.style.display = "flex"
-    //            map_extension.style.width= '300px';
-    //        }
-    //
-    //        else {
-    //
-    //            main.style.width = '100%'
-    //            main.style.marginLeft = 'auto'
-    //            main.style.marginRight = 'auto'
-    //
-    //            map_div.style.display = 'none'
-    //
-    //            map_extension.style.display = "none"
-    //        }
-    //    }
-
-    if (display_mode=="vertical"){
-
-        if (map_div.style.display =='none'){
-            panes = document.getElementsByClassName("pane")
-            for (let pane of panes) {
-                pane.style.display="none"
-            }
-
-            map_div.style.display = 'flex'
-            map_extension.style.display = "flex"
-            map_extension.style.width = '100%'
-            map_extension.style.height = '30%'
-
-        }
-
-        else {
-
-            main.style.width = '100%'
-            main.style.marginLeft = 'auto'
-            main.style.marginRight = 'auto'
-            map_div.style.display = 'none'
-            map_extension.style.display = "none"
-        }
-    }
-
-
-    // VERTICAL (MOBILE)
-
-}
-
+//
+//function toggleMap(confirm=true){
+//
+//
+//
+//    event.preventDefault();
+//    if (confirm == false){
+//        if (['post'].includes(current_page)){
+//            confirmation = confirm("작성중인 내용이 모두 지워집니다, 계속 하시겠습니까?")
+//            if (!confirmation){
+//                return false
+//            }
+//        }
+//    }
+//
+//    // clearPost()
+//
+//    current_page = "others"
+//
+//    let main = document.getElementById("wrapper_main")
+//    let map_div = document.getElementById(wrapper_map_id)
+//    let map_extension = document.getElementById("wrapper_map_extension")
+//
+//
+//    if (map == null){
+//        initNaverMap(x=126.8231877, y=37.3595704, zoom_level=15, zoom_min=8, zoom_max=20, wrapper_map_id)
+//    }
+//
+//
+//
+//    // HORIZONTAL (DESKTOP)
+//    //
+//    //    if (display_mode=='horizontal'){
+//    //        if (map_div.style.display =='none'){
+//    //            main.style.width = '40%'
+//    //            main.style.minWidth = '600px'
+//    //            main.style.marginLeft = 'unset'
+//    //            main.style.marginRight = 'unset'
+//    //
+//    //            map_div.style.display = 'flex'
+//    //
+//    //            map_extension.style.display = "flex"
+//    //            map_extension.style.width= '300px';
+//    //        }
+//    //
+//    //        else {
+//    //
+//    //            main.style.width = '100%'
+//    //            main.style.marginLeft = 'auto'
+//    //            main.style.marginRight = 'auto'
+//    //
+//    //            map_div.style.display = 'none'
+//    //
+//    //            map_extension.style.display = "none"
+//    //        }
+//    //    }
+//
+//    if (display_mode=="vertical"){
+//
+//        if (map_div.style.display =='none'){
+//            panes = document.getElementsByClassName("pane")
+//            for (let pane of panes) {
+//                pane.style.display="none"
+//            }
+//
+//            map_div.style.display = 'flex'
+//            map_extension.style.display = "flex"
+//            map_extension.style.width = '100%'
+//            map_extension.style.height = '30%'
+//
+//        }
+//
+//        else {
+//
+//            main.style.width = '100%'
+//            main.style.marginLeft = 'auto'
+//            main.style.marginRight = 'auto'
+//            map_div.style.display = 'none'
+//            map_extension.style.display = "none"
+//        }
+//    }
+//
+//
+//    // VERTICAL (MOBILE)
+//
+//}
+//
 
 
 
@@ -404,6 +406,9 @@ function getConst(){
                 EDITOR_CATEGORY = res.data.category
                 EDITOR_OPTION = res.data.option
                 BIRD = res.data.bird
+                df_birds = new dfd.DataFrame(res.data.bird.birds_list)
+                console.log(BIRD)
+                df_birds.print()
             }
         }
     }
@@ -460,6 +465,26 @@ function removeAllChildNodes(parent) {
     }
 }
 
+function zip(arrays) {
+    /*
+
+        zip([[1,2,3],[4,5,6]])
+    =>
+
+        (3) [Array(2), Array(2), Array(2)]
+        0: (2) [1, 4]
+        1: (2) [2, 5]
+        2: (2) [3, 6]
+
+    */
+    return arrays[0].map(function(_,i){
+        return arrays.map(function(array){return array[i]})
+    });
+}
+
+
+
+
 String.prototype.format = function() {
     var formatted = this;
     for( var arg in arguments ) {
@@ -475,6 +500,7 @@ function autocomplete(inp, arr) {
   var currentFocus;
   /*execute a function when someone writes in the text field:*/
   inp.addEventListener("input", function(e) {
+
       var a, b, i, val = this.value;
       /*close any already open lists of autocompleted values*/
       closeAllLists();

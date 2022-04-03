@@ -1,9 +1,15 @@
-import pymongo
+from jazzbirb_kr.app.util.app_logger import logger
 from datetime import datetime
+import pymongo
 
+
+# DOCKER
+# mongo_client = pymongo.MongoClient("mongodb://localhost:27016/")
+# mongo_db = mongo_client["birb_kr"]
+
+# LOCAL
 mongo_client = pymongo.MongoClient("mongodb://localhost:27017/")
 mongo_db = mongo_client["local"]
-
 
 def select(collection, query, sort_by=None, ascending=False, skip=0, limit=5, includes_id=False):
 
@@ -62,7 +68,7 @@ def aggregate(collection, query, sort_by=None, ascending=False, skip=0, limit=50
             sort_dict[sb] = 1 if sh else -1
 
     else:
-        sort_dict= {sort_by: 1 if sort_how else -1}
+        sort_dict= {sort_by: sort_how}
 
 
 
@@ -71,9 +77,7 @@ def aggregate(collection, query, sort_by=None, ascending=False, skip=0, limit=50
             "$sort": sort_dict
         })
 
-    pipeline.append({
-        "$match": query,
-    })
+
     pipeline.append({
         "$skip": skip,
     })
@@ -84,16 +88,26 @@ def aggregate(collection, query, sort_by=None, ascending=False, skip=0, limit=50
     if len(lookups)>0:
         for lookup in lookups:
 
+            # pipeline: [
+            #     { $project: {id: 1, cafeId: { $toObjectId: "$$id"}, name: 1}},
+            # { $match: {expr: { $eq: ["$$cafeId", "$cafeId"]}}},
+            # { $sort: {stampDate: -1}},
+            # { $limit: 10}
+            # ]
 
             ## 1:1 MATCHING, FLATTEN
             if 'extract' in lookup:
-                pipeline.append({
-                    "$lookup": {
+
+                _lookup = {
                         "from": lookup['collection'],
                         "localField": lookup["left_key"],
                         "foreignField": lookup["right_key"],
-                        "as": 'TEMP' if isinstance(lookup['extract'], list) else lookup['extract']
-                    },
+                        "as": 'TEMP' if isinstance(lookup['extract'], list) else lookup['extract'],
+                }
+
+
+                pipeline.append({
+                    "$lookup": _lookup
                 })
                 pipeline.append({
                     "$set": {x: {"$arrayElemAt": ["$%s.%s" % ('TEMP', x), 0]} for x in lookup['extract']}
@@ -126,7 +140,9 @@ def aggregate(collection, query, sort_by=None, ascending=False, skip=0, limit=50
                     }
                 })
 
-
+    pipeline.append({
+        "$match": query,
+    })
 
     if skip > cnt:
         has_next = False
@@ -135,7 +151,7 @@ def aggregate(collection, query, sort_by=None, ascending=False, skip=0, limit=50
     else:
         has_next = True
 
-    print("COUNT, LIMIT, SKIP 가지고 hasnext 도출해내라", cnt, limit, skip)
+    # print("COUNT, LIMIT, SKIP 가지고 hasnext 도출해내라", cnt, limit, skip)
     ret = [x for x in collection.aggregate(pipeline)]
     return ret, has_next
 
@@ -155,10 +171,10 @@ def update_inc(collection, query, key, value):
     values = { "$inc": { key: 1} }
     collection.update_one(query, values)
 
-def update_set(collection, query, key, value):
+def update_set_one(collection, query, key, value):
     '''
 
-    특정값 attributedml 값 조정 함수
+    특정값 attributedml 값 조정 함수, only one value
 
     :param collection:
     :param query:
@@ -169,6 +185,28 @@ def update_set(collection, query, key, value):
 
     update = { "$set": { key: value}}
     collection.update_one(query, update)
+
+def update_set_multi(collection, query, key_value_dict):
+    '''
+
+    특정값 attributedml 값 조정 함수, multi value
+
+    :param collection:
+    :param query:
+    :param key:
+    :param value:
+    :return:
+    '''
+
+
+
+
+    update = { "$set": key_value_dict}
+    ret = collection.update_one(query, update)
+    print(ret.modified_count)
+
+    logger.info("%s"%(ret))
+    return ret
 
 
 def update_push(collection, query, key, value):

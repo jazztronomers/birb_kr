@@ -10,14 +10,22 @@ app_user = Blueprint('user', __name__, url_prefix='/')
 
 @app_user.route('/login.do', methods=['POST'])
 def login():
-    if request.method == 'POST' and 'email' in request.form and 'pw' in request.form:
 
-        email = request.form['email']
-        pw = request.form['pw']
+    print(request.json)
+    if request.method == 'POST' and 'email' in request.json.keys() and 'pw' in request.json.keys():
+
+        email = request.json['email']
+        pw = request.json['pw']
+        keep_login = request.json['keep_login']
+
+
 
         user = User()
         response = user.login(email, pw)
         if response['result']:
+            if keep_login:
+                session.permanent = True
+
             session['loggedin'] = True
             session['email'] = response['email']
             session['user_name'] = response['user_name']
@@ -50,14 +58,14 @@ def logout():
 @app_user.route('/registerForm', methods=['POST'])
 def register():
     if request.method == 'POST' and \
-            'email' in request.form and \
-            'pw' in request.form and \
-            'user_name' in request.form:
+            'email' in request.json.keys() and \
+            'pw' in request.json.keys() and \
+            'user_name' in request.json.keys():
 
-        email = request.form['email']
-        pw = request.form['pw']
-        user_name = request.form['user_name']
-        user_id = request.form['user_id']
+        email = request.json['email']
+        pw = request.json['pw']
+        user_name = request.json['user_name']
+        user_id = request.json['user_id']
 
         user = User()
         if not user.check_dup('user_name', user_name):

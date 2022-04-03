@@ -1,7 +1,13 @@
 from jazzbirb_kr.app.route import route_user, route_content_read, route_content_write
 from jazzbirb_kr.app.config.config import FLASK_SECRET_KEY
 from jazzbirb_kr.app.util.app_logger import logger
-from flask import Flask, render_template, redirect, session
+from jazzbirb_kr.app.util.mongo_connector import mongo_client, mongo_db
+from flask import Flask, render_template, redirect
+from flask import session            # SESSION STORED ON CLIENT SIDE
+# from flask_session import Session  # SESSION STORED ON SERVER SIDE
+from datetime import timedelta
+
+
 
 # DEV ONLY =============================================
 UPLOAD_FOLDER = '/workspace/jazzbirb_kr/test'
@@ -17,8 +23,8 @@ app.register_blueprint(route_content_write.app_content_writer)
 app.config['JSON_SORT_KEYS'] = False
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER # dev
 app.config['SECRET_KEY'] = FLASK_SECRET_KEY
-
-
+app.config['PERMANENT_SESSION_LIFETIME'] = timedelta(days=31)
+# app.config['PERMANENT_SESSION_LIFETIME'] = timedelta(minutes=5)
 
 
 @app.route('/')
@@ -99,10 +105,26 @@ def render_editor():
     else:
         return redirect('/login')
 
+@app.route('/meta', methods=['GET'])
+def render_meta_without_input():
+    if session.get('loggedin'):
+        return render_template('home.html', route='meta')
+    else:
+        return redirect('/login')
+
 @app.route('/meta/<post_id>', methods=['GET'])
 def render_meta(post_id):
     if session.get('loggedin'):
         return render_template('home.html', route='meta', route_param=post_id)
+    else:
+        return redirect('/login')
+
+@app.route('/map', methods=['GET'])
+def render_map():
+    if session.get('loggedin'):
+
+        user_id = session.get("user_id")
+        return render_template('home.html', route='map', user_id=user_id)
     else:
         return redirect('/login')
 

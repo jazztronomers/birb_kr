@@ -262,7 +262,7 @@ function getGalleryUser(row_per_page, current_page, user_id, callback=null){
         }
 
         data = JSON.stringify({"user_id": user_id, 'row_per_page':row_per_page, 'current_page':current_page})
-        req.open('POST', '/getContentsMeta')
+        req.open('POST', '/items/get/user')
         req.setRequestHeader("Content-type", "application/json")
         req.send(data)
     }

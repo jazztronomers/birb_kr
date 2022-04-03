@@ -3,6 +3,13 @@ var flag_user_name_dup_checked=false
 var flag_password_confirmed=false
 var flag_curr_pw_matches=false
 
+
+const VALIDATE_MSG_ID_LENGTH = "ID must be at least 5 characters"
+const VALIDATE_MSG_PW_LENGTH = "PW must be at least 6 characters"
+const VALIDATE_MSG_EMAIL_LENGTH = "EMAIL must be at least 6 characters"
+const VALIDATE_MSG_USERNAME_LENGTH = "USERNAME must be at least 6 characters"
+
+
 function checkPasswordMatches(){
 
   if (document.getElementById('pw').value ==
@@ -124,78 +131,90 @@ function setConfirmationTimer(element_id_timer_span='confirmationTimer', element
 function checkConfirmationCodeMatches(email){
 
     confirmation_code = document.getElementById('emailconfirmationcode').value
-    var req = new XMLHttpRequest()
-    req.responseType = 'json';
-    req.onreadystatechange = function()
-    {
-        if (req.readyState == 4)
+    if (confirmation_code.length== 6) {
+        var req = new XMLHttpRequest()
+        req.responseType = 'json';
+        req.onreadystatechange = function()
         {
-            if (req.status == 200){
+            if (req.readyState == 4)
+            {
+                if (req.status == 200){
 
-                if(req.response.result == false)
-                {
-                    alert("입력된 인증코드가 일치하지 않습니다.")
-                    return false
-                }
-                else {
-                    alert("인증되었습니다.")
-                    document.getElementById('confirmationTimer').innerHTML = ''
-                    var button = document.getElementById('button_confirmation')
-                    button.disabled = "disabled";
-                    var button = document.getElementById('button_mail')
-                    button.disabled = "disabled";
+                    if(req.response.result == false)
+                    {
+                        alert("입력된 인증코드가 일치하지 않습니다.")
+                        return false
+                    }
+                    else {
+                        alert("인증되었습니다.")
+                        document.getElementById('confirmationTimer').innerHTML = ''
+                        var button = document.getElementById('button_confirmation')
+                        button.disabled = "disabled";
+                        var button = document.getElementById('button_mail')
+                        button.disabled = "disabled";
 
-                    flag_email_confirmed = true
-                    return true
+                        flag_email_confirmed = true
+                        return true
+                    }
                 }
             }
         }
+
+        req.open('POST', '/checkEmailConfirmationCode')
+        req.setRequestHeader("Content-type", "application/x-www-form-urlencoded")
+        req.send('confirmation_code='+confirmation_code)
     }
 
-    req.open('POST', '/checkEmailConfirmationCode')
-    req.setRequestHeader("Content-type", "application/x-www-form-urlencoded")
-    req.send('confirmation_code='+confirmation_code)
-
+    else {
+        alert("입력된 인증코드가 일치하지 않습니다.")
+        return false
+    }
 }
 
 function checkDupUserId(){
 
 
     flag_userid_dup_checked = false
-    var user_id = document.getElementById('user_id').value
-    var req = new XMLHttpRequest()
-    req.responseType = 'json';
-    req.onreadystatechange = function()
-    {
-        if (req.readyState == 4)
+    let user_id = document.getElementById('user_id').value
+
+    if (user_id.length < 5) {
+        alert(VALIDATE_MSG_USERNAME_LENGTH)
+    }
+
+    else {
+        let req = new XMLHttpRequest()
+        req.responseType = 'json';
+        req.onreadystatechange = function()
         {
-            if (req.status == 200){
+            if (req.readyState == 4)
+            {
+                if (req.status == 200){
 
-                if(req.response.result == false)
-                {
-                    alert("이미 존재하는 id 입니다")
-                    flag_userid_dup_checked = false
+                    if(req.response.result == false)
+                    {
+                        alert("이미 존재하는 id 입니다")
+                        flag_userid_dup_checked = false
 
-                }
-                else {
-                    alert("사용가능한 id 입니다")
-
-                    var button = document.getElementById('submit-btn')
-                    if (null != button){
-                        button.disabled = "";
                     }
+                    else {
+                        alert("사용가능한 id 입니다")
 
-                    flag_userid_dup_checked = true
-                    return true
+                        var button = document.getElementById('submit-btn')
+                        if (null != button){
+                            button.disabled = "";
+                        }
+
+                        flag_userid_dup_checked = true
+                        return true
+                    }
                 }
             }
         }
+
+        req.open('POST', '/checkDupUserId')
+        req.setRequestHeader("Content-type", "application/x-www-form-urlencoded")
+        req.send('user_id='+user_id)
     }
-
-    req.open('POST', '/checkDupUserId')
-    req.setRequestHeader("Content-type", "application/x-www-form-urlencoded")
-    req.send('user_id='+user_id)
-
 
 }
 
@@ -203,8 +222,8 @@ function checkDupUserName(){
 
     var user_name = document.getElementById('user_name').value
 
-    if (false){
-        alert("기존 닉네임과 일치합니다")
+    if (user_name.length < 5) {
+        alert(VALIDATE_MSG_ID_LENGTH)
     }
 
     else {
@@ -421,6 +440,8 @@ function doRegister(){
     }
 
     var email = document.getElementById('email').value
+
+    var user_id = document.getElementById('user_id').value
     var user_name = document.getElementById('user_name').value
     var pw = SHA256(document.getElementById('pw').value)
     var req = new XMLHttpRequest()
@@ -444,9 +465,9 @@ function doRegister(){
             }
         }
     }
-
+    data = JSON.stringify({'email':email, "user_id": user_id, 'user_name':user_name, 'pw': pw})
     req.open('POST', '/registerForm')
-    req.setRequestHeader("Content-type", "application/x-www-form-urlencoded")
-    req.send('email='+email+'&user_id='+user_id+'&user_name='+user_name+'&pw='+pw )
+    req.setRequestHeader("Content-type", "application/json")
+    req.send(data)
 
 }

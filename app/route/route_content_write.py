@@ -85,3 +85,47 @@ def like_post():
 
     else:
         return jsonify({'result': False, 'code': 400, 'message': 'Bad request'})
+
+
+# POST:
+# ITEM:
+@app_content_writer.route('/meta/set', methods=['POST'])
+def set_meta():
+    if request.method == 'POST' and session.get('loggedin'):
+
+
+        user_id = session.get("user_id")
+        post_id = request.json.get("post_id")
+        item_id = request.json.get("item_id")
+        meta = request.json.get("meta")
+
+        species = meta.get('species')
+        if species == '':
+            meta['species'] = None
+        elif species in CONST_BIRD_DICT_KEY_SPECIES.keys():
+            meta['species']= CONST_BIRD_DICT_KEY_SPECIES.get(species).get("bid")
+
+        if meta.get('x') == '':
+            meta['x'] = None
+
+
+        if meta.get('y') == '':
+            meta['y'] = None
+        if meta.get('camera') == '':
+            meta['camera'] = None
+        if meta.get('lens') == '':
+            meta['lens'] = None
+
+
+
+
+        ret = ContentWriter(user_id=user_id).set_meta(user_id=user_id, meta=meta, item_id=item_id, post_id=post_id)
+        print(meta)
+        print(ret)
+
+
+
+        return jsonify(ret)
+
+    else:
+        return jsonify({'result': False, 'code': 400, 'message': 'Bad request'})

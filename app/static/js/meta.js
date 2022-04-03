@@ -5,22 +5,41 @@
 
 function initMeta(post_id){
 
-    console.log(post_id)
+
+    // 화면 RENDERING
     new Meta(document.querySelector('#meta'))
 
-    initNaverMap(x=126.8231877, y=37.4832059, zoom_level=15, zoom_min=8, zoom_max=20, div_id="meta_map")
-    getItemByPostId(post_id)
 
+    autocomplete(document.getElementById('meta_update_species'), BIRD.birds_list.map(function(a) {return a.species_kr;}));
+
+    // 하방 MAP 초기화
+    initNaverMap(x=126.8231877, y=37.4832059, zoom_level=15, zoom_min=8, zoom_max=20, div_id="meta_map", callback=mapCallback)
+
+    // 사용자의 모든을 전역변수 ITEMS로 받아오기
+    getItemByUserId()
+
+    // getPostsByUserId()
+
+    // set Select Box
+
+    // 수평 스크롤 활설화
     const meta_horizotal_item_slide = document.querySelector("#meta_horizotal_item_slide").querySelector(".meta_content");
-
     meta_horizotal_item_slide.addEventListener("wheel", (evt) => {
         evt.preventDefault();
         meta_horizotal_item_slide.scrollLeft += evt.deltaY;
     });
 
+
+
 }
 
 ITEMS = null
+
+
+function mapCallback(x,y){
+    document.getElementById('meta_update_x').value = x
+    document.getElementById('meta_update_y').value = y
+}
 
 class Meta extends Component {
     setup() {
@@ -33,25 +52,59 @@ class Meta extends Component {
 
             <div id="meta_body">
                 <div id="meta_horizotal_item_slide">
-                    <div class="meta_title">IMAGE SELECTOR</div>
+                    <div class="meta_title">Choose your image</div>
                     <div class="meta_content"></div>
                 </div>
                 <div id="meta_form">
-                    <div class="meta_title">IMAGE META EDITOR</div>
+                    <div class="meta_title">Meta input</div>
                     <div class="meta_content">
-                        <div class='left'>
-                            <div class="image">
-                                <img id="image_to_update"  src="/static/images/bird.png">
-                            </div>
-                        </div>
+
                         <div class='right'>
-                            <input type="text" id="ac_test" placeholder="species">
-                            <input type="text" placeholder="x">
-                            <input type="text" placeholder="y">
-                            <input type="text" placeholder="camera">
-                            <input type="text" placeholder="lens">
-                            <input type="text" placeholder="description">
-                            <button>save</button>
+                            <div class='row'>
+                                <label for="meta_update_post_id">게시글 정보</label>
+                                <p>
+                                    <input type="text" id='meta_update_post_id' placeholder="post_id" disabled style="display:none">
+                                    <input type="text" id='meta_update_post_title' placeholder="post_title" disabled>
+                                    <input type="text" id='meta_update_item_id' placeholder="item_id" disabled>
+                                </p>
+                            </div>
+                            <div class='row'>
+                                <label for="meta_update_publish_timestamp">작성 | 관찰시간</label>
+                                <p>
+                                    <input type="text" id='meta_update_publish_timestamp' placeholder="publish timestamp" disabled>
+                                    <input type="text" id='meta_update_observe_timestamp' placeholder="observe timestamp">
+                                </p>
+                            </div>
+                            <div class='row'>
+                                <label for="meta_update_x">관찰경도 | 위도</label>
+                                <p>
+                                    <input type="text" id='meta_update_x' placeholder="지도위치 클릭시" disabled>
+                                    <input type="text" id='meta_update_y' placeholder="값이 입력됨" disabled>
+                                </p>
+                            </div>
+                            <div class='row'>
+                                <label for="meta_update_species">종 정보</label>
+                                <p class="autocomplete">
+                                    <input type="text" id='meta_update_species' autocomplete='off' placeholder="species">
+                                </p>
+                            </div>
+                            <div class='row'>
+                                <label for="meta_update_tag">태그</label>
+                                <p>
+                                    <input type="text" id='meta_update_tag' placeholder="tags">
+                                </p>
+                            </div>
+                            <div class='row'>
+                                <label for="meta_update_camera">카메라 | 렌즈</label>
+                                <p>
+                                    <input type="text" id='meta_update_camera' placeholder="camera">
+                                    <input type="text" id='meta_update_lens' placeholder="lens">
+                                </p>
+                            </div>
+                            <div class='row'>
+                                <button onclick="setMeta(false)">새사진이 아닙니다, 스킵!</button>
+                                <button onclick="setMeta(true)">입력한 정보를 저장합니다</button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -74,12 +127,14 @@ class MetaItem extends Component {
 
         const { items } = this.$state;
 
+
+
         return `
         ${items.map(item => `
             <div class="meta_item">
                 <div class="meta_preview">
                     <a onclick="setItemActive('${item.object_key}')">
-                        <img class="image" src="${item.object_storage_url}">
+                        <img class="image" id="${item.object_key}" src="${item.object_storage_url}">
                     </a>
                 </div>
             </div>
@@ -90,6 +145,48 @@ class MetaItem extends Component {
 
 }
 
+
+
+function getItemByUserId(){
+
+    // post 를 선택하면 해당 아이템 안에 모든 아이템이 리턴되도록
+    // 식별자와 시각화목적 Attribute 만 리턴
+
+    var req = new XMLHttpRequest()
+    req.responseType = 'json';
+    req.onreadystatechange = function()
+    {
+        if (req.readyState == 4)
+        {
+            if (req.status != 200)
+            {
+                alert(''+req.status+req.response)
+            }
+            else
+            {
+
+
+                ITEMS = req.response.data
+                console.log(ITEMS)
+
+                if (ITEMS.length > 0){
+
+                    new MetaItem(document.querySelector('#meta_horizotal_item_slide').querySelector(".meta_content"), ITEMS)
+                    setItemActive(ITEMS[0].object_key)
+                }
+            }
+        }
+    }
+
+    req.open('POST', '/getItemByUserId')
+    req.setRequestHeader("Content-type", "application/json")
+    req.send()
+}
+
+
+// ======================================================
+// N O T U S E D Y E T
+// ======================================================
 function getItemByPostId(post_id){
 
     // post 를 선택하면 해당 아이템 안에 모든 아이템이 리턴되도록
@@ -108,8 +205,11 @@ function getItemByPostId(post_id){
             else
             {
                 ITEMS = req.response.data
+
                 new MetaItem(document.querySelector('#meta_horizotal_item_slide').querySelector(".meta_content"), ITEMS)
-                autocomplete(document.querySelector('#ac_test'), BIRD.birds_list.map(function(a) {return a.species_kr;}));
+
+                setItemActive(ITEMS[0].object_key)
+                autocomplete(document.getElementById('meta_update_species'), BIRD.birds_list.map(function(a) {return a.species_kr;}));
             }
         }
     }
@@ -124,12 +224,102 @@ function setItemActive(object_key){
 
     for (item of ITEMS) {
 
-        console.log(item.object_key)
         if (item.object_key==object_key){
-            document.querySelector("#image_to_update").src=item.object_storage_url
-            break;
+
+
+            // HIDDEN
+            document.getElementById("meta_update_post_id").value = item.post_id
+
+            // SHOWN
+            document.getElementById("meta_update_post_title").value = item.title
+            document.getElementById("meta_update_item_id").value = item.item_id
+            document.getElementById("meta_update_publish_timestamp").value = item.publish_timestamp
+            document.getElementById("meta_update_observe_timestamp").value = item.observe_timestamp
+            document.getElementById("meta_update_species").value = ''
+            document.getElementById("meta_update_x").value = ''
+            document.getElementById("meta_update_y").value = ''
+
+            document.getElementById(item.object_key).style.opacity=1
+            document.getElementById(item.object_key).style.borderBottom="1rem solid red";
+
+        }
+        else {
+            document.getElementById(item.object_key).style.opacity=0.3
+            document.getElementById(item.object_key).style.borderBottom="none"
+
+            document.getElementById(item.object_key).style.backgroundColor="black"
         }
     }
+
+
+}
+
+function validateLatlong(num){
+
+    return parseFloat(num)
+}
+
+function setMeta(is_bird=false){
+
+    post_id = document.getElementById("meta_update_post_id").value,
+    item_id = document.getElementById("meta_update_item_id").value,
+    species = document.getElementById("meta_update_species").value,
+    publish_timestamp = document.getElementById("meta_update_publish_timestamp").value,
+    observe_timestamp = document.getElementById("meta_update_observe_timestamp").value,
+    x = document.getElementById("meta_update_x").value,
+    y = document.getElementById("meta_update_y").value,
+    camera = document.getElementById("meta_update_camera").value,
+    lens = document.getElementById("meta_update_lens").value,
+    tag = document.getElementById("meta_update_tag").value,
+
+    // validateHashtag(tag)
+    x = validateLatlong(x)
+    y = validateLatlong(y)
+    // validateTimestamp(publish_timestamp)
+    // validateTimestamp(observe_timestamp)
+
+    data = {"meta":
+        {
+            "post_id": post_id,
+            "item_id": item_id,
+            "species": species,
+            "publish_timestamp": publish_timestamp,
+            "observe_timestamp": observe_timestamp,
+            "x": x,
+            "y": y,
+            "camera": camera,
+            "lens": lens,
+            "tag": tag,
+            "is_bird": is_bird
+        },
+        "post_id":post_id,
+        "item_id":item_id
+    }
+
+
+
+
+    var req = new XMLHttpRequest()
+    req.responseType = 'json';
+    req.onreadystatechange = function()
+    {
+        if (req.readyState == 4)
+        {
+            if (req.status != 200)
+            {
+                alert(''+req.status+req.response)
+            }
+            else
+            {
+                alert(''+req.status+req.response)
+            }
+        }
+    }
+
+    data = JSON.stringify(data)
+    req.open('POST', '/meta/set')
+    req.setRequestHeader("Content-type", "application/json")
+    req.send(data)
 
 
 }
