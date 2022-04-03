@@ -141,6 +141,9 @@ def render_register():
     return render_template('register.html')
 
 
+@app.route('/ping', methods=['GET'])
+def ping():
+    return 'pong'
 
 
 
