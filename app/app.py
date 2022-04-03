@@ -1,5 +1,5 @@
 from jazzbirb_kr.app.route import route_user, route_content_read, route_content_write
-from jazzbirb_kr.app.config.config import FLASK_SECRET_KEY
+from jazzbirb_kr.app.config.config import FLASK_SECRET_KEY, FLASK_PORT
 from jazzbirb_kr.app.util.app_logger import logger
 from jazzbirb_kr.app.util.mongo_connector import mongo_client, mongo_db
 from flask import Flask, render_template, redirect
@@ -147,5 +147,5 @@ def render_register():
 
 
 if __name__=="__main__":
-    app.run(host='0.0.0.0', port=9000, debug=True)
+    app.run(host='0.0.0.0', port=FLASK_PORT, debug=True)
 
