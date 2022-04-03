@@ -1,4 +1,5 @@
 from jazzbirb_kr.app.util.app_logger import logger
+from jazzbirb_kr.app.config.config import MONGO_DB_URL, MONGO_DB_DB
 from datetime import datetime
 import pymongo
 
@@ -8,8 +9,8 @@ import pymongo
 # mongo_db = mongo_client["birb_kr"]
 
 # LOCAL
-mongo_client = pymongo.MongoClient("mongodb://localhost:27017/")
-mongo_db = mongo_client["local"]
+mongo_client = pymongo.MongoClient(MONGO_DB_URL)
+mongo_db = mongo_client[MONGO_DB_DB]
 
 def select(collection, query, sort_by=None, ascending=False, skip=0, limit=5, includes_id=False):
 
