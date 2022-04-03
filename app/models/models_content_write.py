@@ -1,5 +1,6 @@
 from jazzbirb_kr.app.util.mongo_connector import *
 from jazzbirb_kr.app.util.boto3_connector import BirbBoto3
+from jazzbirb_kr.app.config.config import AWS_S3_BUCKET_NAME
 from datetime import datetime
 from bson.objectid import ObjectId
 from jazzbirb_kr.app.constant import *
@@ -55,7 +56,7 @@ class ContentWriter:
             item_idx = item.get('item_id')
             object_key = '%s/%s_%s'%(self.user_id, post_id, item_idx)
             item_obj = item.get('item_value')
-            ret_boto = BirbBoto3().upload_image(file_obj=item_obj,
+            ret_boto = BirbBoto3(AWS_S3_BUCKET_NAME).upload_image(file_obj=item_obj,
                                                 file_name=object_key)
             print(item_idx, ret_boto)
 
