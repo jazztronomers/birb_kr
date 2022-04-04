@@ -1,22 +1,14 @@
 #editor {
-
     display:flex;
     flex-direction: column;
     justify-content: center;
     align-content: center;
     align-items: center;
-
     width: 100%;
 }
 
-
 #editor #editor_tool {
-
-
 }
-
-
-
 
 #editor #editor_header {
     display: flex;
@@ -24,18 +16,15 @@
     width: 100%;
 }
 
-
-
-
-
-
 #editor #editor_header label input {
     position: absolute;
     display: none;
     color: #fff !important;
-
 }
 
+#editor #editor_header button{
+    border-radius: .0rem;
+}
 
 
 

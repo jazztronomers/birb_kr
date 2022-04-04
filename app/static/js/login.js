@@ -1,35 +1,31 @@
 document.addEventListener("DOMContentLoaded", function(){
-    const loginBtn = document.getElementById('login');
-    const signupBtn = document.getElementById('signup');
 
-    loginBtn.addEventListener('click', (e) => {
-        let parent = e.target.parentNode.parentNode;
-        Array.from(e.target.parentNode.parentNode.classList).find((element) => {
-            if(element !== "slide-up") {
-                parent.classList.add('slide-up')
-            }else{
-                signupBtn.parentNode.classList.add('slide-up')
-                parent.classList.remove('slide-up')
-            }
-        });
-    });
+    toggle(document.getElementById("tab_menu_login"), 'login')
 
-    signupBtn.addEventListener('click', (e) => {
-        let parent = e.target.parentNode;
-        Array.from(e.target.parentNode.classList).find((element) => {
-            if(element !== "slide-up") {
-                parent.classList.add('slide-up')
-            }else{
-                loginBtn.parentNode.parentNode.classList.add('slide-up')
-                parent.classList.remove('slide-up')
-            }
-        });
-    });
+})
 
-    loginBtn.click()
+function toggle(span, div_id){
+    console.log(span)
 
-});
+    spans = document.getElementsByClassName(span.className)
 
+    for (_span of spans){
+        console.log('@', _span)
+        _span.style.borderBottom=''
+    }
+
+    span.style.borderBottom='3px solid red'
+
+    divs = document.getElementsByClassName('tab')
+
+    for (div of divs){
+        div.style.display='none'
+    }
+
+    div = document.getElementById(div_id)
+    div.style.display='flex'
+
+}
 
 function login(){
 

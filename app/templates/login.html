@@ -1,66 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>BIRB.KR</title>
+	<title>Birb.kr</title>
 	<meta charset="UTF-8">
 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
 
 	<link rel="icon" type="image/png" href="static/images/icons/favicon.ico"/>
 
-	<script src="static/js/login.js"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/common.css') }}">
 
+	<script src="static/js/login.js"></script>
   	<script type="text/javascript" src="static/js/open.js"></script>
   	<script type="text/javascript" src="static/js/register.js"></script>
 </head>
 <body>
-	<div class="form-structor">
-		<div class="signup">
-			<h2 class="form-title" id="signup"><span>or</span>Sign up</h2>
-			<div class="form-holder">
-				<div class="input-line">
+	<div id="container">
+		<div id="cover">
+			<div class="cover_image_wrap">
+				<img id="front_image" src="/static/images/bird.png">
+				<h3>birb.kr</h3>
+			</div>
+		</div>
+		<div id="tab_menu">
+			<span class="tab_menu" id="tab_menu_login"><a onclick="toggle(this.parentElement, 'login')">Login</a></span>
+			<span class="tab_menu" id="tab_menu_signup"><a onclick="toggle(this.parentElement, 'signup')">Sign-up</a></span>
+		</div>
+		<div id="tab_content">
+
+			<div id='signup' class="tab" style="display:none">
+				<div class="row">
 					<input type="email" id="email" placeholder="Email" onkeyup='validateEmailFormat()'/>
-					<button class="btn" id='button_mail' onclick="sendConfirmationCodeByEmail()">getCode</button>
+					<button class="btn" id='button_mail' onclick="sendConfirmationCodeByEmail()">Code</button>
 
 				</div>
-				<div class="input-line">
+				<div class="row">
 					<input type="email" id="emailconfirmationcode" placeholder="Email Confirmation Code"/>
 					<span class="info" id="confirmationTimer"></span>
-					<button class="btn" id='button_confirmation' onclick="checkConfirmationCodeMatches()">check</button>
+					<button class="btn" id='button_confirmation' onclick="checkConfirmationCodeMatches()">Check</button>
 				</div>
-				<div class="input-line">
-					<input type="text" id="user_id" placeholder="ID" />
-					<button class="btn" id='button_check_userid_dup' onclick="checkDupUserId()">check</button>
+				<div class="row">
+					<input type="text" id="user_id" placeholder="ID (for login, Eng. only)" />
+					<button class="btn" id='button_check_userid_dup' onclick="checkDupUserId()">Check</button>
 				</div>
-				<div class="input-line">
-					<input type="text" id="user_name" placeholder="Nickname" />
-					<button class="btn" id='button_check_user_name_dup' onclick="checkDupUserName()">check</button>
+				<div class="row">
+					<input type="text" id="user_name" placeholder="Username for shown (Kr available)" />
+					<button class="btn" id='button_check_user_name_dup' onclick="checkDupUserName()">Check</button>
 				</div>
 
-				<div class="input-line">
+				<div class="row">
 					<input type="password" id="pw" placeholder="Password" />
 				</div>
 
-				<div class="input-line">
+				<div class="row">
 					<input type="password" id="pw_confirmation" placeholder="Password Confirmation" onkeyup="checkPasswordMatches()" />
 					<span class="info" id="confirmation_password_same"></span>
 				</div>
-
-
+				<div class="row bottom">
+					<button class="submit-btn" onclick="doRegister()">Sign up</button>
+				</div>
 			</div>
-			<button class="submit-btn" onclick="doRegister()">Sign up</button>
-		</div>
-		<div class="login slide-up">
-			<div class="center">
-				<h2 class="form-title" id="login">Birb.kr</h2>
-				<div class="form-holder">
+
+			<div id="login" class="tab" style="display:none">
+				<div class="row">
 					<input type="email" id="login_email" class="input" placeholder="ID or Email" />
+				</div>
+				<div class="row">
 					<input type="password" id="login_pw" class="input" placeholder="Password" />
+				</div>
+				<div class="row right">
 					<input type="checkbox" id="keep_login">
 					<label for="keep_login">keep login</label>
 				</div>
-				<button class="submit-btn" onclick="login()">Login</button>
+				<div class="row bottom">
+					<button class="submit-btn" onclick="login()">Login</button>
+				</div>
 			</div>
+
+
 		</div>
 	</div>
 
