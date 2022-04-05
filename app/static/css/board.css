@@ -8,11 +8,13 @@
 #board .board_page {
 
     display: flex;
-    flex-direction: row-reverse;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 2rem;
 }
 
 #board .board_header {
-    border-bottom: 1px solid grey;
+    /* border-bottom: 1px solid grey; */
     display: flex;
     flex-direction: row;
     justify-content: space-between;
