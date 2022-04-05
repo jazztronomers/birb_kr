@@ -34,7 +34,7 @@ def submit_post():
             category = CONST_GENERAL_CATEGORY.keys[0]
 
 
-        ContentWriter(user_id=user_id).write_post(title=title,
+        ret = ContentWriter(user_id=user_id).write_post(title=title,
                                                   content=content,
                                                   items=items,
                                                   location=location,
@@ -43,7 +43,7 @@ def submit_post():
                                                   category=category,
                                                   option=option)
 
-        return jsonify({"result": True, "message": "%s" % (datetime.now() - start)})
+        return jsonify({"result": True, "message": "%s" % (datetime.now() - start), "post_id": ret.get("post_id")})
 
     else:
         return jsonify({'result': False, 'code': 400, 'message': 'Bad request'})

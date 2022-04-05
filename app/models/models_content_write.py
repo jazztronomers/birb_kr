@@ -77,13 +77,19 @@ class ContentWriter:
                 }
             )
 
+
+
         insert_result_post = collection_post.insert_one(_post)
         insert_result_item = collection_item.insert_many(_items)
 
-        ## insert result processing...
-
-        return {'result': False,
-                'message': 'email already exsists'}
+        if insert_result_post and insert_result_item:
+            return {'result': True,
+                    'post_id': post_id,
+                    'message': 'post success'}
+        else:
+            return {'result': False,
+                    'post_id': post_id,
+                    'message': 'email already exsists'}
 
     def write_comment_post(self, post_id, content, user_id):
 

@@ -250,7 +250,13 @@ function submitPost(){
                 {
 
                     alert(req.response.message)
-                    window.location = "/";
+                    if(confirm("포스팅된 컨텐츠에 메타정보를 입력하러 가시겠습니까")){
+
+                        toggle('meta', req.response.post_id)
+                    }
+                    else {
+                        window.location = "/";
+                    }
                 }
             }
         }
