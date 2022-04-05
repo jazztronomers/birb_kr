@@ -29,8 +29,6 @@ function initMeta(post_id){
         meta_horizotal_item_slide.scrollLeft += evt.deltaY;
     });
 
-
-
 }
 
 ITEMS = null
@@ -85,7 +83,8 @@ class Meta extends Component {
                             <div class='row'>
                                 <label for="meta_update_species">종 정보</label>
                                 <p class="autocomplete">
-                                    <input type="text" id='meta_update_species' autocomplete='off' placeholder="species">
+                                    <input type="text" id='meta_update_species' autocomplete='off' placeholder="species" onfocusout='species_value(this.value)'>
+                                    <input type="text" id='meta_update_observe_level' placeholder="희귀도" disabled>
                                 </p>
                             </div>
                             <div class='row'>
@@ -116,6 +115,27 @@ class Meta extends Component {
         `
     }
 }
+
+
+function species_value(species_kr){
+    // INPUT BIRD IN DICT
+    if(BIRD.birds_list.map(function(a) {return a.species_kr;}).includes(species_kr)){
+        for (bird of BIRD.birds_list){
+            if (bird.species_kr == species_kr){
+                document.getElementById("meta_update_observe_level").value=bird.observe_level
+                break
+            }
+        }
+
+    }
+    else {
+        alert("BIRD NOT IN DICTIONARY")
+        document.getElementById("meta_update_species").value=''
+    }
+
+    // INPUT BIRD NOT IN DICT
+}
+
 
 class MetaItem extends Component {
 
