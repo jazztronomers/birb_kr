@@ -266,6 +266,9 @@ function toggle(to, param=null, backward=false, callback=null){
         initMap()
     }
 
+    else if (to=="collection"){
+        initCollection()
+    }
 
 }
 
@@ -591,3 +594,8 @@ class Component {
 //
 //
 //}
+
+function dropDuplicates(arr) {
+    return arr.filter((item,
+        index) => arr.indexOf(item) === index);
+}

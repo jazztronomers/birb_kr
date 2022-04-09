@@ -20,6 +20,7 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/meta.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/gallery.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/post.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/collection.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/about.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/advertisement.css') }}"> <!-- restricted keyword ad -->
 
@@ -56,6 +57,7 @@
     <script type="text/javascript" src="{{ url_for('static', filename='js/board.js') }}"></script>
     <script type="text/javascript" src="{{ url_for('static', filename='js/post.js') }}"></script>
 
+    <script type="text/javascript" src="{{ url_for('static', filename='js/collection.js') }}"></script>
     <script type="text/javascript" src="{{ url_for('static', filename='js/advertisement.js') }}"></script>
     <!-- <script type="text/javascript" src="static/vendor/tinymce/tinymce.min.js"></script> -->
 
@@ -80,6 +82,7 @@
                     <span><a href="/editor" onclick="toggle('editor')"><i class="fi fi-rr-edit"></i></a></span>
                     <span><a href="/gallery" onclick="toggle('gallery')"><i class="fi fi-rr-gallery"></i></a></span>
                     <span><a href="/board" onclick="toggle('board')"><i class="fi fi-rr-list"></i></a></span>
+                    <span><a href="/collection" onclick="toggle('collection')"><i class="fi fi-rr-book-alt"></i></a></span>
                     <span><a href="#" onclick="toggle('map')"><i class="fi fi-rr-map-marker"></i></a></span>
                     <span><a onclick="toggleGNBDrop()"><i class="fi fi-rr-user"></i></a></span>
                 </div>
@@ -123,28 +126,7 @@
                 <div id="user_body_content"></div>
             </div>
         </div>
-        <div id="bird" class="pane" style="display:none">
-            <div id="bird_util">
-                <button class='btn' onclick="getBirds()">get birds</button>
-                <button class='btn' onclick="getCollection()">get Collection</button>
-                <button class='btn' onclick="setCollection()">set Collection</button>
-
-            </div>
-            <div id="birds_seen">
-
-            </div>
-
-            <div id="birds_tool">
-                <input type="text" placeholder="종명">
-                <label for="select_year" >선택된종을 어느연도로</label>
-                <select id="select_year" onchange="changeSelectedYear(this.value)">
-
-                </select>
-                <button>업데이트</button>
-            </div>
-            <div id="birds_list">
-            </div>
-
+        <div id="collection" class="pane" style="display:none">
         </div>
         <div id="profile" class="pane" style="display:none"></div>
         <div id="about" class="pane" style="display:none">

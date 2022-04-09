@@ -67,15 +67,14 @@ class Meta extends Component {
 
         return `
 
-
             <div id="meta_body">
-                <div id="meta_horizotal_item_slide">
-                    <div class="meta_title">Choose your image</div>
-                    <div class="meta_content"></div>
+                <div class="item_selector block" id="meta_horizotal_item_slide">
+                    <div class="title"><span>Choose your image</span></div>
+                    <div class="content meta_content"></div>
                 </div>
-                <div id="meta_form">
-                    <div class="meta_title">Meta input</div>
-                    <div class="meta_content">
+                <div class="form block" id="meta_form">
+                    <div class="title meta_title" id="meta_title"><span>Meta input</span></div>
+                    <div class="content meta_content" id="meta_content">
 
                         <div class='right'>
                             <div class='row'>

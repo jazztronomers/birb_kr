@@ -129,6 +129,15 @@ def render_map():
         return redirect('/login')
 
 
+@app.route('/collection', methods=['GET'])
+def render_collection():
+    if session.get('loggedin'):
+
+        user_id = session.get("user_id")
+        return render_template('home.html', route='collection', user_id=user_id)
+    else:
+        return redirect('/login')
+
 ## ==================================================================
 ## SERVER SIDE ROUTING
 ## ==================================================================
