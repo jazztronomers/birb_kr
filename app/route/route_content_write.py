@@ -1,6 +1,7 @@
 from flask import request, jsonify, Blueprint, current_app
 from jazzbirb_kr.app.models.models_content_read import ContentReader
 from jazzbirb_kr.app.models.models_content_write import ContentWriter
+from jazzbirb_kr.app.models.models_user import User
 from jazzbirb_kr.app.util.app_logger import logger
 from jazzbirb_kr.app.constant import *
 from flask import request, redirect, url_for, session
@@ -98,8 +99,10 @@ def set_meta():
         post_id = request.json.get("post_id")
         item_id = request.json.get("item_id")
         meta = request.json.get("meta")
-
         species = meta.get('species')
+
+
+
         if species == '':
             meta['species'] = None
         elif species in CONST_BIRD_DICT_KEY_SPECIES.keys():
@@ -119,13 +122,13 @@ def set_meta():
 
 
 
-        ret = ContentWriter(user_id=user_id).set_meta(user_id=user_id, meta=meta, item_id=item_id, post_id=post_id)
-        print(meta)
-        print(ret)
+        ret_set_meta = ContentWriter(user_id=user_id).set_meta(user_id=user_id, meta=meta, item_id=item_id, post_id=post_id)
+        if meta['x']:
+            ret_set_location = User(session.get("user_id")).set_location({"x": meta.get('x'), "y": meta.get('y')})
 
+        logger.info('%s...%s%s' %(ret_set_location, meta.get('y'), meta.get('x')))
 
-
-        return jsonify(ret)
+        return jsonify(ret_set_meta)
 
     else:
         return jsonify({'result': False, 'code': 400, 'message': 'Bad request'})

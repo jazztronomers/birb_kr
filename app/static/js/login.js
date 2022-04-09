@@ -69,16 +69,6 @@ function login(){
         req.send(data)
 
 
-//        // let auto_login_checked = document.getElementById('auto_login').checked
-//
-//        console.log(" * login...?", event, is_auto)
-//
-//        if (is_auto == true){
-//            req.send('email='+localStorage.getItem('jazzstock_auto_login_email')+'&pw='+localStorage.getItem('jazzstock_auto_login_pw'))
-//        }
-//        else {
-//            pw = SHA256(document.getElementById('pw').value)
-//            req.send('email='+email+'&pw='+pw)
-//        }
+
     }
 }

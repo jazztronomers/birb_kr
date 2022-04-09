@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", function(){
 
 
     getConst()
-
+    getSession()
 
     // HTTPS 인증후 브라우저상에서 자기 현재 좌표 얻을 수 있는 함수
     //    navigator.geolocation.getCurrentPosition(success, error, {
@@ -28,22 +28,11 @@ document.addEventListener("DOMContentLoaded", function(){
         passive: true
     });
 
-//    column_container = document.getElementById('gallery')
-//    column_container.addEventListener('scroll', throttle(check_if_in_view, 200), {
-//        capture: true,
-//        passive: true
-//    });
-
-
     toggle(route, route_params)
     wrapper_main = document.getElementById("wrapper_main")
 
     canvas_width = wrapper_main.offsetWidth
     canvas_height = wrapper_main.offsetHeight
-
-    // getBirds()
-
-
 
 });
 
@@ -53,6 +42,7 @@ let EDITOR_CATEGORY = undefined
 let EDITOR_OPTION = undefined
 let BIRD = undefined
 let CURRENT_PAGE = "others"
+let LOCATION = undefined
 
 
 let display_mode = (window.innerWidth / window.innerHeight) > 100 ? 'horizontal' : 'vertical'
@@ -86,14 +76,17 @@ function scrollSwitch(){
 
         column = document.getElementById("gallery_items")
         current_item_cnt = column.children.length
-        if (raw_data.length == current_item_cnt && gallery_has_next){
+
+        if ((scrollTop + clientHeight > scrollHeight * 0.5) && (raw_data.length == current_item_cnt) && gallery_has_next){
             console.log('infinite more', raw_data.length, current_item_cnt)
             getGalleryData(GALLERY_ROW_PER_PAGE,  parseInt(current_item_cnt/ GALLERY_ROW_PER_PAGE)+1)
         }
 
-        else if(scrollTop + clientHeight > scrollHeight * 0.8 && gallery_has_next){
+        else if(scrollTop + clientHeight > scrollHeight * 0.8 && scroll_has_next){
 
-            console.log('infinite render')
+            if (gallery_has_next == false){
+                scroll_has_next = false;
+            }
             infiniteScroll(initGallery)
         }
     }
@@ -290,110 +283,22 @@ function dropdownUser(){
 
 
 
+
+
+//function setImageInfo(){
+////    action_popup.confirm("custom confirm", function (res) {
+////        if (res) {
+////            action_popup.alert("yes");
+////        }
+////    })
+////
 //
-//function toggleMap(confirm=true){
+//    action_popup.alert("custom alert");
 //
-//
-//
-//    event.preventDefault();
-//    if (confirm == false){
-//        if (['post'].includes(current_page)){
-//            confirmation = confirm("작성중인 내용이 모두 지워집니다, 계속 하시겠습니까?")
-//            if (!confirmation){
-//                return false
-//            }
-//        }
-//    }
-//
-//    // clearPost()
-//
-//    current_page = "others"
-//
-//    let main = document.getElementById("wrapper_main")
-//    let map_div = document.getElementById(wrapper_map_id)
-//    let map_extension = document.getElementById("wrapper_map_extension")
-//
-//
-//    if (map == null){
-//        initNaverMap(x=126.8231877, y=37.3595704, zoom_level=15, zoom_min=8, zoom_max=20, wrapper_map_id)
-//    }
-//
-//
-//
-//    // HORIZONTAL (DESKTOP)
-//    //
-//    //    if (display_mode=='horizontal'){
-//    //        if (map_div.style.display =='none'){
-//    //            main.style.width = '40%'
-//    //            main.style.minWidth = '600px'
-//    //            main.style.marginLeft = 'unset'
-//    //            main.style.marginRight = 'unset'
-//    //
-//    //            map_div.style.display = 'flex'
-//    //
-//    //            map_extension.style.display = "flex"
-//    //            map_extension.style.width= '300px';
-//    //        }
-//    //
-//    //        else {
-//    //
-//    //            main.style.width = '100%'
-//    //            main.style.marginLeft = 'auto'
-//    //            main.style.marginRight = 'auto'
-//    //
-//    //            map_div.style.display = 'none'
-//    //
-//    //            map_extension.style.display = "none"
-//    //        }
-//    //    }
-//
-//    if (display_mode=="vertical"){
-//
-//        if (map_div.style.display =='none'){
-//            panes = document.getElementsByClassName("pane")
-//            for (let pane of panes) {
-//                pane.style.display="none"
-//            }
-//
-//            map_div.style.display = 'flex'
-//            map_extension.style.display = "flex"
-//            map_extension.style.width = '100%'
-//            map_extension.style.height = '30%'
-//
-//        }
-//
-//        else {
-//
-//            main.style.width = '100%'
-//            main.style.marginLeft = 'auto'
-//            main.style.marginRight = 'auto'
-//            map_div.style.display = 'none'
-//            map_extension.style.display = "none"
-//        }
-//    }
-//
-//
-//    // VERTICAL (MOBILE)
-//
+//    $(".modal_close").on("click", function () {
+//        action_popup.close(this);
+//    });
 //}
-//
-
-
-
-function setImageInfo(){
-//    action_popup.confirm("custom confirm", function (res) {
-//        if (res) {
-//            action_popup.alert("yes");
-//        }
-//    })
-//
-
-    action_popup.alert("custom alert");
-
-    $(".modal_close").on("click", function () {
-        action_popup.close(this);
-    });
-}
 
 
 
@@ -413,6 +318,7 @@ function getConst(){
             }
             else
             {
+
                 res = JSON.parse(req.response)
                 EDITOR_CATEGORY = res.data.category
                 EDITOR_OPTION = res.data.option
@@ -431,6 +337,39 @@ function getConst(){
 
 
 }
+
+
+function getSession(){
+
+
+
+    var req = new XMLHttpRequest()
+    // req.responseType = 'json';
+    req.onreadystatechange = function()
+    {
+        if (req.readyState == 4)
+        {
+            if (req.status != 200)
+            {
+                alert(''+req.status+req.response)
+            }
+            else
+            {
+
+                res = JSON.parse(req.response)
+                LOCATION = res.data.location
+            }
+        }
+    }
+
+
+    req.open('POST', '/api/session/get', false)
+    req.setRequestHeader("Content-type", "application/json")
+    req.send()
+
+
+}
+
 
 function infiniteScroll(func){
     func()
@@ -457,6 +396,10 @@ function logout(){
 
     return false
 }
+
+
+
+
 
 
 
@@ -602,6 +545,9 @@ function autocomplete(inp, arr) {
       closeAllLists(e.target);
   });
 }
+
+
+
 
 class Component {
   $target;

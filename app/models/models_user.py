@@ -4,8 +4,8 @@ from hashlib import sha256
 
 class User:
 
-    def __init__(self, email=None):
-        self.email = email
+    def __init__(self, user_id=None):
+        self.user_id = user_id
         self.collection = mongo_db['user']
 
 
@@ -31,13 +31,12 @@ class User:
         else:
 
             self.collection.insert_one({"email": email,
-                                    "pw":pw_encoded,
-                                    "user_id":user_id,
-                                    "user_name":user_name,
-                                    "collection": [{"year": "2020", "bids": []},
-                                                   {"year": "2021", "bids": []},
-                                                   {"year": "2022", "bids": []}]
-                                    })
+                                        "pw":pw_encoded,
+                                        "user_id":user_id,
+                                        "user_name":user_name,
+                                        'user_lv':1,
+                                        "location":{"x":None, "y":None}
+                                        })
 
 
             return {'result': True,
@@ -68,7 +67,8 @@ class User:
                    'email': response.get("email"),
                    'user_id': response.get("user_id"),
                    'user_name': response.get("user_name"),
-                   'user_lv': response.get("user_lv")
+                   'user_lv': response.get("user_lv"),
+                   'location': response.get("location")
                    }
 
         else:
@@ -83,7 +83,8 @@ class User:
                        'email': response.get("email"),
                        'user_id': response.get("user_id"),
                        'user_name': response.get("user_name"),
-                       'user_lv': response.get("user_lv")
+                       'user_lv': response.get("user_lv"),
+                       'location': response.get("location")
                        }
 
             else:
@@ -92,7 +93,8 @@ class User:
                        'email': None,
                        'user_id': None,
                        'user_name': None,
-                       'user_lv': None
+                       'user_lv': None,
+                       'location': None,
                        }
 
         return ret
@@ -100,7 +102,6 @@ class User:
 
 
     def check_dup(self, key, value):
-        print(key, value)
         ret = self.collection.find_one({key: { "$eq": value}})
         if ret:
             return False  # 이메일 존재함
@@ -148,44 +149,70 @@ class User:
         #     return False
 
 
-    def get_collection(self):
-        '''
-        개인도감 데이터 가져오기
-        :return:
-        '''
+    # def get_collection(self):
+    #     '''
+    #     개인도감 데이터 가져오기
+    #     :return:
+    #     '''
+    #
+    #     if self.email is None:
+    #         ret = {'result': False,
+    #                'message': 'email not found'
+    #                }
+    #         return ret
+    #     else:
+    #         user = self.collection.find_one({"email": { "$eq": self.email}})
+    #         return user.get("collection")
+    #
+    #
+    # def set_collection(self, collection):
+    #     '''
+    #     개인도감 데이터 쓰기 BULK (insert ot update)
+    #     :return:
+    #     '''
+    #
+    #     if self.email is None:
+    #         ret = {'result': False,
+    #                'message': 'email not found'
+    #                }
+    #
+    #     else:
+    #
+    #         query = {"email": {"$eq": self.email}}
+    #         append = {
+    #             '$set': {
+    #                 "collection": collection
+    #             }
+    #         }
+    #
+    #         self.collection.update_one(query, append)
+    #         ret = {'result': True,
+    #                'message': 'collection update success'
+    #                }
+    #         return ret
 
-        if self.email is None:
-            ret = {'result': False,
-                   'message': 'email not found'
-                   }
-            return ret
-        else:
-            user = self.collection.find_one({"email": { "$eq": self.email}})
-            return user.get("collection")
-
-
-    def set_collection(self, collection):
-        '''
-        개인도감 데이터 쓰기 BULK (insert ot update)
-        :return:
-        '''
-
-        if self.email is None:
-            ret = {'result': False,
-                   'message': 'email not found'
-                   }
-
-        else:
-
-            query = {"email": {"$eq": self.email}}
-            append = {
-                '$set': {
-                    "collection": collection
-                }
+    def set_location(self, location):
+        query = {"user_id": {"$eq": self.user_id}}
+        append = {
+            '$set': {
+                "location": location
             }
+        }
 
-            self.collection.update_one(query, append)
+        result_update = self.collection.update_one(query, append)
+        if result_update.raw_result.get("n") == 1:
+
             ret = {'result': True,
                    'message': 'collection update success'
                    }
-            return ret
+        else:
+            ret = {'result': False,
+                   'message': 'collection update fail'
+                   }
+        return ret
+
+    def get_location(self):
+        print(self.user_id)
+        query = {"user_id": {"$eq": self.user_id}}
+        location = self.collection.find_one(query).get('location')
+        return location

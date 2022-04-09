@@ -250,6 +250,7 @@ function submitPost(){
                 {
 
                     alert(req.response.message)
+
                     if(confirm("포스팅된 컨텐츠에 메타정보를 입력하러 가시겠습니까")){
 
                         toggle('meta', req.response.post_id)
@@ -408,7 +409,12 @@ function toggleMapSmall(){
 
     if (editor_map.style.display=='none'){
         editor_map.style.display = 'block'
-        initNaverMap(x=37.4832059, y=126.8231877, zoom_level=15, zoom_min=8, zoom_max=20, div_id="wrapper_map_mini")
+
+
+        x = LOCATION.x
+        y = LOCATION.y
+
+        initNaverMap(x=x, y=y, zoom_level=15, zoom_min=8, zoom_max=20, div_id="wrapper_map_mini")
     }
 
     else{

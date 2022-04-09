@@ -13,7 +13,11 @@ function initMeta(post_id){
     autocomplete(document.getElementById('meta_update_species'), BIRD.birds_list.map(function(a) {return a.species_kr;}));
 
     // 하방 MAP 초기화
-    initNaverMap(x=126.8231877, y=37.4832059, zoom_level=15, zoom_min=8, zoom_max=20, div_id="meta_map", callback=mapCallback)
+
+    x = LOCATION.x
+    y = LOCATION.y
+
+    initNaverMap(x=x, y=y, zoom_level=15, zoom_min=8, zoom_max=20, div_id="meta_map", callback=mapCallback)
 
     // 사용자의 모든을 전역변수 ITEMS로 받아오기
     if (post_id != undefined){

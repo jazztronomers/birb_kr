@@ -1,11 +1,14 @@
 const GALLERY_BATCH_SIZE = 5      // FOR RENDERING
 const GALLERY_ROW_PER_PAGE = 10   // GET IMAGE FROM SERVER PER REQUEST
+const RARE_SPECIES_ALERT = "희귀종 위치정보 공개정책 수립중입니다 :)"
 let gallery_api_idle = true
 let gallery_has_next = true
+let scroll_has_next = true
 let last_batch = []
 function initGallery(items){
     console.log('init gallery', items)
     new Gallery(document.querySelector('#gallery_items'), raw_data)
+
 }
 
 
@@ -79,7 +82,7 @@ class Gallery extends Component {
                     <div class="top-left" style='display:none'>TOP-LEFT</div>
                     <div class="top-right">
                         <span><a onclick="showImageInformation(this.parentElement.parentElement.parentElement, '${item.object_key}')"><i class="icon_info fi fi-rr-info"></i></a></span>
-                        <span><a onclick="moveToBird(${item})"><i class="icon_info fi fi-rr-map-marker"></i></a></span>
+                        <span><a onclick="moveToBird('${item.object_key}')"><i class="icon_info fi fi-rr-map-marker"></i></a></span>
                     </div>
                     <div class="bottom-left" style='display:none'>BOTTOM-LEFT</div>
                     <div class="bottom-right">
@@ -115,6 +118,12 @@ function showImageInformation(meta_element, object_key){
                 information += `# 작성자: ${item.user_id}<br>`
                 information += `# 종명: ${item.species_kr}<br>`
                 information += `# 희귀도: ${item.observe_level}<br>`
+                if (item.x == 0){
+                    information += `# 좌표: ${RARE_SPECIES_ALERT}<br>`
+                }
+                else {
+                    information += `# 좌표: ${item.x}, ${item.y}<br>`
+                }
                 break;
             }
         }

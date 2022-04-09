@@ -6,6 +6,7 @@ from datetime import datetime, timedelta
 
 
 presigned_url_dict = {}
+OBSERVE_LEVEL_LIMIT=3
 
 class ContentReader:
 
@@ -26,7 +27,7 @@ class ContentReader:
 
         query = { "x": { "$gt": x_min, "$lt": x_max },
                   "y": { "$gt": y_min, "$lt": y_max },
-                  "observe_level": {"$lt": 3 }}
+                  "observe_level": {"$lt": OBSERVE_LEVEL_LIMIT }}
 
 
         ret, has_next = aggregate(collection=self.collection_item,
@@ -79,6 +80,12 @@ class ContentReader:
                                             # FIELD TO EXTRACT FROM THE 'FROM COLLECTION'
                                         }
                                     ])
+
+
+        for item in ret:
+            if item.get('observe_level') and item.get('observe_level') >= OBSERVE_LEVEL_LIMIT:
+                item['x'] = 0
+                item['y'] = 0
 
         logger.info('limit %s, skip %s'%(limit, skip))
 

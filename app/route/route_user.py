@@ -11,7 +11,6 @@ app_user = Blueprint('user', __name__, url_prefix='/')
 @app_user.route('/login.do', methods=['POST'])
 def login():
 
-    print(request.json)
     if request.method == 'POST' and 'email' in request.json.keys() and 'pw' in request.json.keys():
 
         email = request.json['email']
@@ -175,33 +174,74 @@ def check_current_password():
     else:
         return jsonify({'result': False, 'code': 400, 'message': 'Bad request'})
 
-@app_user.route('/getCollection.do', methods=['POST'])
-def get_collection():
+# @app_user.route('/getCollection.do', methods=['POST'])
+# def get_collection():
+#     if request.method == 'POST':
+#         user = User(session.get("email"))
+#         collection = user.get_collection()
+#         return jsonify({'result': True, 'data':collection})
+#
+#     else:
+#         return jsonify({'result': False, 'code': 400, 'message': 'Bad request'})
+#
+# @app_user.route('/setCollection.do', methods=['POST'])
+# def set_collection():
+#     if request.method == 'POST':
+#
+#
+#
+#         collection = request.get_json().get("collection")
+#         user = User(session.get("email"))
+#         ret = user.set_collection(collection)
+#         return jsonify({"result":True, "message":"Personal Bird collection updated sucessfully"})
+#
+#
+#
+#     else:
+#         return jsonify({'result': False, 'code': 400, 'message': 'Bad request'})
+
+@app_user.route('/api/user/location/set', methods=['POST'])
+def set_location():
     if request.method == 'POST':
-        user = User(session.get("email"))
-        collection = user.get_collection()
-        return jsonify({'result': True, 'data':collection})
+
+        location = request.get_json().get("location")
+        user = User(session.get("id"))
+        ret = user.set_location(location=location)
+
+        print(ret)
+        return jsonify({"result": True, "message": "location updated sucessfully"})
 
     else:
         return jsonify({'result': False, 'code': 400, 'message': 'Bad request'})
 
-@app_user.route('/setCollection.do', methods=['POST'])
-def set_collection():
+@app_user.route('/api/user/location/get', methods=['POST'])
+def get_location():
     if request.method == 'POST':
 
+        user = User(session.get("id"))
+        location = user.get_location()
 
 
-        collection = request.get_json().get("collection")
-        user = User(session.get("email"))
-        ret = user.set_collection(collection)
+        return jsonify({'result': True, 'data':location})
 
+    else:
+        return jsonify({'result': False, 'code': 400, 'message': 'Bad request'})
 
-        print(ret)
+@app_user.route('/api/session/get', methods=['POST'])
+def get_session():
+    if request.method == 'POST':
 
+        user_id = session.get("user_id")
+        print(user_id)
+        print(user_id)
+        print(user_id)
 
-        return jsonify({"result":True, "message":"Personal Bird collection updated sucessfully"})
+        user = User(user_id=user_id)
+        location = user.get_location()
 
-
+        return jsonify({'result': True, 'data': {
+            "location":location
+        }})
 
     else:
         return jsonify({'result': False, 'code': 400, 'message': 'Bad request'})

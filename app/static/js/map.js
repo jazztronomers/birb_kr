@@ -7,7 +7,9 @@ map = null
 function initMap(){
 
     if (map == null){
-        initNaverMap(x=126.8223675, y=37.4859302, zoom_level=15, zoom_min=8, zoom_max=20, "map_naver")
+        x = LOCATION.x
+        y = LOCATION.y
+        initNaverMap(x=x, y=y, zoom_level=15, zoom_min=8, zoom_max=20, "map_naver")
         new ResultTable(document.querySelector("#map_extension_search_result"), [])
     }
 }

@@ -281,8 +281,10 @@ function getCollectionUser(user_id){
 
 function getMapUser(user_id){
 
-
-    map_user = initNaverMap(x=127.7473583, y=36.6915063, zoom_level=8, zoom_min=7, zoom_max=11, div_id='wrapper_map_user')
+    // KOREA CENTER
+    x=127.7473583
+    y=36.6915063
+    map_user = initNaverMap(x=x, y=y, zoom_level=8, zoom_min=7, zoom_max=11, div_id='wrapper_map_user')
 
 }
 

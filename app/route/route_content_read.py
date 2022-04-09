@@ -6,6 +6,8 @@ from jazzbirb_kr.app.constant import *
 
 app_content_reader = Blueprint('content_read', __name__, url_prefix='/')
 
+## /resource/crud/condition
+
 
 @app_content_reader.route("/items/get/boundary", methods=['POST'])
 def get_items_boundary():
@@ -166,13 +168,16 @@ def get_const():
         else:
             category = CONST_GENERAL_CATEGORY
 
+
+        location = session.get("location")
         option = CONST_GENERAL_OPTION
         bird = ContentReader().get_birds()
         return jsonify({"result": True,
                         "data": {
                                     "bird":bird,
                                     "category":category,
-                                    "option":option
+                                    "option":option,
+                                    "location": location
                                  }
                         })
 

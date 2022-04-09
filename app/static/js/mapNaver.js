@@ -212,7 +212,7 @@ function hideSpecies(species_id, all=false){
     let i = markers.length
     while (i--) {
         marker = markers[i]
-        if (marker.species.includes(species_id) || all==true){
+        if (all==true || marker.species.includes(species_id)){
             hideMarker(map, marker)
             markers.splice(i, 1)
             infowindows.splice(i, 1)
@@ -335,25 +335,33 @@ function checkDistance() {
 }
 
 
-function moveToBird(bird){
+function moveToBird(object_key){
 
 
-    setMapCenter(bird.x, bird.y)
-    showData([bird])
+
+    for (bird of raw_data){
+        if (bird.object_key == object_key){
+            if (bird.x == 0 || bird.x == undefined){
+                action_popup.alert("위치정보가 등록되지 않았거나, 제한된 상태입니다");
+                $(".modal_close").on("click", function () {
+                    action_popup.close(this);
+                });
+            }
+            else {
+                setMapCenter(bird.x, bird.y)
+                showData([bird])
+            }
+            break
+        }
+    }
+    // setMapCenter(bird.x, bird.y)
+    // showData([bird])
 }
 
 function setMapCenter(x, y){
 
-    console.log("set map center!")
-
-    let map_div = document.getElementById("map_naver")
     toggle('map')
-
-
-    console.log(document.getElementById("wrapper_map_horizontal").offsetWidth)
-    console.log(document.getElementById("wrapper_map_horizontal").offsetHeight)
     map.panTo(new naver.maps.LatLng(y, x))
-
 
 }
 
