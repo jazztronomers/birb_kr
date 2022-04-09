@@ -118,7 +118,7 @@ function SHA256(s){
  *  open : 팝업 열기 <br/>
  *  close : 팝업 닫기 <br/>
  */
-var action_popup = {
+let action_popup = {
     timer : 100,
     confirm : function(txt, callback){
         if(txt == null || txt.trim() == ""){
@@ -173,4 +173,27 @@ var action_popup = {
     }
 }
 
+// OVERRIDE CONFIRM
+function confirm(message, callback){
+    action_popup.confirm(message, function (res) {
+        if (res) {
+            console.log(true)
+            if (typeof callback === 'function'){
+                callback()
+            }
+        }
+    })
 
+    $(".modal_close").on("click", function () {
+        action_popup.close(this);
+    });
+}
+
+
+// OVERRIDE ALERT
+function alert(message){
+    action_popup.alert(message)
+    $(".modal_close").on("click", function () {
+        action_popup.close(this);
+    });
+}

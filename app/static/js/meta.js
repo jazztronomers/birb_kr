@@ -367,29 +367,5 @@ function setMeta(is_bird=false){
 
 
 
-function nextImage(){
-
-}
-
-function prevImage(){
-
-}
-
-function getItemNoLocation(){
-
-}
-
-
-function setSpecies(){
-
-}
-
-function setLocation(){
-
-}
-
-function setItem(){
-
-}
 
 

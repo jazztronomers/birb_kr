@@ -249,15 +249,16 @@ function submitPost(){
                 else
                 {
 
-                    alert(req.response.message)
 
-                    if(confirm("포스팅된 컨텐츠에 메타정보를 입력하러 가시겠습니까")){
+                    action_popup.confirm("컨텐츠에 메타(위치, 종 등)정보를 입력하시겠습니까", function (res) {
+                        if (res) {
+                            toggle('meta', req.response.post_id)
+                        }
+                        else {
+                            window.location = "/";
+                        }
+                    })
 
-                        toggle('meta', req.response.post_id)
-                    }
-                    else {
-                        window.location = "/";
-                    }
                 }
             }
         }

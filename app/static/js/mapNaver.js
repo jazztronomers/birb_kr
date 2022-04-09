@@ -343,9 +343,6 @@ function moveToBird(object_key){
         if (bird.object_key == object_key){
             if (bird.x == 0 || bird.x == undefined){
                 action_popup.alert("위치정보가 등록되지 않았거나, 제한된 상태입니다");
-                $(".modal_close").on("click", function () {
-                    action_popup.close(this);
-                });
             }
             else {
                 setMapCenter(bird.x, bird.y)
