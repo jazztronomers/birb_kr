@@ -381,7 +381,18 @@ function dropdownUser(){
 
 
 function setImageInfo(){
-    alert("지도 센터 이동해서\n해당이미지 촬영위치에다 마커 표시하고 어쩌고 저쩌고\n아무튼 추후 연동")
+//    action_popup.confirm("custom confirm", function (res) {
+//        if (res) {
+//            action_popup.alert("yes");
+//        }
+//    })
+//
+
+    action_popup.alert("custom alert");
+
+    $(".modal_close").on("click", function () {
+        action_popup.close(this);
+    });
 }
 
 
