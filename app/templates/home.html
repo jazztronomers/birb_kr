@@ -21,6 +21,9 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/gallery.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/post.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/about.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/advertisement.css') }}"> <!-- restricted keyword ad -->
+
+
     <!--https://www.flaticon.com/uicons-->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/uicons-regular-rounded.css')}}">
     <link href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css" rel="stylesheet"/>
@@ -53,6 +56,7 @@
     <script type="text/javascript" src="{{ url_for('static', filename='js/board.js') }}"></script>
     <script type="text/javascript" src="{{ url_for('static', filename='js/post.js') }}"></script>
 
+    <script type="text/javascript" src="{{ url_for('static', filename='js/advertisement.js') }}"></script>
     <!-- <script type="text/javascript" src="static/vendor/tinymce/tinymce.min.js"></script> -->
 
 
@@ -67,29 +71,26 @@
 <body>
     <div id="wrapper_main">
         <div id="upper_navigation_bar">
-            <div id="title">
-                <span><a href="#" onclick="toggle('root')">BIRB.KR</a></span>
-            </div>
-            <div id="utils">
-
-                <!-- <span><a href="/post" onclick="togglePost()"><i class="fi fi-rr-plus"></i></a></span> -->
-                <span><a href="/editor" onclick="toggle('editor')"><i class="fi fi-rr-edit"></i></a></span>
-                <span><a href="/gallery" onclick="toggle('gallery')"><i class="fi fi-rr-gallery"></i></a></span>
-                <span><a href="/board" onclick="toggle('board')"><i class="fi fi-rr-list"></i></a></span>
-                <span><a href="#" onclick="toggle('map')"><i class="fi fi-rr-map-marker"></i></a></span>
-                <div class="dropdown">
-                    <span><a onclick="alert('hello')"><i class="fi fi-rr-search"></i></a></span>
+            <div class="main">
+                <div id="title">
+                    <span><a href="#" onclick="toggle('root')">BIRB.KR</a></span>
                 </div>
-                <div class="dropdown">
-                    <span><a onclick="dropdownUser()"><i class="fi fi-rr-user"></i></a></span>
-                    <div id="dropdown_user">
-                        <a href="/user/`${user_id}`" onclick="toggle('user', `${user_id}`)">My Page</a>
-                        <a href="/meta" onclick="toggle('meta')">My Item</i></a>
-                        <a href="/bird" onclick="toggle('bird')">My collection</a>
-                        <a href="/profile" onclick="toggle('profile')">My Profile</a>
-                        <a href="/about" onclick="toggle('about')">Birb?</a>
-                        <a onclick="logout()">Logout</a>
-                    </div>
+                <div id="utils">
+                    <!-- <span><a href="/post" onclick="togglePost()"><i class="fi fi-rr-plus"></i></a></span> -->
+                    <span><a href="/editor" onclick="toggle('editor')"><i class="fi fi-rr-edit"></i></a></span>
+                    <span><a href="/gallery" onclick="toggle('gallery')"><i class="fi fi-rr-gallery"></i></a></span>
+                    <span><a href="/board" onclick="toggle('board')"><i class="fi fi-rr-list"></i></a></span>
+                    <span><a href="#" onclick="toggle('map')"><i class="fi fi-rr-map-marker"></i></a></span>
+                    <span><a onclick="toggleGNBDrop()"><i class="fi fi-rr-user"></i></a></span>
+                </div>
+            </div>
+            <div id="utils_dropdown" class="dropdown">
+                <div id="dropdown_user">
+                    <a onclick="toggleGNBDrop(); toggle('user', `${user_id}`)">My Page</a>
+                    <a onclick="toggleGNBDrop(); toggle('meta')">Item</i></a>
+                    <a onclick="toggleGNBDrop(); toggle('profile')">Profile</a>
+                    <a onclick="toggleGNBDrop(); toggle('about')">Birb?</a>
+                    <a onclick="logout()">Logout</a>
                 </div>
             </div>
         </div>
@@ -215,7 +216,15 @@
             </div>
         </div>
     </div>
-    <div>
+    <div id="wrapper_ad">
+        <div class="ad fixed left">AD LEFT
+
+        </div>
+        <div class="ad fixed right">AD RIGHT
+
+        </div>
+    </div>
+    <div id="wrapper_modal">
         <!-- confirm 모달을 쓸 페이지에 추가 start-->
         <section class="modal modal-section type-confirm">
             <div class="enroll_box">
@@ -239,12 +248,5 @@
         </section>
         <!-- alert 모달을 쓸 페이지에 추가 end-->
     </div>
-
-
-
-
-
-
-
 </body>
 </html>

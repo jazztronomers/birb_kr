@@ -269,46 +269,55 @@ td {
     font-size: 1rem;
 }
 
+
+.enroll_btn {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    position: absolute;
+    bottom: 1rem;
+    left: 50%;
+
+    justify-content:center;
+
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
 .enroll_box p{
     padding-bottom: 56px;
 }
 .gray_btn {
-    position: absolute;
-    bottom: 1rem;
-    left: 50%;
-
-    left: 50%;
-    -webkit-transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    -moz-transform: translate(-50%, -50%);
-    -o-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
 
     width: 8rem;
+
+    margin-left: .1rem;
+    margin-right: .1rem;
+
     background: #ffffff;
     color: #999999;
-
     height: 1.5rem;
     line-height: 1.5rem;
     transition: 0.5s;
     font-size: .8rem;
+    margin-left: .2rem;
 }
 
 .pink_btn {
 
-    position: absolute;
-    bottom: 1rem;
-    left: 50%;
-    -webkit-transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    -moz-transform: translate(-50%, -50%);
-    -o-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
     width: 8rem;
-    background: #ed197a;
+
+    margin-left: .1rem;
+    margin-right: .1rem;
+
+    background: red;
     color: #fff;
     height: 1.5rem;
     line-height: 1.5rem;
     transition: 0.5s;
     font-size: .8rem;
 }
+
