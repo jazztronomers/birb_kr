@@ -19,6 +19,9 @@
     padding: 1rem;
 }
 
+
+
+
 #wrapper_ad .ad.left{
     left: 3rem;
 }
@@ -26,8 +29,25 @@
     right: 3rem;
 }
 
-#gallery .ad .horizontal{
+#gallery_items .ad.inline{
+
 
     width: 100%;
+    height: 75px;
+    margin-top: .5rem;
+    margin-bottom: .5rem;
+    font-size: .7rem;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#gallery_items .ad.inline span{
+
+    width: 100%;
+    color: var(--black);
+    text-align: center;
 
 }

@@ -76,7 +76,7 @@ function scrollSwitch(){
 
 
         column = document.getElementById("gallery_items")
-        current_item_cnt = column.children.length
+        current_item_cnt = column.querySelectorAll(".content").length
 
         if ((scrollTop + clientHeight > scrollHeight * 0.5) && (raw_data.length == current_item_cnt) && gallery_has_next){
             console.log('infinite more', raw_data.length, current_item_cnt)
