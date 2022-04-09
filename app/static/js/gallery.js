@@ -83,8 +83,7 @@ class Gallery extends Component {
                     </div>
                     <div class="bottom-left" style='display:none'>BOTTOM-LEFT</div>
                     <div class="bottom-right">
-                        <span><a onclick="goToPost('${item.post_id}')"><i class="icon_info fi fi-rr-info"></i></a></span>
-                        <span><a onclick="setImageInfo()"><i class="icon_info fi fi-rr-info"></i></a></span>
+                        <span><a onclick="goToPost('${item.post_id}')"><i class="icon_info fi fi-rr-document"></i></a></span>
                     </div>
                 </div>
             </div>
