@@ -1,8 +1,9 @@
-// ===============================================
-// B A C K E N D
-// ===============================================
 map = null
 
+
+const CONFIRM_SEARCH="선택된 종 및 지도상의 마커가 사라집니다<br>계속하시겠습니까?"
+const ALERT_AREA_TOO_WIDE="선택된 영역이 너무 넓습니다<br>선택영역을 축소후 다시 시도하세요"
+const ALERT_LIMIT_INFO="위치정보가 등록되지 않았거나<br>정보조회가 제한된 상태입니다"
 
 function initMap(){
 
@@ -75,20 +76,7 @@ function getBoundaryData(bounds, row_per_page, current_page) {
 
 function searchThisArea(){
 
-    confirmation = true
-    let zoom_level = map.getZoom()
-    if (zoom_level< ZOOM_LEVEL_ALLOWED) {
-        alert("선택된 영역이 너무 넓습니다, 지도를 조금더 확대하세요! \n현재 줌 레벨: " + zoom_level + "\n허용 줌레벨 범위: > " + ZOOM_LEVEL_ALLOWED)
-        return false
-    }
-
-
-    else if (last_zoom_level!=-1){
-        confirmation = (confirm("선택된 종 및 지도상의 마커가 사라집니다\n계속하시겠습니까?"))
-    }
-
-
-    if (confirmation){
+    function _searchThisArea(){
 
         hideSpecies('000', all=true)
         bounds = getBounds(map)
@@ -120,9 +108,51 @@ function searchThisArea(){
         });
 
     }
+
+    console.log(" * search this area...", last_zoom_level)
+    let zoom_level = map.getZoom()
+    if (zoom_level< ZOOM_LEVEL_ALLOWED) {
+        // alert("선택된 영역이 너무 넓습니다, 지도를 조금더 확대하세요! \n현재 줌 레벨: " + zoom_level + "\n허용 줌레벨 범위: > " + ZOOM_LEVEL_ALLOWED)
+        alert(ALERT_AREA_TOO_WIDE)
+        return false
+    }
+
+
+    else if (last_zoom_level==-1){
+        _searchThisArea()
+    }
+
+    else {
+        confirm(CONFIRM_SEARCH,
+            _searchThisArea,  // CONFIRM TRUE CALLBACK
+            function () {void(0)} // CONFIRM FALSE CALLBACK
+        )
+    }
+
+
 }
 
 
+function moveToBird(object_key){
+
+
+
+    for (bird of raw_data){
+        if (bird.object_key == object_key){
+            if (bird.x == 0 || bird.x == undefined){
+                alert(ALERT_LIMIT_INFO);
+            }
+            else {
+                setMapZoomLevel(15)
+                setMapCenter(bird.x, bird.y)
+                showData([bird])
+            }
+            break
+        }
+    }
+    // setMapCenter(bird.x, bird.y)
+    // showData([bird])
+}
 
 
 

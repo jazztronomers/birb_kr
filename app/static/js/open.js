@@ -148,7 +148,7 @@ let action_popup = {
 
     open : function(type, txt){
         var popup = $("."+type);
-        popup.find(".menu_msg").text(txt);
+        popup.find(".menu_msg").html(txt);
         $("body").append("<div class='dimLayer'></div>");
         $(".dimLayer").css('height', $(document).height()).attr("target", type);
         popup.fadeIn(this.timer);

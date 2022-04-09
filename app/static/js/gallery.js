@@ -88,6 +88,7 @@ class Gallery extends Component {
                     <div class="bottom-right">
                         <span><a onclick="goToPost('${item.post_id}')"><i class="icon_info fi fi-rr-document"></i></a></span>
                         <span><a onclick="confirmation_test()"><i class="icon_info fi fi-rr-document"></i></a></span>
+                        <span><a onclick="alert_test()"><i class="icon_info fi fi-rr-document"></i></a></span>
                     </div>
                 </div>
             </div>
@@ -102,6 +103,10 @@ class Gallery extends Component {
 function goToPost(post_id){
     toggle('post', post_id, false, null)
 }
+function alert_test(){
+    alert("test")
+}
+
 
 function confirmation_test(){
 

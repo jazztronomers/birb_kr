@@ -12,7 +12,8 @@ let rectangle = null
 let data_source = 'gallery'
 
 
-const ZOOM_LEVEL_ALLOWED = 9
+const ZOOM_LEVEL_ALLOWED = 12
+
 
 
 function initNaverMap(x=127.105399, y=37.3595704, zoom_level=15, zoom_min=5, zoom_max=20, div_id="wrapper_map_horizontal", callback=null){
@@ -335,25 +336,6 @@ function checkDistance() {
 }
 
 
-function moveToBird(object_key){
-
-
-
-    for (bird of raw_data){
-        if (bird.object_key == object_key){
-            if (bird.x == 0 || bird.x == undefined){
-                action_popup.alert("위치정보가 등록되지 않았거나, 제한된 상태입니다");
-            }
-            else {
-                setMapCenter(bird.x, bird.y)
-                showData([bird])
-            }
-            break
-        }
-    }
-    // setMapCenter(bird.x, bird.y)
-    // showData([bird])
-}
 
 function setMapCenter(x, y){
 
