@@ -105,7 +105,10 @@ function goToPost(post_id){
 
 function confirmation_test(){
 
-    confirm("test", null)
+    confirm("test",
+            function () {console.log("sss true")},
+            function () {console.log("sss false")}
+    )
 
 
 }

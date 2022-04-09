@@ -3,6 +3,9 @@
 // 진입접: editor submit
 // 자기 이미지 우측 위에 아이콘 선택시 (단일 아이템만 지원)
 
+
+const CONFIRM_CONTINUE="해당 아이템의 정보가 입력되었습니다<br>나머지도 입력하시겠습니까?"
+
 function initMeta(post_id){
 
 
@@ -352,7 +355,11 @@ function setMeta(is_bird=false){
             }
             else
             {
-                alert(''+req.status+req.response)
+
+                confirm(CONFIRM_CONTINUE,
+                        function () {void(0)},
+                        function () {window.location='/'}
+                )
             }
         }
     }

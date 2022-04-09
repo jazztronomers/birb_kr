@@ -174,25 +174,31 @@ let action_popup = {
 }
 
 // OVERRIDE CONFIRM
-function confirm(message, callback){
+function confirm(message, callback_true, callback_false){
     action_popup.confirm(message, function (res) {
         if (res) {
-            console.log(true)
-            if (typeof callback === 'function'){
-                callback()
+            console.log('confirm true')
+            if (typeof callback_true === 'function'){
+                callback_true()
             }
         }
     })
 
     $(".modal_close").on("click", function () {
         action_popup.close(this);
+        if (typeof callback_false === 'function'){
+                callback_false()
+        }
     });
+
+
 }
 
 
 // OVERRIDE ALERT
 function alert(message){
     action_popup.alert(message)
+
     $(".modal_close").on("click", function () {
         action_popup.close(this);
     });
