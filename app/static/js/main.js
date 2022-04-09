@@ -33,6 +33,7 @@ document.addEventListener("DOMContentLoaded", function(){
 
     canvas_width = wrapper_main.offsetWidth
     canvas_height = wrapper_main.offsetHeight
+    initAd()
 
 });
 
@@ -269,9 +270,9 @@ function toggle(to, param=null, backward=false, callback=null){
 }
 
 
-function dropdownUser(){
+function toggleGNBDrop(){
 
-    dropdown_user = document.getElementById("dropdown_user")
+    dropdown_user = document.getElementById("utils_dropdown")
     if (dropdown_user.style.display=="none" || dropdown_user.style.display=="" ){
         dropdown_user.style.display='flex'
         dropdown_user.style.flexDirection='column'
