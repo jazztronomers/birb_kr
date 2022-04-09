@@ -76,7 +76,6 @@
                 <span><a href="/editor" onclick="toggle('editor')"><i class="fi fi-rr-edit"></i></a></span>
                 <span><a href="/gallery" onclick="toggle('gallery')"><i class="fi fi-rr-gallery"></i></a></span>
                 <span><a href="/board" onclick="toggle('board')"><i class="fi fi-rr-list"></i></a></span>
-                <span><a href="/meta" onclick="toggle('meta')"><i class="fi fi-rr-list"></i></a></span>
                 <span><a href="#" onclick="toggle('map')"><i class="fi fi-rr-map-marker"></i></a></span>
                 <div class="dropdown">
                     <span><a onclick="alert('hello')"><i class="fi fi-rr-search"></i></a></span>
@@ -85,6 +84,7 @@
                     <span><a onclick="dropdownUser()"><i class="fi fi-rr-user"></i></a></span>
                     <div id="dropdown_user">
                         <a href="/user/`${user_id}`" onclick="toggle('user', `${user_id}`)">My Page</a>
+                        <a href="/meta" onclick="toggle('meta')">My Item</i></a>
                         <a href="/bird" onclick="toggle('bird')">My collection</a>
                         <a href="/profile" onclick="toggle('profile')">My Profile</a>
                         <a href="/about" onclick="toggle('about')">Birb?</a>

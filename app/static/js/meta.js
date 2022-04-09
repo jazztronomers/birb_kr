@@ -16,17 +16,30 @@ function initMeta(post_id){
     initNaverMap(x=126.8231877, y=37.4832059, zoom_level=15, zoom_min=8, zoom_max=20, div_id="meta_map", callback=mapCallback)
 
     // 사용자의 모든을 전역변수 ITEMS로 받아오기
-    getItemByUserId()
+    if (post_id != undefined){
+        getItemByPostId(post_id)
+    }
+    else {
+        getItemByUserId()
+    }
 
     // getPostsByUserId()
 
     // set Select Box
+
+
 
     // 수평 스크롤 활설화
     const meta_horizotal_item_slide = document.querySelector("#meta_horizotal_item_slide").querySelector(".meta_content");
     meta_horizotal_item_slide.addEventListener("wheel", (evt) => {
         evt.preventDefault();
         meta_horizotal_item_slide.scrollLeft += evt.deltaY;
+    });
+
+
+    const meta_update_species = document.getElementById("meta_update_species")
+    meta_update_species.addEventListener("change", (evt) => {
+        species_value(meta_update_species.value)
     });
 
 }
@@ -83,7 +96,7 @@ class Meta extends Component {
                             <div class='row'>
                                 <label for="meta_update_species">종 정보</label>
                                 <p class="autocomplete">
-                                    <input type="text" id='meta_update_species' autocomplete='off' placeholder="species" onfocusout='species_value(this.value)'>
+                                    <input type="text" id='meta_update_species' autocomplete='off' placeholder="species">
                                     <input type="text" id='meta_update_observe_level' placeholder="희귀도" disabled>
                                 </p>
                             </div>
@@ -118,21 +131,25 @@ class Meta extends Component {
 
 
 function species_value(species_kr){
-    // INPUT BIRD IN DICT
-    if(BIRD.birds_list.map(function(a) {return a.species_kr;}).includes(species_kr)){
-        for (bird of BIRD.birds_list){
-            if (bird.species_kr == species_kr){
-                document.getElementById("meta_update_observe_level").value=bird.observe_level
-                break
+
+    if (species_kr != undefined){
+
+        // INPUT BIRD IN DICT
+        if(BIRD.birds_list.map(function(a) {return a.species_kr;}).includes(species_kr)){
+            for (bird of BIRD.birds_list){
+                if (bird.species_kr == species_kr){
+                    document.getElementById("meta_update_observe_level").value=bird.observe_level
+                    break
+                }
             }
+
         }
-
+        else if (species_kr.length > 0 ) {
+            alert("wrong bird, or not a korean bird")
+            document.getElementById("meta_update_species").value=''
+            document.getElementById("meta_update_observe_level").value=''
+        }
     }
-    else {
-        alert("BIRD NOT IN DICTIONARY")
-        document.getElementById("meta_update_species").value=''
-    }
-
     // INPUT BIRD NOT IN DICT
 }
 
