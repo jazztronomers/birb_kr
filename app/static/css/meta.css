@@ -6,9 +6,9 @@
     border: none;
 }
 
-#meta #meta_header{
-    position: relative;
-}
+
+
+
 
 #meta #meta_body{
 
@@ -26,13 +26,7 @@
     flex-direction: column;
 }
 
-#meta #meta_body .meta_title{
-    font-weight: bold;
-    padding-left: .25rem;
-    padding-top:.25rem;
-    padding-bottom:.25rem;
-    border-bottom: 0.2px solid var(--grey3);
-}
+
 
 #meta #meta_body #meta_horizotal_item_slide .meta_content{
 
@@ -71,11 +65,11 @@
 
 }
 
-#meta #meta_body #meta_form .meta_title {
+#meta #meta_body #meta_form #meta_title {
 
 }
 
-#meta #meta_body #meta_form .meta_content {
+#meta #meta_body #meta_form #meta_content {
     display: flex;
     flex-direction: row;
     width: 100%;
