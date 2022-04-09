@@ -218,3 +218,75 @@ td {
 }
 
 */
+
+.modal .btn{
+    cursor: pointer;
+    text-align: center;
+    border-radius: .3rem;
+    outline: none;
+    font-weight: 500;
+}
+.dimLayer{
+    display: block;
+    width: 100%;
+    opacity: .5;
+    background-color: black;
+    position: fixed;
+    left: 0;
+    top: 0px;
+    margin: 0;
+    padding: 0;
+    z-index: 9998;
+}
+.modal{
+    width: 20rem;
+    height: 10rem;
+    border-radius: .5rem;
+    box-sizing: border-box;
+    text-align: center;
+    opacity: .8;
+}
+
+.modal-section{
+    background: #ffffff;
+    box-sizing: border-box;
+    display: none;
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    display: none;
+    z-index: 9999;
+}
+
+.menu_msg{
+    font-size: 1rem;
+}
+
+.enroll_box p{
+    padding-bottom: 56px;
+}
+.gray_btn {
+    width: 8rem;
+    background: #ffffff;
+    color: #999999;
+
+    height: 1.5rem;
+    line-height: 1.5rem;
+    transition: 0.5s;
+    font-size: .8rem;
+}
+
+.pink_btn {
+    width: 8rem;
+    background: #ed197a;
+    color: #fff;
+    height: 1.5rem;
+    line-height: 1.5rem;
+    transition: 0.5s;
+    font-size: .8rem;
+}
