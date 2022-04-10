@@ -84,7 +84,7 @@
                     <span><a href="/board" onclick="toggle('board')"><i class="fi fi-rr-list"></i></a></span>
                     <span><a href="/collection" onclick="toggle('collection')"><i class="fi fi-rr-book-alt"></i></a></span>
                     <span><a href="#" onclick="toggle('map')"><i class="fi fi-rr-map-marker"></i></a></span>
-                    <span><a onclick="toggleGNBDrop()"><i class="fi fi-rr-user"></i></a></span>
+                    <span><a onclick="toggleGNBDrop()"><i class="fi fi-rr-menu-dots"></i></a></span>
                 </div>
             </div>
             <div id="utils_dropdown" class="dropdown">
@@ -101,7 +101,7 @@
             <div id="gallery_search">
                 <div id="gallery_search_bar"><input type="text" placeholder="bird"><i class="fi fi-rr-search"></i></div>
             </div>
-            <div id="gallery_items">
+            <div id="gallery_body" class="body">
             </div>
             <div>
                 NO MORE ITEMS TO SHOW...
@@ -110,7 +110,7 @@
         <div id="board" class='pane' style="display: none">
             <div class="board_header">
             </div>
-            <div id="board_contents" class="board_contents">
+            <div id="board_body" class="board_body body">
             </div>
             <div class="board_page">
                 NO MORE POST TO SHOW...
@@ -139,23 +139,43 @@
                 <!--      <div><span><a><i class="icon fi fi-rr-info"></i></a></span></div>-->
                 <!--      <div><span><a><i class="icon fi fi-rr-list-check"></i></a></span></div>-->
                 <!--  </div>-->
-            <div>
-                <p><H1>TODO</H1></p>
-                <p>- 비동기 썸네일생성 (SNS, SQS, 또는 BACKGROUND SINGLE TONE CLASS)</p>
-                <p>- 비동기 이미지 퀄리티 스코어링 스크립트</p>
-                <p>- </p>
-                <p>- </p>
-                <p>- </p>
-                <p>- </p>
-            </div>
-            <div>
-                <p><H1>DO</H1></p>
-                <p>- </p>
-            </div>
-            <div>
-                <p><H1>DO NOT</H1></p>
-                <p>- 번식기(봄, 여름) 새와 상호작용을 일으키는 버드콜</p>
-                <p>- 맹금류 피딩</p>
+            <div class="block">
+                <div class="title">
+                     todo
+                </div>
+                <div class="content">
+
+                    <h4> 프로필</h4>
+                    <li>프로필 표시기능</li>
+                    <li>프로필 수정기능</li>
+                    <li>프로필 사진등록기능</li>
+                    <li>프로필 수정기능</li>
+                    <h4> 포스트 삭제기능</h4>
+                    <li>포스트 숨김기능(유저입장 삭제)</li>
+                    <li>포스트 지연삭제기능(유저입장 삭제)</li>
+                    <li>포스트 완전삭제기능(db, bucket 모두삭제)</li>
+                    <li>bucket 내 고아 아이템 삭제</li>
+                    <h4> 포스트 등록기능</h4>
+                    <li>동영상 업로드 기능</li>
+                    <li>음성 업로드 기능</li>
+                    <h4> 포스트 수정기능</h4>
+                    <li>텍스트만 수정 가능(아이템 수정 불가, 삭제하고 다시 올려야함)</li>
+                    <h4> 검색기능 - gallery</h4>
+                    <li>to date 특정시점 데이터를 기점으로 내림차순된 데이터를 조회하며 infinite scroll</li>
+                    <li>species</li>
+                    <h4> 검색기능 - board</h4>
+                    <li>to date 특정시점 데이터를 기점으로 내림차순된 데이터를 조회하며 infinite scroll</li>
+                    <li>species</li>
+                    <h4> 게시판 기능</h4>
+                    <h4> 게시글(포스트) 기능</h4>
+                    <li> species</li>
+                    <h4> 메타정보 등록기능</h4>
+                    <h4> 메타정보 수정기능</h4>
+                    <h4> 아이템 single view 기능</h4>
+                    <h4> 아이템 스코어링 기능</h4>
+                    <h4> 인스타그램 계정연동 피드 가져오기 기능</h4>
+                    <h4> 새도감 기능</h4>
+                </div>
             </div>
         </div>
         <div id="editor" class="pane" style="display:none">
@@ -210,7 +230,7 @@
         <!-- confirm 모달을 쓸 페이지에 추가 start-->
         <section class="modal modal-section type-confirm">
             <div class="enroll_box">
-                <p class="menu_msg"></p>
+                <p class="menu_msg">
             </div>
             <div class="enroll_btn">
                 <button class="btn pink_btn btn_ok">Ok</button>
@@ -222,7 +242,7 @@
         <!-- alert 모달을 쓸 페이지에 추가 start-->
         <section class="modal modal-section type-alert">
             <div class="enroll_box">
-                <p class="menu_msg"></p>
+                <p class="menu_msg">
             </div>
             <div class="enroll_btn">
                 <button class="btn pink_btn modal_close">Ok</button>

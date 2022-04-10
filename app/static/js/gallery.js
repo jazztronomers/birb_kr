@@ -1,20 +1,19 @@
-const GALLERY_BATCH_SIZE = 5      // FOR RENDERING
 const GALLERY_ROW_PER_PAGE = 10   // GET IMAGE FROM SERVER PER REQUEST
 const RARE_SPECIES_ALERT = "희귀종 위치정보 공개정책 수립중입니다 :)"
 let gallery_api_idle = true
 let gallery_has_next = true
 let scroll_has_next = true
+let raw_data = []
 let last_batch = []
-function initGallery(items){
-    console.log('init gallery', items)
-    new Gallery(document.querySelector('#gallery_items'), raw_data)
 
+
+
+function initGallery(){
+    getGalleryData(GALLERY_ROW_PER_PAGE, 1, [], '2099-12-31', renderGallery)
 }
 
-
-function appendItem(items){
-    console.log('append_item', items)
-    new Gallery(document.querySelector('#gallery_items'), items)
+function renderGallery(){
+    new Gallery(document.querySelector('#gallery_body'), last_batch)
 }
 
 function getGalleryData(row_per_page, current_page, species=[], months=[], callback=null) {
@@ -34,14 +33,22 @@ function getGalleryData(row_per_page, current_page, species=[], months=[], callb
                 else
                 {
 
-                    last_batch = req.response.data
 
+
+                    last_batch = req.response.data
                     gallery_has_next = req.response.has_next
+
                     raw_data = raw_data.concat(last_batch)
+
                     console.log(' * gallery has next', gallery_has_next)
                     console.log(' * response data size', last_batch.length)
                     console.log(' * current raw data size', raw_data.length)
                     console.log(' * species dict', species_dict)
+
+                    for (x of last_batch){
+                        console.log(x)
+                    }
+
                     gallery_api_idle = true
 
                     if(callback!=null){
@@ -51,6 +58,7 @@ function getGalleryData(row_per_page, current_page, species=[], months=[], callb
             }
         }
 
+        console.log(" * get gallery data, current_page=", current_page)
         data = JSON.stringify({'species':species, "months": months, 'row_per_page':row_per_page, 'current_page':current_page})
         req.open('POST', '/items/get/gallery')
         req.setRequestHeader("Content-type", "application/json")
@@ -61,7 +69,7 @@ function getGalleryData(row_per_page, current_page, species=[], months=[], callb
 
 
 
-class Gallery extends Component {
+class Gallery extends ComponentAppend {
 
     setup() {
         this.$state = { items: this.$state };
@@ -73,12 +81,11 @@ class Gallery extends Component {
 
         let i=0
         let html = ''
-        console.log(items.length)
 
         for (let item of items){
 
             html+=`
-            <div class="content">
+            <div class="gallery_row row">
                 <img class="image" src="${item.object_storage_url}">
                 <div class="meta">
 
@@ -95,16 +102,9 @@ class Gallery extends Component {
             `
             i+=1
             if (i%5==0){
-                html += getAdHorizontalGallery()
+                html += getAdHorizontal()
             }
         }
-
-
-
-//                        <span><a onclick="goToPost('${item.post_id}')"><i class="icon_info fi fi-rr-search-alt"></i></a></span>
-//                        <span><a onclick="confirmation_test()"><i class="icon_info fi fi-rr-document"></i></a></span>
-//                        <span><a onclick="alert_test()"><i class="icon_info fi fi-rr-document"></i></a></span>
-
 
         return html
     }

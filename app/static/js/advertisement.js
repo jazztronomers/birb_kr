@@ -24,7 +24,7 @@ function getAdFixedVertical(){
     `
 }
 
-function getAdHorizontalGallery(){
+function getAdHorizontal(){
 
     return `
     <div class="ad inline">

@@ -3,13 +3,7 @@ document.addEventListener("DOMContentLoaded", function(){
 
     getConst()
     getSession()
-
-    // HTTPS 인증후 브라우저상에서 자기 현재 좌표 얻을 수 있는 함수
-    //    navigator.geolocation.getCurrentPosition(success, error, {
-    //      enableHighAccuracy: true,
-    //      timeout: 5000,
-    //      maximumAge: 0
-    //    });
+    initAd()
 
 
     // CLIENT SIDE ROUTER LISTENER
@@ -18,7 +12,6 @@ document.addEventListener("DOMContentLoaded", function(){
         full_url = location.href.toString()
         to = full_url.split(window.location.host)[1].split('/')[1]
         params = to = full_url.split(window.location.host)[1].split('/')[2] // [2:] 나중에 구현..
-
         toggle(location.href.toString().split(window.location.host)[1].split('/')[1], params, true)
 
     });
@@ -33,7 +26,15 @@ document.addEventListener("DOMContentLoaded", function(){
 
     canvas_width = wrapper_main.offsetWidth
     canvas_height = wrapper_main.offsetHeight
-    initAd()
+
+
+    // HTTPS 인증후 브라우저상에서 자기 현재 좌표 얻을 수 있는 함수
+    //    navigator.geolocation.getCurrentPosition(success, error, {
+    //      enableHighAccuracy: true,
+    //      timeout: 5000,
+    //      maximumAge: 0
+    //    });
+
 
 });
 
@@ -48,7 +49,6 @@ let LOCATION = undefined
 
 let display_mode = (window.innerWidth / window.innerHeight) > 100 ? 'horizontal' : 'vertical'
 // let wrapper_map_id = (window.innerWidth / window.innerHeight) > 100 ? 'wrapper_map_horizontal' : 'wrapper_map_vertical'
-
 // FOR INFINITE SCROLL
 // FIRE FUNCTION ONLY ONCE IN TIME INTERVAL (LIMIT)
 function throttle(callback, limit = 100) {
@@ -67,28 +67,25 @@ function throttle(callback, limit = 100) {
 
 function scrollSwitch(){
 
+    clientHeight = document.documentElement.clientHeight // 창의 크기
+    scrollHeight = document.body.scrollHeight;           // REFLOW후 창의 높이
+    scrollTop = document.documentElement.scrollTop;      // 현재 스크롤의 위치
+
     if (CURRENT_PAGE=="gallery"){
 
-        clientHeight = document.documentElement.clientHeight // 창의 크기
-        scrollHeight = document.body.scrollHeight;           // REFLOW후 창의 높이
-        scrollTop = document.documentElement.scrollTop;      // 현재 스크롤의 위치
-
-
-
-        column = document.getElementById("gallery_items")
-        current_item_cnt = column.querySelectorAll(".content").length
-
-        if ((scrollTop + clientHeight > scrollHeight * 0.5) && (raw_data.length == current_item_cnt) && gallery_has_next){
-            console.log('infinite more', raw_data.length, current_item_cnt)
-            getGalleryData(GALLERY_ROW_PER_PAGE,  parseInt(current_item_cnt/ GALLERY_ROW_PER_PAGE)+1)
+        column = document.getElementById("gallery_body")
+        current_item_cnt = column.querySelectorAll(".row").length
+        if ((scrollTop + clientHeight > scrollHeight * 0.75) && (raw_data.length == current_item_cnt) && gallery_has_next){
+            getGalleryData(GALLERY_ROW_PER_PAGE,  parseInt(current_item_cnt/ GALLERY_ROW_PER_PAGE)+1, [], [], renderGallery)
         }
+    }
 
-        else if(scrollTop + clientHeight > scrollHeight * 0.8 && scroll_has_next){
+    else if (CURRENT_PAGE=="board"){
 
-            if (gallery_has_next == false){
-                scroll_has_next = false;
-            }
-            infiniteScroll(initGallery)
+        column = document.getElementById("board_body")
+        current_item_cnt = column.querySelectorAll(".row").length
+        if ((scrollTop + clientHeight > scrollHeight * 0.75) && (board_data.length == current_item_cnt) && board_has_next){
+            getBoardData(GALLERY_ROW_PER_PAGE,  parseInt(current_item_cnt/ GALLERY_ROW_PER_PAGE)+1, [], [], renderBoard)
         }
     }
 }
@@ -236,10 +233,8 @@ function toggle(to, param=null, backward=false, callback=null){
     CURRENT_PAGE = to
     // C A L L B A C K P R E S E T
     if (to=="gallery"){
-        if (raw_data.length==0){
-
-            getGalleryData(GALLERY_ROW_PER_PAGE, current_page=1, species=[], month=[], callback=initGallery)
-        }
+        console.log("** INIT GALLERY")
+        initGallery()
     }
 
     else if (to=="editor"){
@@ -247,7 +242,7 @@ function toggle(to, param=null, backward=false, callback=null){
     }
 
     else if (to=="board"){
-        initContents()
+        initBoard()
     }
 
     else if (to=="post"){
@@ -552,7 +547,7 @@ function autocomplete(inp, arr) {
 
 
 
-
+// RENDER WHOLE
 class Component {
   $target;
   $state;
@@ -578,22 +573,16 @@ class Component {
   }
 }
 
-//class App extends Component {
-//  setup () {
-//    this.$state = { items: ['item1', 'item2'] };
-//  }
-//  template () {
-//    const { items } = this.$state;
-//    return `
-//        <ul>
-//          ${items.map(item => `<li>${item}</li>`).join('')}
-//        </ul>
-//        <button>추가</button>
-//    `
-//  }
-//
-//
-//}
+// PARTIAL LOAD
+class ComponentAppend extends Component {
+
+  render () {
+    this.$target.innerHTML += this.template();
+    this.setEvent();
+  }
+
+
+}
 
 function dropDuplicates(arr) {
     return arr.filter((item,

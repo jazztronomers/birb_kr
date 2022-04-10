@@ -5,7 +5,6 @@ let map_mini = null
 let markers = []
 let infowindows = []
 let current_content_id = null
-let raw_data = []
 let species_dict = {}
 let last_zoom_level = -1
 let rectangle = null
