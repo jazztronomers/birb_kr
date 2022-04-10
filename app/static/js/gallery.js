@@ -85,14 +85,11 @@ class Gallery extends Component {
                     <div class="top-left" style='display:none'>TOP-LEFT</div>
                     <div class="top-right">
                         <span><a onclick="showImageInformation(this.parentElement.parentElement.parentElement, '${item.object_key}')"><i class="icon_info fi fi-rr-info"></i></a></span>
+                        <span><a onclick="goToPost('${item.post_id}')"><i class="icon_info fi fi-rr-search-alt"></i></a></span>
                         <span><a onclick="moveToBird('${item.object_key}')"><i class="icon_info fi fi-rr-map-marker"></i></a></span>
                     </div>
                     <div class="bottom-left" style='display:none'>BOTTOM-LEFT</div>
-                    <div class="bottom-right">
-                        <span><a onclick="goToPost('${item.post_id}')"><i class="icon_info fi fi-rr-document"></i></a></span>
-                        <span><a onclick="confirmation_test()"><i class="icon_info fi fi-rr-document"></i></a></span>
-                        <span><a onclick="alert_test()"><i class="icon_info fi fi-rr-document"></i></a></span>
-                    </div>
+                    <div class="bottom-right" style='display:none'>BOTTOM-RIGHT</div>
                 </div>
             </div>
             `
@@ -102,29 +99,11 @@ class Gallery extends Component {
             }
         }
 
-//        `
-//        ${items.map(item => `
-//            <div class="content">
-//                <img class="image" src="${item.object_storage_url}">
-//                <div class="meta">
-//
-//                    <div class="top-left" style='display:none'>TOP-LEFT</div>
-//                    <div class="top-right">
-//                        <span><a onclick="showImageInformation(this.parentElement.parentElement.parentElement, '${item.object_key}')"><i class="icon_info fi fi-rr-info"></i></a></span>
-//                        <span><a onclick="moveToBird('${item.object_key}')"><i class="icon_info fi fi-rr-map-marker"></i></a></span>
-//                    </div>
-//                    <div class="bottom-left" style='display:none'>BOTTOM-LEFT</div>
-//                    <div class="bottom-right">
-//                        <span><a onclick="goToPost('${item.post_id}')"><i class="icon_info fi fi-rr-document"></i></a></span>
+
+
+//                        <span><a onclick="goToPost('${item.post_id}')"><i class="icon_info fi fi-rr-search-alt"></i></a></span>
 //                        <span><a onclick="confirmation_test()"><i class="icon_info fi fi-rr-document"></i></a></span>
 //                        <span><a onclick="alert_test()"><i class="icon_info fi fi-rr-document"></i></a></span>
-//                    </div>
-//                </div>
-//            </div>
-//
-//        `).join('')}
-//
-//        `
 
 
         return html
