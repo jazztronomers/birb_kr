@@ -19,7 +19,9 @@
     padding: 1rem;
 }
 
-
+.body {
+    width: 100%;
+}
 
 
 #wrapper_ad .ad.left{
@@ -29,26 +31,32 @@
     right: 3rem;
 }
 
-#gallery_items .ad.inline{
+.body .ad.inline{
 
-
+    position: relative;
     width: 100%;
     margin-top: .5rem;
     margin-bottom: .5rem;
     font-size: .7rem;
-
     display: flex;
     flex-direction: row;
+
 }
 
-#gallery_items .ad.inline.block{
+.body .ad.inline.block{
+    width: 100%;
+
+    padding: .3rem;
     padding-left: .5rem;
     display: flex;
     flex-direction: column;
 
+    margin: .5rem;
+    background-color:var(--grey1);
+    border-radius: .3rem;
 }
 
-#gallery_items .ad.inline span{
+.body .ad.inline span{
 
     width: 100%;
     color: var(--black);

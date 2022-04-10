@@ -65,7 +65,7 @@ def get_items_gallery():
 
 
 
-@app_content_reader.route("/getBoard", methods=['POST'])
+@app_content_reader.route("/api/board/get", methods=['POST'])
 def get_board():
     '''
 
@@ -75,6 +75,9 @@ def get_board():
     '''
     limit = int(request.json.get("row_per_page", 100))
     current_page = int(request.json.get("current_page", 1))
+    species = request.json.get("species", [])
+    to_date = request.json.get("to_date", '2099-12-31')
+
     skip = (current_page - 1) * limit                    ## 현재페이지 이전의 데이터 개수만큼 스킵한다는 의미
 
 

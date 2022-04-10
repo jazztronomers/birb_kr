@@ -61,8 +61,8 @@ class ContentReader:
 
         ret, has_next = aggregate(collection=self.collection_item,
                                     query=query,
-                                    sort_by='publish_timestamp',
-                                    ascending=False,
+                                    sort_by=['publish_timestamp','item_id'],
+                                    ascending=[False, True],
                                     limit=limit,
                                     skip=skip,
                                     lookups=[
@@ -88,6 +88,9 @@ class ContentReader:
                 item['y'] = 0
 
         logger.info('limit %s, skip %s'%(limit, skip))
+
+        for x in ret:
+            print(x)
 
 
         return ret, has_next
@@ -304,7 +307,7 @@ class ContentReader:
     def get_items_gallery(self, species=[], months=[], limit=100, skip=0):
 
         logger.info("limit: %s, skip: %s"%(limit, skip))
-        ret, has_next = self._select_without_boundary_condition( limit, skip, species, months)
+        ret, has_next = self._select_without_boundary_condition(limit, skip, species, months)
 
         # POST PROCESSING
         for each in ret:
