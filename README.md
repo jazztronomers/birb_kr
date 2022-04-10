@@ -6,8 +6,29 @@
 
 MONGO DB, FLASK, AWS EC2, AWS SQS, AWS SNS, AWS S3
 
+
 ---
 
+#### SAMPLE - 220410 update
+
+
+![image info](./data/birbkr_220410_02.png)
+![image info](./data/birbkr_220410_01.png)
+![image info](./data/birbkr_220410_03.png)
+![image info](./data/birbkr_220410_04.png)
+![image info](./data/birbkr_220410_confirm.png)
+![image info](./data/birbkr_220410_meta.png)
+광고컴포넌트추가 (fixed + infinite scroll inline) 나중에 adsense 적용  
+자기글 삭제 버튼 추가  
+이미지 버튼 추가 (information, go to post, go to location)  
+메타정보입력창 추가  
+글로벌 alert, confirmation 함수 override, modal + dim layer 적용    
+
+
+
+
+---
+## BEFORE 220410
 #### SAMPLE - gallery
 ![image info](./data/birbkr_01_main.png)
 
