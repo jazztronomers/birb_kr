@@ -1,4 +1,4 @@
-from jazzbirb_kr.app.util.mongo_connector import mongo_db
+from jazzbirb_kr.app.util.mongo_connector import mongo_db, select
 from hashlib import sha256
 
 
@@ -212,7 +212,25 @@ class User:
         return ret
 
     def get_location(self):
-        print(self.user_id)
+
         query = {"user_id": {"$eq": self.user_id}}
         location = self.collection.find_one(query).get('location')
         return location
+
+
+    def get_profile(self):
+
+        query = {"user_id": {"$eq": self.user_id}}
+
+        # profile = self.collection.find_one(query)
+        ret, _ = select(self.collection, query)
+        ret = ret[0]
+        profile = {'email': ret.get("email"),
+                   'user_id': ret.get("email"),
+                   'count_item': ret.get("email"),
+                   'count_post': ret.get("email")}
+
+
+
+
+        return profile

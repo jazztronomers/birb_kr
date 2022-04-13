@@ -23,8 +23,12 @@ function initUser(user_id){
         removeAllChildNodes(document.querySelector('#user_body_header'))
         removeAllChildNodes(document.querySelector('#user_body_content'))
 
+
+        // GET USER INFORMATION AND RENDER HEADER
+        new UserInformation(user_id)
+
         // 틀만 잡고
-        new UserHeader(document.querySelector('#user_header'));
+
         new UserBodyHeader(document.querySelector('#user_body_header'));
         new UserBodyContent(document.querySelector('#user_body_content'))
 
@@ -59,6 +63,55 @@ function initUser(user_id){
 // T E M P L A T E
 // =======================================================================
 
+
+class UserInformation {
+    $user_id;
+    constructor ($user_id){
+        this.$user_id = $user_id
+        this.get()
+    }
+    // GET DATA FROM BAKCEND
+    get (){
+
+        var req = new XMLHttpRequest()
+        req.responseType = 'json';
+        req.onreadystatechange = function()
+        {
+            if (req.readyState == 4)
+            {
+                if (req.status != 200)
+                {
+                    alert(''+req.status+req.response)
+                }
+                else
+                {
+                    console.log(this)
+                    console.log(this.parent)
+                    console.log(req.response.data)
+                    // set();
+                    new UserHeader(document.querySelector('#user_header'), {});
+                }
+            }
+        }
+
+        console.log(this)
+        console.log(this.parent)
+        let data = JSON.stringify({'user_id': this.$user_id})
+        req.open('POST', '/api/user/profile/get')
+        req.setRequestHeader("Content-type", "application/json")
+        req.send(data)
+
+
+    }
+    //
+    set (){
+        new UserHeader(document.querySelector('#user_header'), {});
+    }
+
+}
+
+
+
 class UserHeader extends Component {
 
     setup(){
@@ -66,7 +119,11 @@ class UserHeader extends Component {
     }
 
     template () {
+
+
+
         const { items } = this.$state;
+        console.log(items)
 
         return `
             <div id="user_header_left">
@@ -208,21 +265,6 @@ class UserBodyContentCollection extends Component {
         `
     }
 }
-//            ${items.map(
-//                item => `
-//                        <tr>
-//                            <td>ㅁ</th>
-//                            <td>ㅁ</th>
-//                            <td>ㅁ</th>
-//                            <td><input type='checkbox'></th>
-//                            <td><input type='checkbox'></th>
-//                            <td><input type='checkbox'></th>
-//                        </tr>`
-//            ).join('')}
-
-// =======================================================================
-// F U N C T I O N
-// =======================================================================
 
 function getUserData(user_id){
 

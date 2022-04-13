@@ -160,19 +160,6 @@ def check_dup_user_id():
 
 
 
-@app_user.route('/checkCurrentPassword', methods=['POST'])
-def check_current_password():
-    if request.method == 'POST' and \
-            'curr_pw' in request.form:
-
-        usercode = session.get('usercode')
-        curr_pw = request.form['curr_pw']
-        user = User()
-        response = user.check_curr_pw(usercode, curr_pw)  # BOOL
-        return jsonify({'result': response})
-
-    else:
-        return jsonify({'result': False, 'code': 400, 'message': 'Bad request'})
 
 # @app_user.route('/getCollection.do', methods=['POST'])
 # def get_collection():
@@ -205,7 +192,7 @@ def set_location():
     if request.method == 'POST':
 
         location = request.get_json().get("location")
-        user = User(session.get("id"))
+        user = User(session.get("user_id"))
         ret = user.set_location(location=location)
 
         print(ret)
@@ -218,7 +205,7 @@ def set_location():
 def get_location():
     if request.method == 'POST':
 
-        user = User(session.get("id"))
+        user = User(session.get("user_id"))
         location = user.get_location()
 
 
@@ -227,15 +214,26 @@ def get_location():
     else:
         return jsonify({'result': False, 'code': 400, 'message': 'Bad request'})
 
+@app_user.route('/api/user/profile/get', methods=['POST'])
+def get_user_profile():
+    if request.method == 'POST':
+
+        user = User(session.get("user_id"))
+        profile = user.get_profile()
+
+        return jsonify({'result': True, 'data': {
+            "profile": profile
+        }})
+
+    else:
+        return jsonify({'result': False, 'code': 400, 'message': 'Bad request'})
+
+
 @app_user.route('/api/session/get', methods=['POST'])
 def get_session():
     if request.method == 'POST':
 
         user_id = session.get("user_id")
-        print(user_id)
-        print(user_id)
-        print(user_id)
-
         user = User(user_id=user_id)
         location = user.get_location()
 

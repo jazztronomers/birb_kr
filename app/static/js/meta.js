@@ -46,7 +46,7 @@ function initMeta(post_id){
 
     const meta_update_species = document.getElementById("meta_update_species")
     meta_update_species.addEventListener("change", (evt) => {
-        species_value(meta_update_species.value)
+        species_value(meta_update_species.value, evt)
     });
 
 }
@@ -136,7 +136,8 @@ class Meta extends Component {
 }
 
 
-function species_value(species_kr){
+function species_value(species_kr, evt){
+
 
     if (species_kr != undefined){
 
