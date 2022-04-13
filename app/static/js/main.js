@@ -546,6 +546,30 @@ function autocomplete(inp, arr) {
 }
 
 
+function moveBackward() {
+	window.history.back();
+	console.log('move backward');
+}
+
+function moveForward() {
+	window.history.forward();
+	console.log('move forward');
+}
+
+
+function moveToTop() {
+
+	console.log('move to top');
+    window.scrollTo(0, 0);
+}
+
+
+function moveToBottom() {
+
+	console.log('move to bottom');
+	window.scrollTo(0, document.body.scrollHeight)
+}
+
 
 // RENDER WHOLE
 class Component {
