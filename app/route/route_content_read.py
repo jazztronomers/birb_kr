@@ -6,8 +6,7 @@ from jazzbirb_kr.app.constant import *
 
 app_content_reader = Blueprint('content_read', __name__, url_prefix='/')
 
-## /resource/crud/condition
-
+## /resource/crud/condition or place
 
 @app_content_reader.route("/items/get/boundary", methods=['POST'])
 def get_items_boundary():
@@ -16,7 +15,6 @@ def get_items_boundary():
     # COMMON
     limit = int(req.get("row_per_page", 100))
     current_page = int(req.get("current_page", 1))
-    user_id = req.get("user_id")
     skip = (current_page - 1) * limit
 
     logger.info("get_items_boundary: limit: %s, current_page:%s, skip: %s" % (limit, current_page, skip))
@@ -53,7 +51,6 @@ def get_items_gallery():
     # COMMON
     limit = int(req.get("row_per_page", 100))
     current_page = int(req.get("current_page", 1))
-    user_id = req.get("user_id")
     skip = (current_page - 1) * limit
 
     logger.info("limit: %s, current_page:%s, skip: %s" % (limit, current_page, skip))
@@ -65,7 +62,38 @@ def get_items_gallery():
 
 
 
-@app_content_reader.route("/api/board/get", methods=['POST'])
+@app_content_reader.route("/items/get/collection", methods=['POST'])
+def get_items_collection():
+    req = request.json
+
+    # COMMON
+    limit = int(req.get("row_per_page", 100))
+    current_page = int(req.get("current_page", 1))
+    species = req.get('species')
+    months = req.get('months')
+    skip = (current_page - 1) * limit
+
+    logger.info("req: %s" %(req))
+    ret = ContentReader().get_items_collection(species=[species], limit=limit, skip=skip, months=months)
+    return jsonify(ret)
+
+@app_content_reader.route("/items/get/post", methods=['POST'])
+def get_item_by_post_id():
+    '''
+
+    특정 포스트의 미디어컨텐츠 획득
+
+    :return:
+    '''
+    if session.get('loggedin'):
+        user_id = session.get("user_id")
+        post_id = request.json.get("post_id")
+        ret = ContentReader().get_item_by_post_id(post_id=post_id, user_id=user_id)
+    return jsonify({"data":ret})
+
+# ============================================================================================
+
+@app_content_reader.route("/board/get", methods=['POST'])
 def get_board():
     '''
 
@@ -85,7 +113,10 @@ def get_board():
     return jsonify(ret)
 
 
-@app_content_reader.route("/getPost", methods=['POST'])
+# ===============================================================================================
+
+
+@app_content_reader.route("/posts/get/post", methods=['POST'])
 def get_post():
     '''
 
@@ -98,7 +129,8 @@ def get_post():
     logger.info(ret)
     return jsonify(ret)
 
-@app_content_reader.route("/getPostComment", methods=['POST'])
+
+@app_content_reader.route("/posts/get/post-comment", methods=['POST'])
 def get_post_comment():
     '''
 
@@ -110,53 +142,25 @@ def get_post_comment():
     ret = ContentReader().get_post_comment(post_id=post_id)
     return jsonify(ret)
 
-@app_content_reader.route("/getItemByPostId", methods=['POST'])
-def get_item_by_post_id():
-    '''
-
-    특정 포스트의 미디어컨텐츠 획득
-
-    :return:
-    '''
-    if session.get('loggedin'):
-        user_id = session.get("user_id")
-        post_id = request.json.get("post_id")
-        ret = ContentReader().get_item_by_post_id(post_id=post_id, user_id=user_id)
-    return jsonify({"data":ret})
 
 
-@app_content_reader.route("/getItemByUserId", methods=['POST'])
-def get_item_by_user_id():
-    '''
 
 
-    :return:
-    '''
-    if session.get('loggedin'):
-        user_id = session.get("user_id")
-        ret = ContentReader().get_item_by_user_id(user_id=user_id)
-
-        for row in ret:
-            print(row)
-
-    return jsonify({"data":ret})
-
-
-@app_content_reader.route("/getItemByItemIdList", methods=['POST'])
-def get_item_by_item_id():
-    '''
-
-    특정 포스트 획득
-
-    :return:
-    '''
-    if session.get('loggedin'):
-        user_id = session.get("user_id")
-        post_id = request.json.get("post_id")
-        ret = ContentReader().get_item_by_post_id(post_id=post_id, user_id=user_id)
-
-
-    return jsonify({"data":ret})
+# @app_content_reader.route("/getItemByItemIdList", methods=['POST'])
+# def get_item_by_item_id():
+#     '''
+#
+#     특정 포스트 획득
+#
+#     :return:
+#     '''
+#     if session.get('loggedin'):
+#         user_id = session.get("user_id")
+#         post_id = request.json.get("post_id")
+#         ret = ContentReader().get_item_by_post_id(post_id=post_id, user_id=user_id)
+#
+#
+#     return jsonify({"data":ret})
 
 
 

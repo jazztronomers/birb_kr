@@ -48,17 +48,16 @@ class ContentReader:
 
         return ret, has_next
 
-    def _select_without_boundary_condition(self, limit=100, skip=0, species=[], months=[], ):
+    def _select_without_boundary_condition(self, limit=100, skip=0, species=[], months=[], observe_level_limit=3):
+        logger.info("species: %s, limit: %s, skip: %s"%(species, limit, skip))
 
-
-        ## observe level > 3 인 종들에 대해서 X,Y 정보 마스킹
         query = {}
 
         if len(species) > 0:
             query["species"] =  {"$in": species}
 
-        ## MONTH 미구현 !
 
+        ## MONTH 미구현 !
         ret, has_next = aggregate(collection=self.collection_item,
                                     query=query,
                                     sort_by=['publish_timestamp','item_id'],
@@ -82,15 +81,14 @@ class ContentReader:
                                     ])
 
 
+        print(has_next, ret)
+
+        ## observe level > 3 인 종들에 대해서 X,Y 정보 마스킹
         for item in ret:
-            if item.get('observe_level') and item.get('observe_level') >= OBSERVE_LEVEL_LIMIT:
+            if item.get('observe_level') and item.get('observe_level') >= observe_level_limit:
                 item['x'] = 0
                 item['y'] = 0
 
-        logger.info('limit %s, skip %s'%(limit, skip))
-
-        for x in ret:
-            print(x)
 
 
         return ret, has_next
@@ -193,6 +191,29 @@ class ContentReader:
                               }
                           ])
 
+        return ret
+
+    def _select_item_by_species(self, species):
+        query = {}
+        query["species"] = {"$eq": species}
+
+        query["x"] = {"$eq": None}
+        query["title"] = {"$ne": None} # RIGHT TABLE의 ATTRIBUTE은 쿼리가 안됨 ㅠㅠ
+
+        ret, has_next = aggregate(self.collection_item,
+                                  query=query,
+                                  sort_by=["publish_timestamp", "item_id"],  # observe_date
+                                  ascending=[False, True],
+                                  limit=999,
+                                  skip=0,
+                                  lookups=[
+                                      {
+                                          'collection': 'post',  # COLLECTION TO JOIN
+                                          'left_key': 'post_id',  # JOIN ON
+                                          'right_key': 'post_id',  # JOIN ON
+                                          'extract': ['title']
+                                      }
+                                  ])
 
         return ret
 
@@ -231,6 +252,15 @@ class ContentReader:
 
     def get_item_by_user_id(self, user_id):
         items = self._select_item_by_user_id(user_id)
+        for item in items:
+            item['object_storage_url'] = self.get_presigned_url(item['object_key'])
+
+
+        return items
+
+
+    def get_item_by_species(self, species):
+        items = self._select_item_by_species(species)
         for item in items:
             item['object_storage_url'] = self.get_presigned_url(item['object_key'])
 
@@ -307,7 +337,7 @@ class ContentReader:
     def get_items_gallery(self, species=[], months=[], limit=100, skip=0):
 
         logger.info("limit: %s, skip: %s"%(limit, skip))
-        ret, has_next = self._select_without_boundary_condition(limit, skip, species, months)
+        ret, has_next = self._select_without_boundary_condition(limit, skip, species, months, observe_level_limit=3)
 
         # POST PROCESSING
         for each in ret:
@@ -325,6 +355,31 @@ class ContentReader:
         logger.info("rawdata size: %s, has next: %s"%(len(ret), has_next))
 
         return {"data": ret, "has_next": has_next}
+
+    def get_items_collection(self, species=[], months=[], limit=100, skip=0):
+
+        logger.info("species: %s, limit: %s, skip: %s"%(species, limit, skip))
+
+
+        ret, has_next = self._select_without_boundary_condition(limit=limit, skip=skip, species=species, months=months, observe_level_limit=99)
+
+        # POST PROCESSING
+        for each in ret:
+            each['object_storage_url']=self.get_presigned_url(each['object_key'])
+
+            # 종정보가 있으면서 희귀종인 경우
+            if isinstance(each.get("observe_level"), float) and each.get("observe_level") < 4:
+                each['x'], each['y'] = None, None
+
+            # 종정보가 없으면서 위치정보가 있는 경우
+            elif each.get("observe_level") is None:
+                each['x'], each['y'] = None, None
+
+
+        logger.info("rawdata size: %s, has next: %s"%(len(ret), has_next))
+
+        return {"data": ret, "has_next": has_next}
+
 
 
     def get_presigned_url(self, object_key):
@@ -357,3 +412,12 @@ class ContentReader:
             expire_at = datetime.now() + timedelta(hours=24)
             presigned_url_dict[object_key] = {"url": url, "expire_at":expire_at}
             return BirbBoto3().create_presigned_url(object_key)
+
+
+
+if __name__=="__main__":
+    ContentReader()._select_without_boundary_condition(limit=100, species=['B287'])
+
+    ContentReader()._select_without_boundary_condition(limit=50, species=['B287'])
+
+    ContentReader()._select_without_boundary_condition(limit=10, species=['B287'])

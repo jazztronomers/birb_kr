@@ -49,24 +49,59 @@
 
 .horizontal_div_slider .content .slider_item_wrapper {
     display: block;
-    width: 2.5rem;
-    height: 6rem;
-    border-right: .2px solid black;
 }
 
-.horizontal_div_slider .content .slider_item_wrapper img {
+.horizontal_div_slider .content .slider_item_wrapper .square_button
+{
+    width: 15rem;
+    height: 15rem;
+    border-right: .2px solid var(--grey3);
+}
+
+.horizontal_div_slider .content .slider_item_wrapper .square_button span {
+    width: 100%;
+    height: 99.9%;
+    text-align: center;
+}
+
+
+.horizontal_div_slider .content .slider_item_wrapper .square_button .image {
+    width: 100%;
+    height: 100%;
+}
+
+.horizontal_div_slider .content .slider_item_wrapper .square_button img {
     width: 100%;
     height: 99.9%;
     object-fit: cover; /* Do not scale the image */
     object-position: center; /* Center the image within the element */
 }
 
-.horizontal_div_slider .content .slider_item_wrapper span {
-    width: 100%;
-    height: 99.9%;
-    writing-mode: vertical-lr;
-    text-orientation: upright;
 
+
+
+.horizontal_div_slider .content .slider_item_wrapper.vertical_button
+{
+
+    width: 2.5rem;
+    height: 6rem;
+    border-right: .2px solid black;
 }
 
 
+.horizontal_div_slider .content .slider_item_wrapper .vertical_button span {
+    width: 100%;
+    height: 99.9%;
+    writing-mode: vertical-lr;
+    text-align: center;
+    text-orientation: upright;
+}
+
+
+.active {
+    background-color: yellow;
+}
+
+.selected {
+    background-color: red;
+}
