@@ -133,11 +133,28 @@ function searchThisArea(){
 }
 
 
-function moveToBird(object_key){
+function moveToBird(object_key, from){
 
+    toggle("map")
+    initMap()
+    let data = undefined
+    if (from == 'gallery'){
+        console.log(" * move to bird from gallery")
+        data = raw_data
+    }
+    else if (from == 'collection'){
+        console.log(" * move to bird from collection")
+        data = collection_image_data
+    }
+    else if (from == 'user'){
+        console.log(" * move to bird from user")
+        data = collection_image_data
+    }
 
+    for (bird of data){
 
-    for (bird of raw_data){
+        console.log(bird)
+
         if (bird.object_key == object_key){
             if (bird.x == 0 || bird.x == undefined){
                 alert(ALERT_LIMIT_INFO);

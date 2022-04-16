@@ -222,7 +222,7 @@ function getItemByUserId(){
         }
     }
 
-    req.open('POST', '/getItemByUserId')
+    req.open('POST', '/items/get/user')
     req.setRequestHeader("Content-type", "application/json")
     req.send()
 }
@@ -259,7 +259,7 @@ function getItemByPostId(post_id){
     }
 
     data = JSON.stringify({"post_id":post_id})
-    req.open('POST', '/getItemByPostId')
+    req.open('POST', '/items/get/post')
     req.setRequestHeader("Content-type", "application/json")
     req.send(data)
 }

@@ -435,7 +435,30 @@ function zip(arrays) {
     });
 }
 
+function dfToDict(df, limit=1) {
+    /*
+    danfo js 를 list of dict 형태로 처리하는 함수
+    */
 
+    let data = df.$data
+    let columns = df.$columns
+    let i = 0
+    ret = []
+
+    for (row of df.$data) {
+
+        if (i<limit){
+            row_dict = {}
+            for (let j=0; j< row.length; j++){
+                row_dict[columns[j]]=row[j]
+            }
+            ret.push(row_dict)
+        }
+    }
+
+    return ret
+
+}
 
 
 String.prototype.format = function() {
@@ -575,12 +598,11 @@ function moveToBottom() {
 class Component {
   $target;
   $state;
-  constructor ($target, $state) {
+  $option;
+  constructor ($target, $state, $option) {
     this.$target = $target;
     this.$state = $state;
-
-    console.log('constructor', this.$target, this.$state)
-
+    this.$option = $option;
     this.setup();
     this.render();
   }

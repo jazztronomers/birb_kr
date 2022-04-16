@@ -62,7 +62,7 @@ function getPost(post_id){
     }
     data = JSON.stringify({'post_id':post_id})
     console.log(data)
-    req.open('POST', '/getPost')
+    req.open('POST', '/posts/get/post')
     req.setRequestHeader("Content-type", "application/json")
     req.send(data)
 
@@ -153,7 +153,7 @@ function getPostComment(post_id){
         }
     }
     data = JSON.stringify({'post_id':post_id})
-    req.open('POST', '/getPostComment')
+    req.open('POST', '/posts/get/post-comment')
     req.setRequestHeader("Content-type", "application/json")
     req.send(data)
 

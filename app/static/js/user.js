@@ -10,6 +10,8 @@ let TAB = [
 map_user=null
 user_init = false
 user_gallery=[]
+
+
 function initUser(user_id){
 
     if (user_init==false || user_init!=user_id){

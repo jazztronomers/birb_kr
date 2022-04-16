@@ -33,18 +33,18 @@ function getBoardData(row_per_page, current_page, species, to_date, callback){
                 else
                 {
 
-                    last_batch = req.response.data
+                    board_last_batch = req.response.data
                     board_has_next = req.response.has_next
                     board_data = board_data.concat(last_batch)
 
                     console.log(' * board has next', board_has_next)
-                    console.log(' * response data size', last_batch.length)
+                    console.log(' * response data size', board_last_batch.length)
                     console.log(' * current board data size', board_data.length)
 
                     board_api_idle = true
 
                     if(callback!=null){
-                        callback(last_batch)
+                        callback(board_last_batch)
                     }
 
 
@@ -53,7 +53,7 @@ function getBoardData(row_per_page, current_page, species, to_date, callback){
         }
 
         data = JSON.stringify({'row_per_page':row_per_page, 'current_page': current_page, 'species':species, 'to_date':to_date})
-        req.open('POST', '/api/board/get')
+        req.open('POST', '/board/get')
         req.setRequestHeader("Content-type", "application/json")
         req.send(data)
     }

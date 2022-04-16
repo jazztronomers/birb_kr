@@ -85,7 +85,7 @@ class Gallery extends ComponentAppend {
         for (let item of items){
 
             html+=`
-            <div class="gallery_row row">
+            <div class="gallery_row row image_wrapper">
                 <img class="image" src="${item.object_storage_url}">
                 <div class="meta">
 
@@ -93,7 +93,7 @@ class Gallery extends ComponentAppend {
                     <div class="top-right">
                         <span><a onclick="showImageInformation(this.parentElement.parentElement.parentElement, '${item.object_key}')"><i class="icon_info fi fi-rr-info"></i></a></span>
                         <span><a onclick="goToPost('${item.post_id}')"><i class="icon_info fi fi-rr-search-alt"></i></a></span>
-                        <span><a onclick="moveToBird('${item.object_key}')"><i class="icon_info fi fi-rr-map-marker"></i></a></span>
+                        <span><a onclick="moveToBird('${item.object_key}', 'gallery')"><i class="icon_info fi fi-rr-map-marker"></i></a></span>
                     </div>
                     <div class="bottom-left" style='display:none'>BOTTOM-LEFT</div>
                     <div class="bottom-right" style='display:none'>BOTTOM-RIGHT</div>
