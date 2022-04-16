@@ -26,8 +26,12 @@ def select(collection, query, sort_by=None, ascending=False, skip=0, limit=5, in
 
     ## SORT BY SINGLE FIELD
     else:
-        sort_how = 1 if ascending else -1
-        cur = collection.find(query, {'_id': includes_id}).sort(sort_by, sort_how).skip(skip)
+
+        if sort_by is None:
+            cur = collection.find(query, {'_id': includes_id})
+        else:
+            sort_how = 1 if ascending else -1
+            cur = collection.find(query, {'_id': includes_id}).sort(sort_by, sort_how).skip(skip)
 
     for i in range(limit):
 
@@ -59,10 +63,25 @@ def aggregate(collection, query, sort_by=None, ascending=False, skip=0, limit=50
     :return:
     '''
 
+
+
     pipeline = []
     sort_how = 1 if ascending else -1
-    cnt = collection.count_documents({}) ## FOR HAS NEXT
-
+    # cnt = collection.count_documents({}) ## FOR HAS NEXT  // 조건에 맞는것만 세야지
+    # # print(cnt, skip, limit)
+    # #
+    # # if skip > cnt:
+    # #     print('111')
+    # #     has_next = False
+    # # elif cnt - skip <= limit:
+    # #
+    # #     print('222')
+    # #     has_next = False
+    # # else:
+    # #     print('333')
+    # #     has_next = True
+    #
+    # # print("COUNT, LIMIT, SKIP 가지고 hasnext 도출해내라", cnt, limit, skip)
     if isinstance(sort_by, list) and isinstance(ascending, list):
         sort_dict = {}
         for sb, sh in zip(sort_by, ascending):
@@ -79,13 +98,7 @@ def aggregate(collection, query, sort_by=None, ascending=False, skip=0, limit=50
         })
 
 
-    pipeline.append({
-        "$skip": skip,
-    })
 
-    pipeline.append({
-        "$limit": limit,
-    })
     if len(lookups)>0:
         for lookup in lookups:
 
@@ -141,19 +154,26 @@ def aggregate(collection, query, sort_by=None, ascending=False, skip=0, limit=50
                     }
                 })
 
+
+    # ===========================================================
     pipeline.append({
         "$match": query,
     })
+    pipeline.append({
+        "$skip": skip,
+    })
+    pipeline.append({
+        "$limit": limit+1,
+    })
 
-    if skip > cnt:
-        has_next = False
-    elif cnt - skip < limit:
-        has_next = False
-    else:
-        has_next = True
-
-    # print("COUNT, LIMIT, SKIP 가지고 hasnext 도출해내라", cnt, limit, skip)
     ret = [x for x in collection.aggregate(pipeline)]
+
+    if len(ret) == limit+1:
+        has_next = True
+    else:
+        has_next = False
+
+    # ===========================================================
     return ret, has_next
 
 
