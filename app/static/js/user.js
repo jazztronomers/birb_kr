@@ -87,11 +87,9 @@ class UserInformation {
                 }
                 else
                 {
-                    console.log(this)
-                    console.log(this.parent)
-                    console.log(req.response.data)
-                    // set();
-                    new UserHeader(document.querySelector('#user_header'), {});
+
+                    let profile = req.response.data.profile
+                    new UserHeader(document.querySelector('#user_header'), profile);
                 }
             }
         }
@@ -117,15 +115,16 @@ class UserInformation {
 class UserHeader extends Component {
 
     setup(){
-        this.$state = { items:TAB }
+        this.$profile = this.$state
     }
 
     template () {
 
 
 
-        const { items } = this.$state;
-        console.log(items)
+        const profile = this.$profile
+
+        console.log(profile)
 
         return `
             <div id="user_header_left">
@@ -133,24 +132,28 @@ class UserHeader extends Component {
             </div>
             <div id="user_header_right">
                 <div class="profile_row">
-                    <div class="profile_label">nickname</div>
-                    <div class="profile_value">jazz</div>
+                    <div class="profile_label">username</div>
+                    <div class="profile_value">${profile.username}</div>
                 </div>
                 <div class="profile_row">
-                    <div class="profile_label">contents</div>
-                    <div class="profile_value">100</div>
+                    <div class="profile_label">email</div>
+                    <div class="profile_value">${profile.email}</div>
                 </div>
                 <div class="profile_row">
                     <div class="profile_label">posts</div>
-                    <div class="profile_value">100</div>
+                    <div class="profile_value">${profile.post_count}</div>
                 </div>
                 <div class="profile_row">
-                    <div class="profile_label">instagram</div>
-                    <div class="profile_value">100</div>
+                    <div class="profile_label">media</div>
+                    <div class="profile_value">${profile.media_count}</div>
                 </div>
                 <div class="profile_row">
-                    <div class="profile_label">introduction</div>
-                    <div class="profile_value">birb birb</div>
+                    <div class="profile_label">media</div>
+                    <div class="profile_value">${profile.media_count}</div>
+                </div>
+                <div class="profile_row">
+                    <div class="profile_label">media</div>
+                    <div class="profile_value">${profile.media_count}</div>
                 </div>
             </div>
         `
@@ -207,10 +210,21 @@ class UserBodyContentGallery extends Component {
         return `
             ${items.map(item => `
 
-                <div class="grid">
+                <div class="grid image_wrapper">
                     <div class="grid_image">
                         <a onclick="alert('hello')"><img src="${item.object_storage_url}" class="post_grid"></a>
                     </div>
+                    <div onclick="alert('hello')" class="meta">
+                        <div class="top-left" style='display:none'>TOP-LEFT</div>
+                        <div class="top-right">
+                            <span><a onclick="showImageInformation(this.parentElement.parentElement.parentElement, '${item.object_key}')"><i class="icon_info fi fi-rr-info"></i></a></span>
+                            <span><a onclick="goToPost('${item.post_id}')"><i class="icon_info fi fi-rr-search-alt"></i></a></span>
+                            <span><a onclick="moveToBird('${item.object_key}', 'collection')"><i class="icon_info fi fi-rr-map-marker"></i></a></span>
+                        </div>
+                        <div class="bottom-left" style='display:none'>BOTTOM-LEFT</div>
+                        <div class="bottom-right" style='display:none'>BOTTOM-RIGHT</div>
+                    </div>
+
                 </div>
 
             `).join('')}

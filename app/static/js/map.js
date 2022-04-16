@@ -35,15 +35,6 @@ function getBoundaryData(bounds, row_per_page, current_page) {
                 raw_data = req.response.data // raw_data is global variable that affect on renderGallery
                 species_dict = {}
                 console.log(raw_data)
-                //for (let i = 0; i < raw_data.length; i++) {
-                //    console.log(raw_data[i])
-                //    if (response_data[i].species_kr in species_dict){
-                //        species_dict[response_data[i].species_kr] +=1
-                //    }
-                //    else {
-                //        species_dict[response_data[i].species_kr] =1
-                //    }
-                //}
 
                 df = new dfd.DataFrame(raw_data).groupby(["species_kr"])
                 summary = []
