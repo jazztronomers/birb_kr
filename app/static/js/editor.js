@@ -4,11 +4,58 @@ const TITLE_LENGTH_MIN=3
 const ALERT_MESSAGE_VALIDATE_TITLE=`제목은 ${TITLE_LENGTH_MIN}자 이상이어야 합니다`
 const ALERT_MESSAGE_VALIDATE_IMG_CNT="이미지를 최소 한장 업로드 하세요"
 
-let editor_init=false
+let editor_initialized=false
+
+
+
+
+
+class Editor extends Component{
+    setup() {
+        this.$state = { items: this.$state };
+    }
+
+    template() {
+        const { items } = this.$state;
+        return `
+
+            <div id="editor_tool">
+                <input id="editor_upload" type="file" accept="image/*" multiple style="display:none"/>
+            </div>
+            <div id="editor_header">
+                <span class="select">
+                    <select id="editor_category">
+                    </select>
+                </span>
+                <input id="editor_title" type="text" placeholder="제목을 입력하세요">
+                <span class="select">
+                    <select id="editor_option">
+                    </select>
+                </span>
+                <button id="editor_submit" onclick="submitPost()">submit</button>
+            </div>
+            <div id="editor_body">
+                <textarea id="editor_textarea" placeholder="이미지는 상단 이미지 버튼을 클릭하여 첨부해 주세요, Clipboard 에서 옮겨온(capture then ctrl+v..) 컨텐츠는 정상작동하지 않습니다"></textarea>
+            </div>
+            <div id="editor_map" style="display: none">
+                <div id="wrapper_map_btns">
+                    <button onclick="alert('here')">testA</button>
+                    <button onclick="alert('here')">testB</button>
+                    <button onclick="alert('here')">testC</button>
+                </div>
+                <div id="wrapper_map_mini" class="wrapper_map_mini"></div>
+            </div>
+        `
+    }
+}
+
 
 function initEditor(){
     if (editor_init == false){
-        editor_init=true
+
+        new Editor(document.querySelector("#editor"), [])
+
+        editor_initialized=true
         console.log(" * initEditor start..")
         map_editor = document.getElementById("wrapper_map_mini")
         initEditorHeader()
@@ -20,17 +67,6 @@ function initEditor(){
                 preview_styles: false,
                 // preview_styles: 'font-family font-size font-weight font-style text-decoration text-transform color background-color outline text-shadow',
                 content_style: 'img {max-width: 100%;} textarea {border:5px solid black}',
-    //            init_instance_callback: function (editor) {
-    //                editor.on('click', function (e) {
-    //
-    //                    // ADD IMAGE META DATA....SPECIES, X, Y 등등
-    //
-    //                    console.log('Element clicked:', e.target.nodeName);
-    //                    toggleMapSmall()
-    //
-    //                });
-    //            },
-
                 setup: function (editor) {
 
                     editor.ui.registry.addButton('erase', {
