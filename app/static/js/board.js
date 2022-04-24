@@ -8,7 +8,7 @@ let board_initialized = false
 
 
 function initBoard(){
-    if (board_initialized){
+    if (board_initialized==false){
         board_initialized = true
         getBoardData(BOARD_ROW_PER_PAGE, 1, [], '2099-12-31', renderBoard)
     }
