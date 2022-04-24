@@ -243,7 +243,6 @@ function toggle(to, param=null, backward=false, callback=null){
     CURRENT_PAGE = to
     // C A L L B A C K P R E S E T
     if (to=="gallery"){
-        console.log("** INIT GALLERY")
         initGallery()
     }
 
@@ -333,7 +332,6 @@ function getConst(){
                 EDITOR_OPTION = res.data.option
                 BIRD = res.data.bird
                 df_birds = new dfd.DataFrame(res.data.bird.birds_list)
-                console.log(BIRD)
                 df_birds.print()
             }
         }
@@ -515,7 +513,6 @@ function autocomplete(inp, arr, callback=null) {
                 b.addEventListener("click", function(e) {
 
                     e.preventDefault();
-                    console.log("autocomplete click")
                     /*insert the value for the autocomplete text field:*/
                     inp.value = this.getElementsByTagName("input")[0].value;
                     /*close the list of autocompleted values,
@@ -600,7 +597,6 @@ function autocomplete(inp, arr, callback=null) {
         /*close all autocomplete lists in the document,
         except the one passed as an argument:*/
 
-        console.log("clost all lists...", elmnt)
 
         var x = document.getElementsByClassName("autocomplete-items");
         for (var i = 0; i < x.length; i++) {

@@ -146,7 +146,6 @@ let action_popup = {
             document.addEventListener("keydown", function (e) {
 
                 if(e.keyCode=='13'){
-                    console.log(e.keyCode)
                     action_popup.close(document.querySelector(".type-alert"))
                 }
             });
@@ -184,7 +183,6 @@ let action_popup = {
 function confirm(message, callback_true, callback_false){
     action_popup.confirm(message, function (res) {
         if (res) {
-            console.log('confirm true')
             if (typeof callback_true === 'function'){
                 callback_true()
             }

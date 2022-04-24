@@ -138,7 +138,7 @@ class Meta extends Component {
 
 function speciesKrValidation(species_kr, evt){
 
-    console.log("autocomplete validation!", species_kr, evt)
+
     if (species_kr != undefined){
 
         // INPUT BIRD IN DICT
