@@ -6,16 +6,33 @@ let TAB = [
 ]
 
 
+const USER_GALLERY_ROW_PER_PAGE = 10   // GET IMAGE FROM SERVER PER REQUEST
+const USER_BOARD_ROW_PER_PAGE = 30
+
+let user_current_tab = "gallery"
 
 map_user=null
 user_init = false
-user_gallery=[]
+
+let user_board_api_idle = true
+let user_board_has_next = true
+let user_board_scroll_has_next = true
+let user_board_data = []
+let user_board_last_batch = []
+
+let user_gallery_api_idle = true
+let user_gallery_has_next = true
+let user_gallery_scroll_has_next = true
+let user_gallery_data = []
+let user_gallery_last_batch = []
 
 
 function initUser(user_id){
 
-    if (user_init==false || user_init!=user_id){
 
+
+    if (user_init==false || user_init!=user_id){
+        console.log(user_id)
         if (user_init!=user_id){
 
             user_gallery=[]
@@ -36,23 +53,12 @@ function initUser(user_id){
 
 
         // 데이터 받아오고 틀은 나중에 => PUB SUB 형태로 코드수정 한번 해보자
-        getGalleryUser(30, 1, user_id)
+        getUserGalleryData(USER_GALLERY_ROW_PER_PAGE, 1, user_id, renderUserGallery)
 
         new UserBodyContentMap(document.querySelector('#user_body_content_map'))
         new UserBodyContentPost(document.querySelector('#user_body_content_post'))
         new UserBodyContentCollection(document.querySelector('#user_body_content_collection'))
 
-        $('#table_collection').DataTable( {
-            aaSorting: [],
-                    // stateSave:true,
-                    // sScrollX:"100%",
-                    autoWidth:true,
-                    autoHeight:false,
-                    aLengthMenu: [ 15, 30 ],
-                    iDisplayLength: 15,
-                    scrollCollapse: true,
-
-        } );
 
 
 
@@ -60,6 +66,14 @@ function initUser(user_id){
         toggleTab(document.getElementById('user_body_content_gallery'), 'user_body_content')
     }
 }
+
+
+
+function renderUserGallery(last_batch){
+    console.log(last_batch)
+    new UserBodyContentGallery(document.querySelector('#user_body_content_gallery'), last_batch)
+}
+
 
 // =======================================================================
 // T E M P L A T E
@@ -94,9 +108,9 @@ class UserInformation {
             }
         }
 
-        console.log(this)
-        console.log(this.parent)
+
         let data = JSON.stringify({'user_id': this.$user_id})
+        console.log(data)
         req.open('POST', '/api/user/profile/get')
         req.setRequestHeader("Content-type", "application/json")
         req.send(data)
@@ -124,8 +138,6 @@ class UserHeader extends Component {
 
         const profile = this.$profile
 
-        console.log(profile)
-
         return `
             <div id="user_header_left">
                 <img id="user_photo" src="https://cdn.pixabay.com/photo/2019/07/16/14/50/egrets-4342083_960_720.jpg">
@@ -133,34 +145,35 @@ class UserHeader extends Component {
             <div id="user_header_right">
                 <div class="profile_row">
                     <div class="profile_label">username</div>
-                    <div class="profile_value">${profile.username}</div>
-                </div>
-                <div class="profile_row">
-                    <div class="profile_label">email</div>
-                    <div class="profile_value">${profile.email}</div>
+                    <div class="profile_value">${profile.user_name}</div>
                 </div>
                 <div class="profile_row">
                     <div class="profile_label">posts</div>
-                    <div class="profile_value">${profile.post_count}</div>
+                    <div class="profile_value">${profile.count_post}</div>
                 </div>
                 <div class="profile_row">
                     <div class="profile_label">media</div>
-                    <div class="profile_value">${profile.media_count}</div>
+                    <div class="profile_value">${profile.count_item}</div>
                 </div>
                 <div class="profile_row">
-                    <div class="profile_label">media</div>
-                    <div class="profile_value">${profile.media_count}</div>
+                    <div class="profile_label" >instagram</div>
+                    <div class="profile_value input" name="instagram">${profile.instagram}</div><a onclick="profileInputActive(this)"><i class="fi fi-rr-pencil"></i></a>
                 </div>
                 <div class="profile_row">
-                    <div class="profile_label">media</div>
-                    <div class="profile_value">${profile.media_count}</div>
+                    <div class="profile_label">sites</div>
+                    <div class="profile_value input" name="sites">${profile.sites}</div><a onclick="profileInputActive(this)"><i class="fi fi-rr-pencil"></i></a>
+                </div>
+                <div class="profile_row">
+                    <div class="profile_label">camera</div>
+                    <div class="profile_value input" name="camera">${profile.camera}</div><a onclick="profileInputActive(this)"><i class="fi fi-rr-pencil"></i></a>
+                </div>
+                <div class="profile_row">
+                    <div class="profile_label">lens</div>
+                    <div class="profile_value input" name="lens">${profile.lens}</div><a onclick="profileInputActive(this)"><i class="fi fi-rr-pencil"></i></a>
                 </div>
             </div>
         `
     }
-
-
-
 }
 
 class UserBodyHeader extends Component {
@@ -201,16 +214,18 @@ class UserBodyContentMap extends Component {
     }
 }
 
-class UserBodyContentGallery extends Component {
+class UserBodyContentGallery extends ComponentAppend {
     setup() {
-        this.$state = { items:user_gallery }
+        this.$state = { items:this.$state  }
     }
     template () {
         const { items } = this.$state;
-        return `
-            ${items.map(item => `
 
-                <div class="grid image_wrapper">
+        let html = ''
+        for (let item of items){
+
+            html += `
+                <div class="grid image_wrapper row">
                     <div class="grid_image">
                         <a onclick="alert('hello')"><img src="${item.object_storage_url}" class="post_grid"></a>
                     </div>
@@ -224,14 +239,16 @@ class UserBodyContentGallery extends Component {
                         <div class="bottom-left" style='display:none'>BOTTOM-LEFT</div>
                         <div class="bottom-right" style='display:none'>BOTTOM-RIGHT</div>
                     </div>
-
                 </div>
+            `
 
-            `).join('')}
-            <div style="width:100%; height:300px"><h3>END<h3></div>
-        `
+        }
+
+        return html
     }
 }
+
+
 class UserBodyContentPost extends Component {
     setup() {
         this.$state = { items:[] }
@@ -249,7 +266,7 @@ class UserBodyContentCollection extends Component {
     template () {
 
         const { items } = this.$state;
-        console.log(items)
+
 
         return `
         <table id="table_collection">
@@ -282,15 +299,42 @@ class UserBodyContentCollection extends Component {
     }
 }
 
+function profileInputActive(row){
+
+
+    elm = row.parentElement.querySelector(".profile_value.input")
+
+    // IDENTIFIER
+    key = elm.getAttribute("name")
+    value = elm.innerHTML
+
+
+    elm.innerHTML = ''
+    input = document.createElement("input")
+    input.value = value
+
+    button = document.createElement("button")
+    button.innerHTML = 'save'
+    elm.appendChild(input)
+    elm.appendChild(button)
+
+    console.log(key, value)
+
+
+
+
+}
+
+
 function getUserData(user_id){
 
 
 }
 
-function getGalleryUser(row_per_page, current_page, user_id, callback=null){
+function getUserGalleryData(row_per_page, current_page, user_id, callback=null){
 
-    if (gallery_api_idle == true){
-        gallery_api_idle = false
+    if (user_gallery_api_idle == true){
+        user_gallery_api_idle = false
         var req = new XMLHttpRequest()
         req.responseType = 'json';
         req.onreadystatechange = function()
@@ -304,17 +348,23 @@ function getGalleryUser(row_per_page, current_page, user_id, callback=null){
                 else
                 {
 
-                    response_data = req.response.data
-                    user_gallery = user_gallery.concat(response_data)
-                    console.log(' * response data size', response_data.length)
-                    gallery_api_idle = true
-                    console.log(callback)
+                    user_gallery_last_batch = req.response.data
+                    user_gallery_has_next = req.response.has_next
+                    user_gallery_data = user_gallery_data.concat(user_gallery_last_batch)
+
+                    console.log(' * user_gallery has next', user_gallery_has_next)
+                    console.log(' * user_gallery data size', user_gallery_last_batch.length)
+                    console.log(' * current user_gallery data size', user_gallery_data.length)
+
+
+                    user_gallery_api_idle = true
+
                     if(callback!=null){
-                        callback()
+                        callback(user_gallery_last_batch)
                     }
 
 
-                    new UserBodyContentGallery(document.querySelector('#user_body_content_gallery'), user_gallery)
+
                 }
             }
         }
