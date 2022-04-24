@@ -218,7 +218,7 @@ def get_location():
 def get_user_profile():
     if request.method == 'POST':
 
-        user = User(session.get("user_id"))
+        user = User(request.get_json().get("user_id"))
         profile = user.get_profile()
 
         return jsonify({'result': True, 'data': {
