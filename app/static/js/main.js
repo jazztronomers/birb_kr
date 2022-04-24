@@ -530,17 +530,6 @@ function autocomplete(inp, arr, callback=null) {
         }
     });
 
-//    inp.addEventListener("focusout", (e) => {
-//
-//        closeAllLists(e.target);
-//
-//        console.log('focusout', e)
-//        if(callback!=null){
-//            callback(inp.value)
-//        }
-//    })
-
-
     /*execute a function presses a key on the keyboard:*/
     inp.addEventListener("keydown", function(e) {
         // 40 => arrow down
@@ -570,21 +559,23 @@ function autocomplete(inp, arr, callback=null) {
         else if (e.keyCode == 13) {
         /*If the ENTER key is pressed, prevent the form from being submitted,*/
             e.preventDefault();
-
-            console.log("autocomplete enter")
             if (currentFocus > -1) {
                 /*and simulate a click on the "active" item:*/
                 if (x) x[currentFocus].click();
             }
             if(callback!=null){
                 callback(inp.value)
+
             }
         }
 
         else if (e.keyCode == 9) {
             closeAllLists(null);
             if(callback!=null){
-                callback(inp.value)
+                ret = callback(inp.value)
+                if (ret == false){
+                    e.preventDefault();
+                }
             }
         }
 

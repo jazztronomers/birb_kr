@@ -45,9 +45,9 @@ function initMeta(post_id){
 
 
     const meta_update_species = document.getElementById("meta_update_species")
-    meta_update_species.addEventListener("change", (evt) => {
-        species_value(meta_update_species.value, evt)
-    });
+//    meta_update_species.addEventListener("change", (evt) => {
+//        species_value(meta_update_species.value, evt)
+//    });
 
 }
 
@@ -136,9 +136,9 @@ class Meta extends Component {
 }
 
 
-function species_value(species_kr, evt){
+function speciesKrValidation(species_kr, evt){
 
-
+    console.log("autocomplete validation!", species_kr, evt)
     if (species_kr != undefined){
 
         // INPUT BIRD IN DICT
@@ -146,6 +146,7 @@ function species_value(species_kr, evt){
             for (bird of BIRD.birds_list){
                 if (bird.species_kr == species_kr){
                     document.getElementById("meta_update_observe_level").value=bird.observe_level
+                    return true
                     break
                 }
             }
@@ -155,6 +156,8 @@ function species_value(species_kr, evt){
             alert("wrong bird, or not a korean bird")
             document.getElementById("meta_update_species").value=''
             document.getElementById("meta_update_observe_level").value=''
+
+            return false
         }
     }
     // INPUT BIRD NOT IN DICT
@@ -171,20 +174,50 @@ class MetaItem extends Component {
 
         const { items } = this.$state;
 
+        let html_meta_exists = ''
+        let html_meta_not_exists = ''
 
 
-        return `
-        ${items.map(item => `
-            <div class="meta_item">
-                <div class="meta_preview">
-                    <a onclick="setItemActive('${item.object_key}')">
-                        <img class="image" id="${item.object_key}" src="${item.object_storage_url}">
-                    </a>
+        for (let item of items){
+
+            if (item.x != undefined && item.species != undefined){
+                html_meta_exists += `
+
+                <div class="meta_item">
+                    <div class="meta_preview">
+                        <a onclick="setItemActive('${item.object_key}')">
+                            <img class="image" id="${item.object_key}" src="${item.object_storage_url}">
+                        </a>
+                    </div>
                 </div>
-            </div>
-        `).join('')}
 
-        `
+
+                `
+            }
+
+            else {
+                html_meta_not_exists += `
+
+                <div class="meta_item">
+                    <div class="meta_preview active">
+                        <a onclick="setItemActive('${item.object_key}')">
+
+                            <img class="image" id="${item.object_key}" src="${item.object_storage_url}">
+                            <div class="image_cover"></div>
+                        </a>
+                    </div>
+                </div>
+
+
+                `
+
+            }
+
+        }
+
+        let html = html_meta_not_exists + html_meta_exists
+
+        return html
     }
 
 }
@@ -253,7 +286,7 @@ function getItemByPostId(post_id){
                 new MetaItem(document.querySelector('#meta_horizotal_item_slide').querySelector(".meta_content"), ITEMS)
 
                 setItemActive(ITEMS[0].object_key)
-                autocomplete(document.getElementById('meta_update_species'), BIRD.birds_list.map(function(a) {return a.species_kr;}));
+                autocomplete(document.getElementById('meta_update_species'), BIRD.birds_list.map(function(a) {return a.species_kr;}), speciesKrValidation);
             }
         }
     }
@@ -290,7 +323,6 @@ function setItemActive(object_key){
         else {
             document.getElementById(item.object_key).style.opacity=0.3
             document.getElementById(item.object_key).style.borderBottom="none"
-
             document.getElementById(item.object_key).style.backgroundColor="black"
         }
     }

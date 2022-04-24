@@ -143,6 +143,13 @@ let action_popup = {
             return;
         }else{
             this.open("type-alert", txt);
+            document.addEventListener("keydown", function (e) {
+
+                if(e.keyCode=='13'){
+                    console.log(e.keyCode)
+                    action_popup.close(document.querySelector(".type-alert"))
+                }
+            });
         }
     },
 
@@ -187,7 +194,7 @@ function confirm(message, callback_true, callback_false){
     $(".modal_close").on("click", function () {
         action_popup.close(this);
         if (typeof callback_false === 'function'){
-                callback_false()
+            callback_false()
         }
     });
 
