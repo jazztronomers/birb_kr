@@ -124,58 +124,6 @@ function initNaverMap(x=127.105399, y=37.3595704, zoom_level=15, zoom_min=5, zoo
         });
         // document.getElementById(div_id).style.position = 'absolute'
     }
-        if (div_id =="meta_map"){
-        map_mini = new naver.maps.Map(div_id, {
-            center: new naver.maps.LatLng(y, x),
-            zoom: zoom_level,  // zoom level
-            minZoom: zoom_min, //지도의 최소 줌 레벨
-            maxZoom: zoom_max, //지도의 최DA 줌 레벨
-            zoomControl: false, //줌 컨트롤의 표시 여부
-
-        });
-
-        var polyline = new naver.maps.Polyline({
-            map: map_mini,
-            path: [],
-            strokeColor: '#5347AA',
-            strokeWeight: 2
-        });
-
-        naver.maps.Event.addListener(map_mini, 'click', function(e) {
-
-            var marker = new naver.maps.Marker({
-                position: new naver.maps.LatLng(e.coord.y, e.coord.x),
-                map: map_mini
-            });
-            callback(e.coord.x, e.coord.y)
-        });
-        // document.getElementById(div_id).style.position = 'absolute'
-    }
-
-    else if (div_id =="wrapper_map_user"){
-        map_user = new naver.maps.Map(div_id, {
-            center: new naver.maps.LatLng(y, x),
-            zoom: zoom_level,  // zoom level
-            minZoom: zoom_min, //지도의 최소 줌 레벨
-            maxZoom: zoom_max, //지도의 최DA 줌 레벨
-            zoomControl: false, //줌 컨트롤의 표시 여부
-
-        });
-
-        naver.maps.Event.addListener(map_user, 'click', function(e) {
-
-            console.log(e.coord.x)
-            console.log(e.coord.y)
-
-        });
-
-        console.log(div_id)
-        console.log(document.getElementById(div_id).offsetWidth)
-        console.log(document.getElementById(div_id).offsetHeight)
-
-        // document.getElementById(div_id).style.position = 'absolute'
-    }
-
     else {
 
         map = new naver.maps.Map(div_id, {
@@ -189,18 +137,11 @@ function initNaverMap(x=127.105399, y=37.3595704, zoom_level=15, zoom_min=5, zoo
             }
         });
 
-        // map.panTo(new naver.maps.LatLng(y, x))
-        // map.resize()
-        if (callback != null){
-
-            console.log('navermap callback activated')
-            naver.maps.Event.addListener(map_user, 'click', function(e) {
-                callback(e.coord.x, e.coord.y)
-            })
-        }
-
-
-
+        naver.maps.Event.addListener(map, 'click', function(e) {
+            for (infowindow of infowindows){
+                infowindow.close();
+            }
+        })
     }
 
 
@@ -292,6 +233,11 @@ function showSpecies(species_id){
 }
 
 function hideSpecies(species_id, all=false){
+
+
+    for (infowindow of infowindows){
+        infowindow.close();
+    }
 
     let i = markers.length
     while (i--) {
@@ -433,6 +379,8 @@ function setMapZoomLevel(level){
 function getClickHandler(marker, infowindow) {
     return function(e) {
 
+        console.log(e)
+
         if (infowindow.getMap() != null) {
             infowindow.close();
         } else {
@@ -441,5 +389,8 @@ function getClickHandler(marker, infowindow) {
 
     }
 }
+
+
+
 
 
