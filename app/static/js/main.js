@@ -196,16 +196,6 @@ function toggle(to, param=null, backward=false, callback=null){
     console.log('toggle..', to, param)
     event.preventDefault();
 
-//    let map_div = document.getElementById(wrapper_map_id)
-//    let map_extension = document.getElementById("wrapper_map_extension")
-
-//    if (['post'].includes(current_page)){
-//        confirmation = confirm("작성중인 내용이 모두 지워집니다, 계속 하시겠습니까?")
-//        if (!confirmation){
-//            return false
-//        }
-//    }
-
     // CLIENT SIDE ROUTING
     if (! backward){
         if (param!= null && param!=''){
@@ -517,9 +507,13 @@ function autocomplete(inp, arr, callback=null) {
                     inp.value = this.getElementsByTagName("input")[0].value;
                     /*close the list of autocompleted values,
                     (or any other open lists of autocompleted values:*/
+
+                    console.log("autocomplete - option click event", e)
+
                     closeAllLists();
                     if(callback!=null){
                         callback(inp.value)
+                        return true
                     }
                 });
                 a.appendChild(b);
@@ -533,6 +527,8 @@ function autocomplete(inp, arr, callback=null) {
         // 38 => arrow up
         // 13 => enter
         // 9  => tab
+
+        console.log("autocomplete - keydown event", e)
 
 
         var x = document.getElementById(this.id + "autocomplete-list");
@@ -561,8 +557,7 @@ function autocomplete(inp, arr, callback=null) {
                 if (x) x[currentFocus].click();
             }
             if(callback!=null){
-                callback(inp.value)
-
+                ret = callback(inp.value)
             }
         }
 
@@ -610,6 +605,7 @@ function autocomplete(inp, arr, callback=null) {
         closeAllLists(e.target);
         if(callback!=null){
             callback(inp.value)
+            return true
         }
     });
 }

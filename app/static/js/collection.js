@@ -9,7 +9,53 @@ let collection_image_data = []
 let collection_image_last_batch = []
 let collection_scroll_image_has_next = []
 
+let collection_initialized = false
 
+
+
+function initCollection(){
+
+    if (collection_initialized == false){
+        collection_initialized=true
+
+        new Collection(document.querySelector('#collection'))
+
+        new CollectionOrder(document.querySelector('.order_selector .content'), dropDuplicates(df_birds.order_kr.values), {})
+        new CollectionFamily(document.querySelector('.family_selector .content'), dropDuplicates(df_birds.family_kr.values), {})
+        new CollectionSpecies(document.querySelector('.species_selector .content'), dropDuplicates(df_birds.species_kr.values), {})
+        new CollectionTable(document.querySelector('.collection_table .content'), )
+        // new CollectionMap()
+
+        $('#collection_table').DataTable( {
+            aaSorting: [],
+                    // stateSave:true,
+                    // sScrollX:"100%",
+                    autoWidth:true,
+                    autoHeight:false,
+                    aLengthMenu: [ 30, 60 ],
+                    iDisplayLength: 30,
+                    scrollCollapse: true,
+
+        } );
+
+        autocomplete(document.getElementById("collection_search_input"),
+                    BIRD.birds_list.map(function(a) {return a.species_kr;}),
+                    speciesKrValidationCollectionSearch);
+
+
+        searchSpecies("해오라기")
+
+        const selectors = document.querySelectorAll(".horizontal_div_slider .content")
+        for (let selector of selectors){
+            console.log(selector)
+            selector.addEventListener("wheel", (evt) => {
+                evt.preventDefault();
+                selector.scrollLeft += evt.deltaY;
+            });
+        }
+    }
+
+}
 
 function getItemBySpecies(species, callback){
 
@@ -68,27 +114,27 @@ function getItemBySpecies(species, callback){
 }
 
 
-function initCollection(){
 
-    new Collection(document.querySelector('#collection'))
-    new CollectionOrder(document.querySelector('.order_selector .content'), dropDuplicates(df_birds.order_kr.values), {})
-    new CollectionFamily(document.querySelector('.family_selector .content'), dropDuplicates(df_birds.family_kr.values), {})
-    new CollectionSpecies(document.querySelector('.species_selector .content'), dropDuplicates(df_birds.species_kr.values), {})
+function speciesKrValidationCollectionSearch(species_kr){
 
-    showSpeciesCollection("Nycticorax nycticorax")
 
-    const selectors = document.querySelectorAll(".horizontal_div_slider .content")
-    for (let selector of selectors){
-        console.log(selector)
-        selector.addEventListener("wheel", (evt) => {
-            evt.preventDefault();
-            selector.scrollLeft += evt.deltaY;
-        });
+    for (bird of BIRD.birds_list){
+        if(BIRD.birds_list.map(function(a) {return a.species_kr;}).includes(species_kr)){
+            for (bird of BIRD.birds_list){
+                if (bird.species_kr == species_kr){
+                    console.log("search triggered")
+                    return true
+                }
+            }
+        }
+        else if (species_kr.length > 0 ) {
+            alert("wrong bird, or not a korean bird")
+            document.getElementById("collection_search_input").value=''
+            return false
+        }
     }
 
-
 }
-
 
 
 function actionOrderSelect(a_tag){
@@ -153,14 +199,35 @@ function actionSpeciesSelect(a_tag){
 
 function showSpeciesCollection(species){
 
+    let bird = undefined
+    console.log('showSpeciesCollection...', species)
+
+    bird = dfToDict(df_birds.query(df_birds["species_kr"].eq(species)))[0]
+
+    if (bird == undefined){
+        bird = dfToDict(df_birds.query(df_birds["species_sn"].eq(species)))[0]
+    }
+
+    if (bird == undefined){
+        bird = dfToDict(df_birds.query(df_birds["species_en"].eq(species)))[0]
+    }
 
 
-    bird = dfToDict(df_birds.query(df_birds["species_sn"].eq(species)))[0]
-    species = bird.bid
-    console.log(bird)
-    new Species(document.querySelector(".species-selected .content"), bird)
 
-    getItemBySpecies(species, renderSpeciesImage)
+
+    if (bird!=undefined){
+        species = bird.bid
+        console.log(bird)
+        new Species(document.querySelector(".species-selected .content"), bird)
+        getItemBySpecies(species, renderSpeciesImage)
+    }
+
+    else {
+        alert("wrong bird")
+    }
+
+
+
 
 }
 
@@ -202,6 +269,15 @@ class Species extends Component {
         </div>
         <div>
             IUCN-${bird.iucn} | SITES- ${bird.sites} | 천연기념물: ${bird.nm}
+        </div>
+        <div>
+        ---
+        </div>
+        <div>
+            사용자가 업로드한 사진만이 표시됩니다, 함께 한국의새 도감을 완성해봐요
+        </div>
+        <div>
+            도감기능은 향후 점진적으로 (동영상, 소리, 위치정보 클러스터링 등) 보완할 예정입니다 :)
         </div>
 
         `
@@ -273,6 +349,41 @@ class SpeciesImageSlider extends Component {
 
 }
 
+function toggleCollectionSelector(){
+
+    for (selector of document.querySelectorAll(".collection_selector")){
+
+        if (selector.style.display == 'none'){
+            selector.style.display = 'flex'
+        }
+        else {
+            selector.style.display = 'none'
+        }
+    }
+}
+
+function toggleCollectionTable(){
+
+    collection_table = document.querySelector("#collection .collection_table")
+
+    if (collection_table.style.display == 'none'){
+        collection_table.style.display = 'flex'
+    }
+    else {
+        collection_table.style.display = 'none'
+    }
+
+}
+
+function searchSpecies(species_kr=undefined){
+
+    if (species_kr == undefined){
+        species_kr = document.getElementById("collection_search_input").value
+    }
+
+    showSpeciesCollection(species_kr)
+}
+
 
 // 도
 class Collection extends Component {
@@ -285,34 +396,81 @@ class Collection extends Component {
 
         //<div class="horizontal_div_slider"><img src="/static/images/square.PNG"></div>
         return `
-        <div class="order_selector block horizontal_div_slider">
+        <div class="collection_util">
+            <div class="row">
+                <input id="collection_search_input" autocomplete='off' type="text" placeholder="종명을 입력하시오 (국명)">
+                <button onclick='searchSpecies()'>Search</button>
+                <button onclick='toggleCollectionSelector()'>ShowSelector</button>
+                <button onclick='toggleCollectionTable()'>ShowTable</button>
+            </div>
+        </div>
+        <div class="order_selector collection_selector block horizontal_div_slider" style="display:none">
             <div class="title"><span>Order Selector</span></div>
             <div class="content" id="order_selector_menu">
             </div>
         </div>
-        <div class="family_selector block horizontal_div_slider">
+        <div class="family_selector collection_selector block horizontal_div_slider" style="display:none">
             <div class="title"><span>Family Selector</span></div>
             <div class="content" id="family_selector_menu">
             </div>
         </div>
-        <div class="species_selector block horizontal_div_slider">
+        <div class="species_selector collection_selector block horizontal_div_slider" style="display:none">
             <div class="title"><span>Species Selector</span></div>
             <div class="content" id="species_selector_menu"></div>
         </div>
         <div class="species-selected block">
             <div class="title"><span>Species Information</span></div>
             <div class="content">
-                <div class="horizontal_div_slider">{{Sound Horizontal slide with inifinite scroll}}</div>
-                <div class="horizontal_div_slider">{{Species information}}</div>
+                <div class="horizontal_div_slider"></div>
             </div>
-
         </div>
+
+        <div class="collection_table block" style="display:none">
+            <div class="title"><span>Collection table</span></div>
+            <div class="content">
+            </div>
+        </div>
+
 
         `
     }
 
 }
 
+class CollectionTable extends Component {
+    setup() {
+        this.$state = { items:BIRD.birds_list }
+    }
+    template () {
+
+        const { items } = this.$state;
+
+
+        return `
+        <table id="collection_table">
+        <thead>
+            <tr>
+                <th>목</th>
+                <th>속</th>
+                <th>종</th>
+                <th>희귀</th>
+            </tr>
+        </thead>
+        <tbody>
+            ${items.map(item => `
+            <tr>
+                <td>${item.order_kr}</th>
+                <td>${item.family_kr}</th>
+                <td>${item.species_kr}</th>
+                <td>${item.observe_level}</th>
+            </tr>`).join('')}
+        </tbody>
+        </table>
+
+
+        `
+    }
+}
 
 
 class CollectionOrder extends Component {

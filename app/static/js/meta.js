@@ -136,11 +136,22 @@ class Meta extends Component {
 }
 
 
-function speciesKrValidation(species_kr, evt){
+
+function speciesKrValidation(species_kr){
+    for (bird of BIRD.birds_list){
+        if (bird.species_kr == species_kr){
+            return true
+        }
+    }
+
+    return false
+
+}
+
+function speciesKrValidationSetMetaObserveLevel(species_kr){
 
 
     if (species_kr != undefined){
-
         // INPUT BIRD IN DICT
         if(BIRD.birds_list.map(function(a) {return a.species_kr;}).includes(species_kr)){
             for (bird of BIRD.birds_list){
@@ -150,7 +161,6 @@ function speciesKrValidation(species_kr, evt){
                     break
                 }
             }
-
         }
         else if (species_kr.length > 0 ) {
             alert("wrong bird, or not a korean bird")
@@ -286,7 +296,9 @@ function getItemByPostId(post_id){
                 new MetaItem(document.querySelector('#meta_horizotal_item_slide').querySelector(".meta_content"), ITEMS)
 
                 setItemActive(ITEMS[0].object_key)
-                autocomplete(document.getElementById('meta_update_species'), BIRD.birds_list.map(function(a) {return a.species_kr;}), speciesKrValidation);
+                autocomplete(document.getElementById('meta_update_species'),
+                             BIRD.birds_list.map(function(a) {return a.species_kr;}),
+                             speciesKrValidationSetMetaObserveLevel);
             }
         }
     }
