@@ -63,7 +63,7 @@ def aggregate(collection, query, sort_by=None, ascending=False, skip=0, limit=50
     :return:
     '''
 
-
+    print(collection, query, skip, limit)
 
     pipeline = []
     sort_how = 1 if ascending else -1
@@ -170,8 +170,11 @@ def aggregate(collection, query, sort_by=None, ascending=False, skip=0, limit=50
 
     if len(ret) == limit+1:
         has_next = True
+        ret = ret[:-1]
     else:
         has_next = False
+
+    print(len(ret))
 
     # ===========================================================
     return ret, has_next
