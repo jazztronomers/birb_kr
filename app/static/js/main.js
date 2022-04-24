@@ -73,8 +73,8 @@ function scrollSwitch(){
 
     if (CURRENT_PAGE=="gallery"){
 
-        column = document.getElementById("gallery_body")
-        current_item_cnt = column.querySelectorAll(".row").length
+        target = document.getElementById("gallery_body")
+        current_item_cnt = target.querySelectorAll(".row").length
         if ((scrollTop + clientHeight > scrollHeight * 0.75) && (raw_data.length == current_item_cnt) && gallery_has_next){
             getGalleryData(GALLERY_ROW_PER_PAGE,  parseInt(current_item_cnt/ GALLERY_ROW_PER_PAGE)+1, [], [], renderGallery)
         }
@@ -82,11 +82,21 @@ function scrollSwitch(){
 
     else if (CURRENT_PAGE=="board"){
 
-        column = document.getElementById("board_body")
-        current_item_cnt = column.querySelectorAll(".row").length
+        target = document.getElementById("board_body")
+        current_item_cnt = target.querySelectorAll(".row").length
         if ((scrollTop + clientHeight > scrollHeight * 0.75) && (board_data.length == current_item_cnt) && board_has_next){
             getBoardData(GALLERY_ROW_PER_PAGE,  parseInt(current_item_cnt/ GALLERY_ROW_PER_PAGE)+1, [], [], renderBoard)
         }
+    }
+
+    else if (CURRENT_PAGE=="user"){
+
+        target = document.getElementById("user_body_content_gallery")
+        current_item_cnt = target.querySelectorAll(".row").length
+        if ((scrollTop + clientHeight > scrollHeight * 0.75) && (user_gallery_data.length == current_item_cnt) && user_gallery_has_next){
+            getUserGalleryData(USER_GALLERY_ROW_PER_PAGE,  parseInt(current_item_cnt/ USER_GALLERY_ROW_PER_PAGE)+1, user_init, renderUserGallery)
+        }
+
     }
 }
 
