@@ -11,8 +11,6 @@ function initMeta(post_id){
 
     // 화면 RENDERING
     new Meta(document.querySelector('#meta'))
-
-
     autocomplete(document.getElementById('meta_update_species'), BIRD.birds_list.map(function(a) {return a.species_kr;}));
 
     // 하방 MAP 초기화
@@ -20,7 +18,19 @@ function initMeta(post_id){
     x = LOCATION.x
     y = LOCATION.y
 
-    initNaverMap(x=x, y=y, zoom_level=15, zoom_min=8, zoom_max=20, div_id="meta_map", callback=mapCallback)
+
+    new naverMap(
+        target="meta_map",
+        x,
+        y,
+        zoom_level=15,
+        zoom_min=8,
+        zoom_max=20,
+        callback=mapCallback,
+        option={
+            "create_marker_with_click":true
+        }
+    )
 
     // 사용자의 모든을 전역변수 ITEMS로 받아오기
     if (post_id != undefined){
@@ -30,11 +40,6 @@ function initMeta(post_id){
         getItemByUserId()
     }
 
-    // getPostsByUserId()
-
-    // set Select Box
-
-
 
     // 수평 스크롤 활설화
     const meta_horizotal_item_slide = document.querySelector("#meta_horizotal_item_slide").querySelector(".meta_content");
@@ -43,12 +48,7 @@ function initMeta(post_id){
         meta_horizotal_item_slide.scrollLeft += evt.deltaY;
     });
 
-
     const meta_update_species = document.getElementById("meta_update_species")
-//    meta_update_species.addEventListener("change", (evt) => {
-//        species_value(meta_update_species.value, evt)
-//    });
-
 }
 
 ITEMS = null

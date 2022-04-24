@@ -11,6 +11,7 @@ function initMap(){
         x = LOCATION.x
         y = LOCATION.y
         initNaverMap(x=x, y=y, zoom_level=15, zoom_min=8, zoom_max=20, "map_naver")
+
         new ResultTable(document.querySelector("#map_extension_search_result"), [])
     }
 }

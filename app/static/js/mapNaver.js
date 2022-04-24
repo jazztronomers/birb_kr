@@ -15,6 +15,87 @@ const ZOOM_LEVEL_ALLOWED = 12
 
 
 
+
+class naverMap {
+    $x;
+    $y;
+    $zoom_level;
+    $zoom_min;
+    $zoom_max;
+    $target;
+    $callback;
+    $option;
+    constructor ($target, $x, $y, $zoom_level, $zoom_min, $zoom_max, $callback, $option) {
+
+        this.$target=$target;
+        this.$zoom_level=$zoom_level;
+        this.$zoom_min=$zoom_min;
+        this.$zoom_max=$zoom_max;
+        this.$callback=$callback;
+        this.$option= $option;
+
+        this.$markers = [];
+        this.$infowindows = [];
+
+        this.render()
+        this.setup()
+    }
+
+    render () {
+        let map  = new naver.maps.Map(this.$target, {
+            center: new naver.maps.LatLng(y, x),
+            zoom: this.$zoom_level,  // zoom level
+            minZoom: this.$zoom_min, //지도의 최소 줌 레벨
+            maxZoom: this.$zoom_max, //지도의 최DA 줌 레벨
+            zoomControl: false, //줌 컨트롤의 표시 여부
+        });
+
+        this.$map = map
+
+    };
+
+
+    setup () {
+
+        let map = this.$map
+        if (this.$option.create_marker_with_click==true){
+            naver.maps.Event.addListener(map, 'click', function(e) {
+                var marker = new naver.maps.Marker({
+                    position: new naver.maps.LatLng(e.coord.y, e.coord.x),
+                    map: map
+                });
+                callback(e.coord.x, e.coord.y)
+                if (markers.length > 0){
+                    markers.pop().setMap(null)
+                }
+                markers.push(marker)
+            });
+        }
+    }
+
+    hideMarker(marker) {
+        if (!marker.getMap()) return;
+        marker.setMap(null);
+    }
+
+
+    updateMarkers() {
+
+        var mapBounds = this.$map.getBounds();
+        var i = this.$markers.length
+        while (i--) {
+            showMarker(map, marker);
+        }
+        console.log(' ** markers after update', markers.length)
+
+    }
+
+
+}
+
+
+
+
 function initNaverMap(x=127.105399, y=37.3595704, zoom_level=15, zoom_min=5, zoom_max=20, div_id="wrapper_map_horizontal", callback=null){
     if (div_id =="wrapper_map_mini"){
         map_mini = new naver.maps.Map(div_id, {
@@ -61,6 +142,11 @@ function initNaverMap(x=127.105399, y=37.3595704, zoom_level=15, zoom_min=5, zoo
         });
 
         naver.maps.Event.addListener(map_mini, 'click', function(e) {
+
+            var marker = new naver.maps.Marker({
+                position: new naver.maps.LatLng(e.coord.y, e.coord.x),
+                map: map_mini
+            });
             callback(e.coord.x, e.coord.y)
         });
         // document.getElementById(div_id).style.position = 'absolute'
@@ -196,9 +282,7 @@ function showSpecies(species_id){
         }
 
         else{
-
             showData(species)
-
         }
     }
     else {
@@ -279,20 +363,13 @@ function showData(data) {
 function updateMarkers(map, markers) {
 
 
-
-
-
     var mapBounds = map.getBounds();
     var i = markers.length
     while (i--) {
-
-
         showMarker(map, marker);
-
     }
 
     console.log(' ** markers after update', markers.length)
-
 
 }
 
