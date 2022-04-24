@@ -6,10 +6,13 @@ let scroll_has_next = true
 let raw_data = []
 let last_batch = []
 
-
+let gallery_initialized = false
 
 function initGallery(){
-    getGalleryData(GALLERY_ROW_PER_PAGE, 1, [], '2099-12-31', renderGallery)
+    if (gallery_initialized == false){
+        gallery_initialized = true
+        getGalleryData(GALLERY_ROW_PER_PAGE, 1, [], '2099-12-31', renderGallery)
+    }
 }
 
 function renderGallery(){
