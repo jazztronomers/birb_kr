@@ -4,11 +4,14 @@ let board_has_next = true
 let board_scroll_has_next = true
 let board_data = []
 let board_last_batch = []
-
+let board_initialized = false
 
 
 function initBoard(){
-    getBoardData(BOARD_ROW_PER_PAGE, 1, [], '2099-12-31', renderBoard)
+    if (board_initialized){
+        board_initialized = true
+        getBoardData(BOARD_ROW_PER_PAGE, 1, [], '2099-12-31', renderBoard)
+    }
 }
 
 function renderBoard(last_batch){
