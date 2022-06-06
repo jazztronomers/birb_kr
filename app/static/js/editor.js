@@ -1,11 +1,14 @@
 const IMAGE_MAX_WIDTH = 1920
 const IMAGE_COMPRESS_RATIO = 0.9
 const TITLE_LENGTH_MIN=3
+const MAXIMUM_IMAGE_COUNT_PER_POST= 40
+const TEXTAREA_PLACEHOLDER="이미지 업로드는 위 툴바에 버튼을 활용해주세요, 클립보드에서 옮겨온(그림판 복붙, 캡쳐)는 텍스트로 인지되어 정상작동하지 않습니다"
 const ALERT_MESSAGE_VALIDATE_TITLE=`제목은 ${TITLE_LENGTH_MIN}자 이상이어야 합니다`
+const ALERT_MESSAGE_VALIDATE_IMG_CNT_MAX=`이미지는 최대 ${MAXIMUM_IMAGE_COUNT_PER_POST}장 까지 올릴 수 있습니다`
 const ALERT_MESSAGE_VALIDATE_IMG_CNT="이미지를 최소 한장 업로드 하세요"
 
 let editor_initialized=false
-
+let editor_uploading = false
 
 
 
@@ -20,7 +23,7 @@ class Editor extends Component{
         return `
 
             <div id="editor_tool">
-                <input id="editor_upload" type="file" accept="image/*" multiple style="display:none"/>
+                <input id="editor_upload" type="file" accept="image/*" multiple style="display:flex"/>
             </div>
             <div id="editor_header">
                 <span class="select">
@@ -35,7 +38,7 @@ class Editor extends Component{
                 <button id="editor_submit" onclick="submitPost()">submit</button>
             </div>
             <div id="editor_body">
-                <textarea id="editor_textarea" placeholder="이미지는 상단 이미지 버튼을 클릭하여 첨부해 주세요, Clipboard 에서 옮겨온(capture then ctrl+v..) 컨텐츠는 정상작동하지 않습니다"></textarea>
+                <textarea id="editor_textarea" placeholder="${TEXTAREA_PLACEHOLDER}"></textarea>
             </div>
             <div id="editor_map" style="display: none">
                 <div id="wrapper_map_btns">
@@ -51,10 +54,11 @@ class Editor extends Component{
 
 
 function initEditor(){
-    if (editor_init == false){
 
+    if (editor_initialized == false){
+
+        removeAllChildNodes(document.querySelector("#editor"))
         new Editor(document.querySelector("#editor"), [])
-
         editor_initialized=true
         console.log(" * initEditor start..")
         map_editor = document.getElementById("wrapper_map_mini")
@@ -74,10 +78,8 @@ function initEditor(){
                         tooltip: 'erase',
                         disabled: true,
                         onAction: function (_) {
-                            confirmation = confirm("clear")
-                            if(confirmation){
-                                tinyMCE.activeEditor.setContent('');
-                            }
+                            confirmation = confirm("clear", clearEditor, null)
+
                         },
                         onSetup: function (buttonApi) {
                             var editorEventCallback = function (eventApi) {
@@ -165,51 +167,10 @@ function initEditor(){
                         disabled: true,
                         onAction: function (_) {
 
-                            console.log('onAction')
-                            document.querySelector('#editor_upload').addEventListener('change', function() {
-                                    if (this.files && this.files[0]) {
-                                        for (file of this.files){
+                            console.log("addImage button clicked..")
 
-
-                                            var img = new Image;
-
-                                            img.onload = resizeImage;
-                                            img.src = URL.createObjectURL(file)
-
-                                            function resizeImage() {
-                                                var newDataUri = imageToDataUri(this, IMAGE_COMPRESS_RATIO);
-                                                editor.insertContent(toImgHtml(newDataUri))
-                                                editor.insertContent('<br>')
-
-
-                                            }
-
-
-
-                                        }
-
-
-                                    }
-
-                                    var elements = document.getElementsByClassName("image");
-                                    var myFunction = function() {
-                                        alert("hello")
-                                    };
-
-                                    console.log(elements)
-
-                                    for (var i = 0; i < elements.length; i++) {
-                                        console.log(i)
-                                        elements[i].addEventListener('click', myFunction, false);
-                                    }
-
-                                }
-                            )
 
                             document.getElementById("editor_upload").click();
-
-
-
 
                         },
                         onSetup: function (buttonApi) {
@@ -228,8 +189,33 @@ function initEditor(){
                 }
             }
         )
-    }
 
+        document.querySelector('#editor_upload').addEventListener('input', function() {
+
+                console.log("editor upload files change event triggerd..")
+                if (this.files && this.files[0]) {
+
+                        console.log("image count..", this.files.length)
+                        for (file of this.files){
+                            var img = new Image;
+                            img.onload = resizeImage;
+                            img.src = URL.createObjectURL(file)
+
+                            function resizeImage() {
+                                var newDataUri = imageToDataUri(this, IMAGE_COMPRESS_RATIO);
+                                var img_html = toImgHtml(newDataUri)
+                                tinyMCE.activeEditor.insertContent(img_html)
+                            }
+                        }
+
+                    }
+            }
+        )
+
+    }
+    else {
+        clearEditor()
+    }
 }
 
 // ==============================================
@@ -257,6 +243,10 @@ function submitValidate(htmlDoc){
         ret = false
     }
 
+    else if (image_count > MAXIMUM_IMAGE_COUNT_PER_POST)
+        alert(ALERT_MESSAGE_VALIDATE_IMG_CNT_MAX)
+        ret = false
+
     return ret
 }
 
@@ -267,6 +257,8 @@ function submitPost(){
     let content = tinyMCE.get('editor_textarea').getContent();
     let parser = new DOMParser();
     let htmlDoc = parser.parseFromString(content, 'text/html');
+
+    console.log('*', htmlDoc.body.innerHTML.toString())
 
     if(submitValidate(htmlDoc)){
 
@@ -285,14 +277,12 @@ function submitPost(){
                 else
                 {
 
-
-                    action_popup.confirm("컨텐츠에 메타(위치, 종 등)정보를 입력하시겠습니까", function (res) {
-                        if (res) {
-                            toggle('meta', req.response.post_id)
-                        }
-                        else {
+                    confirm("컨텐츠에 메타(위치, 종 등)정보를 입력하시겠습니까",
+                    function() {
+                        toggle('meta', req.response.post_id)
+                    },
+                    function() {
                             window.location = "/";
-                        }
                     })
 
                 }
@@ -302,9 +292,6 @@ function submitPost(){
 
 
         let formData = new FormData();
-
-
-
         images = htmlDoc.getElementsByClassName("image")
         key_prefix = 'img_'
 
@@ -315,6 +302,7 @@ function submitPost(){
                 idx = ('' + i).padStart(4, '0')
                 key = `${key_prefix}${idx}`
                 formData.append(key, dataURItoBlob(images[i].src))
+                // images[i].src => html content => 즉 본문에 base64 image 가 치환됨
                 images[i].src= key
 
             } catch (error) {
@@ -332,6 +320,7 @@ function submitPost(){
         formData.append("content", htmlDoc.body.innerHTML.toString())
         formData.append("option", document.getElementById("editor_option").value)
 
+        console.log(htmlDoc.body.innerHTML.toString())
 
         req.open('POST', '/submitPost')
         req.send(formData)
@@ -341,7 +330,7 @@ function submitPost(){
 
 
 function initEditorHeader(){
-
+    console.log(" * initEditorHeader")
     editor_category = document.getElementById("editor_category")
     for (const [k, v] of Object.entries(EDITOR_CATEGORY)){
 
@@ -425,15 +414,8 @@ function imageToDataUri(img, compress_ratio=0.75) {
 
 function clearEditor(){
 
-    input = document.getElementById('post_upload')
-    input.value = '';
-
-    post_slide_container = document.getElementById("post_slide_container")
-    slides = post_slide_container.querySelectorAll('.slides')
-
-    for (let i=0; i<slides.length; i++){
-        post_slide_container.removeChild(slides[i])
-    }
+    document.getElementById("editor_title").value=""
+    tinyMCE.activeEditor.setContent('')
 }
 
 function toggleMapSmall(){
@@ -446,7 +428,6 @@ function toggleMapSmall(){
 
     if (editor_map.style.display=='none'){
         editor_map.style.display = 'block'
-
 
         x = LOCATION.x
         y = LOCATION.y
